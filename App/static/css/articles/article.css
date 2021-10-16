@@ -1,0 +1,252 @@
+.header_banner {
+  background: #ebebeb;
+  padding: 14px 8%;
+}
+.header_banner h2 {
+  font-size: 2.1em;
+}
+.cardContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cardContainer {
+  width: 90%;
+  height: auto;
+  margin: 25px auto;
+  padding: 0 10px;
+}
+.card {
+  float: left;
+  width: calc(33% - 20px);
+  padding: 20px;
+  margin: 10px 10px;
+  height: auto;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  cursor: arrow;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+  
+
+  overflow:hidden;
+}
+.card {
+  display: block;
+}
+.card .detail {
+  text-align: left;
+}
+.card img {
+  width: 100%;
+}
+.card p {
+  font-size: 15px;
+}
+.card h3 {
+  margin: 5px 0px;
+}
+
+.btn_1 {
+  margin-top: 10px;
+  margin-right: 20px;
+  padding: 4px 12px;
+  color: rgb(27, 22, 22);
+  cursor: pointer !important;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #48c290;
+  background: transparent;
+
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+}
+.btn_1:hover {
+  transition: 0.4s ease-in;
+  color: white;
+  background: #48c290;
+}
+.detail button {
+  display: block;
+}
+.article_view {
+
+  width: 100%;
+
+  margin: 30px auto;
+  /* border: 1px solid #000;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1); */
+}
+.article_view img {
+  width: 100%;
+  margin: 8px 0px;
+}
+.article__part{
+  width: 30%;
+}
+.article_view h1 {
+  font-size: 44px;
+  padding: 0;
+  margin: 0px 0px;
+}
+
+.article_view h1,h2,h3,h4,h5,h6 {
+  margin: 5px 0px;
+}
+.article_view table{
+  overflow-x:auto;
+}
+.content{
+       font-size: 30px!important;
+}
+.article_view p a {
+  color: #48c290 !important;
+
+}
+.article_view ul,.article_view ol{
+    margin : 8px 4%;
+}
+.article_author .author_left img {
+  width: 70px;
+  padding: 5px;
+  border-radius: 50%; /*
+  border: 1px solid #000; */
+}
+.article_author .author_right {
+  margin: 10px;
+}
+.article_author .author_right p {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+.dots {
+  font-size: 40px;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.tag {
+  margin-bottom: 10px;
+}
+.light {
+  margin: -6px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+}
+.tag span a{
+  color: #000 !important;
+
+}
+.tag span {
+  font-size: 18px;
+  background: rgba(122, 120, 120, 0.1);
+  padding: 2px 10px;
+  border-radius: 2px;
+  margin: 0 6px 0 0;
+}
+.social{
+  margin: 5px 0px;
+  display: flex;
+  justify-content:space-between;
+}
+.social .icons .a2a_kit a{
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 2px;
+  background : #48c290;
+  border-radius:2px;
+
+}
+.btn_save{
+  margin-top: 0px;
+
+  padding: 3px 12px;
+  color: rgb(27, 22, 22);
+  cursor: pointer !important;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #48c290;
+  background: transparent;
+  width: 100%;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+}
+.content ul li{
+  display:inline-block!important;
+  visibility:visible;
+}
+
+.article__main{
+  display:flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+@media (max-width: 858px) {
+  .card {
+    width: 100%;
+    margin: 8px 0 8px 0px;
+  }
+  .cardContainer {
+    width: 87%;
+    height: auto;
+    margin: 25px auto;
+    padding: 0 0;
+  }
+  .card p {
+    font-size: 14px;
+  }
+  .article_view {
+    width: 100%;
+  }
+  .article_view h1 {
+    font-size: 24px;
+  }
+  .article_view h2 {
+    font-size: 18px;
+  }
+  .article_author .author_right {
+    margin: 18px 10px;
+  }
+  .article_author .author_right p {
+    font-size: 13px;
+  }
+  .light {
+    margin: -6px -5px 0 0;
+    font-size: 14px;
+  }
+  .article_view img {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .article_author .author_left  {
+margin-top: 9px;
+}
+.article_view ul,.article_view ol{
+    margin : 6px 8%;
+}
+.article__main{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 85%;
+}
+.article__part{
+  display:none;
+}
+}
+@media (min-width: 1500px) {
+  .card p {
+    font-size: 16px;
+  }
+  .article_view {
+    width: 70%;
+  }
+  .content{
+    font-size: 40px!important;
+  }
+}

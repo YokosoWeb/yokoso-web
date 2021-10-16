@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | Profile</title>{% endblock %} 
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+
+
+{% endblock %} 
+{% block body %}
+<div class="wrap_profile">
+<div class="wrap">
+<h2>Welcome !! {{user.first_name}} {{user.last_name}}</h2>
+<p>Click to  <a href="{% url 'logout' %}">Logout</a></p>
+</div>
+</div>
+{% endblock %}

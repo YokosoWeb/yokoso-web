@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+  {% load static %}
+
+  <!-- Landing Page -->
+  <header>
+
+    <div class="header__section">
+        <div class="wrap__section">
+            <img src="{% static 'images/bg.png' %}" alt="header" />
+            </div>
+        <div class="wrap__section section__text">
+      <h1>We will change your perception about loans.</h1>
+      <p class="header__text">If you think loans are all about calculation and paperwork, we have a surprise, it's not!</p>
+</div>
+
+
+      </p>
+    </div>
+  </header>
+  <!--  -->
+
+  <!-- How We Work -->
+  <div class="section__about" id="scrollOne">
+    <div class="about__one">
+      <div class="text">
+        <h1>We are not Advisors</h1>
+        <p>Then what are we ?
+          We are here so that important information can reach you
+          in the simplest form and you are enabled
+          to take your own decision instead of being advised.</p>
+      </div>
+      <div class="image">
+        <img src="{% static '/images/1.png' %}" alt="" />
+      </div>
+    </div>
+
+    <div class="about__one">
+
+      <div class="image">
+        <img src="{% static '/images/jugaad.png' %}" alt="" />
+      </div>
+      <div class="text">
+        <h1>EMI Calculator</h1>
+        <p>So what's new about that?
+          It's not just some dummy calculator
+          It's backed by real-time information
+          that you need ,when you want to know
+          your EMI before taking a loan.
+        </p>
+      </div>
+    </div>
+
+    <div class="about__one">
+      <div class="text">
+        <h1>
+          No Surprises</h1>
+        <p>We love surprises, but only on birthdays. We ensure no hidden charges and concealed information
+          when you apply for a loan. We inform you about the exact interest rate , total charges and all the papers that would need.</p>
+      </div>
+      <div class="image">
+        <img src="{% static '/images/rest.png' %}" alt="" />
+      </div>
+    </div>
+
+    <div class="about__one">
+
+      <div class="image">
+        <img src="{% static '/images/process.png' %}" alt="" />
+      </div>
+      <div class="text">
+        <h1>We sail together</h1>
+        <p>Too lazy to go to the bank to get a loan?
+          We understand (we are just like you!)
+          We help you every step of the way to get your loan processed with the bank of your choice.</p>
+      </div>
+    </div>
+
+    <div class="about__one">
+
+
+      <div class="text">
+        <h1>
+          True Digital Experience</h1>
+        <p>We are working to make your experience of taking a loan completely digital
+          by process like online paper submission, tracing your progress and much more.</p>
+      </div>
+      <div class="image">
+        <img src="{% static '/images/success.png' %}" alt="" />
+      </div>
+    </div>
+  </div>
+  <!--  -->
+
+  <!-- Subscribe -->
+<div class="wrapper">
+  <div class="section__subscribe">
+    <div class="subscribe__text">
+      <h1>LETS CHAT ABOUT YOUR SAVINGS</h1>
+      <p>Enter your name, email id and phone number to talk to our advisory team.
+        Let's help you save!</p>
+    </div>
+    <div class="subecribe__btn">
+      <a href="{% url 'contact' %}">
+      <button>
+        <p> CONTACT FOR FREE</p>
+      </button>
+
+    </a>
+    </div>
+  </div>
+</div>
+  <!--  -->
+
+  {% include 'footer.html' %}
+
+{% endblock %}

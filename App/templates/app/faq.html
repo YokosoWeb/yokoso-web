@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | Profile</title>{% endblock %} {% block css %}
+
+<link rel="stylesheet" href="{% static 'css/faq.css' %}" />
+
+{% endblock %} {% block body %}
+
+<div class="wrap">
+  <div class="wrap__child">
+
+    {% for i in datas %}
+    <div class="wrap__text">
+    <h2>{{i.title}}</h2>
+    <p>{{i.description}}</p>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock %}

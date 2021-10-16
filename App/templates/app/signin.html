@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | Signin</title>{% endblock %} 
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+<link rel="stylesheet" href="{% static 'css/signin.css' %}" />
+
+{% endblock %} 
+{% block body %}
+<div class="wrap">
+  <div class="register_container">
+    <div class="register_child">
+      <img src="{% static 'images/signin.png' %}" alt="" />
+    </div>
+    <div class="register_child">
+      <h2>Login Now</h2>
+      <p></p>
+      <form method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        <input type="email" placeholder="Email Address" name="email" required />
+        <input type="password" placeholder="Password" name="pass1" required />
+
+        <button type="submit">Login Now</button>
+        <p class="mk">{{msg}}</p>
+     
+        <p class="mk">
+          Not yet Registered ? <a href="{% url 'signup' %}">Register</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

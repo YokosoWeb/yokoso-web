@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}  <title >Yokoso | Contact us</title>{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="wrap">
+<div class="register_container">
+   <div class="register_child">
+    <img src="{% static 'images/contact.png' %}" alt="" />
+
+   </div>
+   <div class="register_child">
+       <h2>Contact us</h2>
+       
+       <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            <input type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" title="Enter only characters" required />
+            <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required />
+            <input type="email" placeholder="Email Address" name="email" required/>
+            <input type="tel" placeholder="Phone Number" name="phone" required  pattern="[0-9]+" title="Enter only numbers"/>
+            <textarea  placeholder="Type your query" name="msg" resize="none"></textarea>
+     
+           
+            <button type="submit">Submit Now</button>
+            {% if msg %}
+            <button style="text-align: left;border:none;" disabled>Sit back and relax ! Our agent will contact you soon...❤</button>
+            {% endif %}
+        </form>
+   </div>
+</div>
+
+
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,3 @@
+public ip address: 18.222.97.197
+username: ubuntu
+password: yokoso@123

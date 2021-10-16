@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}  <title >Yokoso | About us</title>{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<style>
+    .wrap__child{
+        box-shadow:5px 5px 10px rgba(0,0,0,0.1);
+        padding:20px 25px;
+        width:80%;
+        margin:20px auto;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="wrap">
+    <div class="wrap__child">
+    <h2>About us</h2>
+    <p> We want to add meaning to the Information that you are fetching from internet
+    regarding Loans and add transparency to entire process while making your experience of taking Loan
+    completely digital.</p>
+
+</div>
+</div>
+
+
+
+{% endblock %}

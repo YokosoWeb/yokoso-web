@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>{{post.title}}</title>{% endblock %} {% block css %}
+
+<!-- <link rel="stylesheet" href="{% static 'css/certificate/home.css' %}" /> -->
+<link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"
+/>
+<style></style>
+{% endblock %} {% block body %}
+
+<div class="header_banner">
+  <h2>Articles</h2>
+  <p>Home / Articles  / {{post.title}}</p>
+</div>
+
+<div class="article__main">
+  <div class="article_view">
+    <h1>{{post.title}}</h1>
+    <p class="light">Published on {{post.date}}</p>
+
+    <img
+      src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{post.image}}"
+      alt=""
+    />
+
+    <p class="content">{{post.content|safe}}</p>
+
+    <div class="social">
+      <div class="Share">
+        <div class="icons">
+            <!-- AddToAny BEGIN -->
+            <div
+              class="a2a_kit a2a_kit_size_32 a2a_default_style"
+              data-a2a-icon-color="#48c290"
+            >
+              <a class="a2a_button_facebook"></a>
+              <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_email"></a>
+              <a class="a2a_button_linkedin"></a>
+              <a class="a2a_dd" href="https://www.addtoany.com/"></a>
+            </div>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+          </div>
+      </div>
+  
+    </div>
+    <!--  -->
+
+    <p class="dots">&middot;&middot;&middot;</p>
+
+    <!--  -->
+
+    <!-- Tags -->
+    
+    <!--  -->
+
+
+  </div>
+  <div class="article__part">
+    <!-- <li>Python</li>
+    <li>App Development</li>
+    <li>Data SCience</li>
+    <li>Cloud Computing</li> -->
+  </div>
+</div>
+
+
+{% include 'footer.html' %} {% endblock %}

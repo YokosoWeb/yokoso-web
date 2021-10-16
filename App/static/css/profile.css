@@ -1,0 +1,29 @@
+.wrap{
+    padding:20px 15px;
+    margin: 20px;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+}
+.wrap p{
+    margin: 10px 0px;
+}
+.wrap_profile{
+    padding-top: 80px;
+}
+
+@media (max-width: 858px) {
+
+.wrap_profile{
+    margin-top: -80px;
+}
+}
+
+
+
+@media (min-width: 1500px) {
+
+    .wrap_profile{
+        padding-top: 80px;
+        width: 70%;
+        margin: 0 auto;
+    }
+}
