@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif !important;
+}
+.container{
+    margin: 10px auto;
+    box-shadow: 10px 10px 10px rgba(197, 197, 197, 0.2);
+    padding: 10px 20px;
+}
+.header{
+    display: flex;
+}
+.image img{
+    width: 55px;
+    height: auto;
+    border-radius: 50%;
+}
+{% comment %} .header .text{
+    margin: 10px 15px;
+} {% endcomment %}
+p{
+    font-size: 18px;
+}
+.flex{
+    display: flex;
+    margin: 8px 0px;
+    justify-content: space-between;
+
+
+}
+.flex h3{
+    font-weight: 450;
+}
+.flex button{
+    padding: 2px 12px;
+    margin: 0 10px;
+    color: white;
+    background-color: darkcyan;
+    border: none;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    outline: none;
+    border-radius: 2px;
+    /* float: right; */
+}
+
+    </style>
+</head>
+<body>
+{% load static %}
+    <div class="container">
+        <div class="header">
+            
+            <div class="text"><h2>Yokoso.com</h2></div>
+        </div>
+```<br>
+        <div class="main_content">
+            <p>Hello <b>{{i.first_name}}</b>, You have successfully registered!!!</p>
+            <br>
+         
+          
+           <p> Thank you</p>
+           <p>
+
+             Yokoso Team</p>
+    </div>
+</body>
+</html>

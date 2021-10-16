@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}  <title >Yokoso | Signup</title>{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="wrap">
+<div class="register_container">
+   <div class="register_child">
+    <img src="{% static 'images/signup.png' %}" alt="" />
+
+   </div>
+   <div class="register_child">
+       <h2>Create Account</h2>
+       <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            <input type="text" placeholder="First Name" name="first_name"    pattern="[A-Za-z]+" title="Enter only characters" required />
+            <input type="text" placeholder="Last Name" name="last_name"   pattern="[A-Za-z]+" title="Enter only characters" required />
+            <input type="email" placeholder="Email Address" name="email" required/>
+            <input type="phone" placeholder="Phone Number" name="phone"  pattern="[0-9]+" title="Enter only numbers" minlength="10" required/>
+            <input type="password" placeholder="Password" name="pass1" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,16}$" title="Password Should have at leadt one number,one upper case,one lower case,one special character,should have 8 to 16 characters" minlength="8" required />
+            <input type="password" placeholder="Confirm Password" name="pass2" minlength="4" required />
+            <button type="submit">Register Now</button>
+            <p class="mk">{{msg}}</p>
+            <p class="mk">{{msg_pass}}</p>
+            <p class="mk">Already Registered ? <a href="{% url 'signin' %}">Login</a></p>
+
+
+        </form>
+   </div>
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

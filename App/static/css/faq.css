@@ -1,0 +1,39 @@
+.wrap{
+    width:80%;
+    height:auto;
+    margin: 0px auto;
+    padding-top: 100px;
+}
+.wrap__child{
+
+}
+.wrap__text{
+    box-shadow: 4px 4px 20px rgba(0,0,0,0.1);
+    padding: 30px 30px;
+    margin: 15px;
+
+}
+.wrap__text h2{
+
+    margin: 10px 0px;
+}
+
+.wrap__text ul{
+    display: block;
+    margin: 5px 30px;
+}
+
+@media (max-width: 952px) {
+
+    .wrap__text ul {
+        display: block;
+        list-style-type: disc;
+    }
+    .wrap{
+        width:95%;
+        height:auto;
+        margin: 0px auto;
+        padding-top: 20px;
+    }
+
+}

@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | Articles</title>{% endblock %} {% block css %}
+
+
+
+<link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css"
+/>
+{% endblock %} {% block body %}
+
+<div class="header_banner">
+  <h2>Articles</h2>
+  <p>Home / Articles / {{category}} </p>
+</div>
+
+<div class="cardContainer">
+
+    {% for i in posts %}
+  <div class="card">
+    <img src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{i.image}}" alt="" />
+    <div class="detail">
+        <h3>{{i.title}}</h3>
+        <!-- <p>{{i.content|truncatewords:28|safe }}.. </p> -->
+        <p><b>By {{i.author }} on {{i.date}} </b></p>
+
+  
+
+        <a href="{% url 'articleView' slug=i.slug %}"><button class="btn_1">Read Now</button></a>
+    </div>
+  </div>
+  {% endfor %}
+
+
+</div>
+
+
+{% include 'footer.html' %}
+
+{% endblock %}
