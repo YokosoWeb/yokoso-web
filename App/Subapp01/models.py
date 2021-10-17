@@ -31,6 +31,8 @@ class Contact(models.Model):
     Phone = models.EmailField(max_length=100)
     Message = models.TextField(null=True)
 
+    def __str__(self,):
+        return self.Firstname + ' ' +  self.Lastname + ' | ' + self.Email + ' | ' + self.Phone 
 
 
 

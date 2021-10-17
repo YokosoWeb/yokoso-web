@@ -149,19 +149,6 @@ def contact(request):
                                             Message=request.POST.get('msg', ''),)
         contactObj.save()
 
-        subject = "Contact us"
-        email = 'contact@yokoso.in'
-        message = "Name : " + str(request.POST['first_name']) + " " + str(request.POST['last_name']) + " \n" + "Email : " + str(
-            request.POST['email']) + "\n" + "Phone : " + str(request.POST['phone']) + "\n" + "Message : " + str(request.POST['msg'])
-
-        recipient = [email]
-        print(message)
-        try:
-            send_mail(subject, message, EMAIL_HOST_USER,
-                      recipient)
-        except:
-            return HttpResponse('Error 404')
-
         return render(request, 'app/contact.html', {'msg': True})
 
     else:
