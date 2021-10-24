@@ -130,7 +130,8 @@ def send(user_obj):
 def FAQs(request, slug):
     print(slug)
     category = FAQCategory.objects.get(slug=slug)
-    datas = FAQText.objects.filter(id=category.id)
+    print(category.id)
+    datas = FAQText.objects.filter(category=category.id)
     print(datas)
     return render(request, 'app/faq.html', {'datas': datas})
 
