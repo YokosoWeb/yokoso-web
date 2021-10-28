@@ -83,7 +83,7 @@ class FAQCategory(models.Model):
 
 
 class FAQText(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
     description = models.TextField()
     category = models.ForeignKey(FAQCategory, on_delete = models.CASCADE, null = True)
     
