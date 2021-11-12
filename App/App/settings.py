@@ -1,4 +1,5 @@
-
+#for testing purpose only
+#second line to test
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -62,10 +63,21 @@ WSGI_APPLICATION = 'App.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'app_database',
+        'USER':'postgres',
+        'PASSWORD':'viku54321',
+        'HOST':'yokosodatabase-instance-1.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
+        'PORT':'5432'
     }
 }
 
@@ -109,6 +121,7 @@ STATICFILES_DIRS = [
 
 # Uncomment and run python manage.py collectstatic
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = '/static/'
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
