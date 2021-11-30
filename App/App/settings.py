@@ -63,24 +63,24 @@ WSGI_APPLICATION = 'App.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # Development
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 # Production 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'app_database',
-#         'USER':'postgres',
-#         'PASSWORD':'viku54321',
-#         'HOST':'yokosodatabase-instance-1.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
-#         'PORT':'5432'
-#     }
-# }
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'app',
+         'USER':'postgres',
+         'PASSWORD':'viku54321',
+         'HOST':'yokosodatabase-instance-1.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
+         'PORT':'5432'
+     }
+}
 
 
 # Password validation
@@ -121,8 +121,8 @@ STATICFILES_DIRS = [
 ]
 
 # Uncomment and run python manage.py collectstatic
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
