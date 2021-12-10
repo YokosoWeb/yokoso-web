@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | EMI Pro</title>{% endblock %} {% block css %}
+
+<link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
+<link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
+
+{% endblock %} {% block body %}
+
+<div class="header_banner">
+  <h2>EMI Pro</h2>
+  <p>Home / EMI Pro</p>
+</div>
+
+<div class="cal" style="margin: 100px 8%">
+  <section>
+    <div class="container">
+
+      {% if eligible %}
+
+      <h2>Loan Details</h2>
+      <div class="flex__wrap">
+        <div class="form-group">
+          <h4 for="">Loan Max</h4>
+          <h3>Rs. {{LOAN_MAX}}</h3>
+         
+        </div>
+        <div class="form-group">
+          <h4 for="">EMI Max</h4>
+          <h3>Rs. {{EMI_MAX}}</h3>
+         
+        </div>
+        <div class="form-group">
+          <h4 for="">TENURE</h4>
+          <h3> {{TENURE}} months</h3>
+         
+        </div>
+      </div>
+
+      <div class="flex__wrap">
+        <div class="form-group">
+          <h4 for="">Loan Real</h4>
+          <h3>Rs. {{LOAN_REAL}}</h3>
+         
+        </div>
+        <div class="form-group">
+          <h4 for="">EMI Real</h4>
+          <h3>Rs. {{EMI_REAL}}</h3>
+         
+        </div>
+        <div class="form-group">
+          <h4 for="">Rate of Interest</h4>
+          <h3>{{ROI}}%</h3>
+         
+        </div>
+      </div>
+
+      <table style="overflow-x: scroll;">
+        <tr>
+          <th>Bank</th>
+          <th>ROI</th>
+          <th>Employment</th>
+          <th>Type</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+          <td>{{i.bank}}</td>
+          <td>{{ i.interest_rate }}</td>
+          <td>{{ i.feature_type }}</td>
+          <td>{{i.loan_type}}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+      {% else %}
+
+      <h2>Sorry, You are not eligible. 😥</h2>
+
+      {% endif %}
+    </div>
+  </section>
+
+</div>
+
+{% include 'footer.html' %} {% endblock %}
+
+<!-- EMI Calculator Widget END -->
