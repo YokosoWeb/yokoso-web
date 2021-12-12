@@ -5,6 +5,8 @@ admin.site.register(Profile)
 admin.site.register(Contact)
 admin.site.register(FAQCategory)
 admin.site.register(FAQText)
+admin.site.register(EMIEnquiry)
+admin.site.register(ADV_EMI_CAL)
 
 
 @admin.register(Post)

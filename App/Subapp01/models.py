@@ -48,6 +48,20 @@ class Category(models.Model):
 
 
 
+class EMIEnquiry(models.Model):
+    name = models.CharField(max_length = 100,null = True, blank = True)
+    phone = models.CharField(max_length = 100,null = True, blank = True)
+    pan = models.CharField(max_length = 100,null = True, blank = True)
+    email = models.CharField(max_length =100,null = True, blank = True)
+    dob = models.CharField(max_length = 100,null = True, blank = True)
+    gender = models.CharField(max_length = 100,null = True, blank = True)
+    created = models.DateTimeField(auto_now_add=True,null = True, blank = True)
+
+    def __str__(self,):
+        return self.name
+
+
+
 class Post(models.Model):
     STATUS_CHOICES=(('Draft','Draft'),('Published','Published'),)
     title=models.CharField(max_length=250,unique=True)
@@ -89,4 +103,14 @@ class FAQText(models.Model):
     
     def __str__(self):
         return self.title
-
+class ADV_EMI_CAL(models.Model):
+    cal_id = models.IntegerField(primary_key=True)
+    bank = models.CharField(max_length = 200, blank = True)
+    loan_type = models.CharField(max_length =500, blank = True)
+    feature_type = models.CharField(max_length =500, blank = True)
+    gender = models.CharField(max_length=500, blank = True)
+    cibil_min = models.IntegerField(blank = True)
+    cibil_max = models.IntegerField(blank = True)
+    loan_min = models.IntegerField(blank = True)
+    loan_max = models.IntegerField(blank = True)
+    interest_rate = models.FloatField(blank = True)

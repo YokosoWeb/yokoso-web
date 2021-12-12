@@ -169,3 +169,122 @@ def articleView(request, slug):
 
 def emi(request):
     return render(request, 'app/calculator.html')
+
+
+def credit(request):
+    # data = ADV_EMI_CAL.objects.all()
+    # print(data.count())
+    if request.method == 'POST':
+        BANK_FOIR = 70
+        name = request.POST['fname']
+        pan = request.POST['pan']
+        employment = request.POST['emp']
+        phone = request.POST['phone']
+        email = request.POST['email']
+        dob = request.POST['dob']
+        gender = request.POST.get('gender')
+
+        monthlySalary = request.POST.get('ms')
+        ongoingEmi = request.POST.get('oe', 0)
+        loanType = request.POST.get('loanType')
+        loanAmount = request.POST.get('la')
+        tenure = request.POST.get('month')
+        bank = request.POST.get('bankName')
+        creditScore = request.POST.get('creditScore')
+
+        print(name, pan, employment, phone, email, dob, gender)
+        print(monthlySalary, ongoingEmi, loanType,
+              loanAmount, tenure, bank, creditScore)
+
+        EMI_MAX = (int(monthlySalary) - int(ongoingEmi))*(0.70)
+        print(EMI_MAX)
+        DefaultROI = 6.25
+
+        P1 = (1+float(DefaultROI)) ** int(tenure)
+        print(P1)
+        r = float(DefaultROI)/(12*100)
+        p = int(loanAmount)
+        n = int(tenure)
+
+        # Calculating Equated Monthly Installment (EMI)
+        EMI_REAL = round(p * r * ((1+r)**n)/((1+r)**n - 1), 2)
+
+        #  LOAN_MAX and EMI_MAX, Tenure , ROI
+        LOAN_MAX = round(EMI_MAX * float(tenure))
+        ROI = DefaultROI
+        TENURE = n
+        LOAN_REAL = loanAmount
+
+        # Less Loan Real ( Not eligible for Loan )
+        if int(LOAN_MAX) < int(LOAN_REAL):
+            return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'LOAN_MAX': LOAN_MAX,'eligible' :False})
+
+
+        # Process on DB
+        data = ADV_EMI_CAL.objects.filter(feature_type=employment).filter(
+            loan_type=loanType)
+        print(data.count())
+
+        loan__amount = (int(int(loanAmount)/100000))
+        data1 = []
+        for i in data:
+            if (loan__amount >= i.loan_min) and (loan__amount <= i.loan_max):
+                data1.append(i)
+            print(i.bank,i.loan_type,i.loan_min,i.loan_max,)
+
+
+
+        # if not show then show others
+
+
+        print(len(data1))
+        data2 = []
+        if creditScore:
+            creditScore = creditScore
+        else:
+            creditScore = 900
+        for i in data1:
+            if (int(creditScore) >= i.cibil_min) and ( int(creditScore) <= i.cibil_max): 
+                data2.append(i)
+                print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
+        print(data2)
+        data3 = []
+
+        
+
+        for i in data2:
+            # print(type(gender)==type(i.gender))
+            # print(gender,i.gender)
+            if str(i.gender) == gender:
+                data3.append(i)
+            elif str(i.gender) == 'Other' or str(i.gender) == 'None':
+                data3.append(i)
+
+        for i in data3:
+            print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
+        print(data3)
+
+
+     
+
+
+        # print(int(int(loanAmount)/100000))
+
+        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'EMI_REAL': EMI_REAL, 'LOAN_MAX': LOAN_MAX, 'LOAN_REAL': LOAN_REAL, 'ROI': ROI, 'TENURE': TENURE,'eligible' :True, 'data' : data3})
+    return render(request, 'app/creditScore.html')
+
+
+def EMIEnquiryFun(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        pan = request.POST.get('pan')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        dob = request.POST.get('dob')
+        gender = request.POST.get('gender')
+
+        # obj = EMIEnquiry(name=name, email=email, gender=gender,
+        # pan=pan, phone=phone,dob=dob)
+        # obj.save()
+        print(name)
+        return HttpResponse(name)

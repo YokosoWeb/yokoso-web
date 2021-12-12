@@ -17,6 +17,10 @@ urlpatterns = [
     path('blog/<slug>', articleView , name = 'articleView'),
 
     path('emi-calculator/', emi , name = 'emi'),
+    
+    path('emi-pro/', credit , name = 'credit'),
+
+    path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun')
 
     # path('get', get , name = 'get'),
     # path('del', delete , name = 'delete')
