@@ -71,26 +71,26 @@ WSGI_APPLICATION = 'App.wsgi.application'
 #}
 
 # Production 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'app',
-         'USER':'postgres',
-         'PASSWORD':'viku54321',
-         'HOST':'yokosodatabase-instance-1.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
-         'PORT':'5432'
-     }
-}
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#          'NAME': 'app',
+#          'USER':'postgres',
+#          'PASSWORD':'viku54321',
+#          'HOST':'yokosodatabase-instance-1.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
+#          'PORT':'5432'
+#      }
+# }
 
-# Production 
-# Production 
+#main database
+
 DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'app',
-         'USER':'postgres',
-         'PASSWORD':'viku54321',
-         'HOST':'yokosodatabase-instance-1.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
+         'NAME': 'postgres',
+         'USER':'Ubuntu',
+         'PASSWORD':'WelcomeJapan',
+         'HOST':'appdb.c1tuy3i1m1b0.us-east-2.rds.amazonaws.com',
          'PORT':'5432'
      }
 }
