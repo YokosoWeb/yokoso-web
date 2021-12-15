@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="us" dir="ltr">
 {% load static %}
+
 <head>
   <meta charset="utf-8">
-  <link rel="icon"  href="{% static 'images/favicon.ico'%}">
+  <link rel="icon" href="{% static 'images/favicon.ico'%}">
 
   <title>yokoso</title>
-  <meta name="description" content="Yokoso is a financial company provides you the most simplistic way for loans, and we let you choose whats best for you.">
+  <meta name="description"
+    content="Yokoso is a financial company provides you the most simplistic way for loans, and we let you choose whats best for you.">
   <meta name="keywords" content="Financial, banking, home loan, personal loan, auto loan, property loan, emi">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-  {% block title %}  <title >Yokoso Beta</title> {% endblock %}
+  {% block title %} <title>Yokoso Beta</title> {% endblock %}
 
   {% block css %}{% endblock %}
 
@@ -29,26 +32,33 @@
     <label for="check" class="checkbtn">
       <i class="bi bi-list"></i>
     </label>
-    <label class="logo" ><a href="{% url 'home' %}" style="color: #fff!important;">Yokoso<span style="font-size:12px;">&#946;eta</span></a></label>
+    <label class="logo"><a href="{% url 'home' %}" style="color: #fff!important;">Yokoso<span
+          style="font-size:12px;">&#946;eta</span></a></label>
     <ul>
       <li><a class="" href="{% url 'home' %}">Home</a></li>
       <li><a class="" href="{% url 'articleHome' %}">Blog</a></li>
-      <li><a >FAQs</a>
-        <ul>
-          
-        <li><a href="/FAQs/home-loan">Home Loan</a></li>
-        
-        <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
-        
-        <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
+      <li>
+        <a class="drop">FAQs
+          <i class="bi bi-caret-down-fill arrow" style="margin-left: 5px;"></i>
+          <i class="bi bi-caret-up-fill up" style="margin-left: 5px;"></i>
+          <i class="bi bi-caret-left-fill left" style="margin-left: 5px;"></i>
+          <i class="bi bi-caret-right-fill right" style="margin-left: 5px;"></i>
+      </a>
+        <ul class="dropMenu">
 
-        <li><a href="/FAQs/property-loan">Property Loan</a></li>
-        
+          <li><a href="/FAQs/home-loan">Home Loan</a></li>
+
+          <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
+
+          <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
+
+          <li><a href="/FAQs/property-loan">Property Loan</a></li>
+
 
         </ul>
       </li>
-      <li><a  href="{% url 'emi' %}">EMI Calculator</a></li>
-      <li><a  href="{% url 'emi' %}">EMI Pro</a></li>
+      <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
+      <li><a href="{% url 'credit' %}">EMI Pro</a></li>
       <li><a href="{% url 'contact' %}">Contact</a></li>
       <!--<li><a href="{% url 'about' %}">Services</a></li>-->
 
@@ -62,15 +72,28 @@
   <!-- Landing Page -->
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-05THG26XCE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05THG26XCE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-05THG26XCE');
-</script>
+    gtag('config', 'G-05THG26XCE');
+
+    $(document).ready(function () {
+      $(".drop").click(function () {
+        $(".dropMenu").fadeToggle("100");
+        $(".drop").toggleClass("active");
+      });
+      $(".dropMenu").mouseleave(function () {
+        $(this).fadeOut("100");
+        $(".drop").removeClass("active");
+      });
+    });
+
+  </script>
 
 
 </body>
+
 </html>
