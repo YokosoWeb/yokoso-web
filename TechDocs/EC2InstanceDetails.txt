@@ -1,3 +1,8 @@
 public ip address: 18.222.97.197
 username: ubuntu
 password: yokoso@123
+
+Install packages:
+1. pip install django-ckeditor
+2. pip install django--crispy-forms
+3. pip imstall django-psycopg2
