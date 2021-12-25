@@ -12,7 +12,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 # Create your views here.
-
+def is_valid_queryparam(param):
+    return param != '' and param is not None
 
 def home(request):
 
@@ -288,3 +289,58 @@ def EMIEnquiryFun(request):
         # obj.save()
         print(name)
         return HttpResponse(name)
+
+
+def ifscfilter(request):
+    
+    qs = Ifscdetails.objects.all()
+    state_names = State.objects.all
+    city_names = City.objects.all()
+    branch_names = Branch.objects.all()
+    bank_names =Bank.objects.all()
+    state = request.GET.get('state')
+    city = request.GET.get('city')
+    branch = request.GET.get('branch')
+    bankname = request.GET.get('bankname')
+    ifsc_no_exact_query = request.GET.get('ifsc_no_exact')
+    if is_valid_queryparam(ifsc_no_exact_query): 
+        qs = qs.filter(ifsc_no = ifsc_no_exact_query)
+    if is_valid_queryparam(city) and city != 'Choose...':
+        qs = qs.filter(city_names__name = city)
+    if is_valid_queryparam(state) and state != 'Choose...':
+        qs = qs.filter(state_names__name = state)
+    if is_valid_queryparam(bankname) and bankname != 'Choose...':
+        qs = qs.filter(bank_names__name = bankname)
+    if is_valid_queryparam(branch) and branch != 'Choose...':
+        qs = qs.filter(branch_names__name = branch_names)
+       
+    context = {
+        'queryset': qs,
+        'state_names': state_names,
+        'city_names': city_names,
+        'bank_names': bank_names,
+        'branch_names': branch_names,
+      
+       
+     }
+    # print(city_names)
+    # print(state_names)
+    # print(bank_names)
+    # print(branch_names)
+    # # print(ifsc_no_contains)
+    # print(qs)
+    return render(request, "app/ifsc_code.html", context)
+
+def load_cities(request):
+    state_id = request.GET.get('state')
+    # cityes = City.objects.filter(state_id=state_id).all()
+    cities = City.objects.filter(state_id=state_id).order_by('name')
+    print(cities)
+    return render(request, 'app/city_dropdown_list_options.html', {'cities': cities})
+
+def load_branches(request):
+    city_id = request.GET.get('city')
+    # cityes = City.objects.filter(state_id=state_id).all()
+    branches = Branch.objects.filter(city_id=city_id).order_by('name')
+    print(branches)
+    return render(request, 'app/branch_dropdown_list_options.html', {'branches': branches})

@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import *
+from Subapp01 import views
 
 
 urlpatterns = [
@@ -20,7 +21,11 @@ urlpatterns = [
     
     path('emi-pro/', credit , name = 'credit'),
 
-    path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun')
+    path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),
+    path ('ifsc/', ifscfilter, name='ifscfilter'),
+
+    path('load_cities/', load_cities, name ='ajax_load_cities'),
+    path('load_branches/', load_branches, name ='ajax_load_branches'),
 
     # path('get', get , name = 'get'),
     # path('del', delete , name = 'delete')
