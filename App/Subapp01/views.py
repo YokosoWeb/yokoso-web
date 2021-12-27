@@ -288,3 +288,5 @@ def EMIEnquiryFun(request):
         # obj.save()
         print(name)
         return HttpResponse(name)
+
+# def IfscData(re)
