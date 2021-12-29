@@ -291,48 +291,117 @@ def EMIEnquiryFun(request):
         return HttpResponse(name)
 
 
-def ifscfilter(request):
+
+# def ifscfilter(request):
+#     print("inside ifscfilter")
+#     qs = Ifscdetails.objects.all()
     
-    qs = Ifscdetails.objects.all()
-    state_names = State.objects.all
-    city_names = City.objects.all()
-    branch_names = Branch.objects.all()
-    bank_names =Bank.objects.all()
-    state = request.GET.get('state')
-    city = request.GET.get('city')
-    branch = request.GET.get('branch')
-    bankname = request.GET.get('bankname')
-    ifsc_no_exact_query = request.GET.get('ifsc_no_exact')
-    if is_valid_queryparam(ifsc_no_exact_query): 
-        qs = qs.filter(ifsc_no = ifsc_no_exact_query)
-    if is_valid_queryparam(city) and city != 'Choose...':
-        qs = qs.filter(city_names__name = city)
-    if is_valid_queryparam(state) and state != 'Choose...':
-        qs = qs.filter(state_names__name = state)
-    if is_valid_queryparam(bankname) and bankname != 'Choose...':
-        qs = qs.filter(bank_names__name = bankname)
-    if is_valid_queryparam(branch) and branch != 'Choose...':
-        qs = qs.filter(branch_names__name = branch_names)
+#     state_names = State.objects.all()
+#     city_names = City.objects.all()
+#     branch_names = Branch.objects.all()
+#     bank_names =Bank.objects.all()
+#     state = request.GET.get('state')
+#     city = request.GET.get('city')
+#     branch = request.GET.get('branch')
+#     bankname = request.GET.get('bankname')
+#     ifsc_no_exact_query = request.GET.get('ifsc_no_exact')
+    
+#     print("bankname:", bankname, ",state:" , state, ",city:" , city, ",branch:" , branch)
+#     if is_valid_queryparam(ifsc_no_exact_query): 
+#         qs = qs.filter(ifsc_no = ifsc_no_exact_query)
+
+#     if is_valid_queryparam(bankname) and is_valid_queryparam(state) and is_valid_queryparam(city) and is_valid_queryparam(branch):
+#         print("inside search")
+#         qs= qs.filter(bankname_id__name = bankname).filter(state_id__name = state).filter(city_names__name = city).filter(branch_names__name = branch_names)
+
+#     # if is_valid_queryparam(city):
+#     #     qs = qs.filter(city_names__name = city) 
+#     # if is_valid_queryparam(state): 
+#     #     qs = qs.filter(state_id__name = state)
+#     # if is_valid_queryparam(bankname):
+#     #     qs = qs.filter(bankname_id__name = bankname)
+#     # if is_valid_queryparam(branch):
+#     #     qs = qs.filter(branch_names__name = branch_names)
        
+#     context = {
+
+#         'queryset': qs,
+#         'state': state_names,
+#         'city': city_names,
+#         'bankname': bank_names,
+#         'branch_names': branch_names, 
+#      }
+#     print(context)
+#     return render(request, "app/ifsc_code.html", context)
+def getServices(request):
+    print("HI")
     context = {
-        'queryset': qs,
-        'state_names': state_names,
-        'city_names': city_names,
-        'bank_names': bank_names,
-        'branch_names': branch_names,
-      
-       
-     }
-    # print(city_names)
-    # print(state_names)
-    # print(bank_names)
-    # print(branch_names)
-    # # print(ifsc_no_contains)
-    # print(qs)
+        'services': ['IFSC Code', 'Grievance']
+    }
+    print(context)
+    
     return render(request, "app/ifsc_code.html", context)
 
+def getbanknames(request):
+    bankname = Bank.objects.all()
+    context = {
+         'bankName': bankname,
+    }
+    return render(request, "app/ifsc_code.html", context)
+
+def getstates(request):
+    state = State.objects.all()
+    qs= Ifscdetails.objects.all()
+   
+    cities = City.objects.all()
+    branch_names = Branch.objects.all()
+    bank_name =Bank.objects.all()
+    ifsc_no_exact_query = request.GET.get('ifsc_no_exact')
+
+    if request.method == "POST":
+        print("inside post")
+        
+        if is_valid_queryparam(bank_name) and is_valid_queryparam(state) and is_valid_queryparam(cities) and is_valid_queryparam(branch_names):
+            print("inside search")
+            qs= qs.filter(bankname_id__name = bank_name).filter(state_id__name = state).filter(city_id__name = cities).filter(branch_id__name = branch_names)
+    
+        if is_valid_queryparam(ifsc_no_exact_query): 
+            print("inside ifsc")
+            qs = qs.filter(ifsc_no = ifsc_no_exact_query)
+            qs= qs.filter(bankname_id__name = bank_name).filter(state_id__name = state).filter(city_id__name = cities).filter(branch_id__name = branch_names)    
+
+    context={
+            'queryset': qs,
+            'bankname': bank_name,
+            'state': state,
+            'city':cities,
+            'branch': branch_names,
+        }
+    
+
+    return render(request, "app/ifsc_code.html", context)
+
+
+
+# def ifscResult(request):
+#     if request.method == POST:
+#      if "filter" in request.POST: 
+#       if is_valid_queryparam(bank_name) and is_valid_queryparam(state) and is_valid_queryparam(cities) and is_valid_queryparam(branches):
+#         print("inside search")
+#         qs= qs.filter(bankname_id__name = bank_name).filter(state_id__name = state).filter(city_names__name = city).filter(branch_names__name = branch_names)
+#     context={
+#        'qs': queryset,
+#         'bankname': bankname,
+#         'state': state,
+#         'city':city,
+#         'branch': branch,
+#      }
+#     print(context)
+
+#     return render(request, "app/ifsc_code.html", context)
 def load_cities(request):
     state_id = request.GET.get('state')
+    print("inisdecity")
     # cityes = City.objects.filter(state_id=state_id).all()
     cities = City.objects.filter(state_id=state_id).order_by('name')
     print(cities)

@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body onload="resetSelection()">
 
    
 
@@ -37,11 +37,10 @@
 
                     <label for="bankServices" class="form_label">Services</label>
 
-                    <select name="bankingService" id="bankSercive"  >
+                    <select name="bankingService" id="bankSercive">
 
-                       {% for cat in services %}
-                            <option value="{{ cat }}" >{{ cat }}</option>
-                            {% endfor %}
+                        <option value="ifsc">IFSC Code</option>
+                        <option value="grievance">Grievance</option>
 
                     </select>
 
@@ -49,34 +48,37 @@
 
                 <!--( action="#" method="post") included in the form tag-->
 
-                 <form action=" " method="POST" id="ifscForm"  data-cities-url= "{% url "ajax_load_cities" %}" data-branches-url= "{% url "ajax_load_branches" %}">
-                    {% csrf_token %}
-                     {% comment %} <div class="ifsc-form-group">
+                 <form action="" id="ifscForm" data-cities-url= "{% url "ajax_load_cities" %}" data-branches-url= "{% url "ajax_load_branches" %}">
+                    
+                    <div class="ifsc-form-group">
                         <!-- selection -->
                         <div class="select-container">
                             {% comment %} <label for="bankname" class="form_label">Bank</label>
-                            <select name="banknames" id="bank_name" class="banks">
+                            <select name="banknames" id="bank_name" class="banks"> {% endcomment %}
                             <label for="bankname" class="form_label">Banknames</label>
-                            <select required name="bank_name" id="bank_name" class="banks" size="1" >
+                            <select required name="bankname" id="bankname" class="banks" size="1" onchange="makeSubmenu(this.value)">
                             <option selected></option>
-                            {% for cat in bankName %}
+                            {% for cat in bank_names %}
                             <option value="{{ cat }}" >{{ cat }}</option>
                             {% endfor %}
                             </select>
 
-                    
-                        </div>  {% endcomment %}
+                                <!-- 1st option edit krna h.....select bank options m nhi ayga -->
+
+                               
+                            {% comment %} </select> {% endcomment %}
+                        </div>
 
 
                         <!-- here are the top famous banks asto ease the customers -->
 
                    
                     <div class="ifsc-form-group">
-                        <label for="states" class="form_label">State</label>
+                        <label for="state" class="form_label">State</label>
                         <select  required name="state" id="state"
-                        size="1" class="state-selection">
+                        size="1" class="state-selection" >
                           <option selected></option>
-                            {% for cat in state %}
+                            {% for cat in state_names %}
                             <option value="{{ cat.id }}" >{{ cat }}</option>
                             {% endfor %}
                         </select>
@@ -107,15 +109,15 @@
                         </select>
 
                     </div>
-                       <button type="submit"  name="filter" class="btn btn-primary" >Search</button>
+                       <button type="submit" name="filter" onsubmit="/Ifsc_Output" class="btn btn-primary">Search</button>
                 </form>
 
 
                 <!-- from 1 ends here -->
 
                 <!-- Here the IFSC code will be submitted -->
-                <form action="" method="POST">
-                    {% csrf_token %}
+                <form action=" " onsubmit="return validation()">
+
                     <div class="ifsc-form-group-2">
 
                         <div class="heading">
@@ -125,16 +127,16 @@
                         <div class="input-ifsc-code" id="enter-ifsc-code">
                             <input type="text" name="ifsc_no_exact" maxlength="11" 
                                 placeholder="Enter IFSC code" required>
-                            <button type="submit" class="ifsc-submit-code" name="ifscFilter">Get Details</button>
+                            <button type="submit" class="ifsc-submit-code">Get Details</button>
                         </div>
-                        
+                        <span class="error error-selection">Error : This field is mandatory.</span>
                     </div>
                 </form>
             </div>
 
             
-<!-- here the template will be displayed after the submission of bank list or after the submission of ifsc code --> 
-            {% for ifscdetails in queryset %}
+<!-- here the template will be displayed after the submission of bank list or after the submission of ifsc code -->
+            {% for ifscdetails in details %}
             <div class="ifsc-code-display">
              
                 <!-- It is an example only -->
@@ -192,62 +194,18 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script>
-   
-   {% comment %} $("#bankSercive").change(function () {
-		alert("Inside bankSercive Ajax")
-        const selectedService = $(this).val();  // get the selected ServiceHTML input
-		//alert(selectedService)
-        $.ajax({                       // initialize an AJAX request
-            url: 'getbanknames',      // set the url of the request
-            data: {
-                'servcie': selectedService       // add the country id to the GET parameters
-            },
-            success: function (data) {   // `data` is the return of the `load_cities` view function
-                alert("Test")
-				$("#bank_name").html(data);  // replace the contents of the city input with the data that came from the server  
-            }
-        });
+{% comment %} $("option").prop('required',true); {% endcomment %}
+ 
 
-    }); 
-     $("#bank_name").change(function () {
-		
-        const bankname_id = $(this).val();  // get the selected ServiceHTML input
-		//alert(selectedService)
-        $.ajax({                       // initialize an AJAX request
-            url: 'getstates',      // set the url of the request
-            data: {
-                'bankname': bankname_id       // add the country id to the GET parameters
-            },
-            success: function (data) {
+   $("#state").change(function () {
+        const url = $("#ifscForm").attr("data-cities-url");  // get the url of the `load_cities` view
+        const stateId = $(this).val();  // get the selected country ID from the HTML input
 
-   // `data` is the return of the `load_cities` view function
-                alert("Test")
-				$("#states").html(data);
-                alert("Testfinal")  // replace the contents of the city input with the data that came from the server  
-            }
-        });
-
-    }); {% endcomment %}
-   
-
-
-
-
-
-
-$("#state").change(function () {
-       
-        const url = $("#ifscForm").attr("data-cities-url");
-         // get the url of the `load_cities` view
-        const stateId = $(this).val();
-        
         $.ajax({                       // initialize an AJAX request
             url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
             data: {
-                'state': stateId 
-                   // add the country id to the GET parameters
+                'state': stateId       // add the country id to the GET parameters
             },
-             
             success: function (data) {   // `data` is the return of the `load_cities` view function
                 $("#cities").html(data);  // replace the contents of the city input with the data that came from the server
                

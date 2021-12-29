@@ -22,8 +22,12 @@ urlpatterns = [
     path('emi-pro/', credit , name = 'credit'),
 
     path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),
-    path ('ifsc/', ifscfilter, name='ifscfilter'),
+    # path ('service/', getServices, name='getServices'),
 
+    path ('service/', getServices, name='getServices'),
+ 
+    path ('service/getstates', getstates, name='getstates'),
+    # # path ('ifscResult', ifscResult, name='ifscResult'),
     path('load_cities/', load_cities, name ='ajax_load_cities'),
     path('load_branches/', load_branches, name ='ajax_load_branches'),
 
