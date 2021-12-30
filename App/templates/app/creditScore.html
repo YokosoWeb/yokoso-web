@@ -96,14 +96,14 @@
               </div>
               <div class="form-group">
                 <label for="StuID">If Any ongoing EMI</label>
-                <input type="number" id="oe" name="oe" placeholder="Any ongoing  EMI" value="0" min="0" max = "99"/>
+                <input type="number" id="oe" name="oe" placeholder="Any ongoing  EMI" value="0" min="0"/>
                 <span color="red" id="oe_msg" class="small__msg"></span>
               </div>
               <div class="form-group">
                 <label for="">Loan Type*</label>
                 <select name="loanType" id="loanType">
-                  <option value="">Select Loan Type</option>
-                  <option value="Standard Home Loan">Standard Home Loan</option>
+                  <!-- <option value="">Select Loan Type</option> -->
+                  <!-- <option value="Standard Home Loan">Personal Loan</option> -->
                   <option value="Home Loan">Home Loan</option>
                 </select>
                 <span color="red" id="loanType_msg" class="small__msg"></span>
@@ -119,7 +119,7 @@
               </div>
               <div class="form-group">
                 <label for="month">Tenure ( In Months )*</label>
-                <input type="number" id="month" name="month" id="month" placeholder="Tenure ( In Months )" min="0" />
+                <input type="number" id="month" name="month" id="month" placeholder="Tenure ( In Months )" min="0" max="360" />
                 <span color="red" id="month_msg" class="small__msg"></span>
 
               </div>
@@ -172,11 +172,15 @@
       function validate() {
 
         // Check format Email
-        var filter = /^([a-zA-Z_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var filter = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
         // var regx = /^[A-Za-z]+/;
-        var regx_fname = /^([\w]{3,})+\s+([\w\s]{3,})+$/;
+        // var regx_fname = /^([\w]{3,})+\s+([\w\s]{3,})+$/;
+        var regx_fname = /^[a-zA-Z0-9 ]+$/;
 
-        var regx_pan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+        // var regx_pan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+        var regx_pan = /^([A-Za-z]){5}([0-9]){4}([A-Za-z]){1}?$/;
+
+        var regx_phone = /^[1-9][0-9]+$/;
         // var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         // var filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         // var filter = /^[a-zA-Z0-9]/;
@@ -208,7 +212,7 @@
           if (pan.value == '' || pan.value.length != 10) {
 
             console.log(regx_pan.test(pan.value));
-            pan_msg.innerText = "*Please fill valid PAN"
+            pan_msg.innerText = "*Please fill PAN"
 
             isvalid += 1;
             console.log(isvalid)
@@ -236,26 +240,33 @@
 
           if (phone.value == '' || phone.value.length != 10) {
 
+            console.log(regx_phone.test(phone.value));
             phone_msg.innerText = "*Please fill Phone Number"
 
             isvalid += 1;
             console.log(isvalid)
 
           } else {
-            phone_msg.innerText = ""
-
+            if (!regx_phone.test(phone.value)) {
+              phone_msg.innerText = "*Please fill valid Phone Number"
+              isvalid += 1;
+            } else{
+              phone_msg.innerText = ""
+            }
           }
+
+
           if (email.value == '') {
 
             console.log(filter.test(email.value));
-            email_msg.innerText = "*Please fill valid Email"
+            email_msg.innerText = "*Please fill Email Address"
 
             isvalid += 1;
             console.log(isvalid)
 
           } else {
-            if (filter.test(email.value)) {
-              email_msg.innerText = "*Please fill valid Email"
+            if (!filter.test(email.value)) {
+              email_msg.innerText = "*Please fill valid Email Address"
               isvalid += 1;
             } else {
               email_msg.innerText = ""
