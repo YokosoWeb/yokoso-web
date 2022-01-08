@@ -7,12 +7,7 @@ admin.site.register(FAQCategory)
 admin.site.register(FAQText)
 admin.site.register(EMIEnquiry)
 admin.site.register(ADV_EMI_CAL)
-admin.site.register(State)
-admin.site.register(City)
-admin.site.register(Branch)
-admin.site.register(Bank)
-admin.site.register(Ifscdetails)
-
+admin.site.register(IfscData)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

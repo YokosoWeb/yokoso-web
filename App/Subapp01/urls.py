@@ -22,15 +22,12 @@ urlpatterns = [
     path('emi-pro/', credit , name = 'credit'),
 
     path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),
-    # path ('service/', getServices, name='getServices'),
-
-    path ('service/', getServices, name='getServices'),
- 
-    path ('service/getstates', getstates, name='getstates'),
-    # # path ('ifscResult', ifscResult, name='ifscResult'),
-    path('load_cities/', load_cities, name ='ajax_load_cities'),
-    path('load_branches/', load_branches, name ='ajax_load_branches'),
-
-    # path('get', get , name = 'get'),
-    # path('del', delete , name = 'delete')
+    path ('ifsc/', getServices, name='getServices'),
+    path ('ifsc/bankname/', BankNames, name='bankname'),
+    path ('ifsc/statename/', StateNames, name='statename'),
+    path ('ifsc/cityname/', CityNames, name='cityname'),
+    path ('ifsc/branchname/', BranchNames, name='branchname'),
+    path ('ifsc/ifscfilter/', Ifscfilter, name='ifscfilter'),
+    path ('ifsc/ifscfiller/', Ifscfiller, name='ifscfiller')
+    
 ]

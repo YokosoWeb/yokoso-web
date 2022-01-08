@@ -114,40 +114,16 @@ class ADV_EMI_CAL(models.Model):
     loan_min = models.IntegerField(blank = True)
     loan_max = models.IntegerField(blank = True)
     interest_rate = models.FloatField(blank = True)
-# ifsc code
 
-class State(models.Model):
-   name = models.CharField(max_length=100)
-   def __str__(self):
-       return self.name
 
-class City(models.Model):
-    name = models.CharField(max_length=100)
-    state = models.ForeignKey(State, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.name
-
-class Branch(models.Model):
-    name= models.CharField(max_length=100, default="no")
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-   
-    def __str__(self):
-      return self.name
-
-class Bank(models.Model):
-    name= models.CharField(max_length=100)
-    
-    def __str__(self):
-      return self.name
-
-class Ifscdetails(models.Model):
-    ifsc_no = models.CharField(max_length= 120, primary_key= True)
-    state =  models.ForeignKey(State, on_delete=models.SET_NULL, blank=True, null=True)
-    # city = models.ForeignKey(City, on_delete=models.CASCADE)
-    city = models.ForeignKey(City, on_delete=models.SET_NULL, blank=True, null=True)
-    branch = models.ForeignKey(Branch, on_delete=models.SET_NULL, blank=True, null=True)
-    bankname  =  models.ForeignKey(Bank, on_delete=models.SET_NULL, blank=True, null=True)
-
-    def __str__(self):
-       return self.ifsc_no
+class IfscData(models.Model):
+    IFSC_CODE = models.CharField(max_length=200,blank=True,null = True)
+    BANK = models.CharField(max_length = 200, blank = True,null = True)
+    STATE = models.CharField(max_length = 200,blank=True,null = True)
+    DISTRICT = models.CharField(max_length = 200,blank=True,null = True)
+    CITY = models.CharField(max_length = 200,blank=True)
+    BRANCH = models.CharField(max_length = 200,blank=True,null = True)
+    PHONE = models.FloatField(blank=True,null = True)
+    STD_CODE = models.FloatField(blank=True,null = True)
+    MICR = models.FloatField(blank=True,null = True)
+    ADDRESS = models.CharField(max_length=500,blank=True,null = True)
