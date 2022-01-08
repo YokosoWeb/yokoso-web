@@ -340,7 +340,6 @@ def BranchNames(request):
 def Ifscfilter(request):
     branchname = request.GET.get('branch')
     ifsc_names = IfscData.objects.filter(id = branchname)
-    print('ifsc_names:' , ifsc_names)
     context = {
        'ifsc_names': ifsc_names
       }
@@ -348,10 +347,7 @@ def Ifscfilter(request):
     
 def Ifscfiller(request):
     ifsc_no = request.GET.get('ifsc_no')
-    print('ifsc_no:', ifsc_no)
     ifsc_names = IfscData.objects.filter(IFSC_CODE= ifsc_no)
-    print('ifsc_names:', ifsc_names)
-    print("inside ifsno")
     context = {
        'ifsc_names': ifsc_names
       }

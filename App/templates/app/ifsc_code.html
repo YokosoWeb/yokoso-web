@@ -1,3 +1,16 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifsc code</title>
+    <link rel="stylesheet" href="copy_code.css">
+    <link rel="stylesheet" href="ifsc-code.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
+
+
 {% extends "base.html" %} {% load static %} {% block title %}
 <title>Yokoso | IFSC Code</title>{% endblock %} {% block css %}
 
@@ -8,12 +21,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-{% endblock %} {% block body %}
+{% endblock css %} 
 
 
 </head>
-
-<body>
+{% block body %}
+<body onload="resetSelection()">
 
     <!-- == here goes the header of the page == -->
     <div class="header_banner">
@@ -24,74 +37,65 @@
 
 
     <main>
-         <div class="ifsc-code-container">
+        <div class="ifsc-code-container">
 
 
             <!-- form starts here -->
-            <div class="form_container"> 
-                 <form action=" " method="POST" id="ifscForm">
-                    {% csrf_token %}
-                      <div class="ifsc-form-group">
-                        <!-- selection -->
-                        
+            <div class="form_container">
+
+                <!--( action="#" method="post") included in the form tag-->
+
+                <form action="" method="post" id="ifscForm>
+				   {% csrf_token %}
+                    <div class="ifsc-form-group">
                            <label for="services" class="form_label">Services</label>
                             <select required name="service" id="service" class="service" size="1">
                             <option selected></option>
                             {% for cat in services %}
                             <option value="{{ cat.id }}">{{ cat }}</option>
                             {% endfor %}
-                            </select>
+                            </select>                   
+                        </div>
+                        
 
-                    
-                        </div>  
-
-                      <div class="ifsc-form-group">
-                      
+                    <!-- Selection of states -->
+                   <div class="ifsc-form-group">
                          <label for="bank" class="form_label">BANK</label>
                             <select required name="BankName" id="BankName" class="service" size="1" >
                             <option selected></option>
+                            </select>                 
+                        </div>  
+                   
+                        <div class="ifsc-form-group">
+                            <label for="states" class="form_label">State</label>
+                            <select   name="State_Name" id="State_Name"
+                            size="1" class="state-selection" required>
+                            <option selected></option>                            
                             </select>
-                           
+                        </div> 
+
+                        <div class="ifsc-form-group">
+                            <label for="cities" class="form_label">City</label>
+                            <select  name="City_Name" id="City_Name"
+                        size="1" class="city-selection" required>
+                            <option selected></option>
+                            </select>
+                        </div>
+
+                        <div class="ifsc-form-group">
+                            <label for="branches" class="form_label">Branch</label>
+                            <select name="Branch_Name" id="Branch_Name" size="1" class="branch-selection" required>
+                                <option selected ></option>                           
+                            </select>
+                        </div>
+                    <button type="button"  class="btn btn-primary" onclick="myFunction()">Search</button>
+
+
+                    <!-- Here the city is being selected -->
 
                     
-                        </div>  
-
-                   
-                    <div class="ifsc-form-group">
-                        <label for="states" class="form_label">State</label>
-                        <select   name="State_Name" id="State_Name"
-                        size="1" class="state-selection" required>
-                          <option selected></option>
-                            
-                        </select>
-
-                    </div>
-
-
-
-                
-                    <div class="ifsc-form-group">
-                        <label for="cities" class="form_label">City</label>
-                        <select  name="City_Name" id="City_Name"
-                       size="1" class="city-selection" required>
-                          <option selected></option>
-                           
-                        </select>
-
-                    </div>
-
-                     <div class="ifsc-form-group">
-
-                        <label for="branches" class="form_label">Branch</label>
-                        <select name="Branch_Name" id="Branch_Name" size="1" class="branch-selection" required>
-                            <option selected ></option>
-                           
-                        </select>
-
-                    </div>
-                       <button type="button"  name="filter" id="filter" class="btn btn-primary" onclick="myFunction()">Search</button>
+                    
                 </form>
-
 
                 <!-- from 1 ends here -->
 
@@ -99,7 +103,6 @@
                 <form action=" " method="POST" id="filterform">
                     {% csrf_token %}
                     <div class="ifsc-form-group-2">
-
                         <div class="heading">
                             <h3>Or enter IFSC code to Get Bank Details</h3>
                         </div>
@@ -107,15 +110,17 @@
                         <div class="input-ifsc-code" id="enter-ifsc-code">
                             <input type="text" name="ifsc_no_exact" id = "ifsc_no_exact" maxlength="11" 
                                 placeholder="Enter IFSC code" required>
-                            <button type="button" class="ifsc-submit-code" name="ifscFilter" onclick="clickFunction()" id="ifscFilter">Get Details</button>
+                            <button type="button" class="ifsc-submit-code"  onclick="clickFunction()">Get Details</button>
                         </div>
                        
                     </div>
                 </form>
             </div>
+            <!-- The Form 2 ends here :)  -->
 
             <!-- here the template will be displayed after the submission of bank list or after the submission of ifsc code -->
-           <div class="ifsc-code-display" id="ifsc-code-display">  
+           
+             <div class="ifsc-code-display" id="ifsc-code-display">  
              {% for IfscData in ifsc_names %}
                 <!-- It is an example only -->
               
@@ -166,19 +171,19 @@
                 </div>
             
             {% endfor %}
-            </div>
+</div>
+            
         </div>
     </main>
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<script>
-
+    <script>
 $("#service").change(function () {
 		//alert("Inside bankSercive Ajax")
         const selectedService = $(this).val();  // get the selected ServiceHTML input
 		//alert(selectedService)
         $.ajax({                       // initialize an AJAX request
-            url: 'ifsc/',      // set the url of the request
+            url: 'bankname/',      // set the url of the request
             data: {
                 'service': selectedService       // add the country id to the GET parameters
             },
@@ -288,49 +293,34 @@ $("#City_Name").change(function () {
 
 function myFunction() {
   var branch = $('#Branch_Name :selected').val();
-  
-  //document.getElementById("ifsc-code-display").innerHTML = "Hello World";
-  $.ajax({                       // initialize an AJAX request
-            url: 'ifscfilter/',      // set the url of the request
-            data: {
-                
-                'branch': branch,      // add the country id to the GET parameters
+  $.ajax({                       
+            url: 'ifscfilter/',      
+            data: { 
+                'branch': branch,     
             },
             success: function (data) {   // `data` is the return of the `load_cities` view function
-
-                
                  $('.ifsc-code-display').html(data);// replace the contents of the city input with the data that came from the server
               
-            }  // replace the contents of the city input with the data that came from the server  
-            
+            }  
         });
 }
 
 function clickFunction() {
-  //document.getElementById("ifsc-code-display").innerHTML = "Hello World";
     var ifsc_no = $ ('#ifsc_no_exact').val()
-    
     $.ajax({                       // initialize an AJAX request
             url: 'ifscfiller/',      // set the url of the request
-            data: {
-                
+            data: { 
                 'ifsc_no': ifsc_no,      // add the country id to the GET parameters
             },
             success: function (data) {   // `data` is the return of the `load_cities` view function
-
-                
                  $('.ifsc-code-display').html(data);// replace the contents of the city input with the data that came from the server
               
-            }  // replace the contents of the city input with the data that came from the server  
+            }   
             
         });
 }
-  
-</script>
-
-
-
+       
+    </script>
 </body>
-
 {% endblock body %}
 </html>
