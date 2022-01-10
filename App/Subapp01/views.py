@@ -296,44 +296,28 @@ def getServices(request):
     context = {
         'services': ['IFSC Code', 'Grievance(Coming Soon)']
     }
-    print(context)
     return render(request, "app/ifsc_code.html", context)
 
 
 def BankNames(request):
-    # service = request.GET.get('service')
-    # if self.stage_exist:
-    #         query_set = DailyRoute.objects.filter(owner=employer, stage = '1').order_by('route')
-    #     else:
-    #         query_set = DailyRoute.objects.none()
-    #     return query_set
-    # if (service) == 'IFSC Code':
     BankName = IfscData.objects.values_list('BANK', flat=True).distinct().order_by('BANK')
-    # else:
-    #         BankName = IfscData.objects.none()
-    # return BankName
     return JsonResponse(list(BankName.values('BANK')), safe=False)
   
 def StateNames(request):
     bankname = request.GET.get('bank')
-    print(bankname)
     state_names = IfscData.objects.filter(BANK = bankname).distinct().order_by('STATE')
-    print(state_names)
     return JsonResponse(list(state_names.values('STATE')), safe=False)
 
 def CityNames(request):
     statename = request.GET.get('state')
     bankname = request.GET.get('bank')
-    print('bank:', bankname)
     city_names = IfscData.objects.filter(STATE = statename, BANK = bankname).distinct().order_by('CITY')
-    print(city_names)
     return JsonResponse(list(city_names.values('CITY')), safe=False)
 
 def BranchNames(request):
     cityname = request.GET.get('city')
     statename = request.GET.get('state')
     bankname = request.GET.get('bank') 
-    print('city:', cityname)
     branch_names = IfscData.objects.filter(CITY = cityname, STATE = statename, BANK = bankname).distinct().order_by('BRANCH')
     return JsonResponse(list(branch_names.values('id', 'BRANCH')), safe=False)
 
@@ -344,14 +328,14 @@ def Ifscfilter(request):
        'ifsc_names': ifsc_names
       }
     return render(request, "app/ifsc_code.html", context)
-    
-def Ifscfiller(request):
-    ifsc_no = request.GET.get('ifsc_no')
+def Ifscfiller(request, slug):
+    ifsc_no = slug #request.GET.get('ifsc_no')
     ifsc_names = IfscData.objects.filter(IFSC_CODE= ifsc_no)
     context = {
        'ifsc_names': ifsc_names
       }
-    return render(request, "app/ifsc_code.html", context) 
+    return render(request, "app/ifsc_code.html", context)   
+
 
 
 
