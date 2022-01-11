@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 from django.contrib import auth
 from django.contrib.auth.models import User
-
+from django.http import JsonResponse
 
 from App.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
@@ -11,8 +11,10 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from math import ceil
 # Create your views here.
-
+def is_valid_queryparam(param):
+    return param != '' and param is not None
 
 def home(request):
 
@@ -161,6 +163,7 @@ def articleHome(request):
     return render(request, 'app/Articles/articlesHome.html', {'posts': posts})
 
 
+
 def articleView(request, slug):
     post = Post.objects.get(slug=slug)
     print(post)
@@ -288,3 +291,57 @@ def EMIEnquiryFun(request):
         # obj.save()
         print(name)
         return HttpResponse(name)
+
+def getServices(request):
+    context = {
+        'services': ['IFSC Code', 'Grievance(Coming Soon)']
+    }
+    return render(request, "app/ifsc_code.html", context)
+
+
+def BankNames(request):
+    BankName = IfscData.objects.values_list('BANK', flat=True).distinct().order_by('BANK')
+    return JsonResponse(list(BankName.values('BANK')), safe=False)
+  
+def StateNames(request):
+    bankname = request.GET.get('bank')
+    state_names = IfscData.objects.filter(BANK = bankname).distinct().order_by('STATE')
+    return JsonResponse(list(state_names.values('STATE')), safe=False)
+
+def CityNames(request):
+    statename = request.GET.get('state')
+    bankname = request.GET.get('bank')
+    city_names = IfscData.objects.filter(STATE = statename, BANK = bankname).distinct().order_by('CITY')
+    return JsonResponse(list(city_names.values('CITY')), safe=False)
+
+def BranchNames(request):
+    cityname = request.GET.get('city')
+    statename = request.GET.get('state')
+    bankname = request.GET.get('bank') 
+    branch_names = IfscData.objects.filter(CITY = cityname, STATE = statename, BANK = bankname).distinct().order_by('BRANCH')
+    return JsonResponse(list(branch_names.values('id', 'BRANCH')), safe=False)
+
+def Ifscfilter(request):
+    branchname = request.GET.get('branch')
+    ifsc_names = IfscData.objects.filter(id = branchname)
+    context = {
+       'ifsc_names': ifsc_names
+      }
+    return render(request, "app/ifsc_code.html", context)
+def Ifscfiller(request, slug):
+    ifsc_no = slug #request.GET.get('ifsc_no')
+    ifsc_names = IfscData.objects.filter(IFSC_CODE= ifsc_no)
+    context = {
+       'ifsc_names': ifsc_names
+      }
+    return render(request, "app/ifsc_code.html", context)   
+
+
+
+
+
+
+
+
+
+

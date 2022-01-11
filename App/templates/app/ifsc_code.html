@@ -1,0 +1,345 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | IFSC Code</title>{% endblock %} {% block css %}
+
+<!-- <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
+<link rel="stylesheet" href="{% static 'css/creditScore.css' %}" /> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
+<link rel="stylesheet" href="{% static 'css/ifsc-code.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% endblock css %} 
+
+
+</head>
+{% block body %}
+<body onload="resetSelection()">
+
+    <!-- == here goes the header of the page == -->
+    <div class="header_banner">
+        <h2>IFSC Services</h2>
+    
+    </div>
+
+
+
+    <main>
+        <div class="ifsc-code-container">
+
+
+            <!-- form starts here -->
+            <div class="form_container">
+
+                <!--( action="#" method="post") included in the form tag-->
+
+                <form action="" method="post" id="ifscForm>
+				   {% csrf_token %}
+                    <div class="ifsc-form-group">
+                           <label for="services" class="form_label">Services</label>
+                            <select required name="service" id="service" class="service" size="1">
+                            <option selected>Select the service</option>
+                            {% for cat in services %}
+                            <option value="{{ cat }}">{{ cat }}</option>
+                            {% endfor %}
+                            </select>                   
+                        </div>
+                        
+                        <div name="errors" id="errors" class="message"> </div>
+
+                    <!-- Selection of states -->
+                   <div class="ifsc-form-group">
+                         <label for="bank" class="form_label">BANK</label>
+                            <select required name="BankName" id="BankName" class="service" size="1" >
+                            <option value = ""> Select Bank Name</option>
+                            </select>                 
+                        </div>  
+                   
+                        <div class="ifsc-form-group">
+                            <label for="states" class="form_label">State</label>
+                            <select   name="State_Name" id="State_Name"
+                            size="1" class="state-selection" required>
+                            <option value = ""> Select State</option>                           
+                            </select>
+                        </div> 
+
+                        <div class="ifsc-form-group">
+                            <label for="cities" class="form_label">City</label>
+                            <select  name="City_Name" id="City_Name"
+                        size="1" class="city-selection" required>
+                            <option value = ""> Select City</option>
+                            </select>
+                        </div>
+
+                        <div class="ifsc-form-group">
+                            <label for="branches" class="form_label">Branch</label>
+                            <select name="Branch_Name" id="Branch_Name" size="1" class="branch-selection" required>
+                                <option value = ""> Select Branch Name</option> 
+                                                        
+                            </select>
+                        </div>
+                        <div name="error" id="error" class="msg"> </div> 
+                    <button type="button"  class="fields-submit-code" onclick="myFunction()">Search</button>
+
+
+                    <!-- Here the city is being selected -->
+
+                    
+                    
+                </form>
+
+                <!-- from 1 ends here -->
+
+                <!-- Here the IFSC code will be submitted -->
+                <form action=" " method="POST" id="filterform">
+                    {% csrf_token %}
+                    <div class="ifsc-form-group-2">
+                        <div class="heading">
+                            <h3>Or enter IFSC code to Get Bank Details</h3>
+                        </div>
+                        {% comment %} <label for="enter-ifsc-code" class="form_label">IFSC code</label> {% endcomment %}
+                        <div class="input-ifsc-code" id="enter-ifsc-code">
+                            <input type="text" name="ifsc_no_exact" id = "ifsc_no_exact" maxlength="11" 
+                                placeholder="Enter IFSC code" required>
+                            <button type="button" class="ifsc-submit-code"  onclick="clickFunction()">Get Details</button>
+                        </div>
+                        <div name="errormsg" id="errormsg" class="msg"> </div> 
+                        <div name="errorrs" id="errorrs" class="msg"> </div> 
+                    </div>
+                </form>
+            </div>
+            <!-- The Form 2 ends here :)  -->
+
+            <!-- here the template will be displayed after the submission of bank list or after the submission of ifsc code -->
+           
+             <div class="ifsc-code-display" id="ifsc-code-display">  
+             {% for IfscData in ifsc_names %}
+                <!-- It is an example only -->
+              
+                <div class="display-code">
+                
+                    <div class="heading">
+                        <h3>{{IfscData.BANK}} <span>(
+                            <span>{{IfscData.IFSC_CODE}}</span> )</span>
+                        </h3>
+                    
+                    </div>
+                    
+                    <div class="ifsc-contents">
+                        <table>
+                            <tr>
+                                <td class="heading-name"><span>IFSC Code :</span></td>
+                                <td><span class="blue-txt">
+                                        {{ IfscData.IFSC_CODE }}
+                                    </span></td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="heading-name"><span>MICR Code :</span></td>
+                                <td><span class="blue-txt">{{IfscData.MICR}} </span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">Address :</td>
+                                <td>{{IfscData.address}} </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">State :</td>
+                                <td><span class="blue-txt">
+                                        {{IfscData.STATE}}
+                                    </span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">City :</td>
+                                <td><span class="blue-txt">{{IfscData.CITY}}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">Branch :</td>
+                                <td><span class="blue-txt">{{IfscData.BRANCH}}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">Contact :</td>
+                                <td>{{IfscData.CONTACT}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                </div>
+            
+            {% endfor %}
+</div>
+            
+        </div>
+    </main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+$("#service").change(function () {
+		document.getElementById('errors').innerHTML = " ";
+        const selectedService = $(this).val();  // get the selected ServiceHTML input
+	    if( $("#service").val() == '' ||  $("#service").val() == 'Grievance(Coming Soon)' ) {
+            document.getElementById('errors').innerHTML = "Select IFSC Code, Grievance is coming soon";
+         
+}
+        else {
+         $.ajax({                       // initialize an AJAX request
+                url: 'bankname/',      // set the url of the request
+                data: {
+                    'service': selectedService       // add the country id to the GET parameters
+                },
+                
+                success: function (data) {   // `data` is the return of the `load_cities` view function
+                    let html_data = '<option value="">-----SELECT------</option>';
+                    data.forEach(function (IfscData) {
+                        html_data += `<option value="${IfscData.BANK}">${IfscData.BANK}</option>`
+                    });
+                
+                    $("#BankName").html(html_data);
+                    
+                }  
+                
+            });
+            
+}
+
+    });
+
+$("#BankName").change(function () {
+		
+        const selectedBank = $(this).val();  // get the selected ServiceHTML input
+	
+        $.ajax({                       // initialize an AJAX request
+            url: 'statename/',      // set the url of the request
+            data: {
+                'bank': selectedBank 
+                       // add the country id to the GET parameters
+            },
+            
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                let html_data = '<option value="">-----SELECT------</option>';
+                data.forEach(function (IfscData) {
+                    html_data += `<option value="${IfscData.STATE}">${IfscData.STATE}</option>`
+                });
+               
+                $("#State_Name").html(html_data);
+                 // replace the contents of the city input with the data that came from the server
+                
+            }  // replace the contents of the city input with the data that came from the server  
+            
+        });
+
+    });
+
+$("#State_Name").change(function () {
+		
+        
+        var bank = $('#BankName :selected').val(); 
+        
+        const selectedState = $(this).val(); 
+        
+        
+        $.ajax({                       // initialize an AJAX request
+            url: 'cityname/',      // set the url of the request
+            data: {
+                
+                'state': selectedState,
+                'bank': bank       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                let html_data = '<option value="">-----SELECT------</option>';
+                data.forEach(function (IfscData) {
+                    html_data += `<option value="${IfscData.CITY}">${IfscData.CITY}</option>`
+                });
+               
+                $("#City_Name").html(html_data);
+                 // replace the contents of the city input with the data that came from the server
+                
+            }  // replace the contents of the city input with the data that came from the server  
+            
+        });
+
+    });
+
+$("#City_Name").change(function () {
+		
+        
+         
+        var bank = $('#BankName :selected').val();
+        var state = $('#State_Name :selected').val();
+        const selectedCity = $(this).val(); 
+      
+        
+        $.ajax({                       // initialize an AJAX request
+            url: 'branchname/',      // set the url of the request
+            data: {
+                
+                'city': selectedCity,
+                'bank': bank,
+                'state': state       // add the country id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                let html_data = '<option value="">-----SELECT------</option>';
+                data.forEach(function (IfscData) {
+                    html_data += `<option value="${IfscData.id}">${IfscData.BRANCH}</option>`
+                });
+               
+                $("#Branch_Name").html(html_data);
+                 // replace the contents of the city input with the data that came from the server
+                
+            }  // replace the contents of the city input with the data that came from the server  
+            
+        });
+
+    });
+
+function myFunction() {
+  document.getElementById('error').innerHTML = " ";
+  var branch = $('#Branch_Name :selected').val();
+  if( $("#Branch_Name").val() ) {
+      $.ajax({                       
+                url: 'ifscfilter/',      
+                data: { 
+                    'branch': branch,     
+                },
+                success: function (data) {
+                    
+                    $('#ifsc-code-display').html(jQuery(data).find('#ifsc-code-display').html());// replace the contents of the city input with the data that came from the server
+                
+                }  
+            });
+    }  
+    
+  else{
+     document.getElementById('error').innerHTML = "Please select all the Fields.";
+            
+}
+}
+function clickFunction() {
+    document.getElementById('errorrs').innerHTML = " ";
+    document.getElementById('errormsg').innerHTML = " ";
+    var ifsc_no = $ ('#ifsc_no_exact').val()
+	alert('ifscfiller/' + ifsc_no)
+    if( $("#ifsc_no_exact").val() ) {
+    $.ajax({                       // initialize an AJAX request
+            url: ifsc_no,      // set the url of the request
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                 
+                    $('#ifsc-code-display').html(jQuery(data).find('#ifsc-code-display').html());  
+                    if($ ('#ifsc-code-display').html().length < 50){
+                      document.getElementById('errorrs').innerHTML = "Please Enter Valid IFSC CODE.";
+} 
+} 
+            
+        });
+}
+
+else{
+
+     document.getElementById('errormsg').innerHTML = " Enter IFSC CODE.";
+     return false;
+}
+}
+
+
+    </script>
+</body>
+{% include 'footer.html' %} {% endblock body %}
+</html>

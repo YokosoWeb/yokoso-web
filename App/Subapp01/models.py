@@ -114,3 +114,16 @@ class ADV_EMI_CAL(models.Model):
     loan_min = models.IntegerField(blank = True)
     loan_max = models.IntegerField(blank = True)
     interest_rate = models.FloatField(blank = True)
+
+
+class IfscData(models.Model):
+    IFSC_CODE = models.CharField(max_length=200,blank=True,null = True)
+    BANK = models.CharField(max_length = 200, blank = True,null = True)
+    STATE = models.CharField(max_length = 200,blank=True,null = True)
+    DISTRICT = models.CharField(max_length = 200,blank=True,null = True)
+    CITY = models.CharField(max_length = 200,blank=True)
+    BRANCH = models.CharField(max_length = 200,blank=True,null = True)
+    PHONE = models.FloatField(blank=True,null = True)
+    STD_CODE = models.FloatField(blank=True,null = True)
+    MICR = models.FloatField(blank=True,null = True)
+    ADDRESS = models.CharField(max_length=500,blank=True,null = True)
