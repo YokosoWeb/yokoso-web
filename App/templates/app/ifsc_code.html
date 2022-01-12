@@ -37,7 +37,7 @@
                     <div class="ifsc-form-group">
                            <label for="services" class="form_label">Services</label>
                             <select required name="service" id="service" class="service" size="1">
-                            <option selected>Select the service</option>
+                            <option selected value="">Select the service</option>
                             {% for cat in services %}
                             <option value="{{ cat }}">{{ cat }}</option>
                             {% endfor %}
@@ -316,7 +316,7 @@ function clickFunction() {
     document.getElementById('errorrs').innerHTML = " ";
     document.getElementById('errormsg').innerHTML = " ";
     var ifsc_no = $ ('#ifsc_no_exact').val()
-	alert('ifscfiller/' + ifsc_no)
+	
     if( $("#ifsc_no_exact").val() ) {
     $.ajax({                       // initialize an AJAX request
             url: ifsc_no,      // set the url of the request
