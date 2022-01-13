@@ -172,6 +172,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+
 $("#service").change(function () {
 		document.getElementById('errors').innerHTML = " ";
         const selectedService = $(this).val();  // get the selected ServiceHTML input
@@ -203,7 +204,7 @@ $("#service").change(function () {
     });
 
 $("#BankName").change(function () {
-		
+		document.getElementById('error').innerHTML = " ";
         const selectedBank = $(this).val();  // get the selected ServiceHTML input
 	
         $.ajax({                       // initialize an AJAX request
@@ -230,7 +231,7 @@ $("#BankName").change(function () {
 
 $("#State_Name").change(function () {
 		
-        
+        document.getElementById('error').innerHTML = " ";
         var bank = $('#BankName :selected').val(); 
         
         const selectedState = $(this).val(); 
@@ -261,7 +262,7 @@ $("#State_Name").change(function () {
 $("#City_Name").change(function () {
 		
         
-         
+        document.getElementById('error').innerHTML = " ";
         var bank = $('#BankName :selected').val();
         var state = $('#State_Name :selected').val();
         const selectedCity = $(this).val(); 
