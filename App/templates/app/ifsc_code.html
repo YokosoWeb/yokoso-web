@@ -37,7 +37,7 @@
                     <div class="ifsc-form-group">
                            <label for="services" class="form_label">Services</label>
                             <select required name="service" id="service" class="service" size="1">
-                            <option selected>Select the service</option>
+                            <option selected value="">Select the service</option>
                             {% for cat in services %}
                             <option value="{{ cat }}">{{ cat }}</option>
                             {% endfor %}
@@ -172,6 +172,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+
 $("#service").change(function () {
 		document.getElementById('errors').innerHTML = " ";
         const selectedService = $(this).val();  // get the selected ServiceHTML input
@@ -203,7 +204,7 @@ $("#service").change(function () {
     });
 
 $("#BankName").change(function () {
-		
+		document.getElementById('error').innerHTML = " ";
         const selectedBank = $(this).val();  // get the selected ServiceHTML input
 	
         $.ajax({                       // initialize an AJAX request
@@ -230,7 +231,7 @@ $("#BankName").change(function () {
 
 $("#State_Name").change(function () {
 		
-        
+        document.getElementById('error').innerHTML = " ";
         var bank = $('#BankName :selected').val(); 
         
         const selectedState = $(this).val(); 
@@ -261,7 +262,7 @@ $("#State_Name").change(function () {
 $("#City_Name").change(function () {
 		
         
-         
+        document.getElementById('error').innerHTML = " ";
         var bank = $('#BankName :selected').val();
         var state = $('#State_Name :selected').val();
         const selectedCity = $(this).val(); 
@@ -316,7 +317,7 @@ function clickFunction() {
     document.getElementById('errorrs').innerHTML = " ";
     document.getElementById('errormsg').innerHTML = " ";
     var ifsc_no = $ ('#ifsc_no_exact').val()
-	alert('ifscfiller/' + ifsc_no)
+	
     if( $("#ifsc_no_exact").val() ) {
     $.ajax({                       // initialize an AJAX request
             url: ifsc_no,      // set the url of the request

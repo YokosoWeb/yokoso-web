@@ -135,7 +135,7 @@ def FAQs(request, slug):
     print(category.id)
     datas = FAQText.objects.filter(category=category.id)
     print(datas)
-    return render(request, 'app/faq.html', {'datas': datas})
+    return render(request, 'app/faq.html', {'datas': datas, 'category': category})
 
 
 def about(request):
