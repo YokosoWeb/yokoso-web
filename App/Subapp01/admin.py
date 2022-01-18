@@ -8,6 +8,7 @@ admin.site.register(FAQText)
 admin.site.register(EMIEnquiry)
 admin.site.register(ADV_EMI_CAL)
 admin.site.register(IfscData)
+admin.site.register(bank_grievance)
 
 
 @admin.register(Post)

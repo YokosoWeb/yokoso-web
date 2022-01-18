@@ -1,4 +1,13 @@
-{% extends "base.html" %} {% load static %} {% block title %}
+{% extends "base.html" %} {% load static %}
+
+{% block meta %}
+  <meta name="description"
+    content="EMI Calculator - Calculate Equated Monthly Installment (EMI) for Home Loan / Housing Loan, Car Loan ,Personal Loan in India">
+  <meta name="keywords" content="emi calculator, free emi calculator, calculate your emi, loan emi ,best emi calculator , calculate my EMI">
+{% endblock %
+
+
+ {% block title %}
 <title>Yokoso | EMI Calculator</title>{% endblock %} {% block css %}
 
 <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />

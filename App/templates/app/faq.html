@@ -1,21 +1,45 @@
 {% extends "base.html" %} {% load static %} {% block title %}
-<title>Yokoso | Profile</title>{% endblock %} {% block css %}
+<title>Yokoso | FAQs</title>{% endblock %} {% block css %}
 
 <link rel="stylesheet" href="{% static 'css/faq.css' %}" />
 
 {% endblock %} {% block body %}
+<div class="header_banner">
+        <h2>FAQs-{{category}}</h2>
+    
+    </div>
+{% comment %} <h2 class="category">{{category}}</h2> {% endcomment %}
 
-<div class="wrap">
-  <div class="wrap__child">
+<div class="content">
+  <div class="contentin">
 
     {% for i in datas %}
-    <div class="wrap__text">
-    <h2>{{i.title}}</h2>
-    <p>{{i.description}}</p>
-
+    <div class="contentcard">
+    <p  name="title" class="title" style="cursor: pointer">{{i.title}}</p>
+    <p style='display: none' id="descrip" class="descrip">{{i.description}}</p>
+    
     </div>
+    <hr>
     {% endfor %}
 
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    
+    $(".title").on("click", function() {
+     
+     $(this).next().slideToggle();
+
+});
+
+});
+
+</script>
+
+
+
 {% endblock %}
+
