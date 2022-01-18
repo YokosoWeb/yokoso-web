@@ -32,7 +32,7 @@
               </div>
               <div class="form-group">
                 <label for="mname">PAN*</label>
-                <input type="number" name="pan" id="pan" placeholder="PAN Number" />
+                <input type="text" name="pan" id="pan" placeholder="PAN Number" />
                 <span color="red" id="pan_msg" class="small__msg"></span>
               </div>
               <div class="form-group">
@@ -91,19 +91,19 @@
             <div class="flex__wrap">
               <div class="form-group">
                 <label for="">Net Monthly Salary* </label>
-                <input type="number" id="ms" name="ms" placeholder="Net Monthly Salary" />
+                <input type="number" id="ms" name="ms" placeholder="Net Monthly Salary" min="0" />
                 <span color="red" id="ms_msg" class="small__msg"></span>
               </div>
               <div class="form-group">
                 <label for="StuID">If Any ongoing EMI</label>
-                <input type="number" id="oe" name="oe" placeholder="Any ongoing  EMI" value="0" />
+                <input type="number" id="oe" name="oe" placeholder="Any ongoing  EMI" value="0" min="0"/>
                 <span color="red" id="oe_msg" class="small__msg"></span>
               </div>
               <div class="form-group">
                 <label for="">Loan Type*</label>
                 <select name="loanType" id="loanType">
-                  <option value="">Select Loan Type</option>
-                  <option value="Standard Home Loan">Standard Home Loan</option>
+                  <!-- <option value="">Select Loan Type</option> -->
+                  <!-- <option value="Standard Home Loan">Personal Loan</option> -->
                   <option value="Home Loan">Home Loan</option>
                 </select>
                 <span color="red" id="loanType_msg" class="small__msg"></span>
@@ -113,13 +113,13 @@
             <div class="flex__wrap">
               <div class="form-group">
                 <label for="">Loan Amount*</label>
-                <input type="number" id="la" name="la" id="la" placeholder="Loan Amount" />
+                <input type="number" id="la" name="la" id="la" placeholder="Loan Amount" min="0"/>
                 <span color="red" id="la_msg" class="small__msg"></span>
 
               </div>
               <div class="form-group">
                 <label for="month">Tenure ( In Months )*</label>
-                <input type="number" id="month" name="month" id="month" placeholder="Tenure ( In Months )" />
+                <input type="number" id="month" name="month" id="month" placeholder="Tenure ( In Months )" min="0" max="360" />
                 <span color="red" id="month_msg" class="small__msg"></span>
 
               </div>
@@ -130,6 +130,10 @@
                   <option value="All">All</option>
                   <option value="HDFC">HDFC</option>
                   <option value="IDBI">IDBI</option>
+                  <option value="IDBI">Bank of India</option>
+                  <option value="IDBI">LIC</option>
+                  <option value="IDBI">PNB</option>
+                  <option value="IDBI">SBI</option>
                 </select>
                 <span color="red" id="bank_msg" class="small__msg"></span>
 
@@ -138,7 +142,7 @@
             <div class="flex__wrap">
               <div class="form-group">
                 <label for="StuID">Credit Score ( Optional )</label>
-                <input type="number" id="creditScore" name="creditScore" placeholder="Credit Score" min="750" />
+                <input type="number" id="creditScore" name="creditScore" placeholder="Credit Score" min="750" max="900"/>
               </div>
               <div class="form-group"></div>
               <div class="form-group"></div>
@@ -172,7 +176,18 @@
       function validate() {
 
         // Check format Email
-        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var filter = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
+        // var regx = /^[A-Za-z]+/;
+        // var regx_fname = /^([\w]{3,})+\s+([\w\s]{3,})+$/;
+        var regx_fname = /^[a-zA-Z0-9 ]+$/;
+
+        // var regx_pan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+        var regx_pan = /^([A-Za-z]){5}([0-9]){4}([A-Za-z]){1}?$/;
+
+        var regx_phone = /^[1-9][0-9]+$/;
+        // var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        // var filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        // var filter = /^[a-zA-Z0-9]/;
 
         let isvalid = 0;
         // console.log('hi')
@@ -181,26 +196,40 @@
           console.log(fname.value, pan.value, emp.value, phone.value, email.value, dob.value, gender.value);
 
           if (fname.value == '') {
+            console.log(regx_fname.test(fname.value));
             // alert('please fill name');
             fname_msg.innerText = "*Please fill name"
             isvalid += 1;
             console.log(isvalid)
             // return false
           } else {
-            fname_msg.innerText = ""
+            if (!regx_fname.test(fname.value)) {
+              fname_msg.innerText = "*Please fill valid name"
+              isvalid += 1;
+            } else {
+              fname_msg.innerText = ""
 
+            }
           }
+      
 
           if (pan.value == '' || pan.value.length != 10) {
-            pan_msg.innerText = "*Please fill valid PAN"
+
+            console.log(regx_pan.test(pan.value));
+            pan_msg.innerText = "*Please fill PAN"
 
             isvalid += 1;
             console.log(isvalid)
 
           } else {
+            if (!regx_pan.test(pan.value)) {
+            pan_msg.innerText = "*Please fill valid PAN"
+            isvalid += 1;
+          } else {
             pan_msg.innerText = ""
-
           }
+
+         }
 
           if (emp.value == '') {
             emp_msg.innerText = "*Please fill Employment type"
@@ -215,26 +244,33 @@
 
           if (phone.value == '' || phone.value.length != 10) {
 
+            console.log(regx_phone.test(phone.value));
             phone_msg.innerText = "*Please fill Phone Number"
 
             isvalid += 1;
             console.log(isvalid)
 
           } else {
-            phone_msg.innerText = ""
-
+            if (!regx_phone.test(phone.value)) {
+              phone_msg.innerText = "*Please fill valid Phone Number"
+              isvalid += 1;
+            } else{
+              phone_msg.innerText = ""
+            }
           }
+
+
           if (email.value == '') {
 
             console.log(filter.test(email.value));
-            email_msg.innerText = "*Please fill valid Email"
+            email_msg.innerText = "*Please fill Email Address"
 
             isvalid += 1;
             console.log(isvalid)
 
           } else {
             if (!filter.test(email.value)) {
-              email_msg.innerText = "*Please fill valid Email"
+              email_msg.innerText = "*Please fill valid Email Address"
               isvalid += 1;
             } else {
               email_msg.innerText = ""

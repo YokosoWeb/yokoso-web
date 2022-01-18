@@ -207,7 +207,7 @@ def credit(request):
         print(P1)
         r = float(DefaultROI)/(12*100)
         p = int(loanAmount)
-        n = int(tenure)
+        n = int(tenure) 
 
         # Calculating Equated Monthly Installment (EMI)
         EMI_REAL = round(p * r * ((1+r)**n)/((1+r)**n - 1), 2)
@@ -292,6 +292,7 @@ def EMIEnquiryFun(request):
         print(name)
         return HttpResponse(name)
 
+# def IfscData(re)
 def getServices(request):
     context = {
         'services': ['IFSC Code', 'Grievance(Coming Soon)']

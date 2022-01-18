@@ -127,3 +127,14 @@ class IfscData(models.Model):
     STD_CODE = models.FloatField(blank=True,null = True)
     MICR = models.FloatField(blank=True,null = True)
     ADDRESS = models.CharField(max_length=500,blank=True,null = True)
+    
+    # ADDRESS = models.CharField(max_length=500,blank=True,null = True)
+
+class bank_grievance(models.Model):
+    babk_ifsc = models.CharField(max_length=500,blank=True,null = True)
+    Bank = models.CharField(max_length = 1000, blank = True,null = True)
+    level1 = models.CharField(max_length = 1000, blank = True,null = True)
+    level2 = models.CharField(max_length = 500, blank = True,null = True)
+    level3 = models.CharField(max_length = 500, blank = True,null = True)
+    helpful_link = models.CharField(max_length = 500, blank = True,null = True)
+    twitter_handle = models.CharField(max_length = 1000, blank = True,null = True)
