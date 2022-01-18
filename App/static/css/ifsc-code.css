@@ -1,0 +1,250 @@
+ html {
+     scroll-behavior: smooth;
+ }
+ 
+ .ifsc-code-container {
+     width: 90%;
+     margin: auto;
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     padding: 30px 20px;
+ }
+ 
+ .form_container {
+     width: 50%;
+ }
+ 
+ .form_label {
+     font-size: 15px;
+     color: #666;
+     float: left;
+     padding-left: 5px;
+ }
+ 
+ .ifsc-form-group,
+ .ifsc-form-group-2 {
+     position: relative;
+     /* margin-top: 1.5rem; */
+     margin-bottom: 1rem;
+ }
+ 
+ select {
+     width: 100%;
+     outline: none;
+     border: none;
+     border-bottom: 1px solid #999;
+     /* padding: 7px 0px 7px 10px; */
+     font-size: 15px;
+     cursor: pointer;
+     background-color: transparent;
+ }
+ 
+ .header_banner {
+     background: #ebebeb;
+     padding: 14px 8%;
+     /* margin: .5rem 1rem 0rem 1rem; */
+ }
+ /* .select-container{
+    display: flex;
+    flex-direction: column-reverse;
+} */
+ 
+ input[type="radio"] {
+     position: relative;
+     margin-right: -15px;
+ }
+ 
+ input[type="text"]::placeholder {
+     color: #aaa;
+ }
+ 
+ .small-size {
+     font-size: 14px;
+ }
+ 
+ .heading {
+     margin-bottom: 1rem;
+ }
+ 
+ input[type="text"] {
+     width: 100%;
+     border: none;
+     border-bottom: 1px solid #666;
+     padding: 10px 0 5px 15px;
+     outline: none;
+     font-size: 18px;
+     background-color: transparent;
+ }
+ 
+ .fields-submit-code {
+     bottom: 50px;
+     float: right;
+     margin: 1rem 0rem;
+     position: relative;
+     color: #fff!important;
+     font-size: 20px;
+     outline: none;
+     border-radius: 4px;
+     border: 1px solid #48c290;
+     background-color: #48c290;
+     cursor: pointer;
+     padding: 0.4rem 2rem;
+ }
+ 
+ .ifsc-submit-code {
+     position: relative;
+     bottom: 50px;
+     float: right;
+     color: #fff!important;
+     font-size: 18px;
+     outline: none;
+     border-radius: 4px;
+     border: 1px solid #48c290;
+     background-color: #48c290;
+     padding: 0.5rem 1.2rem;
+     cursor: pointer;
+ }
+ 
+ .ifsc-code-display {
+     width: 48%;
+     margin-left: 1rem;
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .display-code {
+     border-radius: 4px;
+     /* overflow: hidden; */
+     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+     width: 95%;
+     height: max-content;
+     margin-right: 5px;
+     margin-left: 5px;
+     margin-top: 20px;
+ }
+ 
+ .display-code .heading {
+     font-weight: 600;
+     padding: 15px 14%;
+     background-color: #48c290;
+     color: #fff!important;
+ }
+ 
+ .message {
+     font-size: 12px;
+     font-weight: 600;
+     color: rgb(233, 21, 21);
+     height: 15px;
+     margin: .2rem;
+     display: block;
+ }
+ 
+ .msg {
+     font-size: 16px;
+     font-weight: 600;
+     color: rgb(233, 21, 21);
+     height: 15px;
+     margin: .5rem;
+     display: block;
+ }
+ 
+ table {
+     padding: 1rem;
+ }
+ 
+ .blue-txt {
+     font-weight: bolder;
+     color: black;
+     font-size: large;
+     margin-left: 1rem;
+ }
+ 
+ .ifsc-contents {
+     width: 100%;
+     margin-left: 10%;
+ }
+ 
+ .heading-name {
+     font-size: large;
+ }
+ /* .ifsc-contents td:nth-child(1) {
+    width: 100px;
+} */
+ /* .ifsc-contents td:nth-child(2) {
+    padding-left: 5px;
+/* } */
+ 
+ .ifsc-contents td {
+     padding: 5px 0px;
+ }
+ 
+ @media (max-width: 1300px) {
+     .display-code .heading h3 {
+         font-size: 16px;
+     }
+     .ifsc-contents {
+         font-size: 13px;
+     }
+     input[type="text"] {
+         font-size: 15px;
+     }
+     .fields-submit-code {
+         font-size: 20px;
+     }
+ }
+ 
+ @media (max-width: 800px) {
+     .form_container {
+         width: 100%;
+     }
+     .ifsc-code-display {
+         width: 100%;
+     }
+     .ifsc-contents td:nth-child(1) {
+         width: 90px;
+     }
+     .ifsc-contents td:nth-child(2) {
+         padding-left: 0px;
+     }
+     .ifsc-contents {
+         padding: 15px;
+     }
+     .error {
+         margin-top: 3px;
+     }
+     .ifsc-submit-code {
+         font-size: 15px;
+         bottom: 45px;
+     }
+     .fields-submit-code {
+         font-size: 20px;
+     }
+ }
+ 
+ @media (max-width:500px) {
+     .ifsc-contents {
+         font-size: 11px;
+     }
+     .ifsc-code-container {
+         width: 98%;
+     }
+     .ifsc-code-display {
+         width: 100%;
+     }
+     .display-code {
+         width: 100%;
+         margin: 0;
+         margin-top: 20px;
+     }
+     .ifsc-contents td:nth-child(1) {
+         width: 70px;
+     }
+     .ifsc-contents td:nth-child(2) {
+         padding-left: 10px;
+     }
+     .fields-submit-code {
+         font-size: 15px;
+         padding: 0.5rem 2rem;
+     }
+ }

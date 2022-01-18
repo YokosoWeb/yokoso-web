@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% load static %} {% block title %}
 <title>{{post.title}}</title>{% endblock %} {% block css %}
-
+{% block meta %}
+<meta name="keywords" content={{post.meta}}>
+{% endblock meta %}
 <!-- <link rel="stylesheet" href="{% static 'css/certificate/home.css' %}" /> -->
 <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
 <link
