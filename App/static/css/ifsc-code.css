@@ -64,7 +64,7 @@
  }
  
  .heading {
-     margin-bottom: 1rem;
+     margin: .5rem;
  }
  
  input[type="text"] {
@@ -107,6 +107,13 @@
  }
  
  .ifsc-code-display {
+     width: 48%;
+     margin-left: 1rem;
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .grievance-code-display {
      width: 48%;
      margin-left: 1rem;
      display: flex;

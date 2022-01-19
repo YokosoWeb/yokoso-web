@@ -29,6 +29,8 @@ urlpatterns = [
     path ('ifsc/branchname/', BranchNames, name='branchname'),
     path ('ifsc/ifscfilter/', Ifscfilter, name='ifscfilter'),
     # path ('ifsc/ifscfiller/', Ifscfiller, name='ifscfiller')
-    path ('ifsc/<slug>', Ifscfiller, name='ifscfiller')
+    path ('ifsc/<slug>', Ifscfiller, name='ifscfiller'),
+    path ('ifsc/grievance/', Grievance, name='grievance'),
+    path ('ifsc/grievancefilter/', GrievanceFilter, name='grievancefilter')
     
 ]

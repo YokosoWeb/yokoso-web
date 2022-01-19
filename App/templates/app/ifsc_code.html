@@ -43,8 +43,8 @@
                             {% endfor %}
                             </select>                   
                         </div>
-                        
-                        <div name="errors" id="errors" class="message"> </div>
+{% comment %}                         
+                        <div name="errors" id="errors" class="message"> </div> {% endcomment %}
 
                     <!-- Selection of states -->
                    <div class="ifsc-form-group">
@@ -166,7 +166,61 @@
             
             {% endfor %}
 </div>
+      <div class="grievance-code-display" id="grievance-code-display">  
+             {% for bank_grievance in grievance %}
+                <!-- It is an example only -->
+              
+                <div class="display-code">
+                
+                    <div class="heading">
+                        <h3>{{bank_grievance.babk_ifsc}} <span>(
+                            {% comment %} <span>{{IfscData.IFSC_CODE}}</span> )</span> {% endcomment %}
+                        </h3>
+                    
+                    </div>
+                    
+                    <div class="ifsc-contents">
+                        <table>
+                            <tr>
+                                <td class="heading-name"><span>IFSC Code :</span></td>
+                                <td><span class="blue-txt">
+                                        {{ bank_grievance.babk_ifsc }}
+                                    </span></td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="heading-name"><span>MICR Code :</span></td>
+                                <td><span class="blue-txt">{{bank_grievance.babk_ifsc}} </span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">Address :</td>
+                                <td>{{bank_grievance.babk_ifsc}} </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">State :</td>
+                                <td><span class="blue-txt">
+                                        {{bank_grievance.babk_ifsc}}
+                                    </span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">City :</td>
+                                <td><span class="blue-txt">{{bank_grievance.babk_ifsc}}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">Branch :</td>
+                                <td><span class="blue-txt">{{bank_grievance.babk_ifsc}}</span></td>
+                            </tr>
+                            <tr>
+                                <td class="heading-name">Contact :</td>
+                                <td>{{bank_grievance.babk_ifsc}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                </div>
             
+            {% endfor %}
+</div>      
         </div>
     </main>
 
@@ -175,10 +229,33 @@
 
 $("#service").change(function () {
 		document.getElementById('errors').innerHTML = " ";
+        $("#State_Name").removeAttr('disabled');
+        $("#City_Name").removeAttr('disabled');
+        $("#Branch_Name").removeAttr('disabled');
         const selectedService = $(this).val();  // get the selected ServiceHTML input
 	    if( $("#service").val() == '' ||  $("#service").val() == 'Grievance(Coming Soon)' ) {
-            document.getElementById('errors').innerHTML = "Select IFSC Code, Grievance is coming soon";
-         
+            
+            $.ajax({                       // initialize an AJAX request
+                url: 'grievance/',      // set the url of the request
+                data: {
+                    'service': selectedService       // add the country id to the GET parameters
+                },
+                
+                success: function (data) {   // `data` is the return of the `load_cities` view function
+                    let html_data = '<option value="">-----SELECT------</option>';
+                    data.forEach(function (grievance) {
+                        html_data += `<option value="${grievance.id}">${grievance.Bank}</option>`
+                        
+                    });
+                    $("#BankName").html(html_data);
+                    $("#State_Name").attr('disabled','disabled');
+                    $("#City_Name").attr('disabled','disabled');
+                    $("#Branch_Name").attr('disabled','disabled');
+                    
+                    
+                }  
+                
+            });
 }
         else {
          $.ajax({                       // initialize an AJAX request
@@ -293,12 +370,16 @@ $("#City_Name").change(function () {
 
 function myFunction() {
   document.getElementById('error').innerHTML = " ";
+  var bank = $('#BankName :selected').val();
   var branch = $('#Branch_Name :selected').val();
+  
+  alert(bank);
+  
   if( $("#Branch_Name").val() ) {
       $.ajax({                       
                 url: 'ifscfilter/',      
                 data: { 
-                    'branch': branch,     
+                     'branch': branch,      
                 },
                 success: function (data) {
                     
@@ -308,9 +389,21 @@ function myFunction() {
             });
     }  
     
-  else{
-     document.getElementById('error').innerHTML = "Please select all the Fields.";
+  else if($('#BankName').val() ){
+     $.ajax({                       
+                url: 'grievancefilter/',      
+                data: { 
+                    'bank': bank,     
+                },
+                success: function (data) {
+                    $('#grievance-code-display').html(jQuery(data).find('#grievance-code-display').html());// replace the contents of the city input with the data that came from the server
+                
+                }  
+            });
             
+}
+else{
+    document.getElementById('error').innerHTML = "Please select all the Fields.";
 }
 }
 function clickFunction() {
