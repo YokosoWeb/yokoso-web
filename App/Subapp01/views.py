@@ -228,19 +228,22 @@ def credit(request):
             loan_type=loanType)
         print(data.count())
 
-        loan__amount = (int(int(loanAmount)/100000))
+        # loan__amount = (int(int(loanAmount)/100000))
+
         data1 = []
         for i in data:
-            if (loan__amount >= i.loan_min) and (loan__amount <= i.loan_max):
+            # print("=====",i)
+            if ((int(loanAmount) >= i.loan_min) and (int(loanAmount) <= i.loan_max)) and ((int(creditScore) >= i.cibil_min) and ( int(creditScore) <= i.cibil_max)) and (str(i.gender) == 'Other' or str(i.gender) == 'None'):
                 data1.append(i)
             print(i.bank,i.loan_type,i.loan_min,i.loan_max,)
-
-
+        print(data1)
+        for i in data1:
+            print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
 
         # if not show then show others
 
 
-        print(len(data1))
+        '''print(len(data1))
         data2 = []
         if creditScore:
             creditScore = creditScore
@@ -261,11 +264,11 @@ def credit(request):
             if str(i.gender) == gender:
                 data3.append(i)
             elif str(i.gender) == 'Other' or str(i.gender) == 'None':
-                data3.append(i)
+                data3.append(i)'''
 
-        for i in data3:
-            print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
-        print(data3)
+        # for i in data3:
+        #     print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
+        # print(data3)
 
 
      
@@ -273,7 +276,7 @@ def credit(request):
 
         # print(int(int(loanAmount)/100000))
 
-        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'EMI_REAL': EMI_REAL, 'LOAN_MAX': LOAN_MAX, 'LOAN_REAL': LOAN_REAL, 'ROI': ROI, 'TENURE': TENURE,'eligible' :True, 'data' : data3})
+        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'EMI_REAL': EMI_REAL, 'LOAN_MAX': LOAN_MAX, 'LOAN_REAL': LOAN_REAL, 'ROI': ROI, 'TENURE': TENURE,'eligible' :True, 'data' : data1})
     return render(request, 'app/creditScore.html')
 
 
