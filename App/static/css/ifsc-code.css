@@ -113,13 +113,6 @@
      justify-content: center;
  }
  
- .grievance-code-display {
-     width: 48%;
-     margin-left: 1rem;
-     display: flex;
-     justify-content: center;
- }
- 
  .display-code {
      border-radius: 4px;
      /* overflow: hidden; */
@@ -127,8 +120,6 @@
      width: 95%;
      height: max-content;
      margin-right: 5px;
-     margin-left: 5px;
-     margin-top: 20px;
  }
  
  .display-code .heading {
@@ -160,30 +151,48 @@
      padding: 1rem;
  }
  
- .blue-txt {
-     font-weight: bolder;
+ table a {
+     font-size: smaller;
+     overflow-wrap: anywhere;
      color: black;
-     font-size: large;
+ }
+ 
+ .blue-txt {
+     font-weight: bold;
+     color: black;
+     font-size: medium;
+     font-family: emoji;
      margin-left: 1rem;
  }
  
+ .output-text {
+     font-weight: bold;
+     color: black;
+     font-family: -webkit-pictograph;
+     margin-left: .5rem;
+ }
+ 
+ .disclaimer {
+     font-family: serif;
+     margin: .5rem;
+     font-size: small;
+ }
+ 
  .ifsc-contents {
-     width: 100%;
-     margin-left: 10%;
+     width: 95%;
+     margin-left: 3%;
  }
  
  .heading-name {
      font-size: large;
  }
- /* .ifsc-contents td:nth-child(1) {
-    width: 100px;
-} */
- /* .ifsc-contents td:nth-child(2) {
-    padding-left: 5px;
-/* } */
+ 
+ .ifsc-display {
+     margin-left: 1rem;
+ }
  
  .ifsc-contents td {
-     padding: 5px 0px;
+     padding: .2rem;
  }
  
  @media (max-width: 1300px) {

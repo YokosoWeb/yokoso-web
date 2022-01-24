@@ -99,7 +99,7 @@
                         {% comment %} <label for="enter-ifsc-code" class="form_label">IFSC code</label> {% endcomment %}
                         <div class="input-ifsc-code" id="enter-ifsc-code">
                             <input type="text" name="ifsc_no_exact" id = "ifsc_no_exact" maxlength="11" 
-                                placeholder="Enter IFSC code" required>
+                                placeholder="Enter IFSC code" required >
                             <button type="button" class="ifsc-submit-code"  onclick="clickFunction()">Get Details</button>
                         </div>
                         <div name="errormsg" id="errormsg" class="msg"> </div> 
@@ -115,7 +115,7 @@
              {% for IfscData in ifsc_names %}
                 <!-- It is an example only -->
               
-                <div class="display-code">
+                <div class="display-code ifsc-display">
                 
                     <div class="heading">
                         <h3>{{IfscData.BANK}} <span>(
@@ -127,100 +127,99 @@
                     <div class="ifsc-contents">
                         <table>
                             <tr>
-                                <td class="heading-name"><span>IFSC Code :</span></td>
+                                <td class="heading-name heads"><span>IFSC Code:</span></td>
                                 <td><span class="blue-txt">
                                         {{ IfscData.IFSC_CODE }}
                                     </span></td>
                             </tr>
                            
                             <tr>
-                                <td class="heading-name"><span>MICR Code :</span></td>
+                                <td class="heading-name heads"><span>MICR Code:</span></td>
                                 <td><span class="blue-txt">{{IfscData.MICR}} </span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">Address :</td>
-                                <td>{{IfscData.address}} </td>
+                                <td class="heading-name heads">Address:</td>
+                                <td><span class="blue-txt">
+                                        {{IfscData.ADDRESS}} 
+                                    </span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">State :</td>
+                                <td class="heading-name heads">State:</td>
                                 <td><span class="blue-txt">
                                         {{IfscData.STATE}}
                                     </span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">City :</td>
+                                <td class="heading-name heads">City:</td>
                                 <td><span class="blue-txt">{{IfscData.CITY}}</span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">Branch :</td>
+                                <td class="heading-name heads">Branch:</td>
                                 <td><span class="blue-txt">{{IfscData.BRANCH}}</span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">Contact :</td>
-                                <td>{{IfscData.CONTACT}}</td>
+                                <td class="heading-name heads">Contact:</td>
+                                <td><span class="blue-txt">{{IfscData.CONTACT}}</span></td>
                             </tr>
                         </table>
                     </div>
-                
+                    <hr>
+                    <p class="disclaimer">Disclaimer: - We have tried our best to keep the latest information updated as available from RBI, users are requested to confirm information with the
+                           respective bank before using the information provided.</p>
                 </div>
             
             {% endfor %}
-</div>
-      <div class="grievance-code-display" id="grievance-code-display">  
+     
              {% for bank_grievance in grievance %}
                 <!-- It is an example only -->
               
                 <div class="display-code">
                 
                     <div class="heading">
-                        <h3>{{bank_grievance.babk_ifsc}} <span>(
-                            {% comment %} <span>{{IfscData.IFSC_CODE}}</span> )</span> {% endcomment %}
-                        </h3>
-                    
+                          <span><h3>{{bank_grievance.Bank}}</h3></span>
+                        
                     </div>
                     
                     <div class="ifsc-contents">
                         <table>
-                            <tr>
-                                <td class="heading-name"><span>IFSC Code :</span></td>
-                                <td><span class="blue-txt">
-                                        {{ bank_grievance.babk_ifsc }}
-                                    </span></td>
-                            </tr>
+                            
                            
                             <tr>
-                                <td class="heading-name"><span>MICR Code :</span></td>
-                                <td><span class="blue-txt">{{bank_grievance.babk_ifsc}} </span></td>
+                                <td class="heading-name"><span>Level 1 :</span></td>
+                                <td><span class="output-text"><a href={{bank_grievance.level1}}>{{bank_grievance.level1}}</a> </span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">Address :</td>
-                                <td>{{bank_grievance.babk_ifsc}} </td>
+                                <td class="heading-name">Level 2:</td>
+                                <td><span class="output-text"><a href={{bank_grievance.level2}}>{{bank_grievance.level2}}</a></span> </td>
                             </tr>
                             <tr>
-                                <td class="heading-name">State :</td>
-                                <td><span class="blue-txt">
-                                        {{bank_grievance.babk_ifsc}}
+                                <td class="heading-name">Level 3:</td>
+                                <td><span class="output-text"><a href={{bank_grievance.level3}}>{{bank_grievance.level3}}</a>
+                                       
                                     </span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">City :</td>
-                                <td><span class="blue-txt">{{bank_grievance.babk_ifsc}}</span></td>
+                                <td class="heading-name">Helpful Link:</td>
+                                <td><span class="output-text"><a href={{bank_grievance.helpful_link}}>{{bank_grievance.helpful_link}}</a></span></td>
                             </tr>
                             <tr>
-                                <td class="heading-name">Branch :</td>
-                                <td><span class="blue-txt">{{bank_grievance.babk_ifsc}}</span></td>
+                             <tr>
+                                <td class="heading-name">Twitter Handle:</td>
+                                <td><span class="output-text">{{bank_grievance.twitter_handle}}</span></td>
                             </tr>
-                            <tr>
-                                <td class="heading-name">Contact :</td>
-                                <td>{{bank_grievance.babk_ifsc}}</td>
-                            </tr>
+                            
+                           
                         </table>
                     </div>
-                
+                    <hr>
+                    <p class="disclaimer">Disclaimer: - We have tried our best to keep the latest information updated as available from RBI, users are requested to confirm information with the
+                           respective bank before using the information provided.</p>
                 </div>
-            
+                
             {% endfor %}
-</div>      
+            
+</div> 
+        
         </div>
     </main>
 
@@ -228,7 +227,7 @@
     <script>
 
 $("#service").change(function () {
-		document.getElementById('errors').innerHTML = " ";
+	
         $("#State_Name").removeAttr('disabled');
         $("#City_Name").removeAttr('disabled');
         $("#Branch_Name").removeAttr('disabled');
@@ -242,7 +241,7 @@ $("#service").change(function () {
                 },
                 
                 success: function (data) {   // `data` is the return of the `load_cities` view function
-                    let html_data = '<option value="">-----SELECT------</option>';
+                    let html_data = '<option value="">Select Bank</option>';
                     data.forEach(function (grievance) {
                         html_data += `<option value="${grievance.id}">${grievance.Bank}</option>`
                         
@@ -252,10 +251,11 @@ $("#service").change(function () {
                     $("#City_Name").attr('disabled','disabled');
                     $("#Branch_Name").attr('disabled','disabled');
                     
-                    
+                     return;
                 }  
-                
+               
             });
+             
 }
         else {
          $.ajax({                       // initialize an AJAX request
@@ -265,7 +265,7 @@ $("#service").change(function () {
                 },
                 
                 success: function (data) {   // `data` is the return of the `load_cities` view function
-                    let html_data = '<option value="">-----SELECT------</option>';
+                    let html_data = '<option value="">Select Bank</option>';
                     data.forEach(function (IfscData) {
                         html_data += `<option value="${IfscData.BANK}">${IfscData.BANK}</option>`
                     });
@@ -292,7 +292,7 @@ $("#BankName").change(function () {
             },
             
             success: function (data) {   // `data` is the return of the `load_cities` view function
-                let html_data = '<option value="">-----SELECT------</option>';
+                let html_data = '<option value="">Select State</option>';
                 data.forEach(function (IfscData) {
                     html_data += `<option value="${IfscData.STATE}">${IfscData.STATE}</option>`
                 });
@@ -322,7 +322,7 @@ $("#State_Name").change(function () {
                 'bank': bank       // add the country id to the GET parameters
             },
             success: function (data) {   // `data` is the return of the `load_cities` view function
-                let html_data = '<option value="">-----SELECT------</option>';
+                let html_data = '<option value="">Select City</option>';
                 data.forEach(function (IfscData) {
                     html_data += `<option value="${IfscData.CITY}">${IfscData.CITY}</option>`
                 });
@@ -354,7 +354,7 @@ $("#City_Name").change(function () {
                 'state': state       // add the country id to the GET parameters
             },
             success: function (data) {   // `data` is the return of the `load_cities` view function
-                let html_data = '<option value="">-----SELECT------</option>';
+                let html_data = '<option value="">Select Branch</option>';
                 data.forEach(function (IfscData) {
                     html_data += `<option value="${IfscData.id}">${IfscData.BRANCH}</option>`
                 });
@@ -396,7 +396,7 @@ function myFunction() {
                     'bank': bank,     
                 },
                 success: function (data) {
-                    $('#grievance-code-display').html(jQuery(data).find('#grievance-code-display').html());// replace the contents of the city input with the data that came from the server
+                    $('#ifsc-code-display').html(jQuery(data).find('#ifsc-code-display').html());// replace the contents of the city input with the data that came from the server
                 
                 }  
             });
@@ -406,9 +406,23 @@ else{
     document.getElementById('error').innerHTML = "Please select all the Fields.";
 }
 }
+
+
+
+$(function() {   
+ $('#ifsc_no_exact').keyup(function(){
+        
+        $(this).val($(this).val().toUpperCase());
+    });
+});
+
+
+
+
 function clickFunction() {
     document.getElementById('errorrs').innerHTML = " ";
     document.getElementById('errormsg').innerHTML = " ";
+    
     var ifsc_no = $ ('#ifsc_no_exact').val()
 	
     if( $("#ifsc_no_exact").val() ) {
