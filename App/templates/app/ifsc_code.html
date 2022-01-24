@@ -137,12 +137,7 @@
                                 <td class="heading-name heads"><span>MICR Code:</span></td>
                                 <td><span class="blue-txt">{{IfscData.MICR}} </span></td>
                             </tr>
-                            <tr>
-                                <td class="heading-name heads">Address:</td>
-                                <td><span class="blue-txt">
-                                        {{IfscData.ADDRESS}} 
-                                    </span></td>
-                            </tr>
+                           
                             <tr>
                                 <td class="heading-name heads">State:</td>
                                 <td><span class="blue-txt">
@@ -159,7 +154,13 @@
                             </tr>
                             <tr>
                                 <td class="heading-name heads">Contact:</td>
-                                <td><span class="blue-txt">{{IfscData.CONTACT}}</span></td>
+                                <td><span class="blue-txt">{{IfscData.PHONE}}</span></td>
+                            </tr>
+                             <tr>
+                                <td class="heading-name heads">Address:</td>
+                                <td><span class="blue-txt">
+                                        {{IfscData.ADDRESS}} 
+                                    </span></td>
                             </tr>
                         </table>
                     </div>
@@ -373,7 +374,7 @@ function myFunction() {
   var bank = $('#BankName :selected').val();
   var branch = $('#Branch_Name :selected').val();
   
-  alert(bank);
+  
   
   if( $("#Branch_Name").val() ) {
       $.ajax({                       
