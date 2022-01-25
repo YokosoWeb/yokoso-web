@@ -30,6 +30,7 @@ urlpatterns = [
     path ('ifsc/ifscfilter/', Ifscfilter, name='ifscfilter'),
     # path ('ifsc/ifscfiller/', Ifscfiller, name='ifscfiller')
     path ('ifsc/<slug>', Ifscfiller, name='ifscfiller'),
+    path('emi-pro/apply_loan/', apply_loan, name='apply_loan')
     path ('ifsc/grievance/', Grievance, name='grievance'),
     path ('ifsc/grievancefilter/', GrievanceFilter, name='grievancefilter')
     
