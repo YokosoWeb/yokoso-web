@@ -341,15 +341,35 @@ def Ifscfilter(request):
     return render(request, "app/ifsc_code.html", context)
 def Ifscfiller(request, slug):
     ifsc_no = slug #request.GET.get('ifsc_no')
+    ifsc_no = ifsc_no.upper()
     ifsc_names = IfscData.objects.filter(IFSC_CODE= ifsc_no)
     context = {
        'ifsc_names': ifsc_names
       }
     return render(request, "app/ifsc_code.html", context)   
+# def Grievance(request):
+#     grievance= bank_grievance.objects.all()
+#     context = {
+#        'grievance': grievance
+#       }
+#     print(grievance)
+#     return render(request, "app/ifsc_code.html", context)
 
 
+def Grievance(request):
+    # BankName = bank_grievance.objects.all()
+    BankName = bank_grievance.objects.values_list('Bank', flat=True).distinct().order_by('Bank')   
+    print("BANKNAME:", BankName)
+    return JsonResponse(list(BankName.values('id', 'Bank')), safe=False)
 
 
+def GrievanceFilter(request):
+    bankname = request.GET.get('bank')
+    grievance = bank_grievance.objects.filter(id = bankname)
+    context = {
+       'grievance':grievance
+      }
+    return render(request, "app/ifsc_code.html", context)
 
 
 
