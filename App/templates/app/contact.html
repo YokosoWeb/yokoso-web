@@ -17,7 +17,9 @@
    </div>
    <div class="register_child">
        <h2>Contact us</h2>
-       
+       {% if msg %}
+            <button style="text-align: left;border:none;" disabled>Sit back and relax ! Our agent will contact you soon...❤</button>
+        {% endif %}
        <form method="POST" autocomplete="off">
             {% csrf_token %}
             <input type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" title="Enter only characters" required />
@@ -28,9 +30,7 @@
      
            
             <button type="submit">Submit Now</button>
-            {% if msg %}
-            <button style="text-align: left;border:none;" disabled>Sit back and relax ! Our agent will contact you soon...❤</button>
-            {% endif %}
+            
         </form>
    </div>
 </div>

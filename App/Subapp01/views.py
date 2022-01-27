@@ -145,19 +145,39 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
+        
+        Firstname=request.POST.get('first_name')
+        Lastname=request.POST.get('last_name')
+        Email=request.POST.get('email')
+        Phone=request.POST.get('phone')
+        Message=request.POST.get('msg')
+       
+        context={
+        'Firstname': Firstname,
+        'Lastname':Lastname,
+        'Email': Email,
+        'Phone': Phone,
+        'Message': Message, 
+        
+        }
+        Message = '''
+        New message: {}
 
-        contactObj = Contact.objects.create(Firstname=request.POST['first_name'],
-                                            Lastname=request.POST['last_name'],
-                                            Email=request.POST['email'],
-                                            Phone=request.POST['phone'],
-                                            Message=request.POST.get('msg', ''),)
-        contactObj.save()
+        From: {}
+        Contact:{}
+        FirstName: {}
+        LastName: {}
+     
+        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Lastname'])
+        send_mail('Contact form of YOKOSO', Message, '', ['ritika.yokoso@gmail.com'])
+
+    # return render(request, 'app/contact.html', {'msg': True})
+
 
         return render(request, 'app/contact.html', {'msg': True})
 
     else:
         return render(request, 'app/contact.html')
-
 
 def articleHome(request):
     posts = Post.objects.filter(status='Published').order_by('date')[::-1]
