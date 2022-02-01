@@ -138,3 +138,12 @@ class bank_grievance(models.Model):
     level3 = models.CharField(max_length = 500, blank = True,null = True)
     helpful_link = models.CharField(max_length = 500, blank = True,null = True)
     twitter_handle = models.CharField(max_length = 1000, blank = True,null = True)
+
+class customer_data(models.Model):
+    full_name = models.CharField(max_length=500,blank=False,null = False)
+    pan_number = models.CharField(max_length=500,blank=False,null = False)
+    emp_type = models.CharField(max_length=500,blank=False,null = False)
+    phone_number = models.CharField(max_length=500,blank=False,null = False)
+    email_address = models.CharField(max_length=500,blank=False,null = False)
+    Date_of_birth = models.CharField(max_length=500,blank=False,null = False)
+    gender = models.CharField(max_length=500,blank=False,null = False)
