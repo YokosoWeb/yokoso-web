@@ -151,7 +151,7 @@ def contact(request):
         Email=request.POST.get('email')
         Phone=request.POST.get('phone')
         Message=request.POST.get('msg')
-       
+   
         context={
         'Firstname': Firstname,
         'Lastname':Lastname,
@@ -218,16 +218,14 @@ def credit(request):
         tenure = request.POST.get('month')
         bank = request.POST.get('bankName')
         creditScore = request.POST.get('creditScore')
-        interest_rate = request.POST.get('interest_rate')
-        data_new = ADV_EMI_CAL.objects.all().order_by('interest_rate')[0]
-        DefaultROI = data_new.interest_rate
-        print(name, pan, employment, phone, email, dob, gender)
-        print("====",monthlySalary, ongoingEmi, loanType,
-              loanAmount, tenure, bank, creditScore,)
 
-        EMI_MAX = round((int(monthlySalary) - int(ongoingEmi))*(0.70))
+        print(name, pan, employment, phone, email, dob, gender)
+        print(monthlySalary, ongoingEmi, loanType,
+              loanAmount, tenure, bank, creditScore)
+
+        EMI_MAX = (int(monthlySalary) - int(ongoingEmi))*(0.70)
         print(EMI_MAX)
-        # DefaultROI = 6.25
+        DefaultROI = 6.25
 
         P1 = (1+float(DefaultROI)) ** int(tenure)
         print(P1)
@@ -306,6 +304,15 @@ def credit(request):
         return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'EMI_REAL': EMI_REAL, 'LOAN_MAX': LOAN_MAX, 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI,2), 'TENURE': TENURE,'eligible' :True, 'data' : data1[:5]})
     return render(request, 'app/creditScore.html')
 
+def personalDetails(request):
+    name = request.GET.get('name')
+    pan = request.GET.get('pan')
+    phone = request.GET.get('phone')
+    obj = EMI_Data(name=name, pan=pan, phone=phone)
+    obj.save()
+    print(name)
+    print(obj)
+    return JsonResponse(list(obj.values('name')), safe=False) 
 
 def EMIEnquiryFun(request):
     if request.method == 'POST':
