@@ -9,6 +9,8 @@ admin.site.register(EMIEnquiry)
 admin.site.register(ADV_EMI_CAL)
 admin.site.register(IfscData)
 admin.site.register(bank_grievance)
+admin.site.register(EMI_Data)
+
 
 
 @admin.register(Post)
