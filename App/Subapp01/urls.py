@@ -22,16 +22,16 @@ urlpatterns = [
     path('emi-pro/', credit , name = 'credit'),
 
     path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),
-    path ('ifsc/', getServices, name='getServices'),
-    path ('ifsc/bankname/', BankNames, name='bankname'),
-    path ('ifsc/statename/', StateNames, name='statename'),
-    path ('ifsc/cityname/', CityNames, name='cityname'),
-    path ('ifsc/branchname/', BranchNames, name='branchname'),
-    path ('ifsc/ifscfilter/', Ifscfilter, name='ifscfilter'),
+    path ('Services/', getServices, name='getServices'),
+    path ('Services/bankname/', BankNames, name='bankname'),
+    path ('Services/statename/', StateNames, name='statename'),
+    path ('Services/cityname/', CityNames, name='cityname'),
+    path ('Services/branchname/', BranchNames, name='branchname'),
+    path ('Services/ifscfilter/', Ifscfilter, name='ifscfilter'),
     # path ('ifsc/ifscfiller/', Ifscfiller, name='ifscfiller')
-    path ('ifsc/<slug>', Ifscfiller, name='ifscfiller'),
+    path ('Services/<slug>', Ifscfiller, name='ifscfiller'),
     path('emi-pro/apply_loan/', apply_loan, name='apply_loan'),
-    path ('ifsc/grievance/', Grievance, name='grievance'),
-    path ('ifsc/grievancefilter/', GrievanceFilter, name='grievancefilter')
+    path ('Services/grievance/', Grievance, name='grievance'),
+    path ('Services/grievancefilter/', GrievanceFilter, name='grievancefilter')
     
 ]
