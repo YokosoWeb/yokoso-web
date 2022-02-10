@@ -115,6 +115,19 @@ class ADV_EMI_CAL(models.Model):
     loan_max = models.IntegerField(blank = True)
     interest_rate = models.FloatField(blank = True)
 
+class EMI_Data(models.Model):
+      name =  models.CharField(max_length = 200, blank = True)
+      phone =  models.FloatField(blank=True,null = True)
+      pan =  models.CharField(max_length = 200, blank = True)
+    #   monthlySalary = models.CharField(max_length = 200, blank = True)
+    #   loanAmount = models.CharField(max_length = 200, blank = True)
+    #   tenure = models.CharField(max_length = 200, blank = True)
+      bank = models.CharField(max_length = 200, blank = True)
+    #   creditscore =models.FloatField(blank=True,null = True)
+      interest_rate = models.FloatField(blank=True,null = True)
+      created = models.DateTimeField(auto_now_add=True,null = True, blank = True)
+       
+
 
 class IfscData(models.Model):
     IFSC_CODE = models.CharField(max_length=200,blank=True,null = True)
