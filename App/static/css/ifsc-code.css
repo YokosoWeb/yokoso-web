@@ -64,7 +64,9 @@
  }
  
  .heading {
-     margin: .5rem;
+     margin: .2rem;
+     text-align: center;
+     font-size: smaller;
  }
  
  input[type="text"] {
@@ -158,18 +160,19 @@
  }
  
  .blue-txt {
-     font-weight: bold;
+     font-weight: normal;
      color: black;
-     font-size: large;
+     font-size: medium;
      font-family: emoji;
-     margin-left: 1rem;
+     text-align: center;
  }
  
  .output-text {
-     font-weight: bold;
+     font-weight: normal;
      color: black;
+     font-size: medium;
      font-family: -webkit-pictograph;
-     margin-left: .5rem;
+     margin-left: .1rem;
  }
  
  .disclaimer {
@@ -185,6 +188,7 @@
  
  .heading-name {
      font-size: large;
+     font-weight: bold;
  }
  
  .ifsc-display {
