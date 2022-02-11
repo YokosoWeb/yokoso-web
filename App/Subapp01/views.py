@@ -242,6 +242,12 @@ def credit(request):
         ROI = DefaultROI
         TENURE = n
         LOAN_REAL = loanAmount
+        if creditScore:
+            creditScore = creditScore
+        else:
+            creditScore = 900
+
+
 
         # Less Loan Real ( Not eligible for Loan )
         if int(LOAN_MAX) < int(LOAN_REAL):
