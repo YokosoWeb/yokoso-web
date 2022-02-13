@@ -80,7 +80,7 @@
             </div>
           </div>
 
-          <button type="button" class="next-btn mar"  onclick="myFunction()">Next</button>
+          <button type="button" class="next-btn mar"  >Next</button>
         </div>
 
         <!-- First Form End  -->
@@ -168,33 +168,7 @@
   // validate
 
 
-function myFunction() {
-  alert("inisdefunction");
-  var name = $('#fname').val();
-  var pan = $('#pan').val();
-  var phone = $('#phone').val();
-  alert(name)
-  
-  
-  
-  if( $("#gender").val() ) {
-      $.ajax({                       
-                url: 'personalDetails/',      
-                data: { 
-                     'name': name,
-                     'pan': pan,
-                     'phone': phone,
-                      
-                },
-                success: function (data) {
-                    
-                   alert("success")// replace the contents of the city input with the data that came from the server
-                
-                }  
-            });
-    }  
 
-}
 
 
 
@@ -485,5 +459,3 @@ function myFunction() {
 
 </script>
 {% include 'footer.html' %} {% endblock %}
-
-<!-- EMI Calculator Widget END -->

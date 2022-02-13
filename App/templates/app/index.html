@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
+{% load static %}
+{% block css %}
 
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+{% endblock %}
 
 {% block body %}
 
-  {% load static %}
+  
 
   <!-- Landing Page -->
   <header>
