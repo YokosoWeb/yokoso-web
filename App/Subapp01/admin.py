@@ -13,6 +13,7 @@ admin.site.register(customer_data)
 admin.site.register(EMI_Data)
 
 
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     search_fields= ('title','content')

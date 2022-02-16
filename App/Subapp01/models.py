@@ -24,15 +24,18 @@ class Profile(models.Model):
 
 
 
+
+
 class Contact(models.Model):
-    Firstname = models.CharField(max_length=100)
-    Lastname = models.CharField(max_length=100)
+    
+    Name = models.CharField(max_length=100)
+   
     Email = models.EmailField(max_length=100)
     Phone = models.EmailField(max_length=100)
     Message = models.TextField(null=True)
 
     def __str__(self,):
-        return self.Firstname + ' ' +  self.Lastname + ' | ' + self.Email + ' | ' + self.Phone 
+        return self.Name + ' | '  + self.Email + ' | ' + self.Phone 
 
 
 
@@ -119,11 +122,7 @@ class EMI_Data(models.Model):
       name =  models.CharField(max_length = 200, blank = True)
       phone =  models.FloatField(blank=True,null = True)
       pan =  models.CharField(max_length = 200, blank = True)
-    #   monthlySalary = models.CharField(max_length = 200, blank = True)
-    #   loanAmount = models.CharField(max_length = 200, blank = True)
-    #   tenure = models.CharField(max_length = 200, blank = True)
       bank = models.CharField(max_length = 200, blank = True)
-    #   creditscore =models.FloatField(blank=True,null = True)
       interest_rate = models.FloatField(blank=True,null = True)
       created = models.DateTimeField(auto_now_add=True,null = True, blank = True)
        

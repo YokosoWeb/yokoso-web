@@ -147,16 +147,18 @@ def contact(request):
     if request.method == 'POST':
         
         Firstname=request.POST.get('first_name')
-        Lastname=request.POST.get('last_name')
+        
         Email=request.POST.get('email')
         Phone=request.POST.get('phone')
+        Category = request.POST.get('category')
         Message=request.POST.get('msg')
-   
+       
         context={
         'Firstname': Firstname,
-        'Lastname':Lastname,
+       
         'Email': Email,
         'Phone': Phone,
+        'Category': Category,
         'Message': Message, 
         
         }
@@ -166,10 +168,10 @@ def contact(request):
         From: {}
         Contact:{}
         FirstName: {}
-        LastName: {}
+        Category: {}
      
-        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Lastname'])
-        send_mail('Contact form of YOKOSO', Message, '', ['ritika.yokoso@gmail.com'])
+        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Category'])
+        send_mail('Contact form of YOKOSO', Message, '', ['contact@yokoso.in'])
 
     # return render(request, 'app/contact.html', {'msg': True})
 
@@ -314,11 +316,13 @@ def personalDetails(request):
     name = request.GET.get('name')
     pan = request.GET.get('pan')
     phone = request.GET.get('phone')
-    obj = EMI_Data(name=name, pan=pan, phone=phone)
+    bank = request.GET.get('bank')
+    ir = request.GET.get('ir')
+    obj = EMI_Data(name=name, pan=pan, phone=phone, bank = bank, interest_rate = ir)
     obj.save()
-    print(name)
+    print(id)
     print(obj)
-    return JsonResponse(list(obj.values('name')), safe=False) 
+    return JsonResponse(list(obj.values('name', id)), safe=False) 
 
 def EMIEnquiryFun(request):
     if request.method == 'POST':
@@ -338,7 +342,7 @@ def EMIEnquiryFun(request):
 # def IfscData(re)
 def getServices(request):
     context = {
-        'services': ['IFSC Code', 'Grievance(Coming Soon)']
+        'services': ['IFSC Code', 'Grievance']
     }
     return render(request, "app/ifsc_code.html", context)
 

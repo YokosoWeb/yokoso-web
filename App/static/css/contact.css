@@ -1,13 +1,9 @@
-.register_child img{
-    margin-top:50px;
+.register_child img {
+    margin-top: 50px;
 }
 
-
 @media (min-width: 1500px) {
-    .register_child img{
-        margin-top:140px;
+    .register_child img {
+        margin-top: 140px;
     }
-    
-    
-  }
-  
+}

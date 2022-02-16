@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}  <title >Yokoso | Contact us</title>{% endblock %}
 {% block css %}
+
 <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}
@@ -22,10 +23,19 @@
         {% endif %}
        <form method="POST" autocomplete="off">
             {% csrf_token %}
-            <input type="text" placeholder="First Name" name="first_name" pattern="[A-Za-z]+" title="Enter only characters" required />
-            <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required />
+            <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" required />
+            {% comment %} <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required /> {% endcomment %}
             <input type="email" placeholder="Email Address" name="email" required/>
             <input type="tel" placeholder="Phone Number" name="phone" required  pattern="[0-9]+" title="Enter only numbers"/>
+            
+            <label for="id_category" class="optionss">Category</label>
+            <select class="form-control options"  name="category" id="id_category" required>
+            <option class="options" value="HomeLoan">Home Loan</option>
+            <option  class="options" value="PersonalLoan">Property Loan</option>
+            <option  class="options" value="AutoLoan">Auto Loan</option>
+            <option  class="options" value="Others">Others</option>
+            </select>
+        
             <textarea  placeholder="Type your query" name="msg" resize="none"></textarea>
      
            
