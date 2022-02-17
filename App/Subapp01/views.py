@@ -220,6 +220,9 @@ def credit(request):
         tenure = request.POST.get('month')
         bank = request.POST.get('bankName')
         creditScore = request.POST.get('creditScore')
+        interest_rate = request.POST.get('interest_rate')
+        data_new = ADV_EMI_CAL.objects.all().order_by('interest_rate')[0]
+        DefaultROI = data_new.interest_rate
 
         print(name, pan, employment, phone, email, dob, gender)
         print(monthlySalary, ongoingEmi, loanType,
@@ -227,7 +230,7 @@ def credit(request):
 
         EMI_MAX = (int(monthlySalary) - int(ongoingEmi))*(0.70)
         print(EMI_MAX)
-        DefaultROI = 6.25
+        # DefaultROI = 6.25
 
         P1 = (1+float(DefaultROI)) ** int(tenure)
         print(P1)
