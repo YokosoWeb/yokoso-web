@@ -1,105 +1,110 @@
-.register_container{
+.register_container {
     width: 90%;
     height: auto;
-    box-shadow: 4px 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
     margin: 30px auto;
-    padding:30px 0px;
+    padding: 30px 0px;
     display: flex;
-    
 }
 
-.register_child{
-    width:50%;
+.register_child {
+    width: 50%;
 }
-.register_child img{
+
+.register_child img {
     width: 100%;
     margin: -40px 0px;
+}
 
-}
-.register_child:nth-child(2){
+.register_child:nth-child(2) {
     margin: 00px 0px;
-    padding:10px 0px;
+    padding: 10px 0px;
 }
-.register_child h2{
+
+.register_child h2 {
     font-size: 2em;
 }
-textarea{
+
+textarea {
     resize: none;
-
 }
-form input,form button,textarea{
+
+form input,
+form button,
+textarea {
     display: block;
-    width:80%;
+    width: 80%;
     margin: 15px 0px;
-    padding:6px 10px;
-
+    padding: 6px 10px;
 }
-form button{
-    
+
+.optionss {
+    padding: 6px 10px;
+}
+
+form button {
     background-color: #fdfdfd;
     color: #48c290;
     border: none;
     border: 2px solid #48c290;
     font-size: 16px;
     cursor: pointer;
+}
 
+.wrap {
+    padding-top: 100px;
 }
-.wrap{
-    padding-top:100px;
+
+.options {
+    width: 14rem;
+    height: 2rem;
+    border-radius: 0.2rem;
 }
+
 @media (max-width: 858px) {
-    .register_container{
+    .register_container {
         width: 95%;
         height: auto;
         /* box-shadow: 4px 4px 20px rgba(0,0,0,0.2); */
         margin: 70px auto;
         display: flex;
         flex-direction: column;
-        padding:10px 0px 10px 30px;
-
+        padding: 10px 0px 10px 30px;
     }
-    .register_child img{
-       display:none;
+    .register_child img {
+        display: none;
     }
-    .register_child{
-        width:100%;
+    .register_child {
+        width: 100%;
         margin: 0 30px;
     }
-    form input,form button,textarea{
+    form input,
+    form button,
+    textarea {
         display: block;
-        width:90%;
+        width: 90%;
         margin: 15px 0px;
-        padding:6px 10px;
+        padding: 6px 10px;
     }
-    .register_child:nth-child(2){
+    .register_child:nth-child(2) {
         margin: 20px 0px;
-   
     }
-    
-    .wrap{
-        padding-top:0px;
+    .wrap {
+        padding-top: 0px;
     }
 }
 
-
 @media (min-width: 1500px) {
-
-    .register_child:nth-child(2){
+    .register_child:nth-child(2) {
         margin: 100px 0px;
-    padding:50px 0px;
-
+        padding: 50px 0px;
     }
-    .register_container{
+    .register_container {
         width: 70%;
-    margin: 70px auto;
-
-
+        margin: 70px auto;
     }
-    .register_child img{
+    .register_child img {
         width: 100%;
         margin: 60px 0px;
-    
     }
-
-    
 }

@@ -1,0 +1,9 @@
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+a.active,
+a:hover {
+    transition: 0.5s;
+}

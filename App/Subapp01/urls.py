@@ -20,7 +20,7 @@ urlpatterns = [
     path('emi-calculator/', emi , name = 'emi'),
     
     path('emi-pro/', credit , name = 'credit'),
-
+    path('emi-pro/personalDetails/', personalDetails , name = 'personalDetails'),
     path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),
     path ('Services/', getServices, name='getServices'),
     path ('Services/bankname/', BankNames, name='bankname'),

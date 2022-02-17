@@ -14,13 +14,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
-  {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> {% endcomment %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   {% block title %} <title>Yokoso Beta</title> {% endblock %}
 
-  {% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+  {% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+{% endblock %}
 
 
 
@@ -29,45 +33,53 @@
 
 
   <!-- Navigation Bar -->
-  <nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-      <i class="bi bi-list"></i>
-    </label>
-    <label class="logo"><a href="{% url 'home' %}" style="color: #fff!important;">Yokoso<span
+ <nav>
+
+        <label for="btn" class="cmpnyname">
+        <span class="fa fa-bars"></span>
+      </label>
+        <input type="checkbox" id="bttn" class="checkbox">
+        <label class="logo"><a href="{% url 'home' %}" style="color: #fff!important;">Yokoso<span
           style="font-size:12px;">&#946;eta</span></a></label>
-    <ul>
-      <li><a class="" href="{% url 'home' %}">Home</a></li>
-      <li><a class="" href="{% url 'articleHome' %}">Blog</a></li>
-      <li>
-        <a class="drop">FAQs
-          <i class="bi bi-caret-down-fill arrow" style="margin-left: 5px;"></i>
-          <i class="bi bi-caret-up-fill up" style="margin-left: 5px;"></i>
-          <i class="bi bi-caret-left-fill left" style="margin-left: 5px;"></i>
-          <i class="bi bi-caret-right-fill right" style="margin-left: 5px;"></i>
-      </a>
-        <ul class="dropMenu">
+        <input type="checkbox" id="btn" class="checkbox">
+        <ul>
 
-          <li><a href="/FAQs/home-loan">Home Loan</a></li>
+            <li>
+                <label for="btn-1" class="showing">Financial Tools + </label>
+                <a href="#">Financial Tools  </a>
+                <input type="checkbox" id="btn-1" class="checkbox">
+                <ul>
+                    <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
+                    <li><a href="{% url 'credit' %}">EMI-Pro</a></li>
+                    <li><a href="{% url 'getServices' %}">IFSC Finder</a></li>
+                    <li><a href="{% url 'getServices' %}">Grievance</a></li>
 
-          <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
+                </ul>
+            </li>
+            <li>
+                <label for="btn-2" class="showing">Learn + </label>
+                <a href="#">Learn</a>
+                <input type="checkbox" id="btn-2" class="checkbox">
+                <ul>
+                    <li><a href="{% url 'articleHome' %}">BLOGs</a></li>
 
-          <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
-
-          <li><a href="/FAQs/property-loan">Property Loan</a></li>
-
-
+                    <li>
+                        <label for="btn-3" class="showing">FAQs </label>
+                        <a href="#">FAQs <span class="fa fa-plus"></span></a>
+                        <input type="checkbox" id="btn-3" class="checkbox">
+                        <ul>
+                            <li><a href="/FAQs/home-loan">Home Loan</a></li>
+                            <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
+                            <li><a href="/FAQs/property-loan">Property Loan</a></li>
+                            <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
-      </li>
-      <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
-      <li><a href="{% url 'credit' %}">EMI Pro</a></li>
-      <li><a href="{% url 'contact' %}">Contact</a></li>
-      <!--<li><a href="{% url 'about' %}">Services</a></li>-->
-
-
-
-    </ul>
-  </nav>
+    </nav>
+    <hr class="navhr">
   <!--  -->
 
   {% block body %} {% endblock %}
@@ -76,22 +88,11 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-05THG26XCE"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-05THG26XCE');
-
-    $(document).ready(function () {
-      $(".drop").click(function () {
-        $(".dropMenu").fadeToggle("100");
-        $(".drop").toggleClass("active");
-      });
-      $(".dropMenu").mouseleave(function () {
-        $(this).fadeOut("100");
-        $(".drop").removeClass("active");
-      });
-    });
+    <script>
+        $('.cmpnyname').click(function() {
+            $('span').toggleClass("cancel");
+        });
+    </script>
 
   </script>
 

@@ -227,7 +227,7 @@ $("#service").change(function () {
         $("#City_Name").removeAttr('disabled');
         $("#Branch_Name").removeAttr('disabled');
         const selectedService = $(this).val();  // get the selected ServiceHTML input
-	    if( $("#service").val() == '' ||  $("#service").val() == 'Grievance(Coming Soon)' ) {
+	    if( $("#service").val() == '' ||  $("#service").val() == 'Grievance' ) {
             
             $.ajax({                       // initialize an AJAX request
                 url: 'grievance/',      // set the url of the request

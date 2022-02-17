@@ -145,19 +145,41 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
+        
+        Firstname=request.POST.get('first_name')
+        
+        Email=request.POST.get('email')
+        Phone=request.POST.get('phone')
+        Category = request.POST.get('category')
+        Message=request.POST.get('msg')
+       
+        context={
+        'Firstname': Firstname,
+       
+        'Email': Email,
+        'Phone': Phone,
+        'Category': Category,
+        'Message': Message, 
+        
+        }
+        Message = '''
+        New message: {}
 
-        contactObj = Contact.objects.create(Firstname=request.POST['first_name'],
-                                            Lastname=request.POST['last_name'],
-                                            Email=request.POST['email'],
-                                            Phone=request.POST['phone'],
-                                            Message=request.POST.get('msg', ''),)
-        contactObj.save()
+        From: {}
+        Contact:{}
+        FirstName: {}
+        Category: {}
+     
+        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Category'])
+        send_mail('Contact form of YOKOSO', Message, '', ['contact@yokoso.in'])
+
+    # return render(request, 'app/contact.html', {'msg': True})
+
 
         return render(request, 'app/contact.html', {'msg': True})
 
     else:
         return render(request, 'app/contact.html')
-
 
 def articleHome(request):
     posts = Post.objects.filter(status='Published').order_by('date')[::-1]
@@ -198,16 +220,14 @@ def credit(request):
         tenure = request.POST.get('month')
         bank = request.POST.get('bankName')
         creditScore = request.POST.get('creditScore')
-        interest_rate = request.POST.get('interest_rate')
-        data_new = ADV_EMI_CAL.objects.all().order_by('interest_rate')[0]
-        DefaultROI = data_new.interest_rate
-        print(name, pan, employment, phone, email, dob, gender)
-        print("====",monthlySalary, ongoingEmi, loanType,
-              loanAmount, tenure, bank, creditScore,)
 
-        EMI_MAX = round((int(monthlySalary) - int(ongoingEmi))*(0.70))
+        print(name, pan, employment, phone, email, dob, gender)
+        print(monthlySalary, ongoingEmi, loanType,
+              loanAmount, tenure, bank, creditScore)
+
+        EMI_MAX = (int(monthlySalary) - int(ongoingEmi))*(0.70)
         print(EMI_MAX)
-        # DefaultROI = 6.25
+        DefaultROI = 6.25
 
         P1 = (1+float(DefaultROI)) ** int(tenure)
         print(P1)
@@ -292,6 +312,17 @@ def credit(request):
         return render(request, 'app/emi-pro-output.html', {'EMI_MAX': int(EMI_MAX), 'EMI_REAL': EMI_REAL, 'LOAN_MAX': int(LOAN_MAX), 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI,2), 'TENURE': TENURE,'eligible' :True, 'data' : data1[:5]})
     return render(request, 'app/creditScore.html')
 
+def personalDetails(request):
+    name = request.GET.get('name')
+    pan = request.GET.get('pan')
+    phone = request.GET.get('phone')
+    bank = request.GET.get('bank')
+    ir = request.GET.get('ir')
+    obj = EMI_Data(name=name, pan=pan, phone=phone, bank = bank, interest_rate = ir)
+    obj.save()
+    print(id)
+    print(obj)
+    return JsonResponse(list(obj.values('name', id)), safe=False) 
 
 def EMIEnquiryFun(request):
     if request.method == 'POST':
@@ -311,7 +342,7 @@ def EMIEnquiryFun(request):
 # def IfscData(re)
 def getServices(request):
     context = {
-        'services': ['IFSC Code', 'Grievance(Coming Soon)']
+        'services': ['IFSC Code', 'Grievance']
     }
     return render(request, "app/ifsc_code.html", context)
 
