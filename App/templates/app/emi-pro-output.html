@@ -59,16 +59,16 @@
         <tr>
           <th>Bank</th>
           <th>ROI</th>
-          <th>Employment</th>
-          <th>Type</th>
+          <!-- <th>Employment</th> -->
+          <!-- <th>Type</th> -->
           <th>Apply Now</th>
         </tr>
         {% for i in data %}
         <tr>
           <td>{{i.bank}}</td>
           <td>{{ i.interest_rate }}</td>
-          <td>{{ i.feature_type }}</td>
-          <td>{{i.loan_type}}</td>
+          <!-- <td>{{ i.feature_type }}</td> -->
+          <!-- <td>{{i.loan_type}}</td> -->
           <td><a href="{% url 'apply_loan' %}">Apply</a></td>
         </tr>
         {% endfor %}

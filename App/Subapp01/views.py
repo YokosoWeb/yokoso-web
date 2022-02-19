@@ -220,6 +220,9 @@ def credit(request):
         tenure = request.POST.get('month')
         bank = request.POST.get('bankName')
         creditScore = request.POST.get('creditScore')
+        interest_rate = request.POST.get('interest_rate')
+        data_new = ADV_EMI_CAL.objects.all().order_by('interest_rate')[0]
+        DefaultROI = data_new.interest_rate
 
         print(name, pan, employment, phone, email, dob, gender)
         print(monthlySalary, ongoingEmi, loanType,
@@ -227,7 +230,7 @@ def credit(request):
 
         EMI_MAX = (int(monthlySalary) - int(ongoingEmi))*(0.70)
         print(EMI_MAX)
-        DefaultROI = 6.25
+        # DefaultROI = 6.25
 
         P1 = (1+float(DefaultROI)) ** int(tenure)
         print(P1)
@@ -259,7 +262,7 @@ def credit(request):
         # Process on DB
         # data = ADV_EMI_CAL.objects.filter(feature_type=employment | feature_type.isnull=True).filter(loan_type=loanType)
         data = ADV_EMI_CAL.objects.all().order_by('interest_rate')
-        print(data.count())
+        # print(data.count())
 
         # loan__amount = (int(int(loanAmount)/100000))
 
@@ -268,11 +271,11 @@ def credit(request):
             # print("=====",i)
             if ((int(loanAmount) >= i.loan_min) and (int(loanAmount) <= i.loan_max)) and ((int(creditScore) >= i.cibil_min) and ( int(creditScore) <= i.cibil_max)) and (str(i.gender).upper() == gender.upper() or i.gender is None) and (str(i.feature_type).upper() == employment.upper() or i.feature_type is None):
                 data1.append(i)
-            print(i.bank,i.loan_type,i.loan_min,i.loan_max,i.interest_rate)
-        print(data1)
-        for i in data1:
-            print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
-
+        #     print(i.bank,i.loan_type,i.loan_min,i.loan_max,i.interest_rate)
+        # print(data1)
+        # for i in data1:
+        #     print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
+        # print("=================loan_max",i.loan_max,int(i.loan_max))
         # if not show then show others
 
 
@@ -309,7 +312,7 @@ def credit(request):
 
         # print(int(int(loanAmount)/100000))
 
-        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'EMI_REAL': EMI_REAL, 'LOAN_MAX': LOAN_MAX, 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI,2), 'TENURE': TENURE,'eligible' :True, 'data' : data1[:5]})
+        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': int(EMI_MAX), 'EMI_REAL': EMI_REAL, 'LOAN_MAX': int(LOAN_MAX), 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI,2), 'TENURE': TENURE,'eligible' :True, 'data' : data1[:5]})
     return render(request, 'app/creditScore.html')
 
 def personalDetails(request):
@@ -407,9 +410,6 @@ def GrievanceFilter(request):
        'grievance':grievance
       }
     return render(request, "app/ifsc_code.html", context)
-
-
-
 
 
 
