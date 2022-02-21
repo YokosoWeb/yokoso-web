@@ -1,126 +1,287 @@
 {% extends "base.html" %}
-
 {% load static %}
 {% block css %}
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+ 
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
 {% endblock %}
 
 {% block body %}
+<div class="bodybg">
+<div class="homeheader">
+<div class="captions">
+<h1>Welcome To YOKOSO</h1>
+<p>You can contact us for any queries or any issue related to financial context.You can contact us for any queries or any issue related to financial context </p>
+</div>
+<div class="imageheader">
+<img src="{% static 'images/bg.png' %}" alt="">
+</div>
+</div>
+<div class="services">
+<div class="servicecontent">
+  <h1>Find, compare and buy financial products with ease.</h1>
+  <p> By logging on to our website or app, you can instantly gain access to the best-matched products, irrespective of ticket-size, 
+location & nature of loan query. Our loan specialists offer personalised loan assistance and help you navigate your credit requirement without any hassle. With 100+ partner lenders on board, we assure you the best loan offer as per your needs. </p>
+</div>
+<div class="servicecards">
+ <div class="cardsleft">
+<a href="{% url 'emi' %}">EMI Calculator</a>
+  <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+</div>
+ <div class="cardsleft">
+<a href="{% url 'getServices' %}">IFSC Finder</a>
+<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+</div>
+<div class="cardsright">
+<a href="{% url 'getServices' %}">Grievance</a>
+<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+</div>
 
-  
-
-  <!-- Landing Page -->
-  <header>
-
-    <div class="header__section">
-        <div class="wrap__section">
-            <img src="{% static 'images/bg.png' %}" alt="header" />
-            </div>
-        <div class="wrap__section section__text">
-      <h1>We will change your perception about loans.</h1>
-      <p class="header__text">If you think loans are all about calculation and paperwork, we have a surprise, it's not!</p>
+<div class="cardsright">
+<a href="{% url 'credit' %}">EMI Pro</a>
+<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+</div>
+</div>
 </div>
 
 
-      </p>
-    </div>
-  </header>
-  <!--  -->
 
-  <!-- How We Work -->
-  <div class="section__about" id="scrollOne">
-    <div class="about__one">
-      <div class="text">
-        <h1>We are not Advisors</h1>
-        <p>Then what are we ?
-          We are here so that important information can reach you
-          in the simplest form and you are enabled
-          to take your own decision instead of being advised.</p>
-      </div>
-      <div class="image">
-        <img src="{% static '/images/1.png' %}" alt="" />
-      </div>
-    </div>
+<div class="offersliders">
+<div class="headlinesliders">
+    <h1>The Services</h1>
+     <h3>We provide</h3>
+ 
+</div>
 
-    <div class="about__one">
+<div class="offerdetails">
+  <div class="container">
 
-      <div class="image">
-        <img src="{% static '/images/jugaad.png' %}" alt="" />
-      </div>
-      <div class="text">
-        <h1>EMI Calculator</h1>
-        <p>So what's new about that?
-          It's not just some dummy calculator
-          It's backed by real-time information
-          that you need ,when you want to know
-          your EMI before taking a loan.
-        </p>
-      </div>
-    </div>
+     <section class="customer-logos slider">
+     
+        <div class="slide">
+          <p>IFSC CODE Finder</p>
+          
+        </div>
 
-    <div class="about__one">
-      <div class="text">
-        <h1>
-          No Surprises</h1>
-        <p>We love surprises, but only on birthdays. We ensure no hidden charges and concealed information
-          when you apply for a loan. We inform you about the exact interest rate , total charges and all the papers that would need.</p>
-      </div>
-      <div class="image">
-        <img src="{% static '/images/rest.png' %}" alt="" />
-      </div>
-    </div>
-
-    <div class="about__one">
-
-      <div class="image">
-        <img src="{% static '/images/process.png' %}" alt="" />
-      </div>
-      <div class="text">
-        <h1>We sail together</h1>
-        <p>Too lazy to go to the bank to get a loan?
-          We understand (we are just like you!)
-          We help you every step of the way to get your loan processed with the bank of your choice.</p>
-      </div>
-    </div>
-
-    <div class="about__one">
-
-
-      <div class="text">
-        <h1>
-          True Digital Experience</h1>
-        <p>We are working to make your experience of taking a loan completely digital
-          by process like online paper submission, tracing your progress and much more.</p>
-      </div>
-      <div class="image">
-        <img src="{% static '/images/success.png' %}" alt="" />
-      </div>
-    </div>
+        <div class="slide">
+          <p>Grievance</p>
+        </div>
+        <div class="slide">
+         <p>EMI Calculator</p>
+        </div>
+        <div class="slide">
+          <p>EMI PRO</p>
+        </div>
+        <div class="slide">
+          <p>HOME Loan</p>
+        </div>
+        <div class="slide">
+          <p>Personal Loan</p>
+        </div>
+        <div class="slide">
+          <p>Auto Loan</p>
+        </div>
+        
+          <div class="slide">
+          <p>ITR</p>
+        </div>
+             <div class="slide">
+          <p>GST Registration</p>
+        </div>
+          <div class="slide">
+          <p>Company Registration</p>
+        </div>
+     </section>
   </div>
-  <!--  -->
-
-  <!-- Subscribe -->
+</div>
+</div>
 <div class="wrapper">
   <div class="section__subscribe">
     <div class="subscribe__text">
-      <h1>LETS CHAT ABOUT YOUR SAVINGS</h1>
-      <p>Enter your name, email id and phone number to talk to our advisory team.
-        Let's help you save!</p>
+      <h1>GET IN TOUCH</h1>
+      <a href="mailto:contact@yokoso.in">You can also mail us your queries</a>
     </div>
     <div class="subecribe__btn">
-      <a href="{% url 'contact' %}">
+      <a href="{% url 'contact' %}"></a>
+
       <button>
         <p> CONTACT US</p>
       </button>
-
-    </a>
+      
     </div>
   </div>
 </div>
+
+
+
+  <!-- How We Work -->
+  
   <!--  -->
+ 
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script> 
+<script>
+$(document).ready(function () {
+  $(".customer-logos").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 3
+        }
+      }
+    ]
+  });
+});
+
+$(document).ready(function () {
+  $(".blogs").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 3
+        }
+      }
+    ]
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+var container = document.getElementById('container')
+var slider = document.getElementById('slider');
+var slides = document.getElementsByClassName('slide').length;
+var buttons = document.getElementsByClassName('btn');
+
+
+var currentPosition = 0;
+var currentMargin = 0;
+var slidesPerPage = 0;
+var slidesCount = slides - slidesPerPage;
+var containerWidth = container.offsetWidth;
+var prevKeyActive = false;
+var nextKeyActive = true;
+
+window.addEventListener("resize", checkWidth);
+
+function checkWidth() {
+    containerWidth = container.offsetWidth;
+    setParams(containerWidth);
+}
+
+function setParams(w) {
+    if (w < 551) {
+        slidesPerPage = 1;
+    } else {
+        if (w < 901) {
+            slidesPerPage = 2;
+        } else {
+            if (w < 1101) {
+                slidesPerPage = 3;
+            } else {
+                slidesPerPage = 4;
+            }
+        }
+    }
+    slidesCount = slides - slidesPerPage;
+    if (currentPosition > slidesCount) {
+        currentPosition -= slidesPerPage;
+    };
+    currentMargin = -currentPosition * (100 / slidesPerPage);
+    slider.style.marginLeft = currentMargin + '%';
+    if (currentPosition > 0) {
+        buttons[0].classList.remove('inactive');
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove('inactive');
+    }
+    if (currentPosition >= slidesCount) {
+        buttons[1].classList.add('inactive');
+    }
+}
+
+setParams();
+
+function slideRight() {
+    if (currentPosition != 0) {
+        slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
+        currentMargin += (100 / slidesPerPage);
+        currentPosition--;
+    };
+    if (currentPosition === 0) {
+        buttons[0].classList.add('inactive');
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove('inactive');
+    }
+};
+
+function slideLeft() {
+    if (currentPosition != slidesCount) {
+        slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
+        currentMargin -= (100 / slidesPerPage);
+        currentPosition++;
+    };
+    if (currentPosition == slidesCount) {
+        buttons[1].classList.add('inactive');
+    }
+    if (currentPosition > 0) {
+        buttons[0].classList.remove('inactive');
+    }
+};
+</script>
+<script type="text/javascript" src="{% static 'js/index.js'%}"></script> 
 
   {% include 'footer.html' %}
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+

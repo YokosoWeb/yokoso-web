@@ -1,44 +1,54 @@
 section {
-  min-height: auto;
-  width: 100%;
-  display: flex;
-  margin-top: 60px;
-  justify-content: center;
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+    justify-content: center;
 }
+
 .container {
-  min-width: 340px;
-  width: 95%;
-  padding: 20px;
-  padding-right: 24px;
-  box-shadow: 0px 0px 20px #00000020;
-  border-radius: 8px;
-  /* background-color: white; */
+    min-width: 340px;
+    width: 95%;
+    padding: 20px;
+    padding-right: 24px;
+    box-shadow: 0px 0px 20px #00000020;
+    border-radius: 8px;
+    /* background-color: white; */
 }
+
 .step {
-  display: none;
+    display: none;
 }
+
 .step.active {
-  display: block;
+    display: block;
 }
+
 .form-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
 }
+
 form h3 {
-  margin: 8px 0px;
+    margin: 8px 0px;
 }
+
 form hr {
-  margin: 8px 0px;
+    margin: 8px 0px;
 }
+
 form input,
 select {
-  padding: 5px 4px;
+    padding: 5px 4px;
 }
+
 form label {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
+
+
 /* .form-group input {
     width: 100%;
     border: 1.5px solid rgba(128, 128, 128, 0.418);
@@ -48,38 +58,44 @@ form label {
     border-radius: 4px;
   }
    */
+
 form .submit-btn {
-  background: rgb(0, 110, 110);
-  color: rgb(0, 0, 0);
-  border: none;
-  font-weight: 400;
-  font-size: 20px;
+    background: rgb(0, 110, 110);
+    color: rgb(0, 0, 0);
+    border: none;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 button.previous-btn {
-  float: left;
+    float: left;
 }
+
 button.submit-btn {
-  background: #48c290;
+    background: #48c290;
 }
+
 form button {
-  width: 120px;
-  padding: 8px 6px;
-  margin: 20px 10px;
+    width: 120px;
+    padding: 8px 6px;
+    margin: 20px 10px;
 }
+
 form .next-btn,
 .previous-btn {
-  background: #48c290;
-
-  color: #fff;
-  border: none;
-  font-weight: 400;
-  font-size: 20px;
+    background: #48c290;
+    color: #fff;
+    border: none;
+    font-weight: 400;
+    font-size: 20px;
 }
+
 
 /* form input,select{
       width: 230px;
   } */
+
+
 /* form input[type='date']::before{
       color: #fff;
       content: attr(placeholder)": ";
@@ -87,56 +103,64 @@ form .next-btn,
   form input[type='date']:focus::before{
     content: "" !important;
 } */
+
 .flex__wrap {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
+
 .small__msg {
-  font-size: 14px;
-
-  padding: 3px 0px;
-  color: red;
+    font-size: 14px;
+    padding: 3px 0px;
+    color: red;
 }
+
 .mar {
-  margin-top: -20px;
+    margin-top: -20px;
 }
+
 table {
-  margin: 15px 0px;
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+    margin: 15px 0px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
+.id {
+    visibility: hidden;
+    width: 1rem;
+    height: 1rem;
+}
 
 @media only screen and (max-width: 800px) {
-  .flex__wrap {
-    display: flex;
-    flex-direction: column;
-  }
-  .container {
-    padding-right: 30px;
-  }
-  .shade {
-    padding: 15px 30px;
-  }
-  form input,
-  select,
-  label {
-    margin-left: -15px;
-  }
-  section {
-  
-    margin-top: 20px;
- 
-  }
+    .flex__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+    .container {
+        padding-right: 30px;
+    }
+    .shade {
+        padding: 15px 30px;
+    }
+    form input,
+    select,
+    label {
+        margin-left: -15px;
+    }
+    section {
+        margin-top: 20px;
+    }
 }
+
 .shade {
-  padding: 15px 20px;
-  margin: 10px 0px;
+    padding: 15px 20px;
+    margin: 10px 0px;
 }
