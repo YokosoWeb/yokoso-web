@@ -316,17 +316,42 @@ def credit(request):
     return render(request, 'app/creditScore.html')
 
 def personalDetails(request):
+    print("name")
     name = request.GET.get('name')
     pan = request.GET.get('pan')
     phone = request.GET.get('phone')
-    bank = request.GET.get('bank')
-    ir = request.GET.get('ir')
-    obj = EMI_Data(name=name, pan=pan, phone=phone, bank = bank, interest_rate = ir)
+    employment = request.GET.get('employmentType')
+    email = request.GET.get('email')
+    dob = request.GET.get('dob')
+    gender = request.GET.get('gender')
+    
+    obj = EMI_Data(name=name, pan=pan, phone=phone,employment=employment, email=email, dob=dob, gender=gender)
     obj.save()
-    print(id)
-    print(obj)
-    return JsonResponse(list(obj.values('name', id)), safe=False) 
+    
+  
+    
+    return JsonResponse(obj.id, safe=False)
 
+def submit(request):
+    print("name")
+    ide = request.GET.get('ide')
+    la = request.GET.get('la')
+    bank = request.GET.get('bank')
+    salary = request.GET.get('salary')
+    emi = request.GET.get('emi')
+    loanType = request.GET.get('loanType')
+    tenure = request.GET.get('tenure')  
+     
+    print(tenure)
+    ans = EMI_Data.objects.filter(id = ide).update(loanamount=la, bank=bank, salary=salary,ongoingemi=emi,loantype=loanType, tenure=tenure)
+    print(ans)
+    data = [{
+      'data': ['success']}
+]
+    
+    return JsonResponse(data, safe=False)
+   
+   
 def EMIEnquiryFun(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -335,7 +360,7 @@ def EMIEnquiryFun(request):
         email = request.POST.get('email')
         dob = request.POST.get('dob')
         gender = request.POST.get('gender')
-
+ 
         # obj = EMIEnquiry(name=name, email=email, gender=gender,
         # pan=pan, phone=phone,dob=dob)
         # obj.save()

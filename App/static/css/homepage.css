@@ -389,7 +389,7 @@ h1 {
     }
     .cardsright a {
         font-size: smaller;
-        margin-left: .2rem;
+        margin-left: 1rem;
         font-family: 'Courier New', Courier, monospace;
     }
     .headlinesliders {
@@ -408,8 +408,11 @@ h1 {
         font-size: small;
     }
     .offerdetails {
-        width: 20rem;
+        width: 25rem;
         margin-top: 1rem;
+    }
+    .servicecards {
+        width: 100%;
     }
 }
 
