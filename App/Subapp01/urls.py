@@ -30,9 +30,14 @@ urlpatterns = [
     path ('Services/branchname/', BranchNames, name='branchname'),
     path ('Services/ifscfilter/', Ifscfilter, name='ifscfilter'),
     # path ('ifsc/ifscfiller/', Ifscfiller, name='ifscfiller')
-    path ('Services/<slug>', Ifscfiller, name='ifscfiller'),
+    path('Services/<slug>', Ifscfiller, name='ifscfiller'),
     path('emi-pro/apply_loan/', apply_loan, name='apply_loan'),
-    path ('Services/grievance/', Grievance, name='grievance'),
-    path ('Services/grievancefilter/', GrievanceFilter, name='grievancefilter')
-    
+    path('Services/grievance/', Grievance, name='grievance'),
+    path('Services/grievancefilter/', GrievanceFilter, name='grievancefilter'),
+
+    path('income_tax_calculator', income_tax_calculator,
+         name='income_tax_calculator'),
+    path('income_cal', income_cal, name='income_cal')
+
+
 ]

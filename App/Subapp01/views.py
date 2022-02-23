@@ -14,8 +14,11 @@ from django.utils.html import strip_tags
 from math import ceil
 import numpy_financial as npf
 # Create your views here.
+
+
 def is_valid_queryparam(param):
     return param != '' and param is not None
+
 
 def home(request):
 
@@ -145,22 +148,22 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        
-        Firstname=request.POST.get('first_name')
-        
-        Email=request.POST.get('email')
-        Phone=request.POST.get('phone')
+
+        Firstname = request.POST.get('first_name')
+
+        Email = request.POST.get('email')
+        Phone = request.POST.get('phone')
         Category = request.POST.get('category')
-        Message=request.POST.get('msg')
-       
-        context={
-        'Firstname': Firstname,
-       
-        'Email': Email,
-        'Phone': Phone,
-        'Category': Category,
-        'Message': Message, 
-        
+        Message = request.POST.get('msg')
+
+        context = {
+            'Firstname': Firstname,
+
+            'Email': Email,
+            'Phone': Phone,
+            'Category': Category,
+            'Message': Message,
+
         }
         Message = '''
         New message: {}
@@ -175,16 +178,15 @@ def contact(request):
 
     # return render(request, 'app/contact.html', {'msg': True})
 
-
         return render(request, 'app/contact.html', {'msg': True})
 
     else:
         return render(request, 'app/contact.html')
 
+
 def articleHome(request):
     posts = Post.objects.filter(status='Published').order_by('date')[::-1]
     return render(request, 'app/Articles/articlesHome.html', {'posts': posts})
-
 
 
 def articleView(request, slug):
@@ -196,8 +198,9 @@ def articleView(request, slug):
 def emi(request):
     return render(request, 'app/calculator.html')
 
+
 def apply_loan(request):
-    return render(request,'app/apply_loan.html')
+    return render(request, 'app/apply_loan.html')
 
 
 def credit(request):
@@ -236,11 +239,12 @@ def credit(request):
         print(P1)
         r = float(DefaultROI)/(12*100)
         p = int(loanAmount)
-        n = int(tenure) 
+        n = int(tenure)
 
         # Calculating Equated Monthly Installment (EMI)
         EMI_REAL = round(p * r * ((1+r)**n)/((1+r)**n - 1))
-        LOAN_MAX = round(npf.pv((DefaultROI)/1200, int(tenure), int(EMI_MAX) * -1))
+        LOAN_MAX = round(
+            npf.pv((DefaultROI)/1200, int(tenure), int(EMI_MAX) * -1))
         # LOAN_MAX = npf.pmt(DefaultROI/12, tenure, loanAmount)*-1
         #  LOAN_MAX and EMI_MAX, Tenure , ROI
         # LOAN_MAX = round(EMI_MAX * float(tenure))
@@ -252,12 +256,9 @@ def credit(request):
         else:
             creditScore = 900
 
-
-
         # Less Loan Real ( Not eligible for Loan )
         if int(LOAN_MAX) < int(LOAN_REAL):
-            return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'LOAN_MAX': LOAN_MAX,'eligible' :False})
-
+            return render(request, 'app/emi-pro-output.html', {'EMI_MAX': EMI_MAX, 'LOAN_MAX': LOAN_MAX, 'eligible': False})
 
         # Process on DB
         # data = ADV_EMI_CAL.objects.filter(feature_type=employment | feature_type.isnull=True).filter(loan_type=loanType)
@@ -269,7 +270,7 @@ def credit(request):
         data1 = []
         for i in data:
             # print("=====",i)
-            if ((int(loanAmount) >= i.loan_min) and (int(loanAmount) <= i.loan_max)) and ((int(creditScore) >= i.cibil_min) and ( int(creditScore) <= i.cibil_max)) and (str(i.gender).upper() == gender.upper() or i.gender is None) and (str(i.feature_type).upper() == employment.upper() or i.feature_type is None):
+            if ((int(loanAmount) >= i.loan_min) and (int(loanAmount) <= i.loan_max)) and ((int(creditScore) >= i.cibil_min) and (int(creditScore) <= i.cibil_max)) and (str(i.gender).upper() == gender.upper() or i.gender is None) and (str(i.feature_type).upper() == employment.upper() or i.feature_type is None):
                 data1.append(i)
         #     print(i.bank,i.loan_type,i.loan_min,i.loan_max,i.interest_rate)
         # print(data1)
@@ -277,7 +278,6 @@ def credit(request):
         #     print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
         # print("=================loan_max",i.loan_max,int(i.loan_max))
         # if not show then show others
-
 
         '''print(len(data1))
         data2 = []
@@ -306,14 +306,11 @@ def credit(request):
         #     print(i.cal_id,i.bank,i.loan_type,i.loan_min,i.loan_max,i.cibil_min,i.cibil_max,i.gender)
         # print(data3)
 
-
-     
-
-
         # print(int(int(loanAmount)/100000))
 
-        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': int(EMI_MAX), 'EMI_REAL': EMI_REAL, 'LOAN_MAX': int(LOAN_MAX), 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI,2), 'TENURE': TENURE,'eligible' :True, 'data' : data1[:5]})
+        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': int(EMI_MAX), 'EMI_REAL': EMI_REAL, 'LOAN_MAX': int(LOAN_MAX), 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI, 2), 'TENURE': TENURE, 'eligible': True, 'data': data1[:5]})
     return render(request, 'app/creditScore.html')
+
 
 def personalDetails(request):
     print("name")
@@ -368,6 +365,8 @@ def EMIEnquiryFun(request):
         return HttpResponse(name)
 
 # def IfscData(re)
+
+
 def getServices(request):
     context = {
         'services': ['IFSC Code', 'Grievance']
@@ -376,42 +375,52 @@ def getServices(request):
 
 
 def BankNames(request):
-    BankName = IfscData.objects.values_list('BANK', flat=True).distinct().order_by('BANK')
+    BankName = IfscData.objects.values_list(
+        'BANK', flat=True).distinct().order_by('BANK')
     return JsonResponse(list(BankName.values('BANK')), safe=False)
-  
+
+
 def StateNames(request):
     bankname = request.GET.get('bank')
-    state_names = IfscData.objects.filter(BANK = bankname).distinct().order_by('STATE')
+    state_names = IfscData.objects.filter(
+        BANK=bankname).distinct().order_by('STATE')
     return JsonResponse(list(state_names.values('STATE')), safe=False)
+
 
 def CityNames(request):
     statename = request.GET.get('state')
     bankname = request.GET.get('bank')
-    city_names = IfscData.objects.filter(STATE = statename, BANK = bankname).distinct().order_by('CITY')
+    city_names = IfscData.objects.filter(
+        STATE=statename, BANK=bankname).distinct().order_by('CITY')
     return JsonResponse(list(city_names.values('CITY')), safe=False)
+
 
 def BranchNames(request):
     cityname = request.GET.get('city')
     statename = request.GET.get('state')
-    bankname = request.GET.get('bank') 
-    branch_names = IfscData.objects.filter(CITY = cityname, STATE = statename, BANK = bankname).distinct().order_by('BRANCH')
+    bankname = request.GET.get('bank')
+    branch_names = IfscData.objects.filter(
+        CITY=cityname, STATE=statename, BANK=bankname).distinct().order_by('BRANCH')
     return JsonResponse(list(branch_names.values('id', 'BRANCH')), safe=False)
+
 
 def Ifscfilter(request):
     branchname = request.GET.get('branch')
-    ifsc_names = IfscData.objects.filter(id = branchname)
+    ifsc_names = IfscData.objects.filter(id=branchname)
     context = {
-       'ifsc_names': ifsc_names
-      }
+        'ifsc_names': ifsc_names
+    }
     return render(request, "app/ifsc_code.html", context)
+
+
 def Ifscfiller(request, slug):
-    ifsc_no = slug #request.GET.get('ifsc_no')
+    ifsc_no = slug  # request.GET.get('ifsc_no')
     ifsc_no = ifsc_no.upper()
-    ifsc_names = IfscData.objects.filter(IFSC_CODE= ifsc_no)
+    ifsc_names = IfscData.objects.filter(IFSC_CODE=ifsc_no)
     context = {
-       'ifsc_names': ifsc_names
-      }
-    return render(request, "app/ifsc_code.html", context)   
+        'ifsc_names': ifsc_names
+    }
+    return render(request, "app/ifsc_code.html", context)
 # def Grievance(request):
 #     grievance= bank_grievance.objects.all()
 #     context = {
@@ -423,18 +432,76 @@ def Ifscfiller(request, slug):
 
 def Grievance(request):
     # BankName = bank_grievance.objects.all()
-    BankName = bank_grievance.objects.values_list('Bank', flat=True).distinct().order_by('Bank')   
+    BankName = bank_grievance.objects.values_list(
+        'Bank', flat=True).distinct().order_by('Bank')
     print("BANKNAME:", BankName)
     return JsonResponse(list(BankName.values('id', 'Bank')), safe=False)
 
 
 def GrievanceFilter(request):
     bankname = request.GET.get('bank')
-    grievance = bank_grievance.objects.filter(id = bankname)
+    grievance = bank_grievance.objects.filter(id=bankname)
     context = {
-       'grievance':grievance
-      }
+        'grievance': grievance
+    }
     return render(request, "app/ifsc_code.html", context)
 
 
+def income_tax_calculator(request):
+    print("what's up")
+    return render(request, "app/income_22.html")
 
+
+def income_cal(request):
+    gross_salary = int(request.GET['gross_salary'])
+    hra_lta = int(request.GET['hra_lta'])
+    tax_ded = int(request.GET['tax_ded'])
+    hlt_ins_prm = int(request.GET['hlt_ins_prm'])
+    nps = int(request.GET['nps'])
+
+    # Standard Deduction in Taxation
+    std_deducation = int(50000)
+
+    # Investment under Section 80C (ELSS+EPF)
+    tax_ded = 150000 if tax_ded >= 150000 else tax_ded
+
+    # National Pension System
+    nps = 50000 if nps >= 50000 else nps
+
+    # HRA & LTA
+    hra_lta = 200000 if hra_lta > 200000 else hra_lta
+
+    total_income = gross_salary - hra_lta - \
+        std_deducation - tax_ded - nps - hlt_ins_prm
+
+    # inc_tax = 0
+
+    if total_income > 500000:
+        inc_tax = 12500
+        if total_income < 1000000:
+            inc_tax += ((total_income-500000)*.2)
+        # elif 500000 < total_income >= 1000000:
+        #     inc_tax += 100000
+
+        if total_income > 1000000:
+            inc_tax += ((total_income-1000000)*.3)
+
+    # Surcharge
+    if 5000000 < total_income >= 10000000:
+        inc_tax += (total_income-5000000)*.1
+    if 10000000 < total_income >= 20000000:
+        inc_tax += (total_income-10000000)*.2
+    if 20000000 < total_income >= 30000000:
+        inc_tax += (total_income-20000000)*.3
+
+    hlt_edu_cess = round(inc_tax * .04)
+    t = inc_tax+hlt_edu_cess
+    return render(request, "app/income_33.html", {'gross_salary': gross_salary,
+                                                  'total_income': total_income,
+                                                  'hra_lta': hra_lta,
+                                                  'tax_ded': tax_ded,
+                                                  'hlt_ins_prm': hlt_ins_prm,
+                                                  'nps': nps,
+                                                  'inc_tax': inc_tax,
+                                                  'hlt_edu_cess': hlt_edu_cess,
+                                                  't': t})

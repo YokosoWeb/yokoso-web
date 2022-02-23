@@ -1,0 +1,318 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | IFSC Code</title>{% endblock %} {% block css %}
+
+
+<!-- EMI pro page -->
+
+<link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
+<link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
+<!-- <link rel="stylesheet" href="{% static 'css/income.css' %}"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    :root {
+        --primary-color: rgb(11, 78, 179);
+    }
+
+    /* 
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    } */
+
+    body {
+        font-family: Verdana, Tahoma, sans-serif;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        /* min-height: 100vh; */
+    }
+
+    /* Global Setting */
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+    }
+
+    .width-50 {
+        width: 50%;
+    }
+
+    .ml-auto {
+        margin-left: auto;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* progressbar */
+    .progressbar {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .progressbar::before,
+    .progress {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate();
+        /*this cmd create the line to join the circle*/
+        height: 4px;
+        width: 100%;
+        background-color: #dcdcdc;
+        counter-reset: step;
+        /* this counter counts the number in circle */
+        z-index: -1;
+    }
+
+    .progress {
+        background-color: var(--primary-color);
+        width: 0%;
+    }
+
+    .progress-step {
+        width: 35px;
+        height: 35px;
+        background-color: #dcdcdc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .progress-step::before {
+        counter-increment: step;
+        content: counter(step);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .progress-step::after {
+        content: attr(data-title);
+        position: absolute;
+        top: calc(100%);
+        font-size: 20%;
+        color: #666;
+    }
+
+    .progress-step-active {
+        background-color: var(--primary-color);
+        color: #f3f3f3;
+    }
+
+    /* form */
+    .form {
+        /* width: clamp(320px, 30%, 430px); */
+        width: auto;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 2.5rem;
+        /* border-radius: 0.35rem; */
+        padding: 1.5rem;
+    }
+
+    .form-step {
+        display: none;
+    }
+
+    .form-step-active {
+        display: block;
+    }
+
+    .input-group {
+        margin: 2rem 0;
+    }
+
+    /* Button */
+    .btn-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .btn {
+        padding: .75rem;
+        display: block;
+        text-decoration: none;
+        background-color: var(--primary-color);
+        /* background-color: rgb(11, 78, 179); */
+        color: #ccc;
+        text-align: center;
+        border-radius: .25rem;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 0 2px #ccc, 0 0 0 3px var(--primary-color);
+    }
+</style>
+
+{% endblock css %}
+
+</head>
+{% block body %}
+
+<body>
+    <!-- == here goes the header of the page == -->
+    <div class="header_banner">
+        <h2 align='center'>Income Tax Calculator</h2>
+        <p align='center'>(AY : 2020-21)</p>
+
+    </div>
+    <!-- Test the block box multi step -->
+
+
+    <div class="cal" style="margin: 50px 8%">
+        <section>
+            <div class="container">
+                {% csrf_token %}
+
+                <form action="income_cal" class="form" method="GET">
+                    <!-- Progress bar -->
+                    <div class="progress" id="progress"></div>
+                    <div class="progressbar">
+                        <div class="progress-step progress-step-active" data-title="Intro"></div>
+                        <div class="progress-step" data-title="Detail"></div>
+                        <div class="progress-step" data-title="Cacultion"></div>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="form-step form-step-active">
+                        <div class="input-group">
+                            <label for="fname">Full Name</label>
+                            <input type="text" name="fname" id="fname">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="employmenttype">Employment Type</label>
+                            <select id="emp">
+                                <!--name="emp"-->
+                                <option value="Self Employed">Self Employed</option>
+                                <option value="Salaried">Salaried</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="batch">Gender*</label>
+                            <select name="gender" id="gender">
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="Woman">Female</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <div class="input-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email">
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-prev">Prev</a>
+                            <a href="#" class="btn btn-next">Next</a>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <div class="input-group">
+                            <label for="gross_salary">Gross Salary</label>
+                            <input type="number" name="gross_salary" id="gross_salary">
+                        </div>
+                        <div class="input-group">
+                            <label for="hra_lta">Hra & LTA</label>
+                            <input type="number" name="hra_lta" id="hra_lta">
+                        </div>
+                        <div class="input-group">
+                            <label for="tax_ded">Tax Deduction</label>
+                            <input type="number" name="tax_ded" id="tax_ded">
+                        </div>
+                        <div class="input-group">
+                            <label for="hlt_ins_prm">Health Insurance Premium</label>
+                            <input type="number" name="hlt_ins_prm" id="hlt_ins_prm">
+                        </div>
+                        <div class="input-group">
+                            <label for="nps">NPS</label>
+                            <input type="number" name="nps" id="nps">
+                        </div>
+
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-prev">Prev</a>
+                            <!-- <input type="submit" value="Submit" class="btn">
+                            <button type="submit" class="submit-btn">Submit</button> -->
+                            <button type="submit" value="submit" class="submit-btn">Calculate</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script>
+        const prevBtns = document.querySelectorAll(".btn-prev")
+        const nextBtns = document.querySelectorAll(".btn-next")
+        const progress = document.getElementById("progress")
+        const formSteps = document.querySelectorAll(".form-step")
+
+        const progressSteps = document.querySelectorAll(".progress-step");
+
+        let formStepNum = 0;
+
+        nextBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                formStepNum++;
+                updateFormSteps();
+                updateProgressbar();
+            });
+        });
+        prevBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                formStepNum--;
+                updateFormSteps();
+                updateProgressbar();
+            });
+        });
+
+        function updateFormSteps() {
+            formSteps.forEach((formStep) => {
+
+                // this line will hide after click Next the previous tab
+                formStep.classList.contains("form-step-active") &&
+                    formStep.classList.remove("form-step-active")
+            })
+            formSteps[formStepNum].classList.add("form-step-active");
+        };
+
+        function updateProgressbar() {
+            progressSteps.forEach((progressStep, idx) => {
+                if (idx < formStepNum + 1) {
+                    progressStep.classList.add("progress-step-active");
+                } else {
+                    progressStep.classList.remove("progress-step-active");
+                }
+            })
+        }
+    </script>
+
+</body>
+{% include 'footer.html' %} {% endblock body %}
+
+</html>
