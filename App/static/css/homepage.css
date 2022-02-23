@@ -82,7 +82,7 @@ h1 {
     align-self: center;
     margin-right: 1rem;
     font-size: x-large;
-    color: blue;
+    color: black;
     opacity: 70%;
 }
 
@@ -115,20 +115,27 @@ h1 {
     background-color: white;
 }
 
+.cardsleft a:hover {
+    color: black;
+}
+
 .cardsright:hover {
     background-color: white;
+    color: rgb(58 221 154);
 }
 
 .cardsright a {
     margin: auto;
     font-family: cursive;
     -webkit-text-stroke-width: medium;
+    color: black;
 }
 
 .cardsleft a {
     margin: auto;
     font-family: cursive;
     -webkit-text-stroke-width: medium;
+    color: black;
 }
 
 .offersliders {
