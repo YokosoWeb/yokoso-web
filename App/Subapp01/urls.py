@@ -21,6 +21,7 @@ urlpatterns = [
     
     path('emi-pro/', credit , name = 'credit'),
     path('emi-pro/personalDetails/', personalDetails , name = 'personalDetails'),
+    path('emi-pro/submit/', submit , name = 'submit'),
     path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),
     path ('Services/', getServices, name='getServices'),
     path ('Services/bankname/', BankNames, name='bankname'),

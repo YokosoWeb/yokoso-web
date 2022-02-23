@@ -122,8 +122,18 @@ class EMI_Data(models.Model):
       name =  models.CharField(max_length = 200, blank = True)
       phone =  models.FloatField(blank=True,null = True)
       pan =  models.CharField(max_length = 200, blank = True)
+      employment = models.CharField(max_length = 200, blank = True)
+      email=models.CharField(max_length = 200, blank = True)
+      dob=models.CharField(max_length = 200, blank = True)
+      gender=models.CharField(max_length = 200, blank = True)
+  
       bank = models.CharField(max_length = 200, blank = True)
-      interest_rate = models.FloatField(blank=True,null = True)
+      salary=models.FloatField(max_length = 200, blank = True, null = True)
+      ongoingemi =  models.FloatField(max_length = 200, blank = True ,null = True)
+      loantype=models.CharField(max_length = 200, blank = True)
+      tenure =models.FloatField(max_length = 200, blank = True,null = True)
+    
+      loanamount = models.FloatField(blank=True,null = True)
       created = models.DateTimeField(auto_now_add=True,null = True, blank = True)
        
 
@@ -159,3 +169,7 @@ class customer_data(models.Model):
     email_address = models.CharField(max_length=500,blank=False,null = False)
     Date_of_birth = models.CharField(max_length=500,blank=False,null = False)
     gender = models.CharField(max_length=500,blank=False,null = False)
+
+
+class testing(models.Model):
+    name=models.CharField(max_length=500,blank=False,null = False)

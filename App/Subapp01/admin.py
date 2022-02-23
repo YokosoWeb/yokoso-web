@@ -11,7 +11,7 @@ admin.site.register(IfscData)
 admin.site.register(bank_grievance)
 admin.site.register(customer_data)
 admin.site.register(EMI_Data)
-
+admin.site.register(testing)
 
 
 @admin.register(Post)
