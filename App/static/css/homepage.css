@@ -248,10 +248,11 @@ h1 {
 /* //Contact */
 
 .wrapper {
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-bottom: 1rem;
     border-radius: 1rem;
+    margin-top: 1rem;
 }
 
 .subscribe__text a {

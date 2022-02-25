@@ -51,6 +51,22 @@ $("#service").change(function() {
 
 });
 
+
+
+// function mychange() {
+//     alert("onchangeiii");
+// }
+
+// function yesnoCheck(that) {
+//     alert("hiii")
+//     if (that.value == "Grievance") {
+//         alert("check");
+//         document.getElementById("statesss").style.display = "block";
+//     } else {
+//         document.getElementById("statesss").style.display = "none";
+//     }
+// }
+
 $("#BankName").change(function() {
     document.getElementById('error').innerHTML = " ";
     const selectedBank = $(this).val(); // get the selected ServiceHTML input
