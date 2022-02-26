@@ -293,6 +293,10 @@ label.logo {
 
 nav {
     background: rgb(72 194 144);
+    position: fixed;
+    width: 100%;
+    border-bottom: inset
+    /* border-color: rgb(90 255 188 / 37%); */
 }
 
 nav:after {
