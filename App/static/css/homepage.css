@@ -152,7 +152,7 @@ h1 {
     background-color: darkcyan;
     align-self: center;
     height: 10rem;
-    z-index: 8;
+    /* z-index: 8; */
     border-radius: 1rem;
     text-align: center;
 }
@@ -211,7 +211,7 @@ h1 {
     background-color: rgb(72 194 144);
     align-self: center;
     height: 10rem;
-    z-index: 8;
+    /* z-index: 8; */
     border-radius: 1rem;
     margin: 2rem;
     margin-bottom: .5rem;
@@ -248,10 +248,11 @@ h1 {
 /* //Contact */
 
 .wrapper {
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-bottom: 1rem;
     border-radius: 1rem;
+    margin-top: 1rem;
 }
 
 .subscribe__text a {

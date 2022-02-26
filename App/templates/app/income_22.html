@@ -22,7 +22,7 @@
         box-sizing: border-box;
     } */
 
-    body {
+    .bodyincome {
         font-family: Verdana, Tahoma, sans-serif;
         margin: 0;
         display: grid;
@@ -31,10 +31,7 @@
     }
 
     /* Global Setting */
-    label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
+    
 
     input {
         display: block;
@@ -167,7 +164,7 @@
 </head>
 {% block body %}
 
-<body>
+<div class="bodyincome">
     <!-- == here goes the header of the page == -->
     <div class="header_banner">
         <h2 align='center'>Income Tax Calculator</h2>
@@ -266,6 +263,7 @@
             </div>
         </section>
     </div>
+</div>
     <script>
         const prevBtns = document.querySelectorAll(".btn-prev")
         const nextBtns = document.querySelectorAll(".btn-next")
@@ -312,7 +310,7 @@
         }
     </script>
 
-</body>
+
 {% include 'footer.html' %} {% endblock body %}
 
 </html>

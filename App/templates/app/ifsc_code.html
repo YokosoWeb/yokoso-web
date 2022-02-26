@@ -36,7 +36,7 @@
 				   {% csrf_token %}
                     <div class="ifsc-form-group">
                            <label for="services" class="form_label">Services</label>
-                            <select required name="service" id="service" class="service" size="1">
+                            <select required name="service" id="service" class="service" size="1"  >
                             <option selected value="">Select the service</option>
                             {% for cat in services %}
                             <option value="{{ cat }}">{{ cat }}</option>
@@ -54,7 +54,7 @@
                             </select>                 
                         </div>  
                    
-                        <div class="ifsc-form-group">
+                        <div class="ifsc-form-group "  >
                             <label for="states" class="form_label">State</label>
                             <select   name="State_Name" id="State_Name"
                             size="1" class="state-selection" required>
@@ -70,7 +70,7 @@
                             </select>
                         </div>
 
-                        <div class="ifsc-form-group">
+                        <div class="ifsc-form-group" >
                             <label for="branches" class="form_label">Branch</label>
                             <select name="Branch_Name" id="Branch_Name" size="1" class="branch-selection" required>
                                 <option value = ""> Select Branch Name</option> 
