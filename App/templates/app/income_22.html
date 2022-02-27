@@ -22,7 +22,7 @@
         box-sizing: border-box;
     } */
 
-    body {
+    .bodyincome {
         font-family: Verdana, Tahoma, sans-serif;
         margin: 0;
         display: grid;
@@ -31,10 +31,7 @@
     }
 
     /* Global Setting */
-    label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
+
 
     input {
         display: block;
@@ -167,7 +164,7 @@
 </head>
 {% block body %}
 
-<body>
+<div class="bodyincome">
     <!-- == here goes the header of the page == -->
     <div class="header_banner">
         <h2 align='center'>Income Tax Calculator</h2>
@@ -195,21 +192,21 @@
                     <div class="form-step form-step-active">
                         <div class="input-group">
                             <label for="fname">Full Name</label>
-                            <input type="text" name="fname" id="fname">
+                            <input type="text" name="fname" id="fname" placeholder="Full Name">
                         </div>
 
                         <div class="input-group">
                             <label for="employmenttype">Employment Type</label>
                             <select id="emp">
                                 <!--name="emp"-->
-                                <option value="Self Employed">Self Employed</option>
                                 <option value="Salaried">Salaried</option>
+                                <option value="Self Employed">Self Employed</option>
                             </select>
                         </div>
                         <div class="input-group">
-                            <label for="batch">Gender*</label>
+                            <label for="batch">Gender</label>
                             <select name="gender" id="gender">
-                                <option value="">Select</option>
+                                <!-- <option value="">Select</option> -->
                                 <option value="male">Male</option>
                                 <option value="Woman">Female</option>
                             </select>
@@ -236,23 +233,24 @@
                     <div class="form-step">
                         <div class="input-group">
                             <label for="gross_salary">Gross Salary</label>
-                            <input type="number" name="gross_salary" id="gross_salary">
+                            <input type="number" name="gross_salary" id="gross_salary"
+                                placeholder="Enter your salary here">
                         </div>
                         <div class="input-group">
                             <label for="hra_lta">Hra & LTA</label>
-                            <input type="number" name="hra_lta" id="hra_lta">
+                            <input type="number" name="hra_lta" id="hra_lta" value="0" min="0" max="500000">
                         </div>
                         <div class="input-group">
                             <label for="tax_ded">Tax Deduction</label>
-                            <input type="number" name="tax_ded" id="tax_ded">
+                            <input type="number" name="tax_ded" id="tax_ded" value="0" min="0" max="500000">
                         </div>
                         <div class="input-group">
                             <label for="hlt_ins_prm">Health Insurance Premium</label>
-                            <input type="number" name="hlt_ins_prm" id="hlt_ins_prm">
+                            <input type="number" name="hlt_ins_prm" id="hlt_ins_prm" value="0" min="0" max="20000">
                         </div>
                         <div class="input-group">
                             <label for="nps">NPS</label>
-                            <input type="number" name="nps" id="nps">
+                            <input type="number" name="nps" id="nps" value="0" min="0" max="100000">
                         </div>
 
                         <div class="btn-group">
@@ -266,53 +264,54 @@
             </div>
         </section>
     </div>
-    <script>
-        const prevBtns = document.querySelectorAll(".btn-prev")
-        const nextBtns = document.querySelectorAll(".btn-next")
-        const progress = document.getElementById("progress")
-        const formSteps = document.querySelectorAll(".form-step")
+</div>
+<script>
+    const prevBtns = document.querySelectorAll(".btn-prev")
+    const nextBtns = document.querySelectorAll(".btn-next")
+    const progress = document.getElementById("progress")
+    const formSteps = document.querySelectorAll(".form-step")
 
-        const progressSteps = document.querySelectorAll(".progress-step");
+    const progressSteps = document.querySelectorAll(".progress-step");
 
-        let formStepNum = 0;
+    let formStepNum = 0;
 
-        nextBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                formStepNum++;
-                updateFormSteps();
-                updateProgressbar();
-            });
+    nextBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            formStepNum++;
+            updateFormSteps();
+            updateProgressbar();
         });
-        prevBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                formStepNum--;
-                updateFormSteps();
-                updateProgressbar();
-            });
+    });
+    prevBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            formStepNum--;
+            updateFormSteps();
+            updateProgressbar();
         });
+    });
 
-        function updateFormSteps() {
-            formSteps.forEach((formStep) => {
+    function updateFormSteps() {
+        formSteps.forEach((formStep) => {
 
-                // this line will hide after click Next the previous tab
-                formStep.classList.contains("form-step-active") &&
-                    formStep.classList.remove("form-step-active")
-            })
-            formSteps[formStepNum].classList.add("form-step-active");
-        };
+            // this line will hide after click Next the previous tab
+            formStep.classList.contains("form-step-active") &&
+                formStep.classList.remove("form-step-active")
+        })
+        formSteps[formStepNum].classList.add("form-step-active");
+    };
 
-        function updateProgressbar() {
-            progressSteps.forEach((progressStep, idx) => {
-                if (idx < formStepNum + 1) {
-                    progressStep.classList.add("progress-step-active");
-                } else {
-                    progressStep.classList.remove("progress-step-active");
-                }
-            })
-        }
-    </script>
+    function updateProgressbar() {
+        progressSteps.forEach((progressStep, idx) => {
+            if (idx < formStepNum + 1) {
+                progressStep.classList.add("progress-step-active");
+            } else {
+                progressStep.classList.remove("progress-step-active");
+            }
+        })
+    }
+</script>
 
-</body>
+
 {% include 'footer.html' %} {% endblock body %}
 
 </html>
