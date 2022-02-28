@@ -13,6 +13,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from math import ceil
 import numpy_financial as npf
+from babel.numbers import format_currency
 # Create your views here.
 
 
@@ -308,7 +309,7 @@ def credit(request):
 
         # print(int(int(loanAmount)/100000))
 
-        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': int(EMI_MAX), 'EMI_REAL': EMI_REAL, 'LOAN_MAX': int(LOAN_MAX), 'LOAN_REAL': LOAN_REAL, 'ROI': round(ROI, 2), 'TENURE': TENURE, 'eligible': True, 'data': data1[:5]})
+        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': format_currency((EMI_MAX),'INR',locale='en_IN')[:-3], 'EMI_REAL': EMI_REAL, 'LOAN_MAX': format_currency((LOAN_MAX),'INR',locale='en_IN')[:-3], 'LOAN_REAL': format_currency(LOAN_REAL,'INR',locale='en_IN')[:-3], 'ROI': round(ROI, 2), 'TENURE': TENURE, 'eligible': True, 'data': data1[:5]})
     return render(request, 'app/creditScore.html')
 
 

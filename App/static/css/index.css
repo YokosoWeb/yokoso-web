@@ -468,6 +468,10 @@ nav ul ul ul li {
     span.cancel:before {
         content: '\f00d';
     }
+    faqsnav {
+        padding-left: 2rem;
+    }
+
 }
 
 
