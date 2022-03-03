@@ -26,7 +26,7 @@
             <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" required />
             {% comment %} <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required /> {% endcomment %}
             <input type="email" placeholder="Email Address" name="email" required/>
-            <input type="tel" placeholder="Phone Number" name="phone" required  pattern="[0-9]+" title="Enter only numbers"/>
+            <input type="tel" placeholder="Phone Number" name="phone" required  title="Enter only numbers" maxlength="10" pattern="\d{10}"/>
             
             <label for="id_category" class="optionss">Category</label>
             <select class="form-control options"  name="category" id="id_category" required>

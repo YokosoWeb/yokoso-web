@@ -83,8 +83,8 @@ h1 {
     align-self: center;
     margin-right: 1rem;
     font-size: x-large;
-    color: black;
-    opacity: 70%;
+    opacity: 90%;
+    margin-left: 1rem;
 }
 
 .cardsleft {
@@ -95,9 +95,12 @@ h1 {
     border-radius: .5rem;
     margin-bottom: 1rem;
     text-align: center;
-    display: flex;
     border-color: #24ff6a63;
     border-style: groove;
+    padding: 2rem;
+    font-family: 'Poppins';
+    -webkit-text-stroke-width: medium;
+    color: white;
 }
 
 .cardsright {
@@ -110,14 +113,18 @@ h1 {
     justify-content: center;
     border-color: #24ff6a63;
     border-style: groove;
+    padding: 2rem;
+    font-family: "Poppins";
+    -webkit-text-stroke-width: medium;
+    color: white;
 }
 
 .cardsleft:hover {
     background-color: white;
 }
 
-.cardsleft a:hover {
-    color: black;
+.cardsleft:hover {
+    color: rgb(58 221 154);
 }
 
 .cardsright:hover {
@@ -331,7 +338,7 @@ h1 {
     font-size: 150px;
 }
 
-.slide a {
+.slide {
     font-weight: bold;
     color: black;
 }
