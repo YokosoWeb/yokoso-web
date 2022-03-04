@@ -2,8 +2,38 @@
     margin-top: 50px;
 }
 
+.options {
+    width: 22rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+}
+
 @media (min-width: 1500px) {
     .register_child img {
         margin-top: 140px;
+    }
+}
+
+@media (max-width:500px) {
+    .options {
+        width: 12rem;
+        height: 2rem;
+        border-radius: 0.2rem;
+    }
+}
+
+@media (max-width:1000px) {
+    .options {
+        width: 20rem;
+        height: 2rem;
+        border-radius: 0.2rem;
+    }
+}
+
+@media (max-width:1300px) {
+    .options {
+        width: 16rem;
+        height: 2rem;
+        border-radius: 0.2rem;
     }
 }

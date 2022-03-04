@@ -2,6 +2,10 @@
      scroll-behavior: smooth;
  }
  
+ main {
+     mix-blend-mode: lighten;
+ }
+ 
  .ifsc-code-container {
      width: 90%;
      margin: auto;
@@ -9,6 +13,7 @@
      justify-content: space-between;
      flex-wrap: wrap;
      padding: 30px 20px;
+     mix-blend-mode: lighten;
  }
  
  .form_container {
@@ -131,6 +136,14 @@
      color: #fff!important;
  }
  
+ .display-code .heading h3 {
+     mix-blend-mode: darken;
+ }
+ 
+ .display-code .heading h3 span {
+     mix-blend-mode: darken;
+ }
+ 
  .message {
      font-size: 12px;
      font-weight: 600;
@@ -164,6 +177,7 @@
      font-size: medium;
      font-family: emoji;
      text-align: center;
+     user-select: text;
  }
  
  .output-text {

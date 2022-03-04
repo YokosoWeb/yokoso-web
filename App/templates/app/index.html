@@ -45,24 +45,24 @@
 location & nature of loan query. Our loan specialists offer personalised loan assistance and help you navigate your credit requirement without any hassle. With 100+ partner lenders on board, we assure you the best loan offer as per your needs. </p> {% endcomment %}
 </div>
 <div class="servicecards">
- <div class="cardsleft">
-<a href="{% url 'emi' %}">EMI Calculator</a>
-  <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+{% comment %} <div onclick=”location.href=’http://www.yourdomain.com’;” style=”cursor: pointer;”> {% endcomment %}
  
-</div>
- <div class="cardsleft">
-<a href="{% url 'getServices' %}">IFSC Finder</a>
-<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
-</div>
-<div class="cardsright">
-<a href="{% url 'getServices' %}">Grievance</a>
-<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
-</div>
 
-<div class="cardsright">
-<a href="{% url 'credit' %}">EMI Pro</a>
+<a href="{% url 'emi' %}"  class="cardsleft" >EMI Calculator
+  <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+</a>
+
+<a href="{% url 'getServices' %}"  class="cardsleft">IFSC Finder
+<i class="fa fa-arrow-right arrow" aria-hidden="true"></i></a>
+
+<a href="{% url 'getServices' %}"  class="cardsright" >Grievance
 <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
-</div>
+</a>
+
+<a href="{% url 'credit' %}" class="cardsright">EMI Pro
+<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+</a>
+
 </div>
 </div>
 
@@ -80,40 +80,22 @@ location & nature of loan query. Our loan specialists offer personalised loan as
 
      <section class="customer-logos slider">
      
-        <div class="slide">
-         <a href="{% url 'contact' %}">IFSC CODE Finder</a>
-          </div>
-        <div class="slide">
-          <a href="{% url 'contact' %}">Grievance</a>
-        </div>
-        <div class="slide">
-         <a href="{% url 'contact' %}">EMI Calculator</a>
-        </div>
-
-        <div class="slide">
-          <a href="{% url 'contact' %}">EMI PRO</a>
-        </div>
-        <div class="slide">
         
-        <a href="{% url 'contact' %}">Home Loan</a>
-        </div>
-        <div class="slide">
-        <a href="{% url 'contact' %}">Personal Loan</a>
-        </div>
-
-        <div class="slide">
-          <a href="{% url 'contact' %}">Auto Loan</a>
-        </div>
         
-         <div class="slide">
-          <a href="{% url 'contact' %}">ITR</a>
-        </div>
-             <div class="slide">
-          <a href="{% url 'contact' %}">GST Registration</a>
-        </div>
-          <div class="slide">
-          <a href="{% url 'contact' %}">Company Registration</a>
-        </div>
+     
+        
+        <a href="{% url 'contact' %}" class="slide">Home Loan</a>
+      
+        <a href="{% url 'contact' %}" class="slide">Personal Loan</a>
+      
+          <a href="{% url 'contact' %}" class="slide">Auto Loan</a>
+    
+          <a href="{% url 'contact' %}" class="slide">ITR</a>
+       
+          <a href="{% url 'contact' %}" class="slide">GST Registration</a>
+        
+          <a href="{% url 'contact' %}" class="slide">Company Registration</a>
+  
      </section>
   </div>
 </div>
