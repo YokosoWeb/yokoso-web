@@ -1,5 +1,25 @@
 $("#service").change(function() {
 
+    if ($("#service").val() == 'IFSC Code') {
+        document.getElementById("statesss").style.display = "block";
+        document.getElementById("citiess").style.display = "block";
+        document.getElementById("branchess").style.display = "block";
+        document.getElementById("ifsc_code_form").style.display = "block";
+        document.getElementById("enter-ifsc-code").style.display = "block";
+    } else {
+        document.getElementById("statesss").style.display = "none";
+        document.getElementById("citiess").style.display = "none";
+        document.getElementById("branchess").style.display = "none";
+        document.getElementById("ifsc_code_form").style.display = "none";
+        document.getElementById("enter-ifsc-code").style.display = "none";
+
+    }
+
+});
+
+
+$("#service").change(function() {
+
     $("#State_Name").removeAttr('disabled');
     $("#City_Name").removeAttr('disabled');
     $("#Branch_Name").removeAttr('disabled');
@@ -50,6 +70,22 @@ $("#service").change(function() {
     }
 
 });
+
+
+
+// function mychange() {
+//     alert("onchangeiii");
+// }
+
+// function yesnoCheck(that) {
+//     alert("hiii")
+//     if (that.value == "Grievance") {
+//         alert("check");
+//         document.getElementById("statesss").style.display = "block";
+//     } else {
+//         document.getElementById("statesss").style.display = "none";
+//     }
+// }
 
 $("#BankName").change(function() {
     document.getElementById('error').innerHTML = " ";

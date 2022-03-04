@@ -74,7 +74,7 @@
         /* this counter counts the number in circle */
         z-index: -1;
     }
-
+    
     .progress {
         background-color: var(--primary-color);
         width: 0%;
@@ -152,8 +152,12 @@
         border-radius: .25rem;
         cursor: pointer;
         transition: .3s;
+       height: fit-content;
+    margin-top: 1rem;
     }
-
+.submit-btn{
+     border-radius:.25rem;
+}
     .btn:hover {
         box-shadow: 0 0 0 2px #ccc, 0 0 0 3px var(--primary-color);
     }
@@ -265,6 +269,7 @@
         </section>
     </div>
 </div>
+
 <script>
     const prevBtns = document.querySelectorAll(".btn-prev")
     const nextBtns = document.querySelectorAll(".btn-next")
@@ -280,6 +285,7 @@
             formStepNum++;
             updateFormSteps();
             updateProgressbar();
+
         });
     });
     prevBtns.forEach((btn) => {
@@ -310,6 +316,30 @@
         })
     }
 </script>
+
+
+
+        function updateFormSteps() {
+            formSteps.forEach((formStep) => {
+
+                // this line will hide after click Next the previous tab
+                formStep.classList.contains("form-step-active") &&
+                    formStep.classList.remove("form-step-active")
+            })
+            formSteps[formStepNum].classList.add("form-step-active");
+        };
+
+        function updateProgressbar() {
+            progressSteps.forEach((progressStep, idx) => {
+                if (idx < formStepNum + 1) {
+                    progressStep.classList.add("progress-step-active");
+                } else {
+                    progressStep.classList.remove("progress-step-active");
+                }
+            })
+        }
+    </script>
+
 
 
 {% include 'footer.html' %} {% endblock body %}

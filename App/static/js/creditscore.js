@@ -315,7 +315,7 @@ $('#my').click(function() {
         success: function(data) {
 
             document.getElementById('id').value = data;
-            alert("Wait");
+
 
 
 
@@ -356,7 +356,7 @@ $('#sub').click(function() {
 
         success: function(data) {
 
-            alert("Wait")
+
 
 
 

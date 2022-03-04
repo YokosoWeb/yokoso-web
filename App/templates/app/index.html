@@ -16,12 +16,28 @@
 <div class="homeheader">
 <div class="captions">
 <h1>Welcome To YOKOSO</h1>
-<p>You can contact us for any queries or any issue related to financial context.You can contact us for any queries or any issue related to financial context </p>
+<p>You can contact us for any queries or any issue related to financial context. </p>
+<div class="wrapper">
+  <div class="section__subscribe">
+    
+    <div class="subecribe__btn">
+      <a href="{% url 'contact' %}">
+
+      <button>
+        <p> CONTACT US</p>
+      </button>
+      </a>
+    </div>
+  </div>
 </div>
+</div>
+
 <div class="imageheader">
 <img src="{% static 'images/bg.png' %}" alt="">
 </div>
 </div>
+
+
 <div class="services">
 <div class="servicecontent">
   <h1>Simplify your financial needs using our tools</h1>
@@ -32,6 +48,7 @@ location & nature of loan query. Our loan specialists offer personalised loan as
  <div class="cardsleft">
 <a href="{% url 'emi' %}">EMI Calculator</a>
   <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
+ 
 </div>
  <div class="cardsleft">
 <a href="{% url 'getServices' %}">IFSC Finder</a>
@@ -64,58 +81,44 @@ location & nature of loan query. Our loan specialists offer personalised loan as
      <section class="customer-logos slider">
      
         <div class="slide">
-          <p>IFSC CODE Finder</p>
-          
+         <a href="{% url 'contact' %}">IFSC CODE Finder</a>
+          </div>
+        <div class="slide">
+          <a href="{% url 'contact' %}">Grievance</a>
+        </div>
+        <div class="slide">
+         <a href="{% url 'contact' %}">EMI Calculator</a>
         </div>
 
         <div class="slide">
-          <p>Grievance</p>
+          <a href="{% url 'contact' %}">EMI PRO</a>
         </div>
         <div class="slide">
-         <p>EMI Calculator</p>
+        
+        <a href="{% url 'contact' %}">Home Loan</a>
         </div>
         <div class="slide">
-          <p>EMI PRO</p>
+        <a href="{% url 'contact' %}">Personal Loan</a>
         </div>
+
         <div class="slide">
-          <p>HOME Loan</p>
-        </div>
-        <div class="slide">
-          <p>Personal Loan</p>
-        </div>
-        <div class="slide">
-          <p>Auto Loan</p>
+          <a href="{% url 'contact' %}">Auto Loan</a>
         </div>
         
-          <div class="slide">
-          <p>ITR</p>
+         <div class="slide">
+          <a href="{% url 'contact' %}">ITR</a>
         </div>
              <div class="slide">
-          <p>GST Registration</p>
+          <a href="{% url 'contact' %}">GST Registration</a>
         </div>
           <div class="slide">
-          <p>Company Registration</p>
+          <a href="{% url 'contact' %}">Company Registration</a>
         </div>
      </section>
   </div>
 </div>
 </div>
-<div class="wrapper">
-  <div class="section__subscribe">
-    <div class="subscribe__text">
-      <h1>GET IN TOUCH</h1>
-      <a href="mailto:contact@yokoso.in">You can also mail us your queries</a>
-    </div>
-    <div class="subecribe__btn">
-      <a href="{% url 'contact' %}">
 
-      <button>
-        <p> CONTACT US</p>
-      </button>
-      </a>
-    </div>
-  </div>
-</div>
 
 
 

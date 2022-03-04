@@ -17,7 +17,7 @@
 
     <!-- == here goes the header of the page == -->
     <div class="header_banner">
-        <h2>IFSC Services</h2>
+        <h2>Services</h2>
     
     </div>
 
@@ -36,7 +36,7 @@
 				   {% csrf_token %}
                     <div class="ifsc-form-group">
                            <label for="services" class="form_label">Services</label>
-                            <select required name="service" id="service" class="service" size="1">
+                            <select required name="service" id="service" class="service" size="1"  >
                             <option selected value="">Select the service</option>
                             {% for cat in services %}
                             <option value="{{ cat }}">{{ cat }}</option>
@@ -54,7 +54,7 @@
                             </select>                 
                         </div>  
                    
-                        <div class="ifsc-form-group">
+                        <div class="ifsc-form-group "  id="statesss"style="display: none;">
                             <label for="states" class="form_label">State</label>
                             <select   name="State_Name" id="State_Name"
                             size="1" class="state-selection" required>
@@ -62,7 +62,7 @@
                             </select>
                         </div> 
 
-                        <div class="ifsc-form-group">
+                        <div class="ifsc-form-group" id="citiess"style="display: none;">
                             <label for="cities" class="form_label">City</label>
                             <select  name="City_Name" id="City_Name"
                         size="1" class="city-selection" required>
@@ -70,7 +70,7 @@
                             </select>
                         </div>
 
-                        <div class="ifsc-form-group">
+                        <div class="ifsc-form-group" id="branchess"style="display: none;">
                             <label for="branches" class="form_label">Branch</label>
                             <select name="Branch_Name" id="Branch_Name" size="1" class="branch-selection" required>
                                 <option value = ""> Select Branch Name</option> 
@@ -92,12 +92,12 @@
                 <!-- Here the IFSC code will be submitted -->
                 <form action=" " method="POST" id="filterform">
                     {% csrf_token %}
-                    <div class="ifsc-form-group-2">
-                        <div class="heading">
+                    <div class="ifsc-form-group-2" style="display: none;" id = "ifsc_code_form">
+                        <div class="heading" >
                             <h3>Or enter IFSC code to Get Bank Details</h3>
                         </div>
                         {% comment %} <label for="enter-ifsc-code" class="form_label">IFSC code</label> {% endcomment %}
-                        <div class="input-ifsc-code" id="enter-ifsc-code">
+                        <div class="input-ifsc-code" id="enter-ifsc-code" style="display: none;">
                             <input type="text" name="ifsc_no_exact" id = "ifsc_no_exact" maxlength="11" 
                                 placeholder="Enter IFSC code" required >
                             <button type="button" class="ifsc-submit-code"  onclick="clickFunction()">Get Details</button>
@@ -199,7 +199,7 @@
                             </tr>
                             <tr>
                              <tr>
-                                <td class="heading-name"><b>Twitter Handle:</b></td>
+                                <td class="heading-name"><b>Social Media:</b></td>
                                 <td><span class="output-text">{{bank_grievance.twitter_handle}}</span></td>
                             </tr>
                             
