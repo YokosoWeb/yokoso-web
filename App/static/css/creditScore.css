@@ -31,6 +31,10 @@ section {
     margin: 8px;
 }
 
+.form-group p {
+    font-size: large;
+}
+
 form h3 {
     margin: 8px 0px;
 }

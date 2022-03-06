@@ -38,7 +38,3 @@ input[type="range"]::-moz-range-thumb {
     background: red;
     cursor: pointer;
 }
-
-nav {
-    position: absolute;
-}
