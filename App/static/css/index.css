@@ -292,6 +292,7 @@ label.logo {
 } */
 
 nav {
+    z-index: 3;
     background: rgb(72 194 144);
     position: fixed;
     width: 100%;
@@ -471,7 +472,6 @@ nav ul ul ul li {
     faqsnav {
         padding-left: 2rem;
     }
-
 }
 
 

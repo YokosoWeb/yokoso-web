@@ -34,6 +34,7 @@ hr {
     margin-left: 2rem;
     align-self: center;
     margin-top: 7rem;
+    z-index: 2;
 }
 
 .imageheader {
@@ -41,6 +42,7 @@ hr {
     margin-left: 1rem;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 img {
@@ -400,15 +402,15 @@ h1 {
     .arrow {
         visibility: hidden;
     }
-    .cardsleft a {
+    .cardsleft {
         font-size: smaller;
         font-weight: lighter;
         font-family: 'Courier New', Courier, monospace;
     }
-    .cardsright a {
+    .cardsright {
         font-size: smaller;
-        margin-left: 1rem;
         font-family: 'Courier New', Courier, monospace;
+        justify-content: normal;
     }
     .headlinesliders {
         height: 5rem;
@@ -422,7 +424,7 @@ h1 {
         height: 5rem;
         border-radius: .8rem;
     }
-    .slide p {
+    .slide {
         font-size: small;
     }
     .offerdetails {
