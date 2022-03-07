@@ -406,11 +406,14 @@ h1 {
         font-size: smaller;
         font-weight: lighter;
         font-family: 'Courier New', Courier, monospace;
+        -webkit-text-stroke-width: unset;
     }
     .cardsright {
         font-size: smaller;
+        font-weight: lighter;
         font-family: 'Courier New', Courier, monospace;
         justify-content: normal;
+        -webkit-text-stroke-width: unset;
     }
     .headlinesliders {
         height: 5rem;
