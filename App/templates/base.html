@@ -13,7 +13,20 @@
   <meta name="keywords" content="Financial, banking, home loan, personal loan, auto loan, property loan, emi">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- awesone fonts css-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
+    <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -21,66 +34,63 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% block title %} <title>Yokoso Beta</title> {% endblock %}
+  {% block title %} <title>Yokoso</title> {% endblock %}
 
   {% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">
     
 {% endblock %}
 
-
-
-
+  <!--  -->
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a class="navbar-brand">Yokoso</a>
+            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
 
-
-  <!-- Navigation Bar -->
- <nav class="sticky-top">
-
-        <label for="btn" class="cmpnyname">
-        <span class="fa fa-bars"></span>
-      </label>
-        <input type="checkbox" id="bttn" class="checkbox">
-        <label class="logo"><a href="{% url 'home' %}" style="color: #fff!important;">YOKOSO</a></label>
-        <input type="checkbox" id="btn" class="checkbox">
-        <ul>
-
-            <li>
-                <label for="btn-1" class="showing">Financial Tools + </label>
-                <a href="#">Financial Tools  </a>
-                <input type="checkbox" id="btn-1" class="checkbox">
-                <ul>
-                    <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
-                    <li><a href="{% url 'credit' %}">EMI-Pro</a></li>
-                    <li><a href="{% url 'getServices' %}">IFSC Finder</a></li>
-                    <li><a href="{% url 'getServices' %}">Grievance</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="showing">Learn + </label>
-                <a href="#">Learn</a>
-                <input type="checkbox" id="btn-2" class="checkbox">
-                <ul>
-                    <li><a href="{% url 'articleHome' %}">BLOGs</a></li>
-
+                    <!-- <li class="nav-item"><a class="nav-link" href="#about">Financial tools</a></li> -->
                     <li>
-                        <label for="btn-3" class="showing">FAQs + </label>
-                        <a href="#">FAQs <span class="fa fa-plus"></span></a>
-                        <input type="checkbox" id="btn-3" class="checkbox">
+                        <label for="btn-1" class="showing">Financial Tools + </label>
+                        <a href="#">Financial Tools  </a>
+                        <input type="checkbox" id="btn-1" class="checkbox">
                         <ul>
-                            <li><a href="/FAQs/home-loan">Home Loan</a></li>
-                            <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
-                            <li><a href="/FAQs/property-loan">Property Loan</a></li>
-                            <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
+                            <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
+                            <li><a href="{% url 'credit' %}">EMI-Pro</a></li>
+                            <li><a href="{% url 'getServices' %}">IFSC Finder</a></li>
+                            <li><a href="{% url 'getServices' %}">Grievance</a></li>
+
                         </ul>
                     </li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#ourservices">Know More</a></li> -->
+                    <li>
+                        <label for="btn-2" class="showing">Learn + </label>
+                        <a href="#">Learn</a>
+                        <input type="checkbox" id="btn-2" class="checkbox">
+                        <ul>
+                            <li><a href="{% url 'articleHome' %}">BLOGs</a></li>
+
+                            <li>
+                                <label for="btn-3" class="showing">FAQs + </label>
+                                <a href="#">FAQs <span class="fa fa-plus"></span></a>
+                                <input type="checkbox" id="btn-3" class="checkbox">
+                                <ul>
+                                    <li><a href="/FAQs/home-loan">Home Loan</a></li>
+                                    <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
+                                    <li><a href="/FAQs/property-loan">Property Loan</a></li>
+                                    <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
-            </li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
+
+            </div>
+        </div>
     </nav>
-    <hr class="navhr">
-  <!--  -->
+
+
 
   {% block body %} {% endblock %}
   <!-- Landing Page -->

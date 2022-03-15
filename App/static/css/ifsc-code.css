@@ -144,6 +144,10 @@
      mix-blend-mode: darken;
  }
  
+ .address {
+     overflow-wrap: anywhere;
+ }
+ 
  .message {
      font-size: 12px;
      font-weight: 600;

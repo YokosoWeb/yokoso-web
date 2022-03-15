@@ -622,3 +622,497 @@ nav ul ul ul li {
 
 
 /*new*/
+
+
+/* new */
+
+.gtco-logo-area .row {
+    margin: 1rem;
+}
+
+.card-body p {
+    font-family: auto;
+    font-size: xx-large;
+}
+
+.card-body i {
+    color: #2ce1f9;
+}
+
+.gtco-numbers-block {
+    width: 80%;
+}
+
+.fa {
+    font-size: xxx-large;
+}
+
+.servicesp {
+    text-align: center;
+    font-family: 'Lato-Medium';
+}
+
+.contactus {
+    background-image: -moz-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    background-image: -ms-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    font-size: 18px;
+    font-family: "OpenSans-Semibold";
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    padding-right: 5px;
+    text-decoration: none !important;
+}
+
+.contactus .fa {
+    background: #fff;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    color: #37eaf9;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: 15px;
+}
+
+.servicescontact {
+    text-align: -webkit-right;
+}
+
+.offersliders {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: inherit;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+}
+
+.headlinesliders {
+    width: 36%;
+    background-color: #2ce1f9;
+    align-self: center;
+    height: 10rem;
+    /* z-index: 8; */
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.headlinesliders h1 {
+    color: white;
+    margin-top: 5%;
+}
+
+.headlinesliders h3 {
+    color: white;
+}
+
+.offerdetails {
+    width: 62%;
+    margin-left: 1rem;
+    align-self: center;
+}
+
+#container {
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 0;
+    display: grid;
+    place-items: center
+}
+
+
+/* Newends here */
+
+.slide {
+    background-color: white;
+    padding: 1.5rem;
+    width: 20rem;
+    height: 7rem;
+    color: black;
+    border-color: #2ce1f9;
+    border-style: groove;
+    align-items: center;
+    border-radius: .8rem;
+}
+
+
+/* Slider */
+
+.slick-slide {
+    margin: 0px 10px;
+}
+
+.slide img {
+    height: 4rem;
+}
+
+
+/* //navbar */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+label.logo {
+    color: white;
+    font-size: 25px;
+    line-height: 80px;
+    margin: 0 100px;
+    padding: 0px 10px;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+
+/* body {
+    background: rgb(72 194 144);
+} */
+
+nav {
+    z-index: 3;
+    /* background: rgb(72 194 144); */
+    position: fixed;
+    width: 100%;
+    border-bottom: inset
+    /* border-color: rgb(90 255 188 / 37%); */
+}
+
+nav:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+nav .cmpnylogo {
+    float: left;
+    color: white;
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 70px;
+    padding-left: 60px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 4rem;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li {
+    float: left;
+    display: inline-block;
+    /* background: rgb(72 194 144); */
+    margin: 0 .5rem;
+}
+
+nav ul li a {
+    color: white;
+    line-height: 70px;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+}
+
+nav ul li a:hover {
+    color: #020202;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #156ee5, 0 0 10px #146fe5;
+}
+
+nav ul ul li a:hover {
+    box-shadow: none;
+}
+
+nav ul ul {
+    position: absolute;
+    top: 90px;
+    border-top: 3px solid white;
+    visibility: hidden;
+    transition: top .3s;
+}
+
+nav ul ul ul {
+    border-top: none;
+    width: max-content;
+}
+
+nav ul li:hover>ul {
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+}
+
+nav ul ul li {
+    position: relative;
+    margin: 0px;
+    float: none;
+    display: list-item;
+    border-bottom: 1px solid rgb(0 255 150);
+    background-color: aliceblue;
+}
+
+nav ul ul li a {
+    line-height: 50px;
+}
+
+nav ul ul ul li {
+    position: relative;
+    top: -60px;
+    left: 6rem;
+}
+
+.showing,
+.cmpnyname,
+.checkbox {
+    display: none;
+}
+
+.fa-plus {
+    font-size: 15px;
+    margin-left: 40px;
+}
+
+.imageheader {
+    z-index: 99;
+}
+
+
+/* emi calculator */
+
+.calculator-heading {
+    text-align: center;
+    font-family: 'Lato-Regular';
+}
+
+@media all and (max-width: 968px) {
+    nav ul {
+        margin-right: 0px;
+        float: left;
+    }
+    nav .cmpnylogo {
+        padding-left: 30px;
+        width: 100%;
+    }
+    .showing+a,
+    ul {
+        display: none;
+    }
+    nav ul li,
+    nav ul ul li {
+        display: block;
+        width: 100%;
+    }
+    nav ul li a:hover {
+        box-shadow: none;
+    }
+    .showing {
+        display: block;
+        color: white;
+        font-size: 18px;
+        padding: 0 20px;
+        line-height: 70px;
+        cursor: pointer;
+    }
+    .showing:hover {
+        color: cyan;
+    }
+    .cmpnyname {
+        display: block;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        line-height: 70px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    nav ul ul {
+        top: 70px;
+        border-top: 0px;
+        float: none;
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+    }
+    nav ul ul a {
+        padding-left: 2rem;
+    }
+    nav ul ul ul a {
+        padding-left: 80px;
+    }
+    nav ul ul ul li {
+        position: static;
+    }
+    [id^=btn]:checked+ul {
+        display: block;
+    }
+    nav ul ul li {
+        border-bottom: 0px;
+    }
+    span.cancel:before {
+        content: '\f00d';
+    }
+    .faqsnav {
+        padding-left: 2rem;
+    }
+}
+
+
+/* OUR servvice>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    header h1 {
+        font-size: 25px;
+        padding: 0;
+        margin: 0;
+    }
+    .header__text {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .btn__group button p {
+        float: left;
+        font-size: 16px;
+    }
+    .btn__group button i {
+        float: right;
+        font-size: 16px;
+        margin-top: 0px;
+        font-weight: bold;
+    }
+    .header__para {
+        margin: 20px auto;
+        width: 90%;
+        font-size: 16px;
+    }
+    .btn__group button {
+        width: 65%;
+    }
+    .about__one {
+        flex-direction: column;
+    }
+    .about__one:nth-child(1),
+    .about__one:nth-child(3),
+    .about__one:nth-child(5) {
+        flex-direction: column-reverse;
+    }
+    .about__one img {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .about__one .text {
+        padding: 0;
+        margin: 0;
+    }
+    .about__one .text h1 {
+        font-size: 20px;
+    }
+    .about__one .text p {
+        font-size: 16px;
+    }
+    .wrapper {
+        margin: 20px 0 0 0;
+    }
+    .section__subscribe {
+        display: flex;
+        width: 50%;
+    }
+    .section__subscribe {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+    }
+    .subscribe__text {
+        width: 100%;
+        margin: -5px 0px;
+    }
+    .section__subscribe button {
+        margin: 15px 0px;
+        border-radius: 0px !important;
+    }
+    .footer_container {
+        width: 90%;
+        flex-direction: column;
+    }
+    .footer_container .footer_child {
+        width: 90%;
+        padding: 10px 20px;
+    }
+    .footer_child a {
+        margin-bottom: 10px;
+    }
+    .header__section .wrap__section:nth-child(1) {
+        display: none;
+    }
+    .section__text {
+        width: 95%;
+        padding: 10px 0px;
+        text-align: center;
+    }
+    header {
+        background-color: #48c290;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .section__about {
+        width: 60%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .section__about img {
+        width: 100%;
+        height: auto;
+    }
+    .section__subscribe {
+        display: flex;
+        width: 60%;
+    }
+}
+
+@media (max-width: 650px) {
+    li ul {
+        left: 30%;
+    }
+}
+
+@media (max-width:480px) {
+    li ul {
+        left: 35%;
+    }
+}
+
+@media (max-width:400px) {
+    li ul {
+        left: 40%;
+    }
+}
