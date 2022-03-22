@@ -28,14 +28,15 @@
             <input type="email" placeholder="Email Address" name="email" required/>
             <input type="tel" placeholder="Phone Number" name="phone" required  title="Enter only numbers" maxlength="10" pattern="\d{10}"/>
             
-            <label for="id_category" class="optionss">Category</label>
-            <select class="form-control options"  name="category" id="id_category" required>
-            <option  class="options" value="AutoLoan">ITR</option>
-            <option  class="options" value="AutoLoan">GST Registration</option>
-            <option  class="options" value="AutoLoan">Company Registration</option>
-            <option class="options" value="HomeLoan">Home Loan</option>
-            <option  class="options" value="PersonalLoan">Property Loan</option>
-            <option  class="options" value="AutoLoan">Auto Loan</option>
+            {% comment %} <label for="id_category" class="optionss">Category</label> {% endcomment %}
+            <select  name="category" id="id_category" required>
+             <option  value="">Category</option>
+            <option value="AutoLoan">ITR</option>
+            <option  value="AutoLoan">GST Registration</option>
+            <option  value="AutoLoan">Company Registration</option>
+            <option  value="HomeLoan">Home Loan</option>
+            <option  value="PersonalLoan">Property Loan</option>
+            <option  value="AutoLoan">Auto Loan</option>
             
             <option  class="options" value="Others">Others</option>
             </select>

@@ -1,130 +1,7 @@
-<!doctype html>
-<!--
-	Solution by GetTemplates.co
-	URL: https://gettemplates.co
--->
-<html lang="en">
+{% extends "base.html" %}
+{% load static %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- awesone fonts css-->
-    <link href="../static/css/font-awesome.css" rel="stylesheet" type="text/css">
-    <!-- owl carousel css-->
-    <link rel="stylesheet" href="../static/owl-carousel/assets/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
-    <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
-    <!-- custom CSS -->
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/index.css">
-    <title>Yokoso</title>
-    <style>
-
-    </style>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
-        <div class="container"><a class="navbar-brand">Yokoso</a>
-            <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
-                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
-            <div id="my-nav" class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-
-                    <!-- <li class="nav-item"><a class="nav-link" href="#about">Financial tools</a></li> -->
-                    <li>
-                        <label for="btn-1" class="showing">Financial Tools + </label>
-                        <a href="#">Financial Tools  </a>
-                        <input type="checkbox" id="btn-1" class="checkbox">
-                        <ul>
-                            <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
-                            <li><a href="{% url 'credit' %}">EMI-Pro</a></li>
-                            <li><a href="{% url 'getServices' %}">IFSC Finder</a></li>
-                            <li><a href="{% url 'getServices' %}">Grievance</a></li>
-
-                        </ul>
-                    </li>
-                    <!-- <li class="nav-item"><a class="nav-link" href="#ourservices">Know More</a></li> -->
-                    <li>
-                        <label for="btn-2" class="showing">Learn + </label>
-                        <a href="#">Learn</a>
-                        <input type="checkbox" id="btn-2" class="checkbox">
-                        <ul>
-                            <li><a href="{% url 'articleHome' %}">BLOGs</a></li>
-
-                            <li>
-                                <label for="btn-3" class="showing">FAQs + </label>
-                                <a href="#">FAQs <span class="fa fa-plus"></span></a>
-                                <input type="checkbox" id="btn-3" class="checkbox">
-                                <ul>
-                                    <li><a href="/FAQs/home-loan">Home Loan</a></li>
-                                    <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
-                                    <li><a href="/FAQs/property-loan">Property Loan</a></li>
-                                    <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                </ul>
-
-            </div>
-        </div>
-    </nav>
-
-
-
-
-    <!-- <nav class="sticky-top">
-
-        <label for="btn" class="cmpnyname">
-        <span class="fa fa-bars"></span>
-      </label>
-        <input type="checkbox" id="bttn" class="checkbox">
-        <label class="logo"><a href="{% url 'home' %}" style="color: #fff!important;">YOKOSO</a></label>
-        <input type="checkbox" id="btn" class="checkbox">
-        <ul>
-
-            <li>
-                <label for="btn-1" class="showing">Financial Tools + </label>
-                <a href="#">Financial Tools  </a>
-                <input type="checkbox" id="btn-1" class="checkbox">
-                <ul>
-                    <li><a href="{% url 'emi' %}">EMI Calculator</a></li>
-                    <li><a href="{% url 'credit' %}">EMI-Pro</a></li>
-                    <li><a href="{% url 'getServices' %}">IFSC Finder</a></li>
-                    <li><a href="{% url 'getServices' %}">Grievance</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <label for="btn-2" class="showing">Learn + </label>
-                <a href="#">Learn</a>
-                <input type="checkbox" id="btn-2" class="checkbox">
-                <ul>
-                    <li><a href="{% url 'articleHome' %}">BLOGs</a></li>
-
-                    <li>
-                        <label for="btn-3" class="showing">FAQs + </label>
-                        <a href="#">FAQs <span class="fa fa-plus"></span></a>
-                        <input type="checkbox" id="btn-3" class="checkbox">
-                        <ul>
-                            <li><a href="/FAQs/home-loan">Home Loan</a></li>
-                            <li><a href="/FAQs/personal-loan">Personal Loan</a></li>
-                            <li><a href="/FAQs/property-loan">Property Loan</a></li>
-                            <li><a href="/FAQs/auto-loan">Auto Loan</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
-    </nav> -->
+{% block body %} 
     <div class="container-fluid gtco-banner-area">
         <div class="container">
             <div class="row">
@@ -314,50 +191,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="container-fluid gtco-testimonials">
-        <div class="container">
-            <h2>What our customers say about us.</h2>
-            <div class="owl-carousel owl-carousel1 owl-theme">
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/customer1.jpg" alt="">
-                        <div class="card-body">
-                            <h5>Lisa Gally <br/>
-                                <span> Project Manager </span></h5>
-                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat ” </p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/customer2.jpg" alt="">
-                        <div class="card-body">
-                            <h5>Missy Limana<br/>
-                                <span> Project Manager </span></h5>
-                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat ” </p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/customer3.jpg" alt="">
-                        <div class="card-body">
-                            <h5>Aana Brown<br/>
-                                <span> Project Manager </span></h5>
-                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat ” </p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/customer3.jpg" alt="">
-                        <div class="card-body">
-                            <h5>Aana Brown<br/>
-                                <span> Project Manager </span></h5>
-                            <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat ” </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
+   
 
 
     <div class="calculator-heading">
@@ -394,56 +228,46 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     <div class="container-fluid gtco-features-list">
         <div class="container">
             <div class="row">
                 <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="images/quality-results.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/quality-results.png" %}" alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Quality Results</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
                 <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="images/analytics.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/analytics.png" %}" alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Analytics</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
                 <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="images/affordable-pricing.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/affordable-pricing.png" %}" alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Affordable Pricing</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
                 <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="images/easy-to-use.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/easy-to-use.png" %}" alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Easy To Use</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
                 <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="images/free-support.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/free-support.png" %}" alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Free Support</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
                     </div>
                 </div>
                 <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="images/effectively-increase.png" alt=""></div>
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static  "images/effectively-increase.png" %}" alt=""></div>
                     <div class="media-body">
                         <h5 class="mb-0">Effectively Increase</h5>
                         Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
@@ -452,27 +276,11 @@
             </div>
         </div>
     </div>
-    <!-- <div class="banking">
-        <h1>OUR BANKING PARTNERS</h1>
-    </div>
-    <div class="container-fluid gtco-logo-area">
-        <div class="container">
-            <div class="row">
-                <div class="col"><img src="images/sbilogo.png" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/ubilogo.jpg" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/hdfclogo.png" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/idfclogo.png" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/sbilogo.png" class="img-fluid" alt=""></div>
-            </div>
-            <div class="row">
-                <div class="col"><img src="images/sbilogo.png" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/ubilogo.jpg" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/hdfclogo.png" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/idfclogo.png" class="img-fluid" alt=""></div>
-                <div class="col"><img src="images/sbilogo.png" class="img-fluid" alt=""></div>
-            </div>
-        </div>
-    </div> -->
+   
+
+
+
+
 
 
 
@@ -487,16 +295,16 @@
 
         <div class="offerdetails">
             <div class="container">
-
+                   
                 <section class="customer-logos slider">
+                     
 
+                    <div class="col slide"><img src="{% static 'images\sbic.png'%}" class="img-fluid" alt=""></div>
 
-                    <div class="col slide"><img src="images/sbic.png" class="img-fluid" alt=""></div>
-
-                    <div class="col slide"><img src="images/ubic.png" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="images/hdfcc.png" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="images/idfcc.png" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="images/iobc.png" class="img-fluid" alt=""></div>
+                    <div class="col slide"><img src="{% static 'images\ubic.png'%}"  class="img-fluid" alt=""></div>
+                    <div class="col slide"><img src="{% static 'images\hdfcc.png'%}" class="img-fluid" alt=""></div>
+                    <div class="col slide"><img src="{% static 'images\idfcc.png'%}" class="img-fluid" alt=""></div>
+                    <div class="col slide"><img src="{% static 'images\iobc.png'%}" class="img-fluid" alt=""></div>
 
                 </section>
             </div>
@@ -504,144 +312,31 @@
     </div>
 
 
-    <!-- <div class="offersliders">
-        <div class="headlinesliders">
-            <h1> Our Banking</h1>
-            <h3>Partners</h3>
 
-        </div>
-
-        <div class="offerdetails">
-            <div class="container">
-
-                <section class="customer-logos slider">
-
-
-                    <div class="col slide"><img src="images/sbic.png" class="img-fluid" alt=""></div>
-
-                    <div class="col slide"><img src="images/ubic.jpg" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="images/hdfcc.png" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="images/idfcc.png" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="images/iobc.png" class="img-fluid" alt=""></div>
-
-                </section>
-            </div>
-        </div>
-    </div>
- -->
-
-
-
-
-
-    <div class="container-fluid gtco-news" id="news">
+ <div class="container-fluid gtco-news" id="news">
         <div class="container">
             <h2>Latest News & Articles</h2>
+         
             <div class="owl-carousel owl-carousel2 owl-theme">
+       {% for i in posts %}
                 <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/news1.jpg" alt="">
+           
+                    <div class="card text-center"><img class="card-img-top" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{i.image}}" alt="">
                         <div class="card-body text-left pr-0 pl-0">
-                            <h5>Aenean ultrices lorem quis blandit tempor urabitur accumsan. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus . . . </p>
-                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                            <h5>{{i.title}} </h5>
+                            <p class="card-text">By {{i.author }} on {{i.date}} </p>
+                            <a href="{% url 'articleView' slug=i.slug %}">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
                     </div>
+
                 </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/news2.jpg" alt="">
-                        <div class="card-body text-left pr-0 pl-0">
-                            <h5> Nam vel nisi eget odio pulvinar iaculis. Fusce aliquet. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus . . . </p>
-                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/news3.jpg" alt="">
-                        <div class="card-body text-left pr-0 pl-0">
-                            <h5>Morbi faucibus odio sollicitudin risus scelerisque dignissim. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus . . . </p>
-                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/news1.jpg" alt="">
-                        <div class="card-body text-left pr-0 pl-0">
-                            <h5>Aenean ultrices lorem quis blandit tempor urabitur accumsan. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus . . . </p>
-                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/news2.jpg" alt="">
-                        <div class="card-body text-left pr-0 pl-0">
-                            <h5> Nam vel nisi eget odio pulvinar iaculis. Fusce aliquet. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus . . . </p>
-                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card text-center"><img class="card-img-top" src="images/news3.jpg" alt="">
-                        <div class="card-body text-left pr-0 pl-0">
-                            <h5>Morbi faucibus odio sollicitudin risus scelerisque dignissim. </h5>
-                            <p class="card-text">Donec non sem mi. In hac habitasse platea dictumst. Nullam a feugiat augue, et porta metus. Nulla mollis lobortis leet. Maecenas tincidunt, arcu sed ornare purus risus . . . </p>
-                            <a href="#">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
+               {% endfor %}
             </div>
+
         </div>
     </div>
-    <footer class="container-fluid" id="gtco-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6" id="contact">
-                    <h4> Contact Us </h4>
-                    <input type="text" class="form-control" placeholder="Full Name">
-                    <input type="email" class="form-control" placeholder="Email Address">
-                    <textarea class="form-control" placeholder="Message"></textarea>
-                    <a href="#" class="submit-button">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-6">
-                            <h4>Company</h4>
-                            <ul class="nav flex-column company-nav">
-                                <li class="nav-item"><a class="nav-link" href="#">EMI Calculator</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">EMI Pro</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">IFSC Finder</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Grievance</a></li>
-
-                            </ul>
-                            <h4 class="mt-5">Follow Us</h4>
-                            <ul class="nav follow-us-nav">
-                                <li class="nav-item"><a class="nav-link pl-0" href="#"><i class="fa fa-facebook"
-                                                                                      aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-twitter"
-                                                                                 aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-google"
-                                                                                 aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-linkedin"
-                                                                                 aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <h4>Services</h4>
-                            <ul class="nav flex-column services-nav">
-                                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Home Loan</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Property Loan</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Personal Loan</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Auto Loan</a></li>
-
-
-                            </ul>
-                        </div>
-                        <div class="col-12">
-                            <p>&copy; 2022. All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  
+   
+  {% include 'footer.html' %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -672,130 +367,13 @@
             });
         });
 
-        $(document).ready(function() {
-            $(".blogs").slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 1500,
-                arrows: false,
-                dots: false,
-                pauseOnHover: false,
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 4
-                    }
-                }, {
-                    breakpoint: 520,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                }]
-            });
-        });
+ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        var container = document.getElementById('container')
-        var slider = document.getElementById('slider');
-        var slides = document.getElementsByClassName('slide').length;
-        var buttons = document.getElementsByClassName('btn');
-
-
-        var currentPosition = 0;
-        var currentMargin = 0;
-        var slidesPerPage = 0;
-        var slidesCount = slides - slidesPerPage;
-        var containerWidth = container.offsetWidth;
-        var prevKeyActive = false;
-        var nextKeyActive = true;
-
-        window.addEventListener("resize", checkWidth);
-
-        function checkWidth() {
-            containerWidth = container.offsetWidth;
-            setParams(containerWidth);
-        }
-
-        function setParams(w) {
-            if (w < 551) {
-                slidesPerPage = 1;
-            } else {
-                if (w < 901) {
-                    slidesPerPage = 2;
-                } else {
-                    if (w < 1101) {
-                        slidesPerPage = 3;
-                    } else {
-                        slidesPerPage = 4;
-                    }
-                }
-            }
-            slidesCount = slides - slidesPerPage;
-            if (currentPosition > slidesCount) {
-                currentPosition -= slidesPerPage;
-            };
-            currentMargin = -currentPosition * (100 / slidesPerPage);
-            slider.style.marginLeft = currentMargin + '%';
-            if (currentPosition > 0) {
-                buttons[0].classList.remove('inactive');
-            }
-            if (currentPosition < slidesCount) {
-                buttons[1].classList.remove('inactive');
-            }
-            if (currentPosition >= slidesCount) {
-                buttons[1].classList.add('inactive');
-            }
-        }
-
-        setParams();
-
-        function slideRight() {
-            if (currentPosition != 0) {
-                slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
-                currentMargin += (100 / slidesPerPage);
-                currentPosition--;
-            };
-            if (currentPosition === 0) {
-                buttons[0].classList.add('inactive');
-            }
-            if (currentPosition < slidesCount) {
-                buttons[1].classList.remove('inactive');
-            }
-        };
-
-        function slideLeft() {
-            if (currentPosition != slidesCount) {
-                slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
-                currentMargin -= (100 / slidesPerPage);
-                currentPosition++;
-            };
-            if (currentPosition == slidesCount) {
-                buttons[1].classList.add('inactive');
-            }
-            if (currentPosition > 0) {
-                buttons[0].classList.remove('inactive');
-            }
-        };
+    
     </script>
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- owl carousel js-->
-    <script src="../static/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../static/js/main.js"></script>
-</body>
-
-</html>
+    <script src="owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+{% endblock %}

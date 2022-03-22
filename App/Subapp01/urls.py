@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from .views import *
 from Subapp01 import views
 
@@ -13,13 +13,15 @@ urlpatterns = [
     path('logout/', logout , name = 'logout'),
     path('FAQs/<slug>', FAQs , name = 'FAQs'),
     path('about/', about , name = 'about'),
+
     path('contact/', contact , name = 'contact'),
+    # path('footer/', footer , name = 'footer'),
     path('blog/', articleHome , name = 'articleHome'),
     path('blog/<slug>', articleView , name = 'articleView'),
 
     path('emi-calculator/', emi , name = 'emi'),
-    
-    path('emi-pro/', credit , name = 'credit'),
+  
+    re_path('emi-pro/', credit , name = 'credit'),
     path('emi-pro/personalDetails/', personalDetails , name = 'personalDetails'),
     path('emi-pro/submit/', submit , name = 'submit'),
     path('emi-enquiry/', EMIEnquiryFun , name = 'EMIEnquiryFun'),

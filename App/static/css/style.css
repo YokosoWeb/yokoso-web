@@ -91,7 +91,7 @@ body {
 #gtco-main-nav .bar3 {
     width: 25px;
     height: 2px;
-    background-color: #fff;
+    background-color: rgb(13, 13, 13);
     margin: 5px 0;
     transition: 0.4s;
     display: block;
@@ -112,7 +112,8 @@ body {
     transform: rotate(46deg) translate(-4px, -8px);
 }
 
-#gtco-main-nav .navbar-nav li a {
+#gtco-main-nav .navbar-nav li a,
+#gtco-main-nav .navbar-nav li .showing {
     font-family: "OpenSans-Regular";
     font-size: 18px;
     color: #666666;
@@ -146,7 +147,8 @@ body {
     }
 }
 
-#gtco-main-nav::after {
+
+/* #gtco-main-nav::after {
     position: absolute;
     content: "";
     height: 600px;
@@ -232,7 +234,7 @@ body {
         width: 100%;
         height: 390px;
     }
-}
+} */
 
 .gtco-banner-area a,
 .gtco-feature a,
@@ -817,7 +819,6 @@ body {
 }
 
 .gtco-news .owl-carousel .card .card-img-top {
-    border-radius: 40px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
@@ -861,7 +862,8 @@ body {
 }
 
 #gtco-footer input,
-#gtco-footer textarea {
+#gtco-footer textarea,
+#gtco-footer select {
     background-color: white;
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.08);
     border-radius: 50px;
@@ -887,13 +889,14 @@ body {
     font-size: 18px;
 }
 
-#gtco-footer textarea {
-    min-height: 200px;
+
+/* #gtco-footer textarea {
+    min-height: 20px;
     border-radius: 30px;
     padding-top: 20px;
     padding-right: 20px;
     resize: none;
-}
+} */
 
 #gtco-footer .company-nav,
 #gtco-footer .services-nav {

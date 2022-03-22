@@ -1,10 +1,44 @@
-<div class="footer_wrapper">
-  <div class="footer_container">
-    <div class="footer_child">
-      <h2>Yokoso</h2>
-      <p>
+
+
+<footer class="container-fluid" id="gtco-footer">
+       
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="contact">
+                    <h4> Contact Us </h4>
+ {% if msg %}
+            <button style="text-align: left;border:none;" disabled>Sit back and relax ! Our agent will contact you soon...❤</button>
+        {% endif %}
+       <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" required />
+            {% comment %} <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required /> {% endcomment %}
+            <input type="email" placeholder="Email Address" name="email" required/>
+            <input type="tel" placeholder="Phone Number" name="phone" required  title="Enter only numbers" maxlength="10" pattern="\d{10}"/>
+            
+           
+            <select class="form-control options"  name="category" id="id_category" required>
+            <option  class="options" value="">Category</option>
+            <option  class="options" value="ITR">ITR</option>
+            <option  class="options" value="GST Registration">GST Registration</option>
+            <option  class="options" value="Company Registration">Company Registration</option>
+            <option class="options" value="HomeLoan">Home Loan</option>
+            <option  class="options" value="PersonalLoan">Property Loan</option>
+            <option  class="options" value="AutoLoan">Auto Loan</option>
+            
+            <option  class="options" value="Others">Others</option>
+            </select>
+        
+            <textarea  placeholder="Type your query" name="msg" resize="none"></textarea>
+     
+           
+            <button type="submit" class="submitbtn">Submit Now</button>
+            
+        </form>
+           
+      {% comment %} <p>
         We belive in giving crucial transperent informations in most simplistic
-        way  and we let you choose what's best for you.
+        way , and we let you choose whats best for you.
       </p>
       <br />
       {% load static %}
@@ -14,60 +48,89 @@
         <a href="mailto:contact@yokoso.in">contact@yokoso.in</a>
       </p>
       <br />
+ {% endcomment %}
 
-      <!-- <p>
-            Admin : <br />
-            <a href="tel:+91 8882578401 " >+91 8882578401 </a> | <a href="mailto:contact@yokoso.in">contact@yokoso.in</a>
-          </p> -->
-    </div>
-    <div class="footer_child jio">
-      <hr />
-      <h2>Our Products</h2>
-
-      
-      <a href="{% url 'emi' %}">EMI Calculator</a>
-      <a href="{% url 'credit' %}">EMI Pro</a>
-      <a href="{% url 'getServices' %}">IFSC Finder</a>
-      <a href="{% url 'getServices' %}">Grievance</a>
-    </div>
-    <div class="footer_child jio">
-      <hr />
-      <h2>Know More</h2>
-      <a href="{% url 'articleHome' %}">Blog</a>
-      <a href="/FAQs/home-loan">Home Loan</a>
-      <a href="/FAQs/personal-loan">Personal Loan</a>
-      <a href="/FAQs/property-loan">Property Loan</a>
-      <a href="/FAQs/auto-loan">Auto Loan</a>
-      <a href="{% url 'contact' %}">Contact us</a>
-      <!-- <a href="/FAQs/personal-loan">FAQs</a> -->
-    </div>
-    <div class="footer_child">
-      <hr />
-      <h2>Connect with us</h2>
-
-      <div class="contact_icons">
-        <div class="ico">
-          <a href="https://www.facebook.com/yokoso.in" target="_blank"><i class="bi bi-facebook"></i></a>
-        </div>
-        <div class="ico">
-          <a href="https://www.linkedin.com/company/welcome2yokoso/" target="_blank"><i class="bi bi-linkedin"></i></a>
-        </div>
-         <div class="ico">
-          <a href="https://twitter.com/YokosoFinance" target="_blank"><i class="bi bi-twitter"></i></a>
-        </div>
-
-
-        <!--<div class="ico"><a href=""><i class="bi bi-twitter"></i></a></div>-->
-        <!--<div class="ico"><a href=""><i class="bi bi-instagram"></i></a></div>-->
-      </div>
-      <br />
-
-    
-      <!--<h2>Subscribe Now</h2>-->
-
-      <div class="">
-        <img src="{% static 'images/startup.png' %}" alt="Startup" style="width:260px;height:auto;" />
-      </div>
-    </div>
-  </div>
 </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>Company</h4>
+                            <ul class="nav flex-column company-nav">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'emi' %}">EMI Calculator</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'credit' %}">EMI Pro</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'getServices' %}">IFSC Finder</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'getServices' %}">Grievance</a></li>
+
+                            </ul>
+                            <h4 class="mt-5">Follow Us</h4>
+                            <ul class="nav follow-us-nav">
+                                <li class="nav-item"><a class="nav-link pl-0" href="https://www.facebook.com/yokoso.in" target="_blank"><i class="fa fa-facebook"
+                                                                                      aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://twitter.com/YokosoFinance" target="_blank"><i class="fa fa-twitter"
+                                                                                 aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href=><i class="fa fa-google"
+                                                                                 aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/company/welcome2yokoso/" target="_blank"><i class="fa fa-linkedin"
+                                                                                 aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h4>Services</h4>
+                            <ul class="nav flex-column services-nav">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'articleHome' %}">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/home-loan">Home Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/property-loan">Property Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/personal-loan">Personal Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/auto-loan">Auto Loan</a></li>
+
+
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <p>&copy; 2022. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+$('#submit').click(function() {
+
+    var url = 'footer/';
+    var name = $('#fname').val();
+    var pan = $('#pan').val();
+    var phone = $('#phone').val();
+    var employmentType = $('#emp').val();
+    var email = $('#email').val();
+    var dob = $('#dob').val();
+    var gender = $('#gender').val();
+
+    $.ajax({
+        url: url,
+        data: {
+            'name': name,
+            'pan': pan,
+            'phone': phone,
+            'employmentType': employmentType,
+            'email': email,
+            'dob': dob,
+            'gender': gender
+
+        },
+
+        success: function(data) {
+
+            document.getElementById('id').value = data;
+
+
+
+
+        }
+    });
+
+
+});
+</script>
