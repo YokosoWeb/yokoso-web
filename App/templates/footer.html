@@ -6,35 +6,19 @@
             <div class="row">
                 <div class="col-lg-6" id="contact">
                     <h4> Contact Us </h4>
- {% if msg %}
-            <button style="text-align: left;border:none;" disabled>Sit back and relax ! Our agent will contact you soon...❤</button>
-        {% endif %}
-       <form method="POST" autocomplete="off">
-            {% csrf_token %}
-            <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" required />
-            {% comment %} <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required /> {% endcomment %}
-            <input type="email" placeholder="Email Address" name="email" required/>
-            <input type="tel" placeholder="Phone Number" name="phone" required  title="Enter only numbers" maxlength="10" pattern="\d{10}"/>
-            
-           
-            <select class="form-control options"  name="category" id="id_category" required>
-            <option  class="options" value="">Category</option>
-            <option  class="options" value="ITR">ITR</option>
-            <option  class="options" value="GST Registration">GST Registration</option>
-            <option  class="options" value="Company Registration">Company Registration</option>
-            <option class="options" value="HomeLoan">Home Loan</option>
-            <option  class="options" value="PersonalLoan">Property Loan</option>
-            <option  class="options" value="AutoLoan">Auto Loan</option>
-            
-            <option  class="options" value="Others">Others</option>
-            </select>
-        
-            <textarea  placeholder="Type your query" name="msg" resize="none"></textarea>
-     
-           
-            <button type="submit" class="submitbtn">Submit Now</button>
-            
-        </form>
+ <p>
+        We belive in giving crucial transperent informations in most simplistic
+        way , and we let you choose whats best for you.
+      </p>
+      <br />
+      {% load static %}
+      <p>
+        Yokoso Team : <br />
+        <a href="tel:+91 6206739406">+91 6206739406</a> |
+        <a href="mailto:contact@yokoso.in">contact@yokoso.in</a>
+      </p>
+      <br />
+       
            
       {% comment %} <p>
         We belive in giving crucial transperent informations in most simplistic
