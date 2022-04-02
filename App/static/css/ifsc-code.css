@@ -6,6 +6,10 @@
      mix-blend-mode: lighten;
  }
  
+ body {
+     background-color: transparent;
+ }
+ 
  .ifsc-code-container {
      width: 90%;
      margin: auto;
