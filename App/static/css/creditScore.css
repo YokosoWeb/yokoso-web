@@ -6,7 +6,7 @@ section {
     justify-content: center;
 }
 
-.container {
+section .container {
     min-width: 340px;
     width: 95%;
     padding: 20px;
@@ -46,6 +46,7 @@ form hr {
 form input,
 select {
     padding: 5px 4px;
+    border-radius: 3rem;
 }
 
 form label {
@@ -76,7 +77,8 @@ button.previous-btn {
 }
 
 button.submit-btn {
-    background: #48c290;
+    background: #02e0f7;
+    border-radius: 3rem;
 }
 
 form button {
@@ -87,11 +89,12 @@ form button {
 
 form .next-btn,
 .previous-btn {
-    background: #48c290;
+    background: #02e0f7;
     color: #fff;
     border: none;
     font-weight: 400;
     font-size: 20px;
+    border-radius: 3rem;
 }
 
 
