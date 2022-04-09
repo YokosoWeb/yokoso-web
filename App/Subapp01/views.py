@@ -462,14 +462,16 @@ def Ifscfiller(request, slug):
         'ifsc_names': ifsc_names
     }
     return render(request, "app/ifsc_code.html", context)
-# def Grievance(request):
-#     grievance= bank_grievance.objects.all()
-#     context = {
-#        'grievance': grievance
-#       }
-#     print(grievance)
-#     return render(request, "app/ifsc_code.html", context)
 
+def loan_comparison(request):
+    bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
+     
+    
+    context={
+          'bankdetails': bankdetails,
+           }
+    
+    return render(request, 'app/loan_comparison.html', context)
 
 def Grievance(request):
     # BankName = bank_grievance.objects.all()
@@ -549,69 +551,5 @@ def income_cal(request):
 
 
 
-# def footer(request):
-#     if request.method == 'POST':
-
-#         Firstname = request.POST.get('first_name')
-
-#         Email = request.POST.get('email')
-#         Phone = request.POST.get('phone')
-#         Category = request.POST.get('category')
-#         Message = request.POST.get('msg')
-
-#         context = {
-#             'Firstname': Firstname,
-
-#             'Email': Email,
-#             'Phone': Phone,
-#             'Category': Category,
-#             'Message': Message,
-
-#         }
-#         Message = '''
-#         New message: {}
-
-#         From: {}
-#         Contact:{}
-#         FirstName: {}
-#         Category: {}
-     
-#         '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Category'])
-#         send_mail('Contact form of YOKOSO', Message, '', ['contact@yokoso.in'])
-
-#     # return render(request, 'app/contact.html', {'msg': True})
-
-#         return render(request, 'footer.html', {'msg': True})
-
-#     else:
-#         return render(request, 'footer.html')
 
 
-
-
-# def articleindex(request):
-#     print("message")
-#     posts = Post.objects.filter(status='Published').order_by('date')[::-1]
-#     return render(request, '../templates/index.html', {'posts': posts})
-
-
-
-# def book(request):
-#     #return render_to_response('register.html')
-#     #book = Books.objects.all()
-#     #print(book)
-    
-#     allBooks = []
-#     catbooks = Books.objects.values('category', 'id')
-#     cats = {item['category'] for item in catbooks}
-#     for cat in cats:
-#         book = Books.objects.filter(category=cat)
-#         n = len(book)
-#         nSlides = n//4 + ceil((n/4)-(n//4))
-#         allBooks.append([book, range(1, nSlides), nSlides])
-#     #params ={'no_of_slides': nSlides, 'range': range(nSlides), 'book' : book}
-#     #allBooks = [ [book, range(1, nSlides), nSlides], 
-#      #           [book, range(1, nSlides), nSlides] ]
-#     params = {'allBooks': allBooks}
-
-#     return render(request, '../templates/bindex.html', params)

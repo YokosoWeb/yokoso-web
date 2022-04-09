@@ -489,6 +489,18 @@ nav ul ul ul li {
     li ul {
         left: 30%;
     }
+    .headlinesliders {
+        width: 70%;
+    }
+    .offerdetails {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .slide {
+        padding: 1rem;
+        width: 15rem;
+        height: 7rem;
+    }
 }
 
 @media (max-width:480px) {

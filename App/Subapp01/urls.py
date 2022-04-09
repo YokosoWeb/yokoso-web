@@ -39,7 +39,11 @@ urlpatterns = [
 
     path('income_tax_calculator', income_tax_calculator,
          name='income_tax_calculator'),
-    path('income_cal', income_cal, name='income_cal')
+    path('income_cal', income_cal, name='income_cal'),
+
+     path('loan_comparison', loan_comparison,
+         name='loan_comparison')
+   
 
 
 ]

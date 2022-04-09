@@ -10,8 +10,25 @@
 {% endblock %} {% block body %}
 
 <div >
+<table>
+  <tr>
+    <th>Bank</th>
+    <th>Interest Rates</th>
+    <th>Lowest EMI per lakh</th>
+  </tr>
+    {% for i in  bankdetails%}
+  <tr>
+
+<td>{{i.bank}}</td>
+<td>{{i.interest_rate}}</td>
+<td>{{i.loan_min}}</td>
+</tr>
+{% endfor %}
+</table>
+
 <tr>
 <td>
+ 
 </td>
 </tr>
 
@@ -19,4 +36,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="{% static 'js/creditscore.js' %}"></script>
+<script>
+
+</script>
 {% include 'footer.html' %} {% endblock %}

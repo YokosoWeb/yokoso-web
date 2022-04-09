@@ -546,6 +546,10 @@ body {
     .gtco-numbers-block svg {
         margin-top: -10px;
     }
+    .col-3 {
+        flex: auto;
+        max-width: 100%;
+    }
 }
 
 .gtco-numbers-block h5 {
@@ -848,6 +852,8 @@ body {
 .gtco-news .owl-carousel .card a {
     padding-top: 3px !important;
     padding-bottom: 3px !important;
+    margin-left: 20%;
+    margin-bottom: .2rem;
 }
 
 #gtco-footer {

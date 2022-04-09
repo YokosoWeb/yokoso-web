@@ -70,9 +70,7 @@
 
                             </ul>
                         </div>
-                        <div class="col-12">
-                            <p>&copy; 2022. All Rights Reserved.</p>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -81,40 +79,4 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 
-$('#submit').click(function() {
-
-    var url = 'footer/';
-    var name = $('#fname').val();
-    var pan = $('#pan').val();
-    var phone = $('#phone').val();
-    var employmentType = $('#emp').val();
-    var email = $('#email').val();
-    var dob = $('#dob').val();
-    var gender = $('#gender').val();
-
-    $.ajax({
-        url: url,
-        data: {
-            'name': name,
-            'pan': pan,
-            'phone': phone,
-            'employmentType': employmentType,
-            'email': email,
-            'dob': dob,
-            'gender': gender
-
-        },
-
-        success: function(data) {
-
-            document.getElementById('id').value = data;
-
-
-
-
-        }
-    });
-
-
-});
 </script>
