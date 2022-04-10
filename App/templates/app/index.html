@@ -114,7 +114,10 @@
                 <div class="col-lg-4">
                     <h2> Explore The Services<br/> We Offer For You </h2>
                     <p> Simplify you Financial needs using our tools </p>
-                    <a href="#">All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                    <a>All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    
+</div>
+                
                 <div class="col-lg-8">
                     <svg id="bg-services" width="100%" viewBox="0 0 1000 800">
                     <defs>
@@ -174,38 +177,12 @@
     <div class="container-fluid gtco-numbers-block" id="ourservices">
         <div class="container">
 
+            
             <div class="row">
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-files-o" aria-hidden="true"></i>
-                            <p class="card-text">ITR</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-building" aria-hidden="true"></i>
-                            <p class="card-text">Company Registration</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            <p class="card-text">GST Registration</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-home card-title" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                             <p class="card-text">Home Loan</p>
                         </div>
                     </div>
@@ -237,9 +214,36 @@
                     </div>
                 </div>
             </div>
-            <div class="servicescontact">
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-files-o" aria-hidden="true"></i>
+                            <p class="card-text">ITR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-building" aria-hidden="true"></i>
+                            <p class="card-text">Company Registration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <p class="card-text">GST Registration</p>
+                        </div>
+                    </div>
+                </div>
+                   <div class="servicescontact">
                 <a href="{% url 'contact' %}" class="contactus">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
+            </div>
+            
         </div>
     </div>
    
@@ -362,8 +366,7 @@
         </div>
     </div>
 
-
-{% comment %} <div class="container-fluid gtco-news" id="news">
+ <div class="container-fluid gtco-news" id="news">
         <div class="container">
             <h2>Latest News & Articles</h2>
          
@@ -384,7 +387,7 @@
             </div>
 
         </div>
-    </div>  {% endcomment %}
+    </div>  
 
    
  
@@ -491,7 +494,6 @@
         });
 
  
-
     
     </script>
     <script src="js/popper.min.js"></script>
