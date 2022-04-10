@@ -96,9 +96,8 @@
      color: #fff!important;
      font-size: 20px;
      outline: none;
-     border-radius: 4px;
-     border: 1px solid #48c290;
-     background-color: #48c290;
+     border-radius: 25rem;
+     background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
      cursor: pointer;
      padding: 0.4rem 2rem;
  }
@@ -110,9 +109,8 @@
      color: #fff!important;
      font-size: 18px;
      outline: none;
-     border-radius: 4px;
-     border: 1px solid #48c290;
-     background-color: #48c290;
+     border-radius: 25rem;
+     background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
      padding: 0.5rem 1.2rem;
      cursor: pointer;
  }
@@ -232,6 +230,13 @@
      }
      .fields-submit-code {
          font-size: 20px;
+         border-radius: 25rem;
+         background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+     }
+     .ifsc-submit-code {
+         font-size: 20px;
+         border-radius: 25rem;
+         background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
      }
  }
  
@@ -257,9 +262,13 @@
      .ifsc-submit-code {
          font-size: 15px;
          bottom: 45px;
+         border-radius: 25rem;
+         background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
      }
      .fields-submit-code {
          font-size: 20px;
+         border-radius: 25rem;
+         background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
      }
  }
  
@@ -287,5 +296,13 @@
      .fields-submit-code {
          font-size: 15px;
          padding: 0.5rem 2rem;
+         border-radius: 25rem;
+         background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+     }
+     .ifsc-submit-code {
+         font-size: 15px;
+         padding: 0.5rem 2rem;
+         border-radius: 25rem;
+         background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
      }
  }

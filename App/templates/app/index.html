@@ -61,7 +61,7 @@
                     <p>Everyone has goals. We help you create and implement a practical action plan to achieve them. </p>
                     <a href="{% url 'contact' %}">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
                 <div class="col-md-6">
-                    <div class="card imageheader"><img class="card-img-top img-fluid" src="images/banner-img.png" alt=""></div>
+                    <div class="card imageheader"><img class="card-img-top img-fluid" src="{% static 'images\1bg.png'%}" alt=""></div>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                                 <path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
                             </clipPath>
                             <!-- xlink:href for modern browsers, src for IE8- -->
-                            <image clip-path="url(#clip-path)" xlink:href="images/learn-img.jpg" width="100%"
+                            <image clip-path="url(#clip-path)" xlink:href="{% static 'images\3bg.png'%}" width="100%"
                                    height="465" class="svg__image"></image>
                         </svg>
                         </div>
@@ -114,7 +114,10 @@
                 <div class="col-lg-4">
                     <h2> Explore The Services<br/> We Offer For You </h2>
                     <p> Simplify you Financial needs using our tools </p>
-                    <a href="#">All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                    <a>All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    
+</div>
+                
                 <div class="col-lg-8">
                     <svg id="bg-services" width="100%" viewBox="0 0 1000 800">
                     <defs>
@@ -129,7 +132,7 @@
                     <div class="row" id="financial" >
                         <div class="col">
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="images/ifsc.jpg" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\ifsc.png'%}" alt=""></div>
                                 <div class="card-body">
                                     <a href="{% url 'getServices' %}" style ="background-image: none";><h3 class="card-title">Ifsc Finder</h3></a>
                                     <p class="card-text">Get the details of the required IFSC Code by selecting bank, branch and state details.
@@ -137,7 +140,7 @@
                                 </div>
                             </div>
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="images/marketing.png" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\gri.png'%}" alt=""></div>
                                 <div class="card-body">
                                     <a href="{% url 'getServices' %}" style ="background-image: none";><h3 class="card-title">Grievance</h3></a>
                                     <p class="card-text">Find a way to communicate and add your Grievance.
@@ -147,7 +150,7 @@
                         </div>
                         <div class="col">
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="images/EMI 1.jpg" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\emipro.png'%}" alt=""></div>
                                 <div class="card-body">
                                     <a href="{% url 'credit' %}" style ="background-image: none";><h3 class="card-title">EMI Pro</h3></a>
                                     <p class="card-text">Get the EMI details and benefits customized for you.
@@ -155,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="images/EMI @.jpg" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\emical.png'%}" alt=""></div>
                                 <div class="card-body">
                                     <a href="{% url 'emi' %}" style ="background-image: none";><h3 class="card-title">EMI Calculator</h3></a>
                                     <p class="card-text">Check EMI .
@@ -174,38 +177,12 @@
     <div class="container-fluid gtco-numbers-block" id="ourservices">
         <div class="container">
 
+            
             <div class="row">
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-files-o" aria-hidden="true"></i>
-                            <p class="card-text">ITR</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-building" aria-hidden="true"></i>
-                            <p class="card-text">Company Registration</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            <p class="card-text">GST Registration</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-home card-title" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                             <p class="card-text">Home Loan</p>
                         </div>
                     </div>
@@ -237,9 +214,36 @@
                     </div>
                 </div>
             </div>
-            <div class="servicescontact">
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-files-o" aria-hidden="true"></i>
+                            <p class="card-text">ITR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-building" aria-hidden="true"></i>
+                            <p class="card-text">Company Registration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <p class="card-text">GST Registration</p>
+                        </div>
+                    </div>
+                </div>
+                   <div class="servicescontact">
                 <a href="{% url 'contact' %}" class="contactus">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
+            </div>
+            
         </div>
     </div>
    
@@ -362,8 +366,7 @@
         </div>
     </div>
 
-
-<div class="container-fluid gtco-news" id="news">
+ <div class="container-fluid gtco-news" id="news">
         <div class="container">
             <h2>Latest News & Articles</h2>
          
@@ -375,15 +378,16 @@
                         <div class="card-body text-left pr-0 pl-0">
                             <h5>{{i.title}} </h5>
                             <p class="card-text">By {{i.author }} on {{i.date}} </p>
-                            <a href="{% url 'articleView' slug=i.slug %}">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                            
                     </div>
+                       <a href="{% url 'articleView' slug=i.slug %}">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
 
                 </div>
                {% endfor %}
             </div>
 
         </div>
-    </div>
+    </div>  
 
    
  
@@ -393,35 +397,6 @@
             <div class="row">
                 <div class="col-lg-6" id="contact">
                     <h4> Contact Us </h4>
- {% comment %} {% if msg %}
-            <button style="text-align: left;border:none;" disabled>Sit back and relax ! Our agent will contact you soon...❤</button>
-        {% endif %}
-       <form method="POST" autocomplete="off">
-            {% csrf_token %}
-            <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" required />
-            {% comment %} <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required /> 
-            <input type="email" placeholder="Email Address" name="email" required/>
-            <input type="tel" placeholder="Phone Number" name="phone" required  title="Enter only numbers" maxlength="10" pattern="\d{10}"/>
-            
-           
-            <select class="form-control options"  name="category" id="id_category" required>
-            <option  class="options" value="">Category</option>
-            <option  class="options" value="ITR">ITR</option>
-            <option  class="options" value="GST Registration">GST Registration</option>
-            <option  class="options" value="Company Registration">Company Registration</option>
-            <option class="options" value="HomeLoan">Home Loan</option>
-            <option  class="options" value="PersonalLoan">Property Loan</option>
-            <option  class="options" value="AutoLoan">Auto Loan</option>
-            
-            <option  class="options" value="Others">Others</option>
-            </select>
-        
-            <textarea  placeholder="Type your query" name="msg" resize="none"></textarea>
-     
-           
-            <button type="submit" class="submitbtn">Submit Now</button>
-            
-        </form> {% endcomment %}
            
       <p>
         We belive in giving crucial transperent informations in most simplistic
@@ -473,9 +448,7 @@
 
                             </ul>
                         </div>
-                        <div class="col-12">
-                            <p>&copy; 2022. All Rights Reserved.</p>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -521,7 +494,6 @@
         });
 
  
-
     
     </script>
     <script src="js/popper.min.js"></script>
