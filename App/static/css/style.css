@@ -820,6 +820,7 @@ body {
 
 .gtco-news .owl-carousel .card {
     padding: 0 25px;
+    height: 25rem;
 }
 
 .gtco-news .owl-carousel .card .card-img-top {
@@ -852,7 +853,7 @@ body {
 .gtco-news .owl-carousel .card a {
     padding-top: 3px !important;
     padding-bottom: 3px !important;
-    margin-left: 20%;
+    margin-left: 35%;
     margin-bottom: .2rem;
 }
 
