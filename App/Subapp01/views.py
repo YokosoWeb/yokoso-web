@@ -465,10 +465,10 @@ def Ifscfiller(request, slug):
 
 def loan_comparison(request):
     bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
-     
     
     context={
           'bankdetails': bankdetails,
+          
            }
     
     return render(request, 'app/loan_comparison.html', context)

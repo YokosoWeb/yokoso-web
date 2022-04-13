@@ -16,21 +16,19 @@
     <th>Interest Rates</th>
     <th>Lowest EMI per lakh</th>
   </tr>
-    {% for i in  bankdetails%}
+    {% for i in  bankdetails %}
   <tr>
 
-<td>{{i.bank}}</td>
+<td>{{i.bank}}<button></td>
 <td>{{i.interest_rate}}</td>
 <td>{{i.loan_min}}</td>
+
 </tr>
 {% endfor %}
+
 </table>
 
-<tr>
-<td>
- 
-</td>
-</tr>
+
 
 </div>
 

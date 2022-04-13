@@ -61,7 +61,7 @@
                     <p>Everyone has goals. We help you create and implement a practical action plan to achieve them. </p>
                     <a href="{% url 'contact' %}">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
                 <div class="col-md-6">
-                    <div class="card imageheader"><img class="card-img-top img-fluid" src="{% static 'images\1bg.png'%}" alt=""></div>
+                    <div class="card imageheader"><img class="card-img-top img-fluid" src="{% static 'images\1bg.png'%}" alt="Yokoso"></div>
                 </div>
             </div>
         </div>
@@ -132,7 +132,7 @@
                     <div class="row" id="financial" >
                         <div class="col">
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="{% static 'images\ifsc.png'%}" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\ifsc.png'%}" alt="ifsc"></div>
                                 <div class="card-body">
                                     <a href="{% url 'getServices' %}" style ="background-image: none";><h3 class="card-title">Ifsc Finder</h3></a>
                                     <p class="card-text">Get the details of the required IFSC Code by selecting bank, branch and state details.
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="{% static 'images\gri.png'%}" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\gri.png'%}" alt="Grievance"></div>
                                 <div class="card-body">
                                     <a href="{% url 'getServices' %}" style ="background-image: none";><h3 class="card-title">Grievance</h3></a>
                                     <p class="card-text">Find a way to communicate and add your Grievance.
@@ -150,7 +150,7 @@
                         </div>
                         <div class="col">
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="{% static 'images\emipro.png'%}" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\emipro.png'%}" alt="Emi Pro"></div>
                                 <div class="card-body">
                                     <a href="{% url 'credit' %}" style ="background-image: none";><h3 class="card-title">EMI Pro</h3></a>
                                     <p class="card-text">Get the EMI details and benefits customized for you.
@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="card text-center">
-                                <div class="oval"><img class="card-img-top" src="{% static 'images\emical.png'%}" alt=""></div>
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\emical.png'%}" alt="EMI Cal"></div>
                                 <div class="card-body">
                                     <a href="{% url 'emi' %}" style ="background-image: none";><h3 class="card-title">EMI Calculator</h3></a>
                                     <p class="card-text">Check EMI .
@@ -176,7 +176,32 @@
     </div>
     <div class="container-fluid gtco-numbers-block" id="ourservices">
         <div class="container">
-
+        <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-files-o" aria-hidden="true"></i>
+                            <p class="card-text">ITR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-building" aria-hidden="true"></i>
+                            <p class="card-text">Company Registration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <p class="card-text">GST Registration</p>
+                        </div>
+                    </div>
+                </div>
+                   
             
             <div class="row">
                 <div class="col-3">
@@ -213,43 +238,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-files-o" aria-hidden="true"></i>
-                            <p class="card-text">ITR</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-building" aria-hidden="true"></i>
-                            <p class="card-text">Company Registration</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            <p class="card-text">GST Registration</p>
-                        </div>
-                    </div>
-                </div>
-                   <div class="servicescontact">
+         <div class="col-3">   
+    <div class="servicescontact">
                 <a href="{% url 'contact' %}" class="contactus">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
+ </div>
+</div>
             </div>
             
         </div>
     </div>
    
 
-
-    <div class="calculator-heading">
+<div class="calculator-heading">
         <h2>EMI Calculator</h2>
         <p>Calculate your EMI instantly</p>
 
@@ -354,12 +355,12 @@
                 <section class="customer-logos slider">
                      
 
-                    <div class="col slide"><img src="{% static 'images\sbic.png'%}" class="img-fluid" alt=""></div>
+                    <div class="col slide"><img src="{% static 'images\sbic.png'%}" class="img-fluid" alt="SBI"></div>
 
-                    <div class="col slide"><img src="{% static 'images\ubic.png'%}"  class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="{% static 'images\hdfcc.png'%}" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="{% static 'images\idfcc.png'%}" class="img-fluid" alt=""></div>
-                    <div class="col slide"><img src="{% static 'images\ubic.png'%}" class="img-fluid" alt=""></div>
+                    <div class="col slide"><img src="{% static 'images\ubic.png'%}"  class="img-fluid" alt="UBI"></div>
+                    <div class="col slide"><img src="{% static 'images\hdfcc.png'%}" class="img-fluid" alt="HDFC"></div>
+                    <div class="col slide"><img src="{% static 'images\idfcc.png'%}" class="img-fluid" alt="IDFC"></div>
+                    <div class="col slide"><img src="{% static 'images\ubic.png'%}" class="img-fluid" alt="UBI"></div>
 
                 </section>
             </div>
@@ -374,7 +375,7 @@
        {% for i in posts %}
                 <div>
            
-                    <div class="card text-center"><img class="card-img-top" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{i.image}}" alt="">
+                    <div class="card text-center"><img class="card-img-top" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{i.image}}" alt="Loading">
                         <div class="card-body text-left pr-0 pl-0">
                             <h5>{{i.title}} </h5>
                             <p class="card-text">By {{i.author }} on {{i.date}} </p>
@@ -389,7 +390,7 @@
         </div>
     </div>  
 
-   
+
  
 <footer class="container-fluid" id="gtco-footer">
        
@@ -411,7 +412,17 @@
       </p>
       <br />
 
-
+  <h4 class="mt-5" style="margin-top: 0px";>Follow Us</h4>
+                            <ul class="nav follow-us-nav">
+                                <li class="nav-item"><a class="nav-link pl-0" href="https://www.facebook.com/yokoso.in" target="_blank"><i class="fa fa-facebook"
+                                                                                      aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://twitter.com/YokosoFinance" target="_blank"><i class="fa fa-twitter"
+                                                                                 aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href=><i class="fa fa-google"
+                                                                                 aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/company/welcome2yokoso/" target="_blank"><i class="fa fa-linkedin"
+                                                                                 aria-hidden="true"></i></a></li>
+                            </ul>
 </div>
                 <div class="col-lg-6">
                     <div class="row">
@@ -424,17 +435,7 @@
                                 <li class="nav-item"><a class="nav-link" href="{% url 'getServices' %}">Grievance</a></li>
 
                             </ul>
-                            <h4 class="mt-5">Follow Us</h4>
-                            <ul class="nav follow-us-nav">
-                                <li class="nav-item"><a class="nav-link pl-0" href="https://www.facebook.com/yokoso.in" target="_blank"><i class="fa fa-facebook"
-                                                                                      aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href="https://twitter.com/YokosoFinance" target="_blank"><i class="fa fa-twitter"
-                                                                                 aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href=><i class="fa fa-google"
-                                                                                 aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/company/welcome2yokoso/" target="_blank"><i class="fa fa-linkedin"
-                                                                                 aria-hidden="true"></i></a></li>
-                            </ul>
+                            <img src="{% static 'images\startup.png'%}" alt="startup India" class="mt-5" style="width: 20rem";>
                         </div>
                         <div class="col-6">
                             <h4>Services</h4>
