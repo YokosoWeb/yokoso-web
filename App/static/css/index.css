@@ -122,6 +122,7 @@
 
 .slide img {
     height: 4rem;
+    width: -webkit-fill-available;
 }
 
 .submitbtn {

@@ -26,46 +26,18 @@ def home(request):
     # Default Response
     objs = FAQCategory.objects.all()
     posts = Post.objects.filter(status='Published').order_by('date')[::-1]
-
-    if request.method == 'POST':
-
-        Firstname = request.POST.get('first_name')
-
-        Email = request.POST.get('email')
-        Phone = request.POST.get('phone')
-        Category = request.POST.get('category')
-        Message = request.POST.get('msg')
-
-        context = {
-            'Firstname': Firstname,
-
-            'Email': Email,
-            'Phone': Phone,
-            'Category': Category,
-            'Message': Message,
-
-        }
-        Message = '''
-        New message: {}
-
-        From: {}
-        Contact:{}
-        FirstName: {}
-        Category: {}
-
-        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Category'])
-        send_mail('Contact form of YOKOSO', Message, '', ['contact@yokoso.in'])
-
-    # return render(request, 'app/contact.html', {'msg': True})
-
-        return render(request, 'app/index.html', {'msg': True,"objs": objs, "posts": posts})
-
-    else:
-        return render(request, 'app/index.html',{"objs": objs, "posts": posts})
+    slug = "home-loan"
+    category = FAQCategory.objects.get(slug=slug)
+    print(category.id)
+    # Entry.objects.filter()[:1].get()
+    datas = FAQText.objects.filter(category=category.id)[:4]
+    # datas = FAQText.objects.filter(category=category.id)
+    print(datas)
+    
 
     # return render(request, '../templates/index.html', {'posts': posts})
 
-    return render(request, 'app/index.html', {"objs": objs, "posts": posts})
+    return render(request, 'app/index.html', {"objs": objs, "posts": posts, "datas": datas})
 
 
 def signup(request):

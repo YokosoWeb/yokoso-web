@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Yokoso</title>
-   
+
+   </head>
 
 
 {% comment %} {% extends "base.html" %} {% endcomment %}
@@ -45,7 +46,17 @@
 
                     <!-- <li class="nav-item"><a class="nav-link" href="#about">Financial tools</a></li> -->
                     <li><a href="#financial">Financial Tools</a></li>
-                    <li><a href="#news">Learn</a></li>
+                    {% comment %} <li><a href="#news">Learn</a></li> {% endcomment %}
+                    <li>
+                        <label for="btn-2" class="showing">Learn + </label>
+                        <a href="#">Learn</a>
+                        <input type="checkbox" id="btn-2" class="checkbox">
+                        <ul>
+                            <li><a href="#news">BLOGs</a></li>
+                             <li><a href="#faqs">FAQs</a></li>
+                           
+                        </ul>
+                    </li>
                     <li><a href="#ourservices">Contact</a></li>
                 </ul>
 
@@ -96,12 +107,11 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <h2> We are a Creative Digital Agency & Marketing Experts </h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus turpis nisl, vitae dictum mi semper convallis. Ut sapien leo, varius ac dapibus a, cursus quis ante. </p>
+                    <h3> Are you sure the EMI your are paying is the best rate you can get?  </h3><br>
+                    <h3> Are you sure rebate on taxes you are getting is the maximum you can get?</h3>
                     <p>
-                        <small>Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla,
-                        cursus impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac,
-                        dictum id neque.
+                        <small>With our tools and deep market analysis we help you with such answers 
+and many more like that
                     </small>
                     </p>
                     <a href="#">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
@@ -114,11 +124,11 @@
                 <div class="col-lg-4">
                     <h2> Explore The Services<br/> We Offer For You </h2>
                     <p> Simplify you Financial needs using our tools </p>
-                    <a>All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <a href="#financial">All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                     
 </div>
                 
-                <div class="col-lg-8">
+                <div class="col-lg-8" >
                     <svg id="bg-services" width="100%" viewBox="0 0 1000 800">
                     <defs>
                         <linearGradient id="PSgrad_02" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
@@ -171,12 +181,15 @@
             </div>
         </div>
     </div>
-    <div class="servicesp">
+   
+   
+<div class="servicesp">
         <h1>Contact Us for more services</h1>
     </div>
     <div class="container-fluid gtco-numbers-block" id="ourservices">
         <div class="container">
-        <div class="row">
+
+            <div class="row">
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
@@ -201,8 +214,8 @@
                         </div>
                     </div>
                 </div>
-                   
-            
+
+            </div>
             <div class="row">
                 <div class="col-3">
                     <div class="card">
@@ -238,17 +251,24 @@
                         </div>
                     </div>
                 </div>
-         <div class="col-3">   
-    <div class="servicescontact">
+            </div>
+            <div class="servicescontact">
                 <a href="{% url 'contact' %}" class="contactus">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
- </div>
-</div>
-            </div>
-            
         </div>
     </div>
    
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="calculator-heading">
         <h2>EMI Calculator</h2>
@@ -284,62 +304,33 @@
 
 
 
-    <div class="container-fluid gtco-features-list">
+    <div class="container-fluid gtco-features-list" id="faqs">
+<div class="calculator-heading">
+        <h2>FAQs</h2>
+    </div>
+<h3> 
+</div>
         <div class="container">
-            <div class="row">
-                <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/quality-results.png" %}" alt=""></div>
-                    <div class="media-body">
-                        <h5 class="mb-0">Quality Results</h5>
-                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
-                    </div>
-                </div>
-                <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/analytics.png" %}" alt=""></div>
-                    <div class="media-body">
-                        <h5 class="mb-0">Analytics</h5>
-                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
-                    </div>
-                </div>
-                <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/affordable-pricing.png" %}" alt=""></div>
-                    <div class="media-body">
-                        <h5 class="mb-0">Affordable Pricing</h5>
-                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
-                    </div>
-                </div>
-                <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/easy-to-use.png" %}" alt=""></div>
-                    <div class="media-body">
-                        <h5 class="mb-0">Easy To Use</h5>
-                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
-                    </div>
-                </div>
-                <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/free-support.png" %}" alt=""></div>
-                    <div class="media-body">
-                        <h5 class="mb-0">Free Support</h5>
-                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
-                    </div>
-                </div>
-                <div class="media col-md-6 col-lg-4">
-                    <div class="oval mr-4"><img class="align-self-start" src="{% static  "images/effectively-increase.png" %}" alt=""></div>
-                    <div class="media-body">
-                        <h5 class="mb-0">Effectively Increase</h5>
-                        Aliquam a nisl pulvinar, hendrerit arcu sed, dapibus velit. Duis ac quam id sapien vestibulum fermentum ac eu eros. Aliquam erat volutpat.
-                    </div>
-                </div>
+           <div class="content">
+  <div class="contentin">
+
+{% for i in datas %}
+    <div class="contentcard">
+    <p  name="title" class="title" style="cursor: pointer">{{i.title}}</p>
+    <p style='display: none' id="descrip" class="descrip">{{i.description}}</p>
+    </div>
+    <hr>
+    {% endfor %}
+  
+
+  </div>
+ <div class="servicescontact">
+                <a href="/FAQs/home-loan" class="contactus">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
+</div>
         </div>
     </div>
    
-
-
-
-
-
-
-
 
 
     <div class="offersliders">
@@ -357,10 +348,10 @@
 
                     <div class="col slide"><img src="{% static 'images\sbic.png'%}" class="img-fluid" alt="SBI"></div>
 
-                    <div class="col slide"><img src="{% static 'images\ubic.png'%}"  class="img-fluid" alt="UBI"></div>
+                    <div class="col slide"><img src="{% static 'images\union.jpg'%}"  class="img-fluid" alt="UBI"></div>
                     <div class="col slide"><img src="{% static 'images\hdfcc.png'%}" class="img-fluid" alt="HDFC"></div>
                     <div class="col slide"><img src="{% static 'images\idfcc.png'%}" class="img-fluid" alt="IDFC"></div>
-                    <div class="col slide"><img src="{% static 'images\ubic.png'%}" class="img-fluid" alt="UBI"></div>
+                    <div class="col slide"><img src="{% static 'images\airtelpayments.jpg'%}" class="img-fluid" alt="UBI"></div>
 
                 </section>
             </div>
@@ -468,6 +459,7 @@
     <!-- owl carousel js-->
     <script src="{% static 'owl-carousel/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/faq.js' %}"></script>
     </script> 
 
     <script>
