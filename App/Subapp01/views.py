@@ -30,7 +30,7 @@ def home(request):
     category = FAQCategory.objects.get(slug=slug)
     print(category.id)
     # Entry.objects.filter()[:1].get()
-    datas = FAQText.objects.filter(category=category.id)[:4]
+    datas = FAQText.objects.filter(category=category.id)[:6]
     # datas = FAQText.objects.filter(category=category.id)
     print(datas)
     
@@ -437,7 +437,7 @@ def Ifscfiller(request, slug):
 
 def loan_comparison(request):
     bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
-    
+    print(bankdetails)
     context={
           'bankdetails': bankdetails,
           
