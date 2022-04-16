@@ -107,12 +107,13 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <h3> Are you sure the EMI your are paying is the best rate you can get?  </h3><br>
-                    <h3> Are you sure rebate on taxes you are getting is the maximum you can get?</h3>
+                    <h2> Some time you might get better option in life <span style=" font-weight: bolder;"> but only when you look for them <span> </h2><br>
+                  
                     <p>
-                        <small>With our tools and deep market analysis we help you with such answers 
-and many more like that
-                    </small>
+                        <small>With our tools and deep market analysis we can help you get beter EMI rates 
+on your existing loan or we can help you reducing your taxes.</small><p> We will work for you to get you  more rebates 
+and better gain with your existing Financial investment.
+                    </p>
                     </p>
                     <a href="#">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
             </div>
@@ -301,10 +302,38 @@ and many more like that
             </div>
         </div>
     </div>
+<div class="container-fluid gtco-features-list">
+<div class="calculator-heading">
+        <h2>FAQs</h2>
+      <hr>
+    </div>
+        <div class="container">
+            <div class="row">
+                {% for i in datas %}
+                <div class="media col-md-6 col-lg-4">
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/quality-results.png" %}" alt=""></div>
+                    <div class="media-body">
+                        <h5 class="mb-0 title" name="title"  style="cursor: pointer">{{i.title}}</h5>
+                       <p style='display: none' id="descrip" class="descrip">{{i.description}}</p>
+
+                    </div>
+                </div>
+                
+                {% endfor %}
+              
+                
+           
+                
+                
+            </div>
+               <div class="servicescontact">
+                <a href="/FAQs/home-loan" class="contactus">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
 
 
-
-    <div class="container-fluid gtco-features-list" id="faqs">
+    {% comment %} <div class="container-fluid gtco-features-list" id="faqs">
 <div class="calculator-heading">
         <h2>FAQs</h2>
     </div>
@@ -323,13 +352,8 @@ and many more like that
     {% endfor %}
   
 
-  </div>
- <div class="servicescontact">
-                <a href="/FAQs/home-loan" class="contactus">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            </div>
-</div>
-        </div>
-    </div>
+  </div> {% endcomment %}
+
    
 
 
@@ -351,7 +375,7 @@ and many more like that
                     <div class="col slide"><img src="{% static 'images\union.jpg'%}"  class="img-fluid" alt="UBI"></div>
                     <div class="col slide"><img src="{% static 'images\hdfcc.png'%}" class="img-fluid" alt="HDFC"></div>
                     <div class="col slide"><img src="{% static 'images\idfcc.png'%}" class="img-fluid" alt="IDFC"></div>
-                    <div class="col slide"><img src="{% static 'images\airtelpayments.jpg'%}" class="img-fluid" alt="UBI"></div>
+                    <div class="col slide"><img src="{% static 'images\lic.png'%}" class="img-fluid" alt="UBI"></div>
 
                 </section>
             </div>
@@ -379,7 +403,7 @@ and many more like that
             </div>
 
         </div>
-    </div>  
+    </div>    
 
 
  
