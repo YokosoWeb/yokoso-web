@@ -41,8 +41,10 @@ urlpatterns = [
          name='income_tax_calculator'),
     path('income_cal', income_cal, name='income_cal'),
 
-     path('loan_comparison', loan_comparison,
-         name='loan_comparison')
+    path('loan_comparison', loan_comparison,
+         name='loan_comparison'),
+    path('sip/', sip, name="sip"),
+    path('sip/sipans/', sipans, name='sipans'),
    
 
 
