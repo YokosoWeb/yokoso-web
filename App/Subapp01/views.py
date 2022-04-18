@@ -525,3 +525,45 @@ def income_cal(request):
 
 
 
+def sip(request):
+    print("print test")
+    # if request.method == 'get':
+    #     amount = int(request.POST.get(amount))
+    #     rate = int(request.POST.get(rate))
+    #     time = int(request.POST.get(time))
+
+    #     print("preint test1")
+    #     # month = time * 12
+    #     # periodic_rate = rate/100/12
+    #     # invested_amount = amount*month
+    #     # maturity = amount*((pow(1+periodic_rate, month)-1) /
+    #     #                    periodic_rate)*(1+periodic_rate)
+    #     # print(amount, rate, time, invested_amount, maturity)
+    #     # otp_window = 'Successfull ' + maturity
+    #     # return HttpResponse(otp_window)
+    #     # return HttpResponse(otp_window)
+    #     # return render(request, "app/sip.html", {'amount': amount,
+    #     #                                         'rate': rate,
+    #     #                                         'time': time,
+    #     #                                         'invested_amount': invested_amount,
+    #     #                                         'maturity': maturity})
+    #     return JsonResponse(list(amount, rate, time), safe=False)
+    return render(request, "app/sip.html")
+
+def sipans(request):
+    print("insidesip")
+    amount= int(request.GET.get('amount'))
+    rate=  request.GET.get('rate')
+    time_period= request.GET.get('time_period')
+
+    month = time_period * 12
+    periodic_rate = rate/100/12
+    invested_amount = amount*month
+    maturity = amount*((pow(1+periodic_rate, month)-1) /
+                    periodic_rate)*(1+periodic_rate)
+    print(amount, rate, time, invested_amount, maturity)
+    otp_window = 'Successfull ' + maturity
+
+
+
+    return JsonResponse(list(month, periodic_rate), safe=False)
