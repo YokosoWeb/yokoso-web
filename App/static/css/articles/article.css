@@ -1,5 +1,4 @@
 .header_banner {
-    background: #ebebeb;
     padding: 14px 8%;
 }
 
@@ -13,9 +12,10 @@
     clear: both;
 }
 
-body {
+
+/* body {
     background-color: #1a19191a;
-}
+} */
 
 .cardContainer {
     width: 80%;

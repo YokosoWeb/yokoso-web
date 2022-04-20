@@ -1,269 +1,501 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="us" dir="ltr">
 {% load static %}
-{% block css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="{% static 'images/favicon.ico'%}">
+
+  <title>yokoso</title>
+
+  <meta name="description"
+    content="Yokoso is a financial company provides you the most simplistic way for loans, and we let you choose whats best for you.">
+  <meta name="keywords" content="Financial, banking, home loan, personal loan, auto loan, property loan, emi">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
+    <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="{% static 'owl-carousel/assets/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <!-- Bootstrap CSS -->
+  
  
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Yokoso</title>
 
-{% endblock %}
+   </head>
+<style>
 
-{% block body %}
-<div class="bodybg">
-<div class="homeheader">
-<div class="captions">
-<h1>Welcome To YOKOSO</h1>
-<p>You can contact us for any queries or any issue related to financial context. </p>
-<div class="wrapper">
-  <div class="section__subscribe">
-    
-    <div class="subecribe__btn">
-      <a href="{% url 'contact' %}">
+.col-6{
+max-width: 30%;
+}
+</style>
 
-      <button>
-        <p> CONTACT US</p>
-      </button>
-      </a>
+{% comment %} {% extends "base.html" %} {% endcomment %}
+
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+        <div class="container"><a class="navbar-brand" href="{% url 'home' %}">Yokoso</a>
+               <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+
+                    <!-- <li class="nav-item"><a class="nav-link" href="#about">Financial tools</a></li> -->
+                    <li><a href="#financial">Financial Tools</a></li>
+                    {% comment %} <li><a href="#news">Learn</a></li> {% endcomment %}
+                    <li>
+                        <label for="btn-2" class="showing">Learn + </label>
+                        <a href="#">Learn</a>
+                        <input type="checkbox" id="btn-2" class="checkbox">
+                        <ul>
+                            <li><a href="#news">BLOGs</a></li>
+                             <li><a href="#faqs">FAQs</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li><a href="#ourservices">Contact</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid gtco-banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1> The best time to plant a tree was 20 years ago <span>The second time is now.</span> </h1>
+                    <p>Everyone has goals. We help you create and implement a practical action plan to achieve them. </p>
+                    <a href="{% url 'contact' %}">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                <div class="col-md-6">
+                    <div class="card imageheader"><img class="card-img-top img-fluid" src="{% static 'images\1bg.png'%}" alt="Yokoso"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-</div>
+    <div class="container-fluid gtco-feature" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="cover">
+                        <div class="card">
+                            <svg class="back-bg" width="100%" viewBox="0 0 900 700" style="position:absolute; z-index: -1">
+                            <defs>
+                                <linearGradient id="PSgrad_01" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
+                                    <stop offset="0%" stop-color="rgb(1,230,248)" stop-opacity="1"/>
+                                    <stop offset="100%" stop-color="rgb(29,62,222)" stop-opacity="1"/>
+                                </linearGradient>
+                            </defs>
+                            <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_01)"
+                                  d="M616.656,2.494 L89.351,98.948 C19.867,111.658 -16.508,176.639 7.408,240.130 L122.755,546.348 C141.761,596.806 203.597,623.407 259.843,609.597 L697.535,502.126 C748.221,489.680 783.967,441.432 777.751,392.742 L739.837,95.775 C732.096,35.145 677.715,-8.675 616.656,2.494 Z"/>
+                        </svg>
+                            <!-- *************-->
 
-<div class="imageheader">
-<img src="{% static 'images/bg.png' %}" alt="">
+                            <svg width="100%" viewBox="0 0 700 500">
+                            <clipPath id="clip-path">
+                                <path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
+                            </clipPath>
+                            <!-- xlink:href for modern browsers, src for IE8- -->
+                            <image clip-path="url(#clip-path)" xlink:href="{% static 'images\3bg.png'%}" width="100%"
+                                   height="465" class="svg__image"></image>
+                        </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h2> Some time you might get better option in life <span style=" font-weight: bolder;"> but only when you look for them <span> </h2><br>
+                  
+                    <p>
+                        <small>With our tools and deep market analysis we can help you get beter EMI rates 
+on your existing loan or we can help you reducing your taxes.</small><p> We will work for you to get you  more rebates 
+and better gain with your existing Financial investment.
+                    </p>
+                    </p>
+                    <a href="#">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid gtco-features" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2> Explore The Services<br/> We Offer For You </h2>
+                    <p> Simplify you Financial needs using our tools </p>
+                    <a href="#financial">All Services <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    
 </div>
-</div>
+                
+                <div class="col-lg-8" >
+                    <svg id="bg-services" width="100%" viewBox="0 0 1000 800">
+                    <defs>
+                        <linearGradient id="PSgrad_02" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
+                            <stop offset="0%" stop-color="rgb(1,230,248)" stop-opacity="1"/>
+                            <stop offset="100%" stop-color="rgb(29,62,222)" stop-opacity="1"/>
+                        </linearGradient>
+                    </defs>
+                    <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_02)"
+                          d="M801.878,3.146 L116.381,128.537 C26.052,145.060 -21.235,229.535 9.856,312.073 L159.806,710.157 C184.515,775.753 264.901,810.334 338.020,792.380 L907.021,652.668 C972.912,636.489 1019.383,573.766 1011.301,510.470 L962.013,124.412 C951.950,45.594 881.254,-11.373 801.878,3.146 Z"/>
+                </svg>
+                    <div class="row" id="financial" >
+                        <div class="col">
+                            <div class="card text-center">
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\ifsc.png'%}" alt="ifsc"></div>
+                                <div class="card-body">
+                                    <a href="{% url 'getServices' %}" style ="background-image: none";><h3 class="card-title">Ifsc Finder</h3></a>
+                                    <p class="card-text">Get the details of the required IFSC Code by selecting bank, branch and state details.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card text-center">
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\gri.png'%}" alt="Grievance"></div>
+                                <div class="card-body">
+                                    <a href="{% url 'getServices' %}" style ="background-image: none";><h3 class="card-title">Grievance</h3></a>
+                                    <p class="card-text">Find a way to communicate and add your Grievance.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-center">
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\emipro.png'%}" alt="Emi Pro"></div>
+                                <div class="card-body">
+                                    <a href="{% url 'credit' %}" style ="background-image: none";><h3 class="card-title">EMI Pro</h3></a>
+                                    <p class="card-text">Get the EMI details and benefits customized for you.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card text-center">
+                                <div class="oval"><img class="card-img-top" src="{% static 'images\emical.png'%}" alt="EMI Cal"></div>
+                                <div class="card-body">
+                                    <a href="{% url 'emi' %}" style ="background-image: none";><h3 class="card-title">EMI Calculator</h3></a>
+                                    <p class="card-text">Check EMI .
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+   
+<div class="servicesp">
+        <h1>Contact Us for more services</h1>
+    </div>
+    <div class="container-fluid gtco-numbers-block" id="ourservices">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-files-o" aria-hidden="true"></i>
+                            <p class="card-text">ITR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-building" aria-hidden="true"></i>
+                            <p class="card-text">Company Registration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <p class="card-text">GST Registration</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <p class="card-text">Home Loan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-indent" aria-hidden="true"></i>
+                            <p class="card-text">Personal Loan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-university" aria-hidden="true"></i>
+                            <p class="card-text">Property Loan</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <i class="fa fa-car" aria-hidden="true"></i>
+
+                            <p class="card-text">Auto Loan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="servicescontact">
+                <a href="{% url 'contact' %}" class="contactus">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+   
 
 
-<div class="services">
-<div class="servicecontent">
-  <h1>Simplify your financial needs using our tools</h1>
-  {% comment %} <p> By the help of our website, you can instantly gain access to the best-matched products, irrespective of ticket-size, 
-location & nature of loan query. Our loan specialists offer personalised loan assistance and help you navigate your credit requirement without any hassle. With 100+ partner lenders on board, we assure you the best loan offer as per your needs. </p> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid gtco-features-list">
+<div class="calculator-heading">
+        <h2>FAQs</h2>
+      <hr>
+    </div>
+        <div class="container">
+            <div class="row">
+                {% for i in datas %}
+                <div class="media col-md-6 col-lg-4">
+                    <div class="oval mr-4"><img class="align-self-start" src="{% static "images/quality-results.png" %}" alt="icon"></div>
+                    <div class="media-body">
+                        <h5 class="mb-0 title" name="title"  style="cursor: pointer">{{i.title}}</h5>
+                       <p style='display: none' id="descrip" class="descrip">{{i.description}}</p>
+
+                    </div>
+                </div>
+                
+                {% endfor %}
+              
+                
+           
+                
+                
+            </div>
+               <div class="servicescontact">
+                <a href="/FAQs/home-loan" class="contactus">Read More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    {% comment %} <div class="container-fluid gtco-features-list" id="faqs">
+<div class="calculator-heading">
+        <h2>FAQs</h2>
+    </div>
+<h3> 
 </div>
-<div class="servicecards">
-{% comment %} <div onclick=”location.href=’http://www.yourdomain.com’;” style=”cursor: pointer;”> {% endcomment %}
+        <div class="container">
+           <div class="content">
+  <div class="contentin">
+
+{% for i in datas %}
+    <div class="contentcard">
+    <p  name="title" class="title" style="cursor: pointer">{{i.title}}</p>
+    <p style='display: none' id="descrip" class="descrip">{{i.description}}</p>
+    </div>
+    <hr>
+    {% endfor %}
+  
+
+  </div> {% endcomment %}
+
+   
+
+
+    <div class="offersliders">
+        <div class="headlinesliders">
+            <h1> Our Banking</h1>
+            <h3>Partners</h3>
+
+        </div>
+
+        <div class="offerdetails">
+            <div class="container">
+                   
+                <section class="customer-logos slider">
+                     
+
+                    <div class="col slide"><img src="{% static 'images\sbic.png'%}" class="img-fluid" alt="SBI"></div>
+
+                    <div class="col slide"><img src="{% static 'images\idbi.png'%}"  class="img-fluid" alt="IDBI"></div>
+                    <div class="col slide"><img src="{% static 'images\hdfcc.png'%}" class="img-fluid" alt="HDFC"></div>
+                    <div class="col slide"><img src="{% static 'images\bajab.jpg'%}" class="img-fluid" alt="Bajab Finserv"></div>
+                    <div class="col slide"><img src="{% static 'images\lic.png'%}" class="img-fluid" alt="UBI"></div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+ <div class="container-fluid gtco-news" id="news">
+        <div class="container">
+            <h2>Latest News & Articles</h2>
+         
+            <div class="owl-carousel owl-carousel2 owl-theme">
+       {% for i in posts %}
+                <div>
+           
+                    <div class="card text-center"><img class="card-img-top" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/media/{{i.image}}" alt="Loading">
+                        <div class="card-body text-left pr-0 pl-0">
+                            <h5>{{i.title}} </h5>
+                            <p class="card-text">By {{i.author }} on {{i.date}} </p>
+                            
+                    </div>
+                       <a href="{% url 'articleView' slug=i.slug %}">READ MORE <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+
+                </div>
+               {% endfor %}
+            </div>
+
+        </div>
+    </div>    
+
+
  
-
-<a href="{% url 'emi' %}"  class="cardsleft" >EMI Calculator
-  <i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
-</a>
-
-<a href="{% url 'getServices' %}"  class="cardsleft">IFSC Finder
-<i class="fa fa-arrow-right arrow" aria-hidden="true"></i></a>
-
-<a href="{% url 'getServices' %}"  class="cardsright" >Grievance
-<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
-</a>
-
-<a href="{% url 'credit' %}" class="cardsright">EMI Pro
-<i class="fa fa-arrow-right arrow" aria-hidden="true"></i>
-</a>
-
-</div>
-</div>
-
-
-
-<div class="offersliders">
-<div class="headlinesliders">
-    <h1> Our Services</h1>
-     <h3>We provide</h3>
- 
-</div>
-
-<div class="offerdetails">
-  <div class="container">
-
-     <section class="customer-logos slider">
-     
-        
-        <a href="{% url 'contact' %}" class="slide">Home Loan</a>
-      
-        <a href="{% url 'contact' %}" class="slide">Personal Loan</a>
-      
-          <a href="{% url 'contact' %}" class="slide">Auto Loan</a>
-    
-          <a href="{% url 'contact' %}" class="slide">ITR</a>
+<footer class="container-fluid" id="gtco-footer">
        
-          <a href="{% url 'contact' %}" class="slide">GST Registration</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" id="contact">
+                    <h4> Contact Us </h4>
+ <p>
+        We belive in giving crucial transperent informations in most simplistic
+        way , and we let you choose whats best for you.
+      </p>
+      <br />
+      {% load static %}
+      <p>
+        Yokoso Team : <br />
+        <a href="tel:+91 6206739406">+91 6206739406</a> |
+        <a href="mailto:contact@yokoso.in">contact@yokoso.in</a>
+      </p>
+      <br />
+       
         
-          <a href="{% url 'contact' %}" class="slide">Company Registration</a>
-  
-     </section>
-  </div>
+    
+
 </div>
+<div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>Company</h4>
+                            <ul class="nav flex-column company-nav">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'emi' %}">EMI Calculator</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'credit' %}">EMI Pro</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'getServices' %}">IFSC Finder</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'getServices' %}">Grievance</a></li>
+
+                            </ul>
+                             
+                        </div>
+                        <div class="col-6">
+                            <h4>Services</h4>
+                            <ul class="nav flex-column services-nav">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'articleHome' %}">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/home-loan">Home Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/property-loan">Property Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/personal-loan">Personal Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/FAQs/auto-loan">Auto Loan</a></li>
+
+
+                            </ul>
+                        </div>
+
+                       <div class="col-6">
+                               <h4  style="margin-top: 0px";>Follow Us</h4>
+                            <ul class="nav follow-us-nav">
+                                <li class="nav-item"><a class="nav-link pl-0" href="https://www.facebook.com/yokoso.in" target="_blank"><i class="fa fa-facebook"
+                                                                                      aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://twitter.com/YokosoFinance" target="_blank"><i class="fa fa-twitter"
+                                                                                 aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href=><i class="fa fa-google"
+                                                                                 aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/company/welcome2yokoso/" target="_blank"><i class="fa fa-linkedin"
+                                                                                 aria-hidden="true"></i></a></li>
+                            </ul>
+                            <img src="{% static 'images\startup.png'%}" alt="startup India"  style="width: 15rem; margin-left: -1rem; margin-top: 1rem;">
 </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
 
-
-
-
-  <!-- How We Work -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-05THG26XCE"></script>
   
-  <!--  -->
+      <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- owl carousel js-->
+    <script src="{% static 'owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/faq.js' %}"></script>
+    </script> 
+
+    <script>
+        $(document).ready(function() {
+            $(".customer-logos").slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+
  
-<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script> 
-<script>
-$(document).ready(function () {
-  $(".customer-logos").slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    arrows: false,
-    dots: false,
-    pauseOnHover: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4
-        }
-      },
-      {
-        breakpoint: 520,
-        settings: {
-          slidesToShow: 3
-        }
-      }
-    ]
-  });
-});
-
-$(document).ready(function () {
-  $(".blogs").slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    arrows: false,
-    dots: false,
-    pauseOnHover: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4
-        }
-      },
-      {
-        breakpoint: 520,
-        settings: {
-          slidesToShow: 3
-        }
-      }
-    ]
-  });
-});
-
-
-
-
-
-
-
-
-
-
-
-var container = document.getElementById('container')
-var slider = document.getElementById('slider');
-var slides = document.getElementsByClassName('slide').length;
-var buttons = document.getElementsByClassName('btn');
-
-
-var currentPosition = 0;
-var currentMargin = 0;
-var slidesPerPage = 0;
-var slidesCount = slides - slidesPerPage;
-var containerWidth = container.offsetWidth;
-var prevKeyActive = false;
-var nextKeyActive = true;
-
-window.addEventListener("resize", checkWidth);
-
-function checkWidth() {
-    containerWidth = container.offsetWidth;
-    setParams(containerWidth);
-}
-
-function setParams(w) {
-    if (w < 551) {
-        slidesPerPage = 1;
-    } else {
-        if (w < 901) {
-            slidesPerPage = 2;
-        } else {
-            if (w < 1101) {
-                slidesPerPage = 3;
-            } else {
-                slidesPerPage = 4;
-            }
-        }
-    }
-    slidesCount = slides - slidesPerPage;
-    if (currentPosition > slidesCount) {
-        currentPosition -= slidesPerPage;
-    };
-    currentMargin = -currentPosition * (100 / slidesPerPage);
-    slider.style.marginLeft = currentMargin + '%';
-    if (currentPosition > 0) {
-        buttons[0].classList.remove('inactive');
-    }
-    if (currentPosition < slidesCount) {
-        buttons[1].classList.remove('inactive');
-    }
-    if (currentPosition >= slidesCount) {
-        buttons[1].classList.add('inactive');
-    }
-}
-
-setParams();
-
-function slideRight() {
-    if (currentPosition != 0) {
-        slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
-        currentMargin += (100 / slidesPerPage);
-        currentPosition--;
-    };
-    if (currentPosition === 0) {
-        buttons[0].classList.add('inactive');
-    }
-    if (currentPosition < slidesCount) {
-        buttons[1].classList.remove('inactive');
-    }
-};
-
-function slideLeft() {
-    if (currentPosition != slidesCount) {
-        slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
-        currentMargin -= (100 / slidesPerPage);
-        currentPosition++;
-    };
-    if (currentPosition == slidesCount) {
-        buttons[1].classList.add('inactive');
-    }
-    if (currentPosition > 0) {
-        buttons[0].classList.remove('inactive');
-    }
-};
-</script>
-<script type="text/javascript" src="{% static 'js/index.js'%}"></script> 
-
-  {% include 'footer.html' %}
-
-{% endblock %}
-
-
-
-
-
-
-
-
-
-
+    
+    </script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- owl carousel js-->
+    <script src="owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>

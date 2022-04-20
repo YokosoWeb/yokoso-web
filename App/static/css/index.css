@@ -1,271 +1,144 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400&display=swap");
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
+.gtco-logo-area .row {
+    margin: 1rem;
 }
 
-.checkbtn {
-    font-size: 30px;
-    color: white;
-    float: right;
-    line-height: 80px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
+.card-body p {
+    font-family: auto;
+    font-size: xx-large;
 }
 
-#check {
-    display: none;
+.card-body i {
+    color: #2ce1f9;
 }
 
-.header__btn {
-    padding: 2px 10px;
-    border: 2px solid #fff;
-    transition: 0.4s ease-in;
-}
-
-.header__btn:hover {
-    color: #48c290;
-    background-color: #fff;
-}
-
-.wrap__section {
-    width: 50%;
-}
-
-header {
-    background-color: #48c290;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-}
-
-.header__section {
-    margin: 0 auto;
-    padding: 7% 20px;
-    color: white;
-    display: flex;
-}
-
-.section__text {
-    width: 60%;
-    padding: 130px 0px;
-    float: left;
-}
-
-header h1 {
-    font-size: 40px;
-    padding: 0;
-    margin: 0;
-}
-
-.header__text {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.btn__group {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
-
-.btn__group button {
-    margin: 8px 0px;
-    padding: 4px 14px;
-    border: 2px solid transparent;
-    background-color: white;
-    width: 50%;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 0.4s ease;
-}
-
-.btn__group button:hover {
-    border: 2px solid #fff;
-    background-color: #48c290;
-    color: white;
-}
-
-.btn__group button p {
-    float: left;
-    font-size: 22px;
-}
-
-.btn__group button i {
-    float: right;
-    font-size: 25px;
-    margin-top: 0px;
-    font-weight: bold;
-}
-
-.header__para {
-    margin: 20px 0px;
-    font-size: 20px;
-}
-
-.section__about {
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-}
-
-.section__about .text {
-    margin: 70px 30px;
-}
-
-.section__about .text p {
-    font-size: 20px;
-}
-
-.about__one {
-    display: flex;
-    justify-content: space-between;
-}
-
-.section__about img {
-    width: 100%;
-    height: auto;
-}
-
-.wrapper {
-    padding: 1rem 0px;
-    /* border-bottom: 8px solid #48c290 ; */
-}
-
-.section__subscribe {
-    display: flex;
-    width: 85%;
-    height: auto;
-    margin: 0 auto;
-}
-
-.subscribe__text {
-    width: 50%;
-}
-
-.section__subscribe button {
-    background: rgb(231, 230, 230);
-    border: none;
-    color: #48c290;
-    font-size: 20px;
-    padding: 6px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.4s ease;
-}
-
-.section__subscribe button:hover {
-    background-color: white;
-    color: #48c290;
-}
-
-.footer_wrapper {
-    background-color: #000;
-    color: white;
-    padding: 30px 0px;
-}
-
-.footer_container {
-    width: 90%;
-    height: auto;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer_container a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer_container a:hover {
-    color: #48c290;
-    text-decoration: underline;
-}
-
-.footer_container hr {
-    width: 30px;
-    height: 6px;
-    border: none;
-    background: #48c290;
-    margin-bottom: 10px;
-}
-
-.footer_child h2 {
-    margin-bottom: 10px;
-}
-
-.footer_container .footer_child {
-    width: 25%;
-    padding: 0 20px;
-}
-
-.footer_child p,
-.footer_child a {
-    font-size: 13px;
-}
-
-.footer_child ul {
-    list-style-type: none;
-}
-
-.footer_child a {
-    margin-bottom: 10px;
-    display: block;
-    color: #48c290;
-}
-
-.contact_icons {
-    display: flex;
+.gtco-numbers-block {
     width: 80%;
-    justify-content: flex-start;
 }
 
-.contact_icons .ico i {
-    font-size: 30px;
-    margin: 0 20px 0 0;
+.fa {
+    font-size: xxx-large;
 }
 
-.footer_form form {
+.servicesp {
+    text-align: center;
+    font-family: 'Lato-Medium';
+}
+
+.contactus {
+    background-image: -moz-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    background-image: -ms-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    font-size: 18px;
+    font-family: "OpenSans-Semibold";
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    padding-right: 5px;
+    text-decoration: none !important;
+}
+
+.contactus .fa {
+    background: #fff;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    color: #37eaf9;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: 15px;
+}
+
+.servicescontact {
+    text-align: -webkit-right;
+}
+
+.offersliders {
+    width: 100%;
+    margin: auto;
     display: flex;
+    flex-wrap: wrap;
+    margin-right: inherit;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
 }
 
-.footer_form form input {
-    padding: 4px 8px;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid #48c290;
-    outline: none;
+.headlinesliders {
+    width: 36%;
+    background-color: #2ce1f9;
+    align-self: center;
+    height: 10rem;
+    /* z-index: 8; */
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.headlinesliders h1 {
+    color: white;
+    margin-top: 5%;
+}
+
+.headlinesliders h3 {
     color: white;
 }
 
-.footer_form form button {
-    font-size: 20px;
-    font-weight: 500;
-    padding: 2px 8px;
-    border: none;
-    outline: none;
-    background: #269969;
+.offerdetails {
+    width: 62%;
+    margin-left: 1rem;
+    align-self: center;
+}
+
+#container {
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 0;
+    display: grid;
+    place-items: center
+}
+
+
+/* Newends here */
+
+.slide {
+    background-color: white;
+    padding: 1.5rem;
+    width: 20rem;
+    height: 7rem;
+    color: black;
+    border-color: #2ce1f9;
+    border-style: groove;
+    align-items: center;
+    border-radius: .8rem;
+}
+
+
+/* Slider */
+
+.slick-slide {
+    margin: 0px 10px;
+}
+
+.slide img {
+    height: 4rem;
+    width: -webkit-fill-available;
+}
+
+.submitbtn {
+    display: inline;
+    padding: 10px 30px;
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    font-size: 18px;
+    font-family: "OpenSans-Semibold";
     color: #fff;
-    cursor: pointer;
-    margin: 0 5px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    text-decoration: none !important;
 }
 
 
-/* Dropdown */
-
-.footer_child:nth-child(1) a {
-    display: inline-block;
-}
-
-
-/* navbar */
+/* //navbar */
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 * {
@@ -275,6 +148,9 @@ header h1 {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+
+/* border-color: rgb(90 255 188 / 37%); */
 
 label.logo {
     color: white;
@@ -293,7 +169,7 @@ label.logo {
 
 nav {
     z-index: 3;
-    background: rgb(72 194 144);
+    /* background: rgb(72 194 144); */
     position: fixed;
     width: 100%;
     border-bottom: inset
@@ -325,7 +201,7 @@ nav ul {
 nav ul li {
     float: left;
     display: inline-block;
-    background: rgb(72 194 144);
+    /* background: rgb(72 194 144); */
     margin: 0 .5rem;
 }
 
@@ -340,7 +216,7 @@ nav ul li a {
 nav ul li a:hover {
     color: #020202;
     border-radius: 5px;
-    box-shadow: 0 0 5px #00ff5a, 0 0 10px #67e86b;
+    box-shadow: 0 0 5px #156ee5, 0 0 10px #146fe5;
 }
 
 nav ul ul li a:hover {
@@ -357,6 +233,7 @@ nav ul ul {
 
 nav ul ul ul {
     border-top: none;
+    width: max-content;
 }
 
 nav ul li:hover>ul {
@@ -369,11 +246,10 @@ nav ul li:hover>ul {
 nav ul ul li {
     position: relative;
     margin: 0px;
-    width: 10rem;
     float: none;
     display: list-item;
     border-bottom: 1px solid rgb(0 255 150);
-    ;
+    background-color: aliceblue;
 }
 
 nav ul ul li a {
@@ -397,8 +273,17 @@ nav ul ul ul li {
     margin-left: 40px;
 }
 
+.imageheader {
+    z-index: 99;
+}
 
-/* Slideshow container */
+
+/* emi calculator */
+
+.calculator-heading {
+    text-align: center;
+    font-family: 'Lato-Regular';
+}
 
 @media all and (max-width: 968px) {
     nav ul {
@@ -423,7 +308,6 @@ nav ul ul ul li {
     }
     .showing {
         display: block;
-        color: white;
         font-size: 18px;
         padding: 0 20px;
         line-height: 70px;
@@ -469,7 +353,7 @@ nav ul ul ul li {
     span.cancel:before {
         content: '\f00d';
     }
-    faqsnav {
+    .faqsnav {
         padding-left: 2rem;
     }
 }
@@ -606,6 +490,18 @@ nav ul ul ul li {
     li ul {
         left: 30%;
     }
+    .headlinesliders {
+        width: 70%;
+    }
+    .offerdetails {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .slide {
+        padding: 1rem;
+        width: 15rem;
+        height: 7rem;
+    }
 }
 
 @media (max-width:480px) {
@@ -619,6 +515,3 @@ nav ul ul ul li {
         left: 40%;
     }
 }
-
-
-/*new*/

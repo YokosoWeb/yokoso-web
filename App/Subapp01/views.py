@@ -25,7 +25,19 @@ def home(request):
 
     # Default Response
     objs = FAQCategory.objects.all()
-    return render(request, 'app/index.html', {"objs": objs})
+    posts = Post.objects.filter(status='Published').order_by('date')[::-1]
+    slug = "home-loan"
+    category = FAQCategory.objects.get(slug=slug)
+    print(category.id)
+    # Entry.objects.filter()[:1].get()
+    datas = FAQText.objects.filter(category=category.id)[:6]
+    # datas = FAQText.objects.filter(category=category.id)
+    print(datas)
+    
+
+    # return render(request, '../templates/index.html', {'posts': posts})
+
+    return render(request, 'app/index.html', {"objs": objs, "posts": posts, "datas": datas})
 
 
 def signup(request):
@@ -422,14 +434,16 @@ def Ifscfiller(request, slug):
         'ifsc_names': ifsc_names
     }
     return render(request, "app/ifsc_code.html", context)
-# def Grievance(request):
-#     grievance= bank_grievance.objects.all()
-#     context = {
-#        'grievance': grievance
-#       }
-#     print(grievance)
-#     return render(request, "app/ifsc_code.html", context)
 
+def loan_comparison(request):
+    bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
+    print(bankdetails)
+    context={
+          'bankdetails': bankdetails,
+          
+           }
+    
+    return render(request, 'app/loan_comparison.html', context)
 
 def Grievance(request):
     # BankName = bank_grievance.objects.all()
@@ -506,3 +520,50 @@ def income_cal(request):
                                                   'inc_tax': inc_tax,
                                                   'hlt_edu_cess': hlt_edu_cess,
                                                   't': t})
+
+
+
+
+
+def sip(request):
+    print("print test")
+    # if request.method == 'get':
+    #     amount = int(request.POST.get(amount))
+    #     rate = int(request.POST.get(rate))
+    #     time = int(request.POST.get(time))
+
+    #     print("preint test1")
+    #     # month = time * 12
+    #     # periodic_rate = rate/100/12
+    #     # invested_amount = amount*month
+    #     # maturity = amount*((pow(1+periodic_rate, month)-1) /
+    #     #                    periodic_rate)*(1+periodic_rate)
+    #     # print(amount, rate, time, invested_amount, maturity)
+    #     # otp_window = 'Successfull ' + maturity
+    #     # return HttpResponse(otp_window)
+    #     # return HttpResponse(otp_window)
+    #     # return render(request, "app/sip.html", {'amount': amount,
+    #     #                                         'rate': rate,
+    #     #                                         'time': time,
+    #     #                                         'invested_amount': invested_amount,
+    #     #                                         'maturity': maturity})
+    #     return JsonResponse(list(amount, rate, time), safe=False)
+    return render(request, "app/sip.html")
+
+def sipans(request):
+    print("insidesip")
+    amount= int(request.GET.get('amount'))
+    rate=  request.GET.get('rate')
+    time_period= request.GET.get('time_period')
+
+    month = time_period * 12
+    periodic_rate = rate/100/12
+    invested_amount = amount*month
+    maturity = amount*((pow(1+periodic_rate, month)-1) /
+                    periodic_rate)*(1+periodic_rate)
+    print(amount, rate, time, invested_amount, maturity)
+    otp_window = 'Successfull ' + maturity
+
+
+
+    return JsonResponse(list(month, periodic_rate), safe=False)
