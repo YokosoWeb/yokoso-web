@@ -33,7 +33,6 @@ def home(request):
     datas = FAQText.objects.filter(category=category.id)[:6]
     # datas = FAQText.objects.filter(category=category.id)
     print(datas)
-    
 
     # return render(request, '../templates/index.html', {'posts': posts})
 
@@ -321,7 +320,7 @@ def credit(request):
 
         # print(int(int(loanAmount)/100000))
 
-        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': format_currency((EMI_MAX),'INR',locale='en_IN')[:-3], 'EMI_REAL': EMI_REAL, 'LOAN_MAX': format_currency((LOAN_MAX),'INR',locale='en_IN')[:-3], 'LOAN_REAL': format_currency(LOAN_REAL,'INR',locale='en_IN')[:-3], 'ROI': round(ROI, 2), 'TENURE': TENURE, 'eligible': True, 'data': data1[:5]})
+        return render(request, 'app/emi-pro-output.html', {'EMI_MAX': format_currency((EMI_MAX), 'INR', locale='en_IN')[:-3], 'EMI_REAL': EMI_REAL, 'LOAN_MAX': format_currency((LOAN_MAX), 'INR', locale='en_IN')[:-3], 'LOAN_REAL': format_currency(LOAN_REAL, 'INR', locale='en_IN')[:-3], 'ROI': round(ROI, 2), 'TENURE': TENURE, 'eligible': True, 'data': data1[:5]})
     return render(request, 'app/creditScore.html')
 
 
@@ -334,13 +333,13 @@ def personalDetails(request):
     email = request.GET.get('email')
     dob = request.GET.get('dob')
     gender = request.GET.get('gender')
-    
-    obj = EMI_Data(name=name, pan=pan, phone=phone,employment=employment, email=email, dob=dob, gender=gender)
+
+    obj = EMI_Data(name=name, pan=pan, phone=phone,
+                   employment=employment, email=email, dob=dob, gender=gender)
     obj.save()
-    
-  
-    
+
     return JsonResponse(obj.id, safe=False)
+
 
 def submit(request):
     print("name")
@@ -350,18 +349,19 @@ def submit(request):
     salary = request.GET.get('salary')
     emi = request.GET.get('emi')
     loanType = request.GET.get('loanType')
-    tenure = request.GET.get('tenure')  
-     
+    tenure = request.GET.get('tenure')
+
     print(tenure)
-    ans = EMI_Data.objects.filter(id = ide).update(loanamount=la, bank=bank, salary=salary,ongoingemi=emi,loantype=loanType, tenure=tenure)
+    ans = EMI_Data.objects.filter(id=ide).update(
+        loanamount=la, bank=bank, salary=salary, ongoingemi=emi, loantype=loanType, tenure=tenure)
     print(ans)
     data = [{
-      'data': ['success']}
-]
-    
+        'data': ['success']}
+    ]
+
     return JsonResponse(data, safe=False)
-   
-   
+
+
 def EMIEnquiryFun(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -370,7 +370,7 @@ def EMIEnquiryFun(request):
         email = request.POST.get('email')
         dob = request.POST.get('dob')
         gender = request.POST.get('gender')
- 
+
         # obj = EMIEnquiry(name=name, email=email, gender=gender,
         # pan=pan, phone=phone,dob=dob)
         # obj.save()
@@ -435,15 +435,17 @@ def Ifscfiller(request, slug):
     }
     return render(request, "app/ifsc_code.html", context)
 
+
 def loan_comparison(request):
     bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
     print(bankdetails)
-    context={
-          'bankdetails': bankdetails,
-          
-           }
-    
+    context = {
+        'bankdetails': bankdetails,
+
+    }
+
     return render(request, 'app/loan_comparison.html', context)
+
 
 def Grievance(request):
     # BankName = bank_grievance.objects.all()
@@ -522,48 +524,42 @@ def income_cal(request):
                                                   't': t})
 
 
-
-
-
 def sip(request):
-    print("print test")
-    # if request.method == 'get':
-    #     amount = int(request.POST.get(amount))
-    #     rate = int(request.POST.get(rate))
-    #     time = int(request.POST.get(time))
+    print("print sip")
 
-    #     print("preint test1")
-    #     # month = time * 12
-    #     # periodic_rate = rate/100/12
-    #     # invested_amount = amount*month
-    #     # maturity = amount*((pow(1+periodic_rate, month)-1) /
-    #     #                    periodic_rate)*(1+periodic_rate)
-    #     # print(amount, rate, time, invested_amount, maturity)
-    #     # otp_window = 'Successfull ' + maturity
-    #     # return HttpResponse(otp_window)
-    #     # return HttpResponse(otp_window)
-    #     # return render(request, "app/sip.html", {'amount': amount,
-    #     #                                         'rate': rate,
-    #     #                                         'time': time,
-    #     #                                         'invested_amount': invested_amount,
-    #     #                                         'maturity': maturity})
-    #     return JsonResponse(list(amount, rate, time), safe=False)
     return render(request, "app/sip.html")
 
+
 def sipans(request):
-    print("insidesip")
-    amount= int(request.GET.get('amount'))
-    rate=  request.GET.get('rate')
-    time_period= request.GET.get('time_period')
+    amount = int(request.GET.get('amount'))
+    rate = eval(request.GET.get('rate'))
+    time_period = int(request.GET.get('time_period'))
 
     month = time_period * 12
     periodic_rate = rate/100/12
     invested_amount = amount*month
-    maturity = amount*((pow(1+periodic_rate, month)-1) /
-                    periodic_rate)*(1+periodic_rate)
-    print(amount, rate, time, invested_amount, maturity)
-    otp_window = 'Successfull ' + maturity
+    maturity = round(amount*((pow(1+periodic_rate, month)-1) /
+                             periodic_rate)*(1+periodic_rate))
+
+    data = {'amount': amount, 'rate': rate, 'time': time_period,
+            'invested_amount': invested_amount, 'maturity': maturity}
+    return JsonResponse(data, safe=False)
 
 
+def sipgoal(request):
+    print("print sipgoal")
 
-    return JsonResponse(list(month, periodic_rate), safe=False)
+    return render(request, "app/sipgoal.html")
+
+
+def sipgoalans(request):
+    # print("insidesip")
+    amount = int(request.GET.get('amount'))
+    rate = eval(request.GET.get('rate'))
+    time_period = int(request.GET.get('time_period'))
+
+    emi = round((amount * ((rate / 100) / 12)) /
+                (pow((1 + ((rate / 100) / 12)), (time_period * 12)) - 1))
+    data = {'amount': amount, 'rate': rate, 'time': time_period, 'emi': emi}
+
+    return JsonResponse(data, safe=False)
