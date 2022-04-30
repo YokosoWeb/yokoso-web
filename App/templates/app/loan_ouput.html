@@ -1,0 +1,26 @@
+<table class="table">
+  <tr>
+<th>id</th>
+    <th>Bank</th>
+    <th>Interest Rates</th>
+    <th>Lowest EMI per lakh</th>
+
+  </tr>
+    {% for i in ans4  %}
+<tbody>
+  <tr>
+
+<td >{{i.cal_id}}</td>
+<td class="bankname">{{i.bank}}</td>
+<td  >{{i.interest_rate}}</td>
+<td>{{i.loan_min}}</td> 
+
+{% comment %} <td value="{{i.cal_id}}" id="bankname">{{i.bank}}<input class="single-checkbox" type="checkbox" name="vehicle" value="Bike" onclick="myFunction()">Compare</td>
+<td >{{i.interest_rate}}</td>
+<td>{{i.loan_min}}</td>
+</tr> {% endcomment %}
+</tbody>
+{% endfor %}
+
+
+</table>
