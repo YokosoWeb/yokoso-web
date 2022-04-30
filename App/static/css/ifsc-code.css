@@ -134,16 +134,8 @@
  .display-code .heading {
      font-weight: 600;
      padding: 15px 14%;
-     background-color: #48c290;
+     background-color: #06c6f9;
      color: #fff!important;
- }
- 
- .display-code .heading h3 {
-     mix-blend-mode: darken;
- }
- 
- .display-code .heading h3 span {
-     mix-blend-mode: darken;
  }
  
  .address {
