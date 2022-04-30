@@ -37,13 +37,21 @@
 .col-6{
 max-width: 30%;
 }
+@media (max-width: 600px){
+.col-6{
+max-width: 100%;
+
+}
+
+}
 </style>
 
 {% comment %} {% extends "base.html" %} {% endcomment %}
 
 <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
-        <div class="container"><a class="navbar-brand" href="{% url 'home' %}">Yokoso</a>
+        <div class="container"><a class="navbar-brand" href="{% url 'home' %}">Yokoso<span
+          style="font-size:12px;">Finance</span></a>
                <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
                 class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
             <div id="my-nav" class="collapse navbar-collapse">
@@ -74,7 +82,7 @@ max-width: 30%;
             <div class="row">
                 <div class="col-md-6">
                     <h1> The best time to plant a tree was 20 years ago <span>The second time is now.</span> </h1>
-                    <p>Everyone has goals. We help you create and implement a practical action plan to achieve them. </p>
+                    <p>Everyone has Financial goals. We help you create and implement a practical action plan to achieve them. </p>
                     <a href="{% url 'contact' %}">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
                 <div class="col-md-6">
                     <div class="card imageheader"><img class="card-img-top img-fluid" src="{% static 'images\1bg.png'%}" alt="Yokoso"></div>
@@ -408,7 +416,7 @@ and better gain with your existing Financial investment.
 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-6">
-                            <h4>Company</h4>
+                            <h4>Tools</h4>
                             <ul class="nav flex-column company-nav">
                                 <li class="nav-item"><a class="nav-link" href="{% url 'emi' %}">EMI Calculator</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'credit' %}">EMI Pro</a></li>
@@ -419,7 +427,7 @@ and better gain with your existing Financial investment.
                              
                         </div>
                         <div class="col-6">
-                            <h4>Services</h4>
+                            <h4>Know More</h4>
                             <ul class="nav flex-column services-nav">
                                 <li class="nav-item"><a class="nav-link" href="{% url 'articleHome' %}">Blog</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/FAQs/home-loan">Home Loan</a></li>
@@ -438,8 +446,7 @@ and better gain with your existing Financial investment.
                                                                                       aria-hidden="true"></i></a></li>
                                 <li class="nav-item"><a class="nav-link" href="https://twitter.com/YokosoFinance" target="_blank"><i class="fa fa-twitter"
                                                                                  aria-hidden="true"></i></a></li>
-                                <li class="nav-item"><a class="nav-link" href=><i class="fa fa-google"
-                                                                                 aria-hidden="true"></i></a></li>
+                              
                                 <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/company/welcome2yokoso/" target="_blank"><i class="fa fa-linkedin"
                                                                                  aria-hidden="true"></i></a></li>
                             </ul>

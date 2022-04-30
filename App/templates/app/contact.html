@@ -23,7 +23,7 @@
         {% endif %}
        <form method="POST" autocomplete="off">
             {% csrf_token %}
-            <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" required />
+            <input type="text" placeholder="Name" name="first_name"  title="Enter only characters" pattern="[a-zA-Z]*" required />
             {% comment %} <input type="text" placeholder="Last Name" name="last_name" pattern="[A-Za-z]+" title="Enter only characters" required /> {% endcomment %}
             <input type="email" placeholder="Email Address" name="email" required/>
             <input type="tel" placeholder="Phone Number" name="phone" required  title="Enter only numbers" maxlength="10" pattern="\d{10}"/>
