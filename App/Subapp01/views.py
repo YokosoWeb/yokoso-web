@@ -436,14 +436,35 @@ def Ifscfiller(request, slug):
     return render(request, "app/ifsc_code.html", context)
 
 
+
 def loan_comparison(request):
     bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
     print(bankdetails)
-    context = {
+    context= {
         'bankdetails': bankdetails,
-
-    }
-
+     }
+    
+    return render(request, 'app/loan_comparison.html', context)
+ 
+def loan_comparisonOutput(request):
+    ans = request.GET.getlist('ans[]')
+    valu = request.GET.getlist('valu[]')
+    print("ans")
+    response1= ans[0]
+    response2 = ans[1]
+    ans3 = ADV_EMI_CAL.objects.filter(cal_id=response1)
+    ans4 = ADV_EMI_CAL.objects.filter(cal_id=response2)
+    # ans = request.GET.get('col2')[:1]
+    print(ans3)
+    # print(ans4)
+    print("insideviews")
+    print(valu)
+    print("baove is value")
+    context={
+       'ans3': ans3,
+       'ans4': ans4,
+ }
+    
     return render(request, 'app/loan_comparison.html', context)
 
 
