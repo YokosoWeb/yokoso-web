@@ -7,137 +7,94 @@
 
 <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
 <link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
+<link rel="stylesheet" href="{% static 'css/ifsc-code.css' %}" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-    h1 {
-        text-align: center;
-        background-size: auto;
-        border-radius: 20px;
-        margin: auto 27% auto 27%;
-        padding: 15px;
-    }
+<link rel="stylesheet" type="text/css" href="{% static 'css/sip.css' %}" />
 
-    form {
-
-        border-radius: 20%;
-        background-color: #48c28fa6;
-        align-self: center;
-        color: brown;
-        margin: 6px;
-        padding: 20px 50px 20px 50px;
-        font-family: "Times New Roman";
-    }
-
-    .outerShell {
-        width: 1140px;
-        margin: auto;
-
-        /* font-family: Verdana, Tahoma, sans-serif; */
-        /* margin: 0; */
-        /* display: grid; */
-        /* place-items: justify; */
-
-    }
-
-    .loanBlock {
-        text-align: center;
-        font-weight: bold;
-        padding: 20px;
-    }
-
-    .aprBlock {
-        text-align: center;
-        font-weight: bold;
-        padding: 20px;
-    }
-
-    .tenureBlock {
-        text-align: center;
-        font-weight: bold;
-        padding: 20px;
-    }
-
-    #buttonBlock {
-        text-align: center;
-        padding: 10px 20px 5px 20px;
-    }
-
-    button {
-        position: relative;
-        background-color: navy;
-        color: white;
-        padding: 10px;
-        border-radius: 30px;
-    }
-</style>
+<script type="text/javascript" src="{%static 'js/sip.js' %}"></script>
 {% endblock css %}
 
 </head>
 {% block body %}
 
-<div class="outerShell">
-    <form id="sip_form1" method="get">
-        {% csrf_token %}
-        <h1>SIP Calculator - Invest</h1>
+<body>
+    <!-- <div> -->
+    <main>
+        <div class="sip-con">
+            <!-- <div class="ifsc-code-container"> -->
+            <!-- <div class="form_container"> -->
+            <div class="form-box001">
+                <form method=" get" style="text-align: center; ">
 
-        <p id="test_json"></p>
-        <br>
-        <form id="sip_form1" method="POST">
-            {% csrf_token %}
-            <h1>SIP Calculator</h1>
-            <div class="input-group">
-                <label for="amount">Monthly Investment</label><br>
-                <input type="number" name="amount" id="amount">
-            </div><br>
-            <div class="input-group">
-                <label for="rate"> Expected return rate.(per year) </label><br>
-                <input type="range" name="rate" id="rate" style="border-radius: 10px" min="0.1" max="20" value="10"
-                    step="0.1" oninput="this.nextElementSibling.value=this.value">
-                <output>10</output>
-            </div><br>
+                    {% csrf_token %}
+                    <h1>SIP Calculator - Invest</h1>
 
-            <div class='input-group'>
-                <label for="time">Time period.(per Year)</label> <br>
-                <input name="time_period" id="time_period" type="range" value="1" min="1" max="20" step="1"
-                    oninput="this.nextElementSibling.value=this.value">
-                <output>1</output>
+                    <div>
+                        <label for="amount">Monthly Investment</label><br>
+                        <input type="number" name="amount" id="amount">
+                    </div><br>
+                    <div>
+                        <label for="rate"> Expected return rate.(per year) </label><br>
+                        <input type="range" name="rate" id="rate" style="border-radius: 10px" min="0.1" max="20"
+                            value="10" step="0.1" oninput="this.nextElementSibling.value=this.value">
+                        <output>10</output>
+                    </div><br>
+
+                    <div>
+                        <label for="time">Time period.(per Year)</label> <br>
+                        <input name="time_period" id="time_period" type="range" value="1" min="1" max="20" step="1"
+                            oninput="this.nextElementSibling.value=this.value">
+                        <output>1</output>
+                    </div>
+
+                    <div>
+                        <button type="button" class="submit" value="submit" onclick="sip()">Investment
+                            Calculate</button>
+                    </div>
+                </form>
             </div>
+            <!-- </div> -->
+            <!-- <div class="ifsc-code-display" id="ifsc-code-display"> -->
+            <div id="result">
 
-            <div id="buttonBlock">
-                <button type="button" class="submit" value="submit" onclick="sip()">Investment Calculate</button>
+                <!-- <div class="sip-result"> -->
+                <h2>SIP Calulated</h2>
+                <!-- <p id="test_json"></p>
+                        <br> -->
+                <div class="flex__wrap">
+                    <div class="form-group">
+                        <h4 for="">Monthly Invested </h4>
+                        <h5 id="mon">Rs.__ </h5>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 for="">Rate</h4>
+                        <h5 id="rate1">___ % </h5>
+                    </div>
+
+                    <div class="form-group">
+                        <h4 for="">Time Period</h4>
+                        <h5 id="time1">__ Year</h5>
+                    </div>
+                </div>
+                <div class="flex__group">
+                    <div class="form-group">
+                        <h4 for="">Total Invested Amount</h4>
+                        <h5 id="invest1">Rs.__</h5>
+                    </div>
+                    <div class="form-group">
+                        <h4 for="">Maturity Amount</h4>
+                        <h5 id="matty">Rs.__</h5>
+                    </div>
+                </div>
             </div>
-        </form>
-        <script type="text/javascript">
+        </div>
+    </main>
 
-            function sip() {
-                // var url = 'sipans/';
-                var amount = $('#amount').val();
-                var rate = $('#rate').val();
-                var time_period = $('#time_period').val();
-                // alert('inside sip()')
-                $.ajax({
-                    url: 'sipans/',
-                    data: {
-                        'amount': amount,
-                        'rate': rate,
-                        'time_period': time_period,
-                    },
-                    success: function (data) {
-                        // var test_json = document.getElementById("test_json");
-                        document.getElementById("test_json").innerHTML = data.amount + "  " + ", Marturity Amount " + data.maturity;
-                    },
-                });
-            }
-
-        </script>
-
-</div>
-
-
-
+</body>
 
 {% include 'footer.html' %}
 {% endblock body %}
