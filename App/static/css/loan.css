@@ -2,3 +2,12 @@
     width: 80%;
     margin: auto;
 }
+
+td:nth-child(even) {
+    background-color: #6adef8;
+}
+
+th {
+    background-color: blue;
+    color: white;
+}
