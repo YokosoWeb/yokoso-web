@@ -14,26 +14,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/sip.css' %}" />
 
-<script type="text/javascript" src="{%static 'js/sip.js' %}"></script>
+<script type="text/javascript" src="{%static 'js/lumpgoal.js' %}"></script>
 {% endblock css %}
 
 </head>
 {% block body %}
 
 <body>
-    <!-- <div> -->
     <main>
         <div class="sip-con">
-            <!-- <div class="ifsc-code-container"> -->
-            <!-- <div class="form_container"> -->
             <div class="form-box001">
                 <form method=" get" style="text-align: center; ">
 
                     {% csrf_token %}
-                    <h1>SIP Calculator - Invest</h1>
+                    <h1>Lumpsum Calculator - Goal</h1>
 
                     <div>
-                        <label for="amount">Monthly Investment</label><br>
+                        <label for="amount">Expected Amount</label><br>
                         <input type="number" name="amount" id="amount">
                     </div><br>
                     <div>
@@ -51,42 +48,20 @@
                     </div>
 
                     <div>
-                        <button type="button" class="submit" value="submit" onclick="sip()">Investment
+                        <button type="button" class="submit" value="submit" onclick="lumpgoal()">Investment
                             Calculate</button>
                     </div>
                 </form>
             </div>
-            <!-- </div> -->
-            <!-- <div class="ifsc-code-display" id="ifsc-code-display"> -->
             <div id="result">
-
-                <!-- <div class="sip-result"> -->
-                <h2>SIP Calulated</h2>
-                <!-- <p id="test_json"></p>
-                        <br> -->
-                <div class="flex__wrap">
-                    <div class="form-group">
-                        <h4 for="">Monthly Invested </h4>
-                        <h5 id="mon">Rs.__ </h5>
-                    </div>
-
-                    <div class="form-group">
-                        <h4 for="">Rate</h4>
-                        <h5 id="rate1">___ % </h5>
-                    </div>
-
-                    <div class="form-group">
-                        <h4 for="">Time Period</h4>
-                        <h5 id="time1">__ Year</h5>
-                    </div>
-                </div>
+                <h2>Lumpsum Calulated</h2>
                 <div class="flex__group">
                     <div class="form-group">
-                        <h4 for="">Total Invested Amount</h4>
+                        <h4 for="">Maturity Amount</h4>
                         <h5 id="invest1">Rs.__</h5>
                     </div>
-                    <div class="form-group">
-                        <h4 for="">Maturity Amount</h4>
+                    <div class="form-g7roup">
+                        <h4 for="">Total Investment Amount(One time Invest)</h4>
                         <h5 id="matty">Rs.__</h5>
                     </div>
                 </div>

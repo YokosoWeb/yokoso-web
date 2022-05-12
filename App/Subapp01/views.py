@@ -584,3 +584,41 @@ def sipgoalans(request):
     data = {'amount': amount, 'rate': rate, 'time': time_period, 'emi': emi}
 
     return JsonResponse(data, safe=False)
+
+
+def lump(request):
+    print("print lump")
+
+    return render(request, "app/lump.html")
+
+
+def lumpans(request):
+    amount = int(request.GET.get('amount'))
+    rate = eval(request.GET.get('rate'))
+    time_period = int(request.GET.get('time_period'))
+    maturity = amount
+    for i in range(time_period):
+        maturity += ((maturity*rate)/100)
+
+    data = {'invested_amount': amount, 'maturity': round(maturity)}
+    return JsonResponse(data, safe=False)
+
+
+def lumpgoal(request):
+    print("print lumpgoal")
+
+    return render(request, "app/lumpgoal.html")
+
+
+def lumpgoalans(request):
+    amount = int(request.GET.get('amount'))
+    rate = eval(request.GET.get('rate'))
+    time_period = int(request.GET.get('time_period'))
+    # maturity = amount
+    # for i in range(time_period):
+    #     maturity += ((maturity*rate)/100)
+    term = pow((1+(rate/100)), time_period)
+    emi = round(amount/term)
+
+    data = {'invested_amount': amount, 'maturity': emi}
+    return JsonResponse(data, safe=False)
