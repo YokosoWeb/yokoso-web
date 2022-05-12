@@ -49,10 +49,6 @@ urlpatterns = [
     path('sip/sipans/', sipans, name='sipans'),
     path('sipgoal/', sipgoal, name='sipgoal'),
     path('sipgoal/sipgoalans/', sipgoalans, name='sipgoalans'),
-    path('lump/', lump, name='lump'),
-    path('lump/lumpans/', lumpans, name='lumpans'),
-    path('lumpgoal/', lumpgoal, name='lumpgoal'),
-    path('lumpgoal/lumpgoalans/', lumpgoalans, name='lumpgoalans'),
 
 
 
