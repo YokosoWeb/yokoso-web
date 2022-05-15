@@ -438,7 +438,7 @@ def Ifscfiller(request, slug):
 
 
 def loan_comparison(request):
-    bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
+    bankdetails = loan_Comparison.objects.all().distinct('bank').order_by('bank')
     print(bankdetails)
     context= {
         'bankdetails': bankdetails,
@@ -452,8 +452,8 @@ def loan_comparisonOutput(request):
     print("ans")
     response1= ans[0]
     response2 = ans[1]
-    ans3 = ADV_EMI_CAL.objects.filter(cal_id=response1)
-    ans4 = ADV_EMI_CAL.objects.filter(cal_id=response2)
+    ans3 = loan_Comparison.objects.filter(id=response1)
+    ans4 = loan_Comparison.objects.filter(id=response2)
     # ans = request.GET.get('col2')[:1]
     print(ans3)
     # print(ans4)

@@ -30,11 +30,11 @@
 <tbody>
   <tr>
 
-<td style="display:none;">{{i.cal_id}}</td>
+<td style="display:none;">{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
-<td><input type="checkbox" class="checks"   onclick="loadingg()" value="{{i.cal_id}}">Compare</td>
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.loan_max}}</td> 
+<td><input type="checkbox" class="checks"   onclick="loadingg()" value="{{i.id}}">Compare</td>
 
 </tbody>
 {% endfor %}
@@ -57,24 +57,24 @@
 <tbody>
   <tr>
 
-<td style="display:none;" >{{i.cal_id}}</td>
+<td style="display:none;" >{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
- <td>{{i.cibil_min}}</td> 
- <td>{{i.cibil_max}}</td> 
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.loan_max}}</td> 
+ <td>{{i.max_tenure}}</td> 
+ <td>{{i.processing_fees}}</td> 
 </tbody>
 {% endfor %}
    {% for i in ans4  %}
 <tbody>
   <tr>
 
-<td style="display:none;" >{{i.cal_id}}</td>
+<td style="display:none;" >{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
-<td>{{i.cibil_min}}</td> 
- <td>{{i.cibil_max}}</td> 
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.loan_max}}</td> 
+<td>{{i.max_tenure}}</td> 
+ <td>{{i.processing_fees}}</td> 
 </tbody>
 {% endfor %}
 
