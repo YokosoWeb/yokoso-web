@@ -88,25 +88,30 @@
 <script>
 function loadingg() {
   
-  var abc = $('input[type="checkbox"]:checked').length; //LENGTH
+  
   var valuelist = document.getElementById('valuelist');
   var text="<span>slected</span>";
   var listArray=[];
   var checkboxes = document.querySelectorAll('.checks');
-
+  var abclength=0;
+  var abc = $('input[type="checkbox"]:checked').length; 
+  alert(abc);
   for(var checkbox of checkboxes){
+     
       checkbox.addEventListener('click', function(){
+        alert("yes2");
         if(this.checked == true){
+        
           if(abc == 1){
-               
+                alert("yes3");
                 listArray.push(this.value);
             
                 var abc1= listArray;
                 
                 console.log(abc1);
-                var abclength = listArray.length;
+                abclength = listArray.length;
                 console.log(abclength);
-                      
+                    
                      if (abclength == 2){//start
                            alert(abclength);
                            $.ajax ({
