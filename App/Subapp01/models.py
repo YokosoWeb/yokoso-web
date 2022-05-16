@@ -176,13 +176,13 @@ class testing(models.Model):
     name=models.CharField(max_length=500,blank=False,null = False)
 
 
-class loan_comparison(models.Model):
+class loan_Comparison(models.Model):
     bank = models.CharField(max_length = 200, blank = True)
     min_interest_rate = models.CharField(max_length = 200, blank = True)
     max_interest_rate = models.CharField(max_length = 200, blank = True)  
     processing_fees = models.CharField(max_length = 200, blank = True)
     loan_max = models.CharField(max_length = 200, blank = True)
-    loan_min = models.CharField(max_length = 200, blank = True)
+   
     max_tenure = models.CharField(max_length = 200, blank = True)
     lowest_emi_per_lakh = models.CharField(max_length = 200, blank = True)
     benchmark_rate = models.CharField(max_length = 200, blank = True)
@@ -191,4 +191,6 @@ class loan_comparison(models.Model):
     min_age= models.CharField(max_length = 200, blank = True)
     max_age =  models.CharField(max_length = 200, blank = True)
     for_women =  models.CharField(max_length = 200, blank = True)
-    overdraft_facilty=  models.CharField(max_length = 200, blank = True)
+    overdraft_facilty =  models.CharField(max_length = 200, blank = True)
+	
+	

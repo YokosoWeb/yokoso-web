@@ -6,7 +6,7 @@
 <!-- EMI pro page -->
 
 <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
-<link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
+
 <link rel="stylesheet" href="{% static 'css/ifsc-code.css' %}" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
@@ -23,6 +23,7 @@
 <body>
     <!-- <div> -->
     <main>
+        <h1>SIP Calculator - Invest</h1>
         <div class="sip-con">
             <!-- <div class="ifsc-code-container"> -->
             <!-- <div class="form_container"> -->
@@ -30,7 +31,7 @@
                 <form method=" get" style="text-align: center; ">
 
                     {% csrf_token %}
-                    <h1>SIP Calculator - Invest</h1>
+                    
 
                     <div>
                         <label for="amount">Monthly Investment</label><br>
@@ -58,14 +59,10 @@
             </div>
             <!-- </div> -->
             <!-- <div class="ifsc-code-display" id="ifsc-code-display"> -->
-            <div id="result">
-
-                <!-- <div class="sip-result"> -->
-                <h2>SIP Calulated</h2>
-                <!-- <p id="test_json"></p>
-                        <br> -->
-                <div class="flex__wrap">
-                    <div class="form-group">
+            <div id="result" class="result">
+                <div class="output1">
+                    
+                        <div class="form-group">
                         <h4 for="">Monthly Invested </h4>
                         <h5 id="mon">Rs.__ </h5>
                     </div>
@@ -80,14 +77,15 @@
                         <h5 id="time1">__ Year</h5>
                     </div>
                 </div>
-                <div class="flex__group">
+
+                <div class="output2">
                     <div class="form-group">
                         <h4 for="">Total Invested Amount</h4>
-                        <h5 id="invest1">Rs.__</h5>
+                        <h5 id="invest1">Rs. 4500000</h5>
                     </div>
                     <div class="form-group">
                         <h4 for="">Maturity Amount</h4>
-                        <h5 id="matty">Rs.__</h5>
+                        <h5 id="matty">Rs. 6000000</h5>
                     </div>
                 </div>
             </div>

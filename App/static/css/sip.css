@@ -1,38 +1,17 @@
-/* main {
-    mix-blend-mode: lighten;
-} */
-/*     This line make all code invisible */
-/*     Why I don't know  */
-
-
 h1 {
-    text-align: center;
-    background-size: auto;
     border-radius: 20px;
-    margin: auto 27% auto 27%;
     padding: 15px;
+    margin: auto;
 }
 
 form {
-
-    border-radius: 20%;
-    /* background-color: #48c28fa6; */
-    /* background-color: red; */
-    color: brown;
     margin: 6px;
-    padding: 20px 50px 20px 50px;
     font-family: "Times New Roman";
 }
 
 .outerShell {
     width: 1140px;
     margin: auto;
-
-    /* font-family: Verdana, Tahoma, sans-serif; */
-    /* margin: 0; */
-    /* display: grid; */
-    /* place-items: justify; */
-
 }
 
 .loanBlock {
@@ -59,45 +38,101 @@ form {
 }
 
 button {
-    position: relative;
-    background-color: navy;
+    /* position: relative;
+   background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
     color: white;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 30px; */
+    position: relative;
+    color: #fff!important;
+    font-size: 18px;
+    outline: none;
+    border-radius: 25rem;
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
 }
 
 .sip-con {
-    width: 50%;
+    width: 90%;
     /* background-color: yellow; */
-    display: block;
-    float: left;
-
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-style: groove;
+    background-color: aliceblue;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
 }
 
-
-.sip-result {
+.form-box001 {
     width: 50%;
-    display: block;
-    /* background-color: blue; */
+    padding: 2rem;
 }
 
-#result {
-    width: 50%;
-    display: block;
-    /* background-color: blue; */
-    float: left;
+.result {
+    width: 48%;
+    margin-left: 1rem;
+    justify-content: center;
+    background-color: white;
 }
 
 main {
     flex-wrap: wrap;
     justify-content: space-between;
-
     margin: auto;
-    /* This line box size full screen */
     display: flex;
-    /* justify-content: space-between; */
-    /* flex-wrap: wrap; */
-    /* padding: 30px 20px; */
+}
+
+input {
+    border-radius: 2rem;
+    width: 50%;
+}
+
+output {
+    border-style: groove;
+    border-color: #a9a1a1;
+    width: 2.3rem;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+.output1 {
+    display: flex;
+}
+
+.output2 {
+    width: 50%;
+    margin: auto;
+}
+
+.form-group {
+    margin: 1.5rem;
+}
+
+.form-group h4 {
+    font-weight: bold;
+    width: max-content;
+}
+
+.output2 h5 {
+    color: #09c8f9;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.lump {
+    width: 80%;
+    margin: 10%;
+    margin: 4rem;
+}
+
+.lumpoutput {
+    width: 50%;
+    margin-top: 27%;
+    margin-left: 20%
 }
 
 @media (max-width: 800px) {

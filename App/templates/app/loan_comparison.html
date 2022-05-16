@@ -30,11 +30,11 @@
 <tbody>
   <tr>
 
-<td style="display:none;">{{i.cal_id}}</td>
+<td style="display:none;">{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
-<td><input type="checkbox" class="checks"   onclick="loadingg()" value="{{i.cal_id}}">Compare</td>
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.loan_max}}</td> 
+<td><input type="checkbox" class="checks"   onclick="loadingg()" value="{{i.id}}">Compare</td>
 
 </tbody>
 {% endfor %}
@@ -47,34 +47,34 @@
   <tr>
 <th style="display:none;">id</th>
     <th>Bank</th>
-    <th>Interest Rates</th>
-    <th>Lowest EMI per lakh</th>
-     <th>Cibil_Min</th>
-    <th> CIBIL MAX</th>
+    <th>Min Interest</th>
+    <th>Processing Fees</th>
+     <th>Max Tenure</th>
+    <th> Overdraft Facility</th>
 
   </tr>
     {% for i in ans3  %}
 <tbody>
   <tr>
 
-<td style="display:none;" >{{i.cal_id}}</td>
+<td style="display:none;" >{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
- <td>{{i.cibil_min}}</td> 
- <td>{{i.cibil_max}}</td> 
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.processing_fees}}</td> 
+ <td>{{i.max_tenure}}</td> 
+ <td>{{i.overdraft_facilty}}</td> 
 </tbody>
 {% endfor %}
    {% for i in ans4  %}
 <tbody>
   <tr>
 
-<td style="display:none;" >{{i.cal_id}}</td>
+<td style="display:none;" >{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
-<td>{{i.cibil_min}}</td> 
- <td>{{i.cibil_max}}</td> 
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.processing_fees}}</td> 
+ <td>{{i.max_tenure}}</td> 
+ <td>{{i.overdraft_facilty}}</td> 
 </tbody>
 {% endfor %}
 
@@ -88,27 +88,33 @@
 <script>
 function loadingg() {
   
-  var abc = $('input[type="checkbox"]:checked').length; //LENGTH
+  
   var valuelist = document.getElementById('valuelist');
   var text="<span>slected</span>";
   var listArray=[];
   var checkboxes = document.querySelectorAll('.checks');
-
+  var abclength=0;
+  var abc = $('input[type="checkbox"]:checked').length; 
+  
   for(var checkbox of checkboxes){
-      checkbox.addEventListener('click', function(){
+     
+      checkbox.addEventListener('change', function(){
+      
         if(this.checked == true){
+        
           if(abc == 1){
-               
+                
                 listArray.push(this.value);
             
                 var abc1= listArray;
                 
                 console.log(abc1);
-                var abclength = listArray.length;
+                abclength = listArray.length;
                 console.log(abclength);
-                      
+                     
                      if (abclength == 2){//start
-                           alert(abclength);
+                           
+                          
                            $.ajax ({
                                      url: "output/",
                                      data:
