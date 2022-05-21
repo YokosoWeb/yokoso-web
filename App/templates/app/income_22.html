@@ -183,7 +183,7 @@
             <div class="container">
                 {% csrf_token %}
 
-                <form action="income_cal" class="form" method="GET">
+                <form action="income_cal" class="form" method="POST">
                     <!-- Progress bar -->
                     <div class="progress" id="progress"></div>
                     <div class="progressbar">
@@ -193,10 +193,20 @@
                     </div>
 
                     <!-- Steps -->
-                    <div class="form-step form-step-active">
+                <div class="income_tax_calc">    
+                    <div class="form-step form-step-active first_page">
+                        
                         <div class="input-group">
                             <label for="fname">Full Name</label>
                             <input type="text" name="fname" id="fname">
+                        </div>
+                        <div class="input-group">
+                            <label for="age">Age</label>
+                            <input type="text" name="age" id="age">
+                        </div>
+                        <div class="input-group">
+                            <label for="city">City</label>
+                            <input type="text" name="City" id="City">
                         </div>
 
                         <div class="input-group">
@@ -219,15 +229,31 @@
                             <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
                         </div>
                     </div>
-                    <div class="form-step">
+                    <div class="form-step second_page">
                         <div class="input-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="text" name="phone" id="phone">
+                            <label for="Salary">Income From Salary</label>
+                            <input type="text" name="Salary" id="Salary">
                         </div>
 
                         <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email">
+                            <label for="basicpay">Basic Pay</label>
+                            <input type="number" name="basicpay" id="basicpay">
+                        </div>
+                        <div class="input-group">
+                            <label for="basicpay">HRA</label>
+                            <input type="number" name="hra" id="hra">
+                        </div>
+                        <div class="input-group">
+                            <label for="tax">Professional Tax</label>
+                            <input type="number" name="tax" id="tax">
+                        </div>
+                        <div class="input-group">
+                            <label for="capital">Capital Gain</label>
+                            <input type="number" name="capital" id="capital">
+                        </div>
+                        <div class="input-group">
+                            <label for="income">Income From Other Sources</label>
+                            <input type="number" name="income" id="income">
                         </div>
                         <div class="btn-group">
                             <a href="#" class="btn btn-prev">Prev</a>
@@ -236,32 +262,52 @@
                     </div>
                     <div class="form-step">
                         <div class="input-group">
-                            <label for="gross_salary">Gross Salary</label>
-                            <input type="number" name="gross_salary" id="gross_salary">
+                            <label for="gross_salary">House Rent Annual</label>
+                            <input type="number" name="rent" id="rent">
                         </div>
                         <div class="input-group">
-                            <label for="hra_lta">Hra & LTA</label>
-                            <input type="number" name="hra_lta" id="hra_lta">
+                            <label for="hra_lta">80C</label>
+                            <input type="number" name="80c" id="80c">
                         </div>
                         <div class="input-group">
-                            <label for="tax_ded">Tax Deduction</label>
-                            <input type="number" name="tax_ded" id="tax_ded">
+                            <label for="tax_ded">80CCD</label>
+                            <input type="number" name="80ccd" id="80ccd">
                         </div>
                         <div class="input-group">
-                            <label for="hlt_ins_prm">Health Insurance Premium</label>
-                            <input type="number" name="hlt_ins_prm" id="hlt_ins_prm">
+                            <label for="hlt_ins_prm">80D_SELF</label>
+                            <input type="number" name="80d" id="80d">
                         </div>
                         <div class="input-group">
-                            <label for="nps">NPS</label>
-                            <input type="number" name="nps" id="nps">
+                            <label for="hlt_ins_prm">80D_Parent</label>
+                            <input type="number" name="80d_parent" id="80d_parent">
                         </div>
+                        <div class="input-group">
+                            <label for="hlt_ins_prm">80D_Parent_Age </label>
+                            <input type="number" name="80d_parent_age" id="80d_parent_age">
+                        </div>
+                        <div class="input-group">
+                            <label for="inv">80E</label>
+                            <input type="number" name="inv" id="inv">
+                        </div>
+                        <div class="input-group">
+                            <label for="24">24</label>
+                            <input type="number" name="24" id="24">
+                        </div>
+                        <div class="input-group">
+                            <label for="80g">80G</label>
+                            <input type="number" name="80g" id="80g">
+                        </div>
+                
 
                         <div class="btn-group">
                             <a href="#" class="btn btn-prev">Prev</a>
                             <!-- <input type="submit" value="Submit" class="btn">
                             <button type="submit" class="submit-btn">Submit</button> -->
                             <button type="submit" value="submit" class="submit-btn">Calculate</button>
+                        
+
                         </div>
+                    </div>
                     </div>
                 </form>
             </div>

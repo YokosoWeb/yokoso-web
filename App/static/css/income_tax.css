@@ -1,0 +1,43 @@
+.container {
+    background-color: white;
+
+}
+th{
+    font-weight: 100;
+
+}
+hr{
+    width: 80%;
+    margin: auto;
+    background-color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+table{
+    width: 80%;
+    margin: auto;
+}
+.flex_heading th{
+    font-weight: bolder;
+}
+
+.income_tax_calc {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px 20px;
+    mix-blend-mode: lighten;
+}
+
+.first_page{
+    width: 40%;
+    
+}
+.second_page{
+    width: 40%;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+}
