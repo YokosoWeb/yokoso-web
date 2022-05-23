@@ -1,3 +1,5 @@
 App/__pycache__/
 App/Subapp01/__pycache__/
 App/Subapp01/migrations/__pycache__/
+App/Subapp01/__pycache__/models.cpython-38.pyc
+App/Subapp01/__pycache__/views.cpython-38.pyc
