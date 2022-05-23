@@ -1,7 +1,10 @@
-h1 {
+h2 {
     border-radius: 20px;
     padding: 15px;
-    margin: auto;
+    width: fit-content;
+    margin: 0;
+    margin-left: 10rem;
+    margin-top: 1rem;
 }
 
 form {
@@ -38,11 +41,6 @@ form {
 }
 
 button {
-    /* position: relative;
-   background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
-    color: white;
-    padding: 10px;
-    border-radius: 30px; */
     position: relative;
     color: #fff!important;
     font-size: 18px;
@@ -51,20 +49,23 @@ button {
     background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
     padding: 0.5rem 1.2rem;
     cursor: pointer;
+    border-style: hidden;
+    margin-left: 25%;
+    margin-top: 1rem;
 }
 
 .sip-con {
-    width: 90%;
-    /* background-color: yellow; */
+    width: 75%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     border-style: groove;
-    background-color: aliceblue;
+    background-color: white;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 2rem;
+    margin-left: 10rem;
 }
 
 .form-box001 {
@@ -73,10 +74,11 @@ button {
 }
 
 .result {
+    border-radius: 2rem;
     width: 48%;
     margin-left: 1rem;
     justify-content: center;
-    background-color: white;
+    background-color: aliceblue;
 }
 
 main {
@@ -88,15 +90,17 @@ main {
 
 input {
     border-radius: 2rem;
-    width: 50%;
+    width: 100%;
+    line-height: 2rem;
 }
 
 output {
-    border-style: groove;
-    border-color: #a9a1a1;
-    width: 2.3rem;
-    margin: 1rem;
-    font-weight: bold;
+    float: right;
+    background: #fff;
+    border-radius: 5px;
+    padding: 3px 6px;
+    border: 1px solid #d5d5d5;
+    width: 135px;
 }
 
 .output1 {
@@ -131,8 +135,12 @@ output {
 
 .lumpoutput {
     width: 50%;
-    margin-top: 27%;
+    margin-top: 17%;
     margin-left: 20%
+}
+
+label {
+    font-weight: bold;
 }
 
 @media (max-width: 800px) {
