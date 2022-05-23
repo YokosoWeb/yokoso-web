@@ -1,14 +1,5 @@
-// $("#result").change(function () {
-//     if ($("#result").val() == data) {
-//         document.getElementById("#result").style.display = "block";  }
-//     else {   document.getElementById("#result").style.display = "none";}
-// })
-
-// $(document).ready(function () {
-//     $("#result").hide();
-// })
-
 function sip() {
+    alert("inside");
     // var url = 'sipans/';
     var amount = $('#amount').val();
     var rate = $('#rate').val();
@@ -21,7 +12,7 @@ function sip() {
             'rate': rate,
             'time_period': time_period,
         },
-        success: function (data) {
+        success: function(data) {
             // var test_json = document.getElementById("test_json");
             // document.getElementById("test_json").innerHTML = data.amount + "  " + ", Marturity Amount " + data.maturity
             //     + "  " + data.rate + " " + data.time_period;
