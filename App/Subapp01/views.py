@@ -491,7 +491,7 @@ def GrievanceFilter(request):
 def income_tax_calculator(request):
     print("what's up")
     return render(request, "app/income_22.html")
-
+#sa
 
 def income_cal(request):
     # gross_salary = int(request.GET['gross_salary'])
