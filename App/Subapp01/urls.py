@@ -40,13 +40,18 @@ urlpatterns = [
     path('income_tax_calculator', income_tax_calculator,
          name='income_tax_calculator'),
     path('income_cal', income_cal, name='income_cal'),
-
-    path('loan_comparison', loan_comparison,
+    path('loan_comparison/', loan_comparison,
          name='loan_comparison'),
+    path('loan_comparison/output/', loan_comparisonOutput,
+         name='loan_comparisonOutput'),
     path('sip/', sip, name="sip"),
     path('sip/sipans/', sipans, name='sipans'),
     path('sipgoal/', sipgoal, name='sipgoal'),
     path('sipgoal/sipgoalans/', sipgoalans, name='sipgoalans'),
+    path('lump/', lump, name='lump'),
+    path('lump/lumpans/', lumpans, name='lumpans'),
+    path('lumpgoal/', lumpgoal, name='lumpgoal'),
+    path('lumpgoal/lumpgoalans/', lumpgoalans, name='lumpgoalans'),
 
 
 

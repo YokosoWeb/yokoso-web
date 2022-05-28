@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
 <link rel="stylesheet" href="{% static 'css/income.css' %}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
-
+<link rel="stylesheet" href="{% static 'css/income_tax.css' %}" />
 {% endblock css %}
 
 </head>
@@ -21,52 +21,75 @@
 
     <div class="cal" style="margin: 50px 8%">
         <section>
-            <div class="container" style=background-color:#E7E7AA;>
+            <div class="container" >
                 <h2>Income Tax Calulated</h2>
-                <div class="flex__wrap">
-                    <div class="form-group">
-                        <h4 for="">Gross Salary</h4>
-                        <h3>Rs. {{gross_salary}}</h3>
-                    </div>
+                <table class="flex_income">
+                    <tr class="flex_heading">
+                        <th>Regime</th>
+                        <th>Old</th>
+                        <th>New</th>
+                    </tr>
+                    <tr>
+                        <th>Total income</th>
+                        <th>Rs. {{Total_income}}</th>
+                        <th>Rs. {{Total_income}}</th>
+                    </tr>
+                    <tr>
+                        <th>Professional_Tax</th>
+                        <th>Rs. {{Professional_Tax}}</th>
+                        <th>Rs. {{Professional_Tax}}</th>
+                    </tr>
+                    <tr>
+                        <th>Total_Exemption</th>
+                        <th>Rs. {{Total_exemption_old}}</th>
+                        <th>Rs. {{total_exemption__new}}</th>
+                    </tr>
+                    <tr>
+                        <th>Total_Deduction</th>
+                        <th>Rs. {{total_deduction_old}}</th>
+                        <th>Rs. {{total_deduction_new}}</th>
+                    </tr>
+                    <tr>
+                        <th>Taxable_Income</th>
+                        <th>Rs. {{Taxable_Income_old}}</th>
+                        <th>Rs. {{Taxable_Income_new}}</th>
+                    </tr>
 
-                    <div class="form-group">
-                        <h4 for="">HRA & LTA</h4>
-                        <h3>Rs. {{hra_lta}}</h3>
-                    </div>
+ 
+                    <tr>
+                        <th>Tax_Payable</th>
+                        <th>Rs. {{Income_Tax_old}}</th>
+                        <th>Rs. {{Income_Tax_new}}</th>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <th>{{age_value}}</th>
+                        <th>{{age_value}}</th>
+                    </tr>
+                    <tr>
+                        <th>Base Tax</th>
+                        <th>Rs. {{inc_tax_old_base}}</th>
+                        <th>Rs. {{inc_tax_new_base}}</th>
+                    </tr>
+                    <tr>
+                        <th>Slab %</th>
+                        <th>Rs. {{inc_tax_old_slab}}</th>
+                        <th>Rs. {{inc_tax_new_slab}}</th>
+                    </tr>
+                    <tr>
+                        <th>Slab Tax</th>
+                        <th>Rs. {{inc_tax_old_slab_tax}}</th>
+                        <th>Rs. {{inc_tax_new_slab_tax}}</th>
+                    </tr>
+                    <tr>
+                        <th>Cess</th>
+                        <th>Rs. {{cess_old}}</th>
+                        <th>Rs. {{cess_new}}</th>
+                    </tr>
+                        
+                    </table>
+                    
 
-                    <div class="form-group">
-                        <h4 for="">Tax Deduction <span style="font-size: 6px;"> (under Section 80C)</span></h4>
-                        <h3>Rs. {{tax_ded}}</h3>
-                    </div>
-                </div>
-                <div class="flex_wrap">
-                    <div class="form-group">
-                        <h4 for="">Health Insurance Premium</h4>
-                        <h3>Rs. {{hlt_ins_prm}}</h3>
-                    </div>
-                    <div class="form-group">
-                        <h4 for="">NPS</h4>
-                        <h3>Rs. {{nps}}</h3>
-                    </div>
-                    <!-- </div>
-                <div class="flex_wrap"> -->
-                    ==================================================================================================
-                    <div class="form-group">
-                        <h4 for="">Income Tax</h4>
-                        <h3>Rs. {{inc_tax}}</h3>
-                    </div>
-
-                    <div class="form-group">
-                        <h4 for="">Health Education Cess</h4>
-                        <h3>Rs. {{hlt_edu_cess}}</h3>
-                    </div>
-                    ==================================================================================================
-                </div>
-                <div class="container">
-                    <div class="form-group" style=background-color:#E0E0E0; align=center>
-                        <h2 for="">Total Tax Liability</h2>
-                        <h3>Rs. {{ t }}</h3>
-                    </div>
                 </div>
 
                 <!-- <table style=margin-left:auto;margin-right:auto;>
@@ -81,54 +104,7 @@
                     </td>
                 </table> -->
                 <br><br>
-                <table class="calc_box">
-                    <tr>
-                        <th>Nature</th>
-                        <th>Amount</th>
-                        <th>Total</th>
-                    </tr>
-                    <tr>
-                        <td>Income from Salary</td>
-                        <td></td>
-                        <td>{{gross_salary}}</td>
-                    </tr>
-                    <tr>
-                        <td>Deduction </td>
-                        <td> - {{tax_ded}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Health Insurance Premium </td>
-                        <td> - {{hlt_ins_prm}}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>NPS</td>
-                        <td> - {{nps}}</td>
-                        <td></td>
-                    </tr>
-                    <!-- <tr>
-                        <td>Test</td>
-                        <td></td>
-                        <td> {{nps | add:hlt_ins_prm | add:tax_ded}}</td>
-                        <td> {{nps | add:hlt_ins_prm}}</td>
-                    </tr> -->
-                    <tr>
-                        <td>Income Tax</td>
-                        <td></td>
-                        <td>{{inc_tax}}</td>
-                    </tr>
-                    <tr>
-                        <td>Health Education Cess </td>
-                        <td></td>
-                        <td>{{hlt_edu_cess}}</td>
-                    </tr>
-                    <tr>
-                        <th>Total Tax Liability</th>
-                        <td> Final TAX</td>
-                        <td style="font-style: oblique;font-size: 25px;">{{t}}</td>
-                    </tr>
-                </table>
+                
             </div>
         </section>
     </div>

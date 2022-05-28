@@ -6,7 +6,6 @@
 <!-- EMI pro page -->
 
 <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
-
 <link rel="stylesheet" href="{% static 'css/ifsc-code.css' %}" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
@@ -14,64 +13,58 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/sip.css' %}" />
 
-<script type="text/javascript" src="{% static 'js/sip.js' %}"></script>
+<script type="text/javascript" src="{%static 'js/lump.js' %}"></script>
 {% endblock css %}
 
 </head>
 {% block body %}
 
 <body>
-    <!-- <div> -->
     <main>
-        <h2>SIP Calculator</h2>
+         <h2>Lumpsum Calculator</h2>
         <div class="sip-con">
-            <!-- <div class="ifsc-code-container"> -->
-            <!-- <div class="form_container"> -->
             <div class="form-box001">
                 <form method=" get" >
 
                     {% csrf_token %}
-                    
+                   
 
                     <div>
-                        <label for="amount">Monthly Investment</label><br>
+                        <label for="amount">Total Investment</label><br>
                         <input type="number" name="amount" id="amount">
                     </div><br>
                     <div>
                         <label for="rate"> Expected Return Rate(Per Year) </label>
-                         
+                        
                         <input type="range" name="rate" id="rate" style="border-radius: 10px" min="0.1" max="20"
                             value="10" step="0.1" oninput="this.nextElementSibling.value=this.value">
                         <output>10</output><br>
                     </div><br>
 
                     <div>
-                        <label for="time">Time Period(Year)</label>
-                        
+                        <label for="time">Time period(Per Year)</label> 
+                           
                         <input name="time_period" id="time_period" type="range" value="1" min="1" max="20" step="1"
                             oninput="this.nextElementSibling.value=this.value">
-                        <output>1</output> <br>
+                       <output>1</output><br>
                     </div>
 
                     <div>
-                        <button type="button" class="submit" value="submit" onclick="sip()">
+                        <button type="button" class="submit" value="submit" onclick="lump()">
                             Calculate</button>
                     </div>
                 </form>
             </div>
-            <!-- </div> -->
-            <!-- <div class="ifsc-code-display" id="ifsc-code-display"> -->
             <div id="result" class="result">
                
-
-                <div class="output2 lumpoutput">
-                    <div class="form-group">
+                <div class="output2 lumpoutput" >
+                    <div class="form-group lump">
                         <h4 for="">Total Invested Amount</h4>
-                        <h5 id="invest1">Rs. </h5>
+                        <h5 id="invest1">Rs. 8787867</h5>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group lump">
                         <h4 for="">Maturity Amount</h4>
-                        <h5 id="matty">Rs.</h5>
+                        <h5 id="matty">Rs. 8763767</h5>
                     </div>
                 </div>
             </div>

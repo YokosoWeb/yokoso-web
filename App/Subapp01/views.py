@@ -436,14 +436,35 @@ def Ifscfiller(request, slug):
     return render(request, "app/ifsc_code.html", context)
 
 
+
 def loan_comparison(request):
-    bankdetails = ADV_EMI_CAL.objects.all().distinct('bank').order_by('bank')
+    bankdetails = loan_Comparison.objects.all().distinct('bank').order_by('bank')
     print(bankdetails)
-    context = {
+    context= {
         'bankdetails': bankdetails,
-
-    }
-
+     }
+    
+    return render(request, 'app/loan_comparison.html', context)
+ 
+def loan_comparisonOutput(request):
+    ans = request.GET.getlist('ans[]')
+    valu = request.GET.getlist('valu[]')
+    print("ans")
+    response1= ans[0]
+    response2 = ans[1]
+    ans3 = loan_Comparison.objects.filter(id=response1)
+    ans4 = loan_Comparison.objects.filter(id=response2)
+    # ans = request.GET.get('col2')[:1]
+    print(ans3)
+    # print(ans4)
+    print("insideviews")
+    print(valu)
+    print("baove is value")
+    context={
+       'ans3': ans3,
+       'ans4': ans4,
+ }
+    
     return render(request, 'app/loan_comparison.html', context)
 
 
@@ -469,59 +490,6 @@ def income_tax_calculator(request):
     return render(request, "app/income_22.html")
 
 
-def income_cal(request):
-    gross_salary = int(request.GET['gross_salary'])
-    hra_lta = int(request.GET['hra_lta'])
-    tax_ded = int(request.GET['tax_ded'])
-    hlt_ins_prm = int(request.GET['hlt_ins_prm'])
-    nps = int(request.GET['nps'])
-
-    # Standard Deduction in Taxation
-    std_deducation = int(50000)
-
-    # Investment under Section 80C (ELSS+EPF)
-    tax_ded = 150000 if tax_ded >= 150000 else tax_ded
-
-    # National Pension System
-    nps = 50000 if nps >= 50000 else nps
-
-    # HRA & LTA
-    hra_lta = 200000 if hra_lta > 200000 else hra_lta
-
-    total_income = gross_salary - hra_lta - \
-        std_deducation - tax_ded - nps - hlt_ins_prm
-
-    # inc_tax = 0
-
-    if total_income > 500000:
-        inc_tax = 12500
-        if total_income < 1000000:
-            inc_tax += ((total_income-500000)*.2)
-        # elif 500000 < total_income >= 1000000:
-        #     inc_tax += 100000
-
-        if total_income > 1000000:
-            inc_tax += ((total_income-1000000)*.3)
-
-    # Surcharge
-    if 5000000 < total_income >= 10000000:
-        inc_tax += (total_income-5000000)*.1
-    if 10000000 < total_income >= 20000000:
-        inc_tax += (total_income-10000000)*.2
-    if 20000000 < total_income >= 30000000:
-        inc_tax += (total_income-20000000)*.3
-
-    hlt_edu_cess = round(inc_tax * .04)
-    t = inc_tax+hlt_edu_cess
-    return render(request, "app/income_33.html", {'gross_salary': gross_salary,
-                                                  'total_income': total_income,
-                                                  'hra_lta': hra_lta,
-                                                  'tax_ded': tax_ded,
-                                                  'hlt_ins_prm': hlt_ins_prm,
-                                                  'nps': nps,
-                                                  'inc_tax': inc_tax,
-                                                  'hlt_edu_cess': hlt_edu_cess,
-                                                  't': t})
 
 
 def sip(request):
@@ -563,3 +531,250 @@ def sipgoalans(request):
     data = {'amount': amount, 'rate': rate, 'time': time_period, 'emi': emi}
 
     return JsonResponse(data, safe=False)
+
+
+def lump(request):
+    print("print lump")
+
+    return render(request, "app/lump.html")
+
+
+def lumpans(request):
+    amount = int(request.GET.get('amount'))
+    rate = eval(request.GET.get('rate'))
+    time_period = int(request.GET.get('time_period'))
+    maturity = amount
+    for i in range(time_period):
+        maturity += ((maturity*rate)/100)
+
+    data = {'invested_amount': amount, 'maturity': round(maturity)}
+    return JsonResponse(data, safe=False)
+
+
+def lumpgoal(request):
+    print("print lumpgoal")
+
+    return render(request, "app/lumpgoal.html")
+
+
+def lumpgoalans(request):
+    amount = int(request.GET.get('amount'))
+    rate = eval(request.GET.get('rate'))
+    time_period = int(request.GET.get('time_period'))
+    # maturity = amount
+    # for i in range(time_period):
+    #     maturity += ((maturity*rate)/100)
+    term = pow((1+(rate/100)), time_period)
+    emi = round(amount/term)
+
+    data = {'invested_amount': amount, 'maturity': emi}
+    return JsonResponse(data, safe=False)
+
+
+
+
+def income_cal(request):
+    gross_salary = int(request.GET['gross_salary'])
+    hra_lta = int(request.GET['hra_lta'])
+    tax_ded = int(request.GET['tax_ded'])
+    hlt_ins_prm = int(request.GET['hlt_ins_prm'])
+    nps = int(request.GET['nps'])
+
+    # gross_salary = int(request.GET['gross_salary'])
+    # hra_lta = int(request.GET['hra_lta'])
+    # tax_ded = int(request.GET['tax_ded'])
+    # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
+    # nps = int(request.GET['nps'])
+    age = request.GET.get('age')
+    city = request.GET.get('City')
+    income_from_salary = request.GET.get('Salary')
+    basic_pay = request.GET.get('basicpay')
+    hra = request.GET.get('hra')
+    professional_tax = request.GET.get('tax')
+    capital_gain = request.GET.get('capital')
+    income_from_other_sources = request.GET.get('income')
+    house_rent_annual = request.GET.get('rent')
+    invest_80c = int(request.GET.get('80c'))
+    invest_80ccd = int(request.GET.get('80ccd'))
+    invest_80d_self = int(request.GET.get('80d'))
+    invest_80d_parent = int(request.GET.get('80d_parent'))
+    parent_age = int(request.GET.get('80d_parent_age'))
+    invest_80e = int(request.GET.get('inv'))
+    invest_24 = int(request.GET.get('24'))
+    invest_80G = int(request.GET.get('80g'))
+    # Standard Deduction in Taxation
+    std_deducation = int(50000)
+    #print(age,city,income_from_salary,basic_pay,hra,professional_tax,capital_gain,income_from_other_sources,house_rent_annual,
+    #invest_80c,invest_80ccd,invest_80e,invest_24,invest_80G)
+
+    # Investment under Section 80C (ELSS+EPF)
+    # if age<60:
+    invest_80c = 150000 if invest_80c >= 150000 else invest_80c
+    invest_80ccd = 50000 if invest_80ccd >= 50000 else invest_80ccd
+
+    invest_80d_self = 25000 if int(invest_80d_self) >= 25000 else int(invest_80d_self)
+    if parent_age<60:
+
+        invest_80d_parent = 25000 if invest_80d_parent >= 25000 else invest_80d_parent
+    else:
+        invest_80d_parent = 50000 if invest_80d_parent >= 50000 else invest_80d_parent
+
+    if city == 'Mumbai' or city == 'Delhi' or city == 'Kolkata' or city == 'Bangalore':
+        hra_bp = (int(basic_pay))*.5
+    else:
+        hra_bp = float(basic_pay)*.4
+    hra_rent = int(house_rent_annual) - 0.10*int(basic_pay)
+    hra_exp = min(int(hra),hra_bp,hra_rent)
+    gross_income = income_from_salary#+capital_gain+income_from_other_sources
+    # print("=====",gross_income)
+    standard_deduction = 50000
+    total_exemption_old = hra_exp+standard_deduction
+    total_exemption__new = 0
+    invest_80e = 25000 if invest_80e >= 25000 else invest_80e
+    invest_80G = 25000 if invest_80G >= 25000 else invest_80G  
+    total_deduction_old = invest_80c+invest_80ccd+invest_80d_self+invest_80d_parent+invest_80e+invest_80G
+    total_deduction_new = 0 
+    taxable_income_old = int(gross_income) - int(total_exemption_old) - int(total_deduction_old)
+    taxable_income_new = int(gross_income)
+
+    # if taxable_income_new <= 250000:  #2 Lakh 50 thousand
+    inc_tax_new = 0
+    inc_tax_old = 0
+    if taxable_income_new <= 500000: #5 Lakh
+        inc_tax_new = 0
+        inc_tax_new_slab = '0%' 
+        inc_tax_new_base = 0
+        inc_tax_new_slab_tax = 0
+
+    elif taxable_income_new <= 750000: #7 lakh 50 thousand54
+        inc_tax_new = (taxable_income_new - 500000) * 0.10 + 12500  
+        inc_tax_new_slab = '10%' 
+        inc_tax_new_base = 12500
+        inc_tax_new_slab_tax = (taxable_income_new - 500000) * 0.10
+    elif taxable_income_new <= 1000000: #10 Lakh
+        inc_tax_new = (taxable_income_new - 750000) * 0.15 + 37500 
+        inc_tax_new_slab = '15%' 
+        inc_tax_new_base = 37500
+        inc_tax_new_slab_tax = (taxable_income_new - 750000) * 0.15
+    elif taxable_income_new <= 1250000: #12 lakh 50 thousand
+        inc_tax_new = (taxable_income_new - 1000000) * 0.20 + 75000
+        inc_tax_new_slab = '20%' 
+        inc_tax_new_base = 75000
+        inc_tax_new_slab_tax = (taxable_income_new - 1000000) * 0.20
+
+    elif taxable_income_new <= 1500000: #15 lakh
+        inc_tax_new = (taxable_income_new - 1250000) * 0.25 + 125000
+        inc_tax_new_slab = '25%' 
+        inc_tax_new_base = 125000
+        inc_tax_new_slab_tax = (taxable_income_new - 1250000) * 0.25
+
+    else:
+        inc_tax_new = (taxable_income_new - 1500000) * 0.30 + 187500
+        inc_tax_new_slab = '30%' 
+        inc_tax_new_base = 187500
+        inc_tax_new_slab_tax = (taxable_income_new - 1500000) * 0.30
+
+
+    if int(age)<60:
+        if taxable_income_old<=500000:
+            inc_tax_old = 0
+            inc_tax_old_slab = '0%' 
+            inc_tax_old_base = 0
+            inc_tax_old_slab_tax = 0
+
+
+        elif taxable_income_old <= 1000000: #7 lakh 50 thousand
+            inc_tax_old = (taxable_income_old - 500000) * 0.20 + 12500
+            inc_tax_old_slab = '20%' 
+            inc_tax_old_base = 12500
+            inc_tax_old_slab_tax = (taxable_income_new - 500000) * 0.20
+
+
+        elif taxable_income_old > 1000000: #7 lakh 50 thousand
+            inc_tax_old = (taxable_income_old - 1000000) * 0.30 + 112500
+            inc_tax_old_slab = '30%' 
+            inc_tax_old_base = 112500
+            inc_tax_old_slab_tax = (taxable_income_old - 1000000) * 0.30
+
+    elif 60<=int(age)<=80:
+        if taxable_income_old<=500000:
+            inc_tax_old = 0
+            inc_tax_old_slab = '0%' 
+            inc_tax_old_base = 0
+            inc_tax_old_slab_tax = 0
+
+
+
+        elif taxable_income_old <= 1000000: #7 lakh 50 thousand
+            inc_tax_old = (taxable_income_old - 500000) * 0.20 + 10000
+            inc_tax_old_slab = '20%' 
+            inc_tax_old_base = 10000
+            inc_tax_old_slab_tax = (taxable_income_old - 500000) * 0.20
+
+
+        elif taxable_income_old > 1000000: #7 lakh 50 thousand
+            inc_tax_old = (taxable_income_old - 1000000) * 0.30 + 110000
+            inc_tax_old_slab = '30%' 
+            inc_tax_old_base = 110000
+            inc_tax_new_slab_tax = (taxable_income_old - 1000000) * 0.30
+
+
+    elif int(age)>80:
+        if taxable_income_old<=500000:
+            inc_tax_old = 0
+            inc_tax_old = 0
+            inc_tax_old_slab = '0%' 
+            inc_tax_old_base = 0
+            inc_tax_old_slab_tax = 0
+
+
+        elif taxable_income_old <= 1000000: #7 lakh 50 thousand
+            inc_tax_old = (taxable_income_old - 500000) * 0.20
+            inc_tax_old_slab = '20%' 
+            inc_tax_old_base = 0
+            inc_tax_old_slab_tax = (taxable_income_old - 500000) * 0.20
+
+
+        elif taxable_income_old > 1000000: #7 lakh 50 thousand
+            inc_tax_old = (taxable_income_old - 1000000) * 0.30 + 100000
+            inc_tax_old_slab = '30%' 
+            inc_tax_old_base = 100000
+            inc_tax_old_slab_tax = (taxable_income_old - 1000000) * 0.30
+
+
+    if int(age)<60:
+        age_value = 'below 60 years'
+    else:
+        age_value = 'above 60 years'
+
+    cess_old = (inc_tax_old_base+inc_tax_old_slab_tax)*0.04
+    cess_new = (inc_tax_new_base+inc_tax_new_slab_tax)*0.04
+
+
+
+
+    # print(gross_income,taxable_income_old,taxable_income_new,inc_tax_old,inc_tax_new)
+    return render(request, "app/income_33.html", {'Total_income': gross_income,
+                                            'Professional_Tax': professional_tax,
+                                            'Total_exemption_old': total_exemption_old,
+                                            'total_exemption__new':total_exemption__new,
+                                            'total_deduction_old': total_deduction_old,
+                                            'Taxable_Income_new': taxable_income_new,
+                                            'Taxable_Income_old': taxable_income_old,
+                                            'total_deduction_new':total_deduction_new,
+                                            'Income_Tax_old': inc_tax_old,
+                                            'Income_Tax_new': inc_tax_new,
+                                            'inc_tax_old_slab' : inc_tax_old_slab, 
+                                            'inc_tax_old_base' : inc_tax_old_base,
+                                            'inc_tax_old_slab_tax' : inc_tax_old_slab_tax,
+                                            'inc_tax_new_slab' : inc_tax_new_slab, 
+                                            'inc_tax_new_base' : inc_tax_new_base,
+                                            'inc_tax_new_slab_tax' : inc_tax_new_slab_tax,
+                                            'age_value':age_value,
+                                            'cess_old':cess_old,
+                                            'cess_new':cess_new
+
+                                            })
+
+ 
+
