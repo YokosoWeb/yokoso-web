@@ -1,26 +1,170 @@
-.container {
-    background-color: white;
+css:root {
+    --primary-color: rgb(11, 78, 179);
 }
 
-th {
-    font-weight: 100;
+
+/* 
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    } */
+
+.bodyincome {
+    font-family: Verdana, Tahoma, sans-serif;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    /* min-height: 100vh; */
 }
 
-hr {
-    width: 80%;
-    margin: auto;
-    background-color: black;
+
+/* Global Setting */
+
+input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* progressbar */
+
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressbar::before,
+.progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translate();
+    /*this cmd create the line to join the circle*/
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    counter-reset: step;
+    /* this counter counts the number in circle */
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--primary-color);
+    width: 0%;
+}
+
+.progress-step {
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100%);
+    font-size: 20%;
+    color: #666;
+}
+
+.progress-step-active {
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    color: #f3f3f3;
+}
+
+
+/* form */
+
+.form {
+    /* width: clamp(320px, 30%, 430px); */
+    width: auto;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 2.5rem;
+    /* border-radius: 0.35rem; */
+    padding: 1.5rem;
+}
+
+.form-step-active {
+    display: block;
+}
+
+.input-group {
+    margin: 2rem 0;
+}
+
+
+/* Button */
+
+.btn-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: .75rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    /* background-color: rgb(11, 78, 179); */
+    color: #ccc;
+    text-align: center;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: .3s;
+    height: fit-content;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
-table {
-    width: 80%;
-    margin: auto;
+.nxt-btn {
+    position: relative;
+    float: right;
+    color: #fff!important;
+    font-size: 18px;
+    outline: none;
+    border-radius: 25rem;
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
 }
 
-.flex_heading th {
-    font-weight: bolder;
+.submit-btn {
+    border-radius: .25rem;
+    color: #fff!important;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px #ccc, 0 0 0 3px var(--primary-color);
 }
 
 .income_tax_calc {
@@ -30,16 +174,17 @@ table {
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 30px 20px;
-    mix-blend-mode: lighten;
 }
 
 .first_page {
-    width: 40%;
+    width: 30%;
 }
 
 .second_page {
-    width: 40%;
+    width: 30%;
     margin-left: 1rem;
-    display: flex;
-    justify-content: center;
+}
+
+.third_page {
+    width: 30%;
 }
