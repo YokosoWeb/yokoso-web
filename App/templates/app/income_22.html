@@ -1,3 +1,6 @@
+22 html
+
+
 {% extends "base.html" %} {% load static %} {% block title %}
 <title>Yokoso | IFSC Code</title>{% endblock %} {% block css %}
 
@@ -6,161 +9,13 @@
 
 <link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
 <link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
+<link rel="stylesheet" href="{% static 'css/income_tax.css' %}" />
 <!-- <link rel="stylesheet" href="{% static 'css/income.css' %}"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
-    :root {
-        --primary-color: rgb(11, 78, 179);
-    }
-
-    /* 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    } */
-
-    .bodyincome {
-        font-family: Verdana, Tahoma, sans-serif;
-        margin: 0;
-        display: grid;
-        place-items: center;
-        /* min-height: 100vh; */
-    }
-
-    /* Global Setting */
-    
-
-    input {
-        display: block;
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ccc;
-        border-radius: 0.25rem;
-    }
-
-    .width-50 {
-        width: 50%;
-    }
-
-    .ml-auto {
-        margin-left: auto;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    /* progressbar */
-    .progressbar {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .progressbar::before,
-    .progress {
-        content: "";
-        position: absolute;
-        top: 50%;
-        transform: translate();
-        /*this cmd create the line to join the circle*/
-        height: 4px;
-        width: 100%;
-        background-color: #dcdcdc;
-        counter-reset: step;
-        /* this counter counts the number in circle */
-        z-index: -1;
-    }
-    
-    .progress {
-        background-color: var(--primary-color);
-        width: 0%;
-    }
-
-    .progress-step {
-        width: 35px;
-        height: 35px;
-        background-color: #dcdcdc;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .progress-step::before {
-        counter-increment: step;
-        content: counter(step);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .progress-step::after {
-        content: attr(data-title);
-        position: absolute;
-        top: calc(100%);
-        font-size: 20%;
-        color: #666;
-    }
-
-    .progress-step-active {
-        background-color: var(--primary-color);
-        color: #f3f3f3;
-    }
-
-    /* form */
-    .form {
-        /* width: clamp(320px, 30%, 430px); */
-        width: auto;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        border-radius: 2.5rem;
-        /* border-radius: 0.35rem; */
-        padding: 1.5rem;
-    }
-
-    .form-step {
-        display: none;
-    }
-
-    .form-step-active {
-        display: block;
-    }
-
-    .input-group {
-        margin: 2rem 0;
-    }
-
-    /* Button */
-    .btn-group {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .btn {
-        padding: .75rem;
-        display: block;
-        text-decoration: none;
-        background-color: var(--primary-color);
-        /* background-color: rgb(11, 78, 179); */
-        color: #ccc;
-        text-align: center;
-        border-radius: .25rem;
-        cursor: pointer;
-        transition: .3s;
-       height: fit-content;
-    margin-top: 1rem;
-    }
-.submit-btn{
-     border-radius:.25rem;
-}
-    .btn:hover {
-        box-shadow: 0 0 0 2px #ccc, 0 0 0 3px var(--primary-color);
-    }
+   
 </style>
 
 {% endblock css %}
@@ -181,9 +36,10 @@
     <div class="cal" style="margin: 50px 8%">
         <section>
             <div class="container">
-                {% csrf_token %}
-
+               
+                
                 <form action="income_cal" class="form" method="POST">
+                    {% csrf_token %}
                     <!-- Progress bar -->
                     <div class="progress" id="progress"></div>
                     <div class="progressbar">
@@ -194,7 +50,7 @@
 
                     <!-- Steps -->
                 <div class="income_tax_calc">    
-                    <div class="form-step form-step-active first_page">
+                    <div class="form-step form-step-active first_page" id="first_page_id">
                         
                         <div class="input-group">
                             <label for="fname">Full Name</label>
@@ -226,10 +82,11 @@
                             </select>
                         </div>
                         <div class="">
-                            <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+                            <a href="#" class="btn btn-next width-50 ml-auto nxt-btn" id="first_next">Next</a>
                         </div>
                     </div>
-                    <div class="form-step second_page">
+                       <hr>
+                    <div class="form-step second_page " id="second_page_id">
                         <div class="input-group">
                             <label for="Salary">Income From Salary</label>
                             <input type="text" name="Salary" id="Salary">
@@ -256,11 +113,11 @@
                             <input type="number" name="income" id="income">
                         </div>
                         <div class="btn-group">
-                            <a href="#" class="btn btn-prev">Prev</a>
-                            <a href="#" class="btn btn-next">Next</a>
+                            <a href="#" class="btn btn-prev nxt-btn">Prev</a>
+                            <a href="#" class="btn btn-next nxt-btn">Next</a>
                         </div>
                     </div>
-                    <div class="form-step">
+                    <div class="form-step third_page" id="third_page_id">
                         <div class="input-group">
                             <label for="gross_salary">House Rent Annual</label>
                             <input type="number" name="rent" id="rent">
@@ -300,11 +157,10 @@
                 
 
                         <div class="btn-group">
-                            <a href="#" class="btn btn-prev">Prev</a>
+                            <a href="#" class="btn btn-prev nxt-btn">Prev</a>
                             <!-- <input type="submit" value="Submit" class="btn">
                             <button type="submit" class="submit-btn">Submit</button> -->
                             <button type="submit" value="submit" class="submit-btn">Calculate</button>
-                        
 
                         </div>
                     </div>
@@ -314,6 +170,11 @@
         </section>
     </div>
 </div>
+
+
+
+
+
     <script>
         const prevBtns = document.querySelectorAll(".btn-prev")
         const nextBtns = document.querySelectorAll(".btn-next")
@@ -323,12 +184,37 @@
         const progressSteps = document.querySelectorAll(".progress-step");
 
         let formStepNum = 0;
-
-        nextBtns.forEach((btn) => {
+             if(formStepNum == 0){
+                document.getElementById('first_page_id').style.width='100%';
+                document.getElementById("second_page_id").style.display = "none";
+                document.getElementById("third_page_id").style.display = "none";
+                
+               
+                             
+}
+       nextBtns.forEach((btn) => {
+           
             btn.addEventListener("click", () => {
                 formStepNum++;
                 updateFormSteps();
                 updateProgressbar();
+          
+               if(formStepNum == 1){
+                document.getElementById('first_page_id').style.width='30%';
+                document.getElementById("second_page_id").style.display = "block";
+                document.getElementById("first_next").style.display = "none";
+                $('#first_page_id').fadeTo('slow',.6);
+                $('#first_page_id').append('<div style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+               }
+               if(formStepNum == 2){
+                 document.getElementById('first_page_id').style.width='30%';
+                document.getElementById("third_page_id").style.display = "block";
+               
+                $('#first_page_id').fadeTo('slow',.6);
+                $('#first_page_id').append('<div style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+                $('.second_page').fadeTo('slow',.6);
+                $('.second_page').append('<div style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+               }
             });
         });
         prevBtns.forEach((btn) => {
@@ -336,6 +222,24 @@
                 formStepNum--;
                 updateFormSteps();
                 updateProgressbar();
+             alert(formStepNum);
+             if(formStepNum == 0){
+                 document.getElementById("first_next").style.display = "block";
+                 $('#first_page_id').fadeTo('slow',1);
+                $('.second_page').fadeTo('slow',.6);
+                $('.second_page').append('<div style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+               
+               
+                             
+}
+             if(formStepNum == 1){
+                $('#second_page_id').fadeTo('slow',1);
+                $('#first_page_id').fadeTo('slow',.6);
+                $('#first_page_id').append('<div style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+                $('.third_page').fadeTo('slow',.6);
+                $('.third_page').append('<div style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+}
+             
             });
         });
 
@@ -347,17 +251,22 @@
                     formStep.classList.remove("form-step-active")
             })
             formSteps[formStepNum].classList.add("form-step-active");
+       
+        
         };
 
         function updateProgressbar() {
             progressSteps.forEach((progressStep, idx) => {
                 if (idx < formStepNum + 1) {
                     progressStep.classList.add("progress-step-active");
+                    
                 } else {
                     progressStep.classList.remove("progress-step-active");
                 }
             })
         }
+
+ 
     </script>
 
 
