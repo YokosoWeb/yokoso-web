@@ -1,5 +1,4 @@
 function sip() {
-    alert("inside");
     // var url = 'sipans/';
     var amount = $('#amount').val();
     var rate = $('#rate').val();
@@ -16,9 +15,6 @@ function sip() {
             // var test_json = document.getElementById("test_json");
             // document.getElementById("test_json").innerHTML = data.amount + "  " + ", Marturity Amount " + data.maturity
             //     + "  " + data.rate + " " + data.time_period;
-            document.getElementById("mon").innerHTML = "Rs. " + data.amount;
-            document.getElementById("rate1").innerHTML = "" + data.rate + " %";
-            document.getElementById("time1").innerHTML = data.time + " Year";
             document.getElementById("invest1").innerHTML = "Rs. " + data.invested_amount;
             document.getElementById("matty").innerHTML = "Rs. " + data.maturity;
         },

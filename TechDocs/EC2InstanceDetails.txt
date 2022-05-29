@@ -1,6 +1,20 @@
+AWS login credentials:
+username: contact@yokoso.in
+password: Welcome@Japan
+
+
+Production env details:
+
 public ip address: 18.222.97.197
 username: ubuntu
 password: yokoso@123
+
+yokoso url: https://yokoso.in/
+
+
+Development env details:
+
+yokoso url: http://ec2-18-222-3-57.us-east-2.compute.amazonaws.com/
 
 Install packages:
 1. pip install django-ckeditor

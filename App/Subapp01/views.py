@@ -509,8 +509,7 @@ def sipans(request):
     maturity = round(amount*((pow(1+periodic_rate, month)-1) /
                              periodic_rate)*(1+periodic_rate))
 
-    data = {'amount': amount, 'rate': rate, 'time': time_period,
-            'invested_amount': invested_amount, 'maturity': maturity}
+    data = {'invested_amount': invested_amount, 'maturity': maturity}
     return JsonResponse(data, safe=False)
 
 
