@@ -79,7 +79,7 @@
                             </select>
                         </div>
                         <div name="error" id="error" class="msg"> </div> 
-                    <button type="button"  class="fields-submit-code" onclick="myFunction()">Search</button>
+                    <button type="button"  class="fields-submit-code" onclick="ifscFunction()">Search</button>
 
 
                     <!-- Here the city is being selected -->
@@ -220,7 +220,12 @@
     </main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <script type="text/javascript" src="{% static 'js/ifsc-code.js' %}"></script>
+
+      
+
+
 
 </body>
 {% include 'footer.html' %} {% endblock body %}
