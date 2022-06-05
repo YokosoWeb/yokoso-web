@@ -510,6 +510,7 @@ def sipans(request):
                              periodic_rate)*(1+periodic_rate))
 
     data = {'invested_amount': invested_amount, 'maturity': maturity}
+    
     return JsonResponse(data, safe=False)
 
 
@@ -520,15 +521,21 @@ def sipgoal(request):
 
 
 def sipgoalans(request):
-    # print("insidesip")
+    print("insidesip")
     amount = int(request.GET.get('amount'))
     rate = eval(request.GET.get('rate'))
     time_period = int(request.GET.get('time_period'))
 
     emi = round((amount * ((rate / 100) / 12)) /
                 (pow((1 + ((rate / 100) / 12)), (time_period * 12)) - 1))
-    data = {'amount': amount, 'rate': rate, 'time': time_period, 'emi': emi}
-
+    data = {
+      'amount': amount, 
+      'rate': rate, 
+        'time': time_period, 
+        'emi': emi
+}
+    print("outside")
+    # return render(request, "app/sipgoal.html", context)
     return JsonResponse(data, safe=False)
 
 
