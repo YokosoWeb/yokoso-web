@@ -12,7 +12,7 @@ form {
     font-family: "Times New Roman";
 }
 
-button {
+.submit {
     position: relative;
     color: #fff!important;
     font-size: 18px;
@@ -128,10 +128,14 @@ label {
         width: 100%;
         margin: .2rem 0rem .2rem .2rem;
         display: block;
+        background-color: aliceblue;
     }
     .form-box001 {
         width: 100%;
-        padding: .2rem;
+       
+            background-color: white;
+    border-radius: 2rem;
+}
     }
     .lumpoutput {
         width: 100%;
@@ -141,6 +145,7 @@ label {
         width: 100%;
         margin: 0%;
         justify-content: flex-start;
+        background-color: none;
     }
     h4 {
         font-size: medium;

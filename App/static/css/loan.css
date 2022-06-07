@@ -3,11 +3,34 @@
     margin: auto;
 }
 
-td:nth-child(even) {
+td:nth-child(odd) {
     background-color: #6adef8;
+}
+td:nth-child(even) {
+    background-color: honeydew;
 }
 
 th {
     background-color: blue;
     color: white;
+}
+
+@media (max-width: 500px) {
+
+ td{
+   font-size: small; 
+}
+.all{
+       width: 100%;
+}
+th{
+ font-size: small;
+}
+table{
+ border-radius: 10rem;
+ border-color: white;
+    /* border-start-end-radius: 50%; */
+    border-style: double;
+}
+
 }
