@@ -43,40 +43,56 @@
 </table>
 </div>
 <div class="printing" id="printing" style="display: none;">
+
 <table class="table">
+
+    {% for i in ans3  %}
+     {% for d in ans4  %}
+<tbody>
   <tr>
 <th style="display:none;">id</th>
+ <td style="display:none;" >{{i.id}}</td>
+  <td style="display:none;" >{{d.id}}</td>
+</tr>
+<tr>
     <th>Bank</th>
+    <td class="bankname">{{i.bank}}</td>
+    <td class="bankname">{{d.bank}}</td>
+</tr>
+<tr>
     <th>Min Interest</th>
+    <td  >{{i.min_interest_rate}}</td>
+    <td  >{{d.min_interest_rate}}</td>
+</tr>
+<tr>
     <th>Processing Fees</th>
+    <td>{{i.processing_fees}}</td> 
+    <td>{{d.processing_fees}}</td> 
+</tr>
+<tr>
+
      <th>Max Tenure</th>
+ 
+ <td>{{i.max_tenure}}</td>
+ <td>{{d.max_tenure}}</td>
+
+</tr>
+<tr>
     <th> Overdraft Facility</th>
-
+ <td>{{i.overdraft_facilty}}</td>
+<td>{{d.overdraft_facilty}}</td>  
   </tr>
-    {% for i in ans3  %}
-<tbody>
-  <tr>
 
-<td style="display:none;" >{{i.id}}</td>
-<td class="bankname">{{i.bank}}</td>
-<td  >{{i.min_interest_rate}}</td>
-<td>{{i.processing_fees}}</td> 
- <td>{{i.max_tenure}}</td> 
- <td>{{i.overdraft_facilty}}</td> 
+
+
+
+
+
+
+ 
 </tbody>
 {% endfor %}
-   {% for i in ans4  %}
-<tbody>
-  <tr>
-
-<td style="display:none;" >{{i.id}}</td>
-<td class="bankname">{{i.bank}}</td>
-<td  >{{i.min_interest_rate}}</td>
-<td>{{i.processing_fees}}</td> 
- <td>{{i.max_tenure}}</td> 
- <td>{{i.overdraft_facilty}}</td> 
-</tbody>
-{% endfor %}
+ {% endfor %}  
 
 
 </table>
