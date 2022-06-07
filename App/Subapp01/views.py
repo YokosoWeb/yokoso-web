@@ -580,38 +580,65 @@ def lumpgoalans(request):
 
 
 def income_cal(request):
-    gross_salary = int(request.GET['gross_salary'])
-    hra_lta = int(request.GET['hra_lta'])
-    tax_ded = int(request.GET['tax_ded'])
-    hlt_ins_prm = int(request.GET['hlt_ins_prm'])
-    nps = int(request.GET['nps'])
+    # gross_salary = int(request.GET['gross_salary'])
+    # hra_lta = int(request.GET['hra_lta'])
+    # tax_ded = int(request.GET['tax_ded'])
+    # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
+    # nps = int(request.GET['nps'])
 
     # gross_salary = int(request.GET['gross_salary'])
     # hra_lta = int(request.GET['hra_lta'])
     # tax_ded = int(request.GET['tax_ded'])
     # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
     # nps = int(request.GET['nps'])
-    age = request.GET.get('age')
-    city = request.GET.get('City')
-    income_from_salary = request.GET.get('Salary')
-    basic_pay = request.GET.get('basicpay')
-    hra = request.GET.get('hra')
-    professional_tax = request.GET.get('tax')
-    capital_gain = request.GET.get('capital')
-    income_from_other_sources = request.GET.get('income')
-    house_rent_annual = request.GET.get('rent')
-    invest_80c = int(request.GET.get('80c'))
-    invest_80ccd = int(request.GET.get('80ccd'))
-    invest_80d_self = int(request.GET.get('80d'))
-    invest_80d_parent = int(request.GET.get('80d_parent'))
-    parent_age = int(request.GET.get('80d_parent_age'))
-    invest_80e = int(request.GET.get('inv'))
-    invest_24 = int(request.GET.get('24'))
-    invest_80G = int(request.GET.get('80g'))
+    age = request.POST['age']
+    print(age)
+    city = request.POST['City']
+    income_from_salary = request.POST['Salary']
+    basic_pay = request.POST['basicpay']
+    hra = request.POST['hra']
+
+    professional_tax = request.POST['tax']
+    if professional_tax=="":
+        professional_tax = 0
+    capital_gain = request.POST['capital']
+    if capital_gain=="":
+        capital_gain = 0
+    income_from_other_sources = request.POST['income']    
+    if income_from_other_sources=="":
+        income_from_other_sources = 0
+    house_rent_annual = request.POST['rent']   
+    if house_rent_annual=="":
+        house_rent_annual=0
+        
+    # print(age,city,income_from_salary,basic_pay,hra,professional_tax)
+    invest_80c = (request.POST['80c'])
+    if invest_80c == "":
+        invest_80c=0
+    invest_80ccd = (request.POST['80ccd'])  
+    if invest_80ccd == "":
+        invest_80ccd=0
+    invest_80d_self = (request.POST['80d'])
+    if invest_80d_self == "":
+        invest_80d_self=0
+    invest_80d_parent = (request.POST['80d_parent'])   
+    if invest_80d_parent=="":
+        invest_80d_parent=0
+    parent_age = int(request.POST['80d_parent_age'])
+    invest_80e = (request.POST['inv'])
+    if invest_80e=="":
+        invest_80e=0
+    invest_24 = (request.POST['24'])
+    if invest_24 == "":
+        invest_24=0
+    invest_80G = (request.POST['80g'])
+    if invest_80G=="":
+        invest_80G=0
+
     # Standard Deduction in Taxation
     std_deducation = int(50000)
-    #print(age,city,income_from_salary,basic_pay,hra,professional_tax,capital_gain,income_from_other_sources,house_rent_annual,
-    #invest_80c,invest_80ccd,invest_80e,invest_24,invest_80G)
+    print(age,city,income_from_salary,basic_pay,hra,professional_tax,capital_gain,income_from_other_sources,house_rent_annual,
+    invest_80c,invest_80ccd,invest_80e,invest_24,invest_80G)
 
     # Investment under Section 80C (ELSS+EPF)
     # if age<60:
