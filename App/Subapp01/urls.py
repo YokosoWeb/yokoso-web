@@ -13,7 +13,7 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     path('FAQs/<slug>', FAQs, name='FAQs'),
     path('about/', about, name='about'),
-
+    path('financetools/', servicesview, name="servicesview"),
     path('contact/', contact, name='contact'),
     # path('footer/', footer , name = 'footer'),
     path('blog/', articleHome, name='articleHome'),
