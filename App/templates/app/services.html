@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% load static %} {% block title %}
+<title>Yokoso | Financial Tools</title>{% endblock %}
+{% block css %}
+   <style>
+ .card{
+    width: 20rem;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
+   border-style: groove;
+   border-color: black;
+  height: 13rem;
+}
+.card-text{
+    font-size: medium;
+}
+.card img{
+    width: 70%;
+    height: 5rem;
+    margin: auto;
+    margin-top: 1rem;
+}
+h2{
+    text-align: center;
+    margin-top: 1rem;
+    font-family: auto;
+}
+
+
+</style>
+{% endblock  %}
+{% block body %}
+<h2>All Our Services</h2>
+
+ <div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+       
+      <div class="card-body">
+        <h5 class="card-title">IFSC Finder</h5>
+        <p class="card-text" style="font-size: medium;">Get the details of the required IFSC Code by selecting bank, branch and state details.</p>
+        <a href="{% url 'getServices' %}" class="btn btn-primary">IFSC Finder</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Grievance</h5>
+        <p class="card-text" style="font-size: medium;">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="{% url 'getServices' %}"class="btn btn-primary">Grievance</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">EMI Pro</h5>
+        <p class="card-text" style="font-size: medium;">Get the EMI details and benefits customized for you.</p>
+        <a href="{% url 'credit' %}" class="btn btn-primary">EMI Pro</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">EMI Calculator</h5>
+        <p class="card-text" style="font-size: medium;">Calculate EMI by using EMI Calculator on the basis of amount and years.</p>
+        <a href="{% url 'emi' %}" class="btn btn-primary">EMI Calculator</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">SIP Calculator</h5>
+        <p class="card-text" style="font-size: medium;">Calculate SIP using SIP  calulator by entering the data asked</p>
+        <a href="{% url 'sip' %}" class="btn btn-primary">SIP Calculator</a>
+      </div>
+    </div>
+  </div>
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Lump Calculator</h5>
+        <p class="card-text" style="font-size: medium;">Calculate Lump using Lump calulator by entering the data asked</p>
+        <a href="{% url 'lump' %}" class="btn btn-primary">Lump Calculator</a>
+      </div>
+    </div>
+  </div>
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Income Tax Calculator</h5>
+        <p class="card-text" style="font-size: medium;">Calculate Income tax using Income Tax calulator by entering the data asked</p>
+        <a href="{% url 'income_tax_calculator' %}" class="btn btn-primary">Income Tax Calculator</a>
+      </div>
+    </div>
+  </div>
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Loan Comparison</h5>
+        <p class="card-text" style="font-size: medium;">Compare Home Loan offered by banks on the basis of EMI, tenure, profit and such fields</p>
+        <a href="{% url 'loan_comparison' %}" class="btn btn-primary">Loan Comparison</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

@@ -20,7 +20,8 @@ from babel.numbers import format_currency
 def is_valid_queryparam(param):
     return param != '' and param is not None
 
-
+def servicesview(request):
+    return render(request, 'app/services.html')
 def home(request):
 
     # Default Response
