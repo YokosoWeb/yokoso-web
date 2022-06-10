@@ -581,17 +581,7 @@ def lumpgoalans(request):
 
 
 def income_cal(request):
-    # gross_salary = int(request.GET['gross_salary'])
-    # hra_lta = int(request.GET['hra_lta'])
-    # tax_ded = int(request.GET['tax_ded'])
-    # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
-    # nps = int(request.GET['nps'])
-
-    # gross_salary = int(request.GET['gross_salary'])
-    # hra_lta = int(request.GET['hra_lta'])
-    # tax_ded = int(request.GET['tax_ded'])
-    # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
-    # nps = int(request.GET['nps'])
+   
     age = request.POST['age']
     print(age)
     city = request.POST['City']
@@ -613,26 +603,26 @@ def income_cal(request):
         house_rent_annual=0
         
     # print(age,city,income_from_salary,basic_pay,hra,professional_tax)
-    invest_80c = (request.POST['80c'])
+    invest_80c = int(request.POST['80c'])
     if invest_80c == "":
         invest_80c=0
-    invest_80ccd = (request.POST['80ccd'])  
+    invest_80ccd = int(request.POST['80ccd'])  
     if invest_80ccd == "":
         invest_80ccd=0
-    invest_80d_self = (request.POST['80d'])
+    invest_80d_self = int(request.POST['80d'])
     if invest_80d_self == "":
         invest_80d_self=0
-    invest_80d_parent = (request.POST['80d_parent'])   
+    invest_80d_parent = int(request.POST['80d_parent'])   
     if invest_80d_parent=="":
         invest_80d_parent=0
     parent_age = int(request.POST['80d_parent_age'])
-    invest_80e = (request.POST['inv'])
+    invest_80e = int(request.POST['inv'])
     if invest_80e=="":
         invest_80e=0
-    invest_24 = (request.POST['24'])
+    invest_24 = int(request.POST['24'])
     if invest_24 == "":
         invest_24=0
-    invest_80G = (request.POST['80g'])
+    invest_80G = int(request.POST['80g'])
     if invest_80G=="":
         invest_80G=0
 
@@ -810,5 +800,8 @@ def income_cal(request):
 
                                             })
 
- 
+
+
+
+
 
