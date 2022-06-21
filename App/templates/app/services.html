@@ -10,6 +10,8 @@
    border-style: groove;
    border-color: black;
   height: 13rem;
+    background: black;
+   
 }
 .card-text{
     font-size: medium;
@@ -25,7 +27,9 @@ h2{
     margin-top: 1rem;
     font-family: auto;
 }
-
+.card-title{
+   color: white;
+}
 .btn{
 
    
@@ -38,9 +42,9 @@ h2{
      cursor: pointer;
 }
 .card:hover{
-border-radius: 0%;
+background: black;
 box-shadow: 5px 10px #888888;
-background-color: #888888;
+{% comment %} background-color: #888888; {% endcomment %}
 color: white;
 border: none;
 }
@@ -105,9 +109,27 @@ color: white;
 <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Lump Calculator</h5>
+        <h5 class="card-title">LumpSum Calculator</h5>
         <p class="card-text" style="font-size: medium;">Calculate Lump using Lump calulator by entering the data asked</p>
         <a href="{% url 'lump' %}" class="btn btn-primary">Lump Calculator</a>
+      </div>
+    </div>
+  </div>
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Lump Goal Calculator</h5>
+        <p class="card-text" style="font-size: medium;">Calculate Lump using Lump calulator by entering the data asked</p>
+        <a href="{% url 'lumpgoal' %}" class="btn btn-primary">Lump Calculator</a>
+      </div>
+    </div>
+  </div>
+<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Sip Goal Calculator</h5>
+        <p class="card-text" style="font-size: medium;">Calculate Lump using Lump calulator by entering the data asked</p>
+        <a href="{% url 'sipgoal' %}" class="btn btn-primary">Lump Calculator</a>
       </div>
     </div>
   </div>

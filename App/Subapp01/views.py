@@ -796,7 +796,16 @@ def income_cal(request):
                                             'inc_tax_new_slab_tax' : inc_tax_new_slab_tax,
                                             'age_value':age_value,
                                             'cess_old':cess_old,
-                                            'cess_new':cess_new
+                                            'cess_new':cess_new,
+# //form input
+
+'age': age,
+'city': city,
+'income_from_salary': income_from_salary,
+'basic_pay': basic_pay,
+'hra': hra,
+'professional_tax': professional_tax,
+
 
                                             })
 
