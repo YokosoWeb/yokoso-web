@@ -1,0 +1,54 @@
+<head>
+    <title>News Room</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div style="float:left" >
+        <h1 class="text-center">New App</h1>
+    
+        <h2>Search Country</h2>
+    
+        <form action="" method="get">
+            <input type="text" name="country">
+            <button type="submit" value="Search">Search</button>
+        </form>
+        <br>
+
+        <h2>Search word</h2>
+    
+        <form action="" method="get">
+            <input type="text" name="q">
+            <button type="submit" value="Search">Search</button>
+        </form>
+    </div>
+    
+    <div style="float:initial; text-align: center; color: black;" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for i in articles %}
+    
+                        <div class="card rounded shadow-lg m-2" style="width: 25rem;">
+                            <img src="{{ i.urlToImage }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <p class="card-text">{{ i.author }}</p>
+                            <h5 class="card-title">{{ i.title }}</h5>
+                            <p class="card-title">{{ i.source.name }}</p>
+                            <p class="card-text">{{ i.description }}</p>
+                            <hr>
+                            <small>date: {{ i.publishedAt }}</small>
+                            <a href="{{ i.url }}" target="_blank" class="btn btn-success m-1">See News</a>
+                            </div>
+                        </div>
+    
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
