@@ -28,6 +28,7 @@ urlpatterns = [
     path('Services/', getServices, name='getServices'),
     path('Services/bankname/', BankNames, name='bankname'),
     path('Services/statename/', StateNames, name='statename'),
+    #path('Services/districname/', DistricNames, name='districname'),
     path('Services/cityname/', CityNames, name='cityname'),
     path('Services/branchname/', BranchNames, name='branchname'),
     path('Services/ifscfilter/', Ifscfilter, name='ifscfilter'),
@@ -52,4 +53,10 @@ urlpatterns = [
     path('lump/lumpans/', lumpans, name='lumpans'),
     path('lumpgoal/', lumpgoal, name='lumpgoal'),
     path('lumpgoal/lumpgoalans/', lumpgoalans, name='lumpgoalans'),
+
+    path('news',home_news,name='news')
+
+
+
 ]
+# path('Services/cityname/', CityNames, name='cityname'),

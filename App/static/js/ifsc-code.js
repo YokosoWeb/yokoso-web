@@ -129,9 +129,9 @@ $("#State_Name").change(function() {
             'bank': bank // add the country id to the GET parameters
         },
         success: function(data) { // `data` is the return of the `load_cities` view function
-                let html_data = '<option value="">Select City</option>';
+                let html_data = '<option value="">Select District</option>';
                 data.forEach(function(IfscData) {
-                    html_data += `<option value="${IfscData.CITY}">${IfscData.CITY}</option>`
+                    html_data += `<option value="${IfscData.DISTRICT}">${IfscData.DISTRICT}</option>`
                 });
 
                 $("#City_Name").html(html_data);
@@ -163,7 +163,7 @@ $("#City_Name").change(function() {
         success: function(data) { // `data` is the return of the `load_cities` view function
                 let html_data = '<option value="">Select Branch</option>';
                 data.forEach(function(IfscData) {
-                    html_data += `<option value="${IfscData.id}">${IfscData.BRANCH}</option>`
+                    html_data += `<option value="${IfscData.id}">${IfscData.ADDRESS}</option>`
                 });
 
                 $("#Branch_Name").html(html_data);

@@ -14,6 +14,7 @@ from django.utils.html import strip_tags
 from math import ceil
 import numpy_financial as npf
 from babel.numbers import format_currency
+import requests
 # Create your views here.
 
 
@@ -401,12 +402,23 @@ def StateNames(request):
     return JsonResponse(list(state_names.values('STATE')), safe=False)
 
 
+
+# def DistricNames(request):
+#     statename = request.GET.get('state')
+#     bankname = request.GET.get('bank')
+#     district_names = IfscData.objects.filter(
+#         STATE=statename, BANK=bankname).distinct().order_by('DISTRICT')
+#     return JsonResponse(list(district_names.values('DISTRICT')), safe=False)
+
+
+
 def CityNames(request):
     statename = request.GET.get('state')
     bankname = request.GET.get('bank')
     city_names = IfscData.objects.filter(
-        STATE=statename, BANK=bankname).distinct().order_by('CITY')
-    return JsonResponse(list(city_names.values('CITY')), safe=False)
+        STATE=statename, BANK=bankname).distinct().order_by('DISTRICT')
+    # print(list(city_names.values('DISTRICT')))
+    return JsonResponse(list(city_names.values('DISTRICT')), safe=False)
 
 
 def BranchNames(request):
@@ -414,8 +426,9 @@ def BranchNames(request):
     statename = request.GET.get('state')
     bankname = request.GET.get('bank')
     branch_names = IfscData.objects.filter(
-        CITY=cityname, STATE=statename, BANK=bankname).distinct().order_by('BRANCH')
-    return JsonResponse(list(branch_names.values('id', 'BRANCH')), safe=False)
+        CITY=cityname, STATE=statename, BANK=bankname).distinct().order_by('ADDRESS')
+    # print(list(branch_names.values('id', 'ADDRESS')))
+    return JsonResponse(list(branch_names.values('id', 'ADDRESS')), safe=False)
 
 
 def Ifscfilter(request):
@@ -810,7 +823,38 @@ def income_cal(request):
                                             })
 
 
+API_KEY = '41286023a1b04ead87ed6966b476df21'
+def home_news(request):
+    country = request.GET.get('country')
+    query1 =request.GET.get('q')
+
+    url = f'https://newsapi.org/v2/top-headlines?country=in&apiKey={API_KEY}&language=en'
+    response = requests.get(url)
+    data = response.json()
 
 
 
 
+
+
+
+    # Business language india
+
+    if country:
+        url = f'https://newsapi.org/v2/top-headlines?country={country}&apiKey={API_KEY}&category=business&language=en'
+        response = requests.get(url)
+        data = response.json()
+        articles = data['articles']
+    elif query1:
+        url = f'https://newsapi.org/v2/top-headlines?q={query1}&apiKey={API_KEY}&category=business&language=en'
+        response = requests.get(url)
+        data = response.json()
+        articles = data['articles']
+
+
+    articles = data['articles']
+    context = {
+        # 'data': data,
+        'articles': articles,
+    }
+    return render(request, 'app/news.html', context)
