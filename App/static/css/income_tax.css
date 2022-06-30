@@ -188,3 +188,8 @@ input {
 .third_page {
     width: 30%;
 }
+
+.diabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}

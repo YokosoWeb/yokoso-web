@@ -1,5 +1,3 @@
-22 html
-
 
 {% extends "base.html" %} {% load static %} {% block title %}
 <title>Yokoso | IFSC Code</title>{% endblock %} {% block css %}
@@ -38,7 +36,7 @@
             <div class="container">
                
                 
-                <form action="income_cal" class="form" method="POST">
+                <form  class="form" method="POST">
                     {% csrf_token %}
                     <!-- Progress bar -->
                     <div class="progress" id="progress"></div>
@@ -160,7 +158,7 @@
                             <a href="#" class="btn btn-prev nxt-btn">Prev</a>
                             <!-- <input type="submit" value="Submit" class="btn">
                             <button type="submit" class="submit-btn">Submit</button> -->
-                            <button type="submit" value="submit" class="submit-btn">Calculate</button>
+                            <button type="button"  class="submit-btn" onclick="clickFunction()">Calculate</button>
 
                         </div>
                     </div>
@@ -175,7 +173,120 @@
 
 
 
+
+ <div class="header_banner">
+        <h2 align='center'>Income Tax Calculator</h2>
+        <p align='center'>(AY : 2020-21)</p>
+    </div>
+
+    <div class="cal" style="margin: 50px 8%" id="outputdisplay">
+        <section>
+            <div class="container" >
+                <h2>Income Tax Calulated</h2>
+                <table class="flex_income">
+                    <tr class="flex_heading">
+                        <th>Regime</th>
+                        <th>Old</th>
+                        <th>New</th>
+                    </tr>
+                    <tr>
+                        <th>Total income</th>
+                        <th>Rs. {{Total_income}}</th>
+                        <th>Rs. {{Total_income}}</th>
+                    </tr>
+                    <tr>
+                        <th>Professional_Tax</th>
+                        <th>Rs. {{Professional_Tax}}</th>
+                        <th>Rs. {{Professional_Tax}}</th>
+                    </tr>
+                    <tr>
+                        <th>Total_Exemption</th>
+                        <th>Rs. {{Total_exemption_old}}</th>
+                        <th>Rs. {{total_exemption__new}}</th>
+                    </tr>
+                    <tr>
+                        <th>Total_Deduction</th>
+                        <th>Rs. {{total_deduction_old}}</th>
+                        <th>Rs. {{total_deduction_new}}</th>
+                    </tr>
+                    <tr>
+                        <th>Taxable_Income</th>
+                        <th>Rs. {{Taxable_Income_old}}</th>
+                        <th>Rs. {{Taxable_Income_new}}</th>
+                    </tr>
+
+ 
+                    <tr>
+                        <th>Tax_Payable</th>
+                        <th>Rs. {{Income_Tax_old}}</th>
+                        <th>Rs. {{Income_Tax_new}}</th>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <th>{{age_value}}</th>
+                        <th>{{age_value}}</th>
+                    </tr>
+                    <tr>
+                        <th>Base Tax</th>
+                        <th>Rs. {{inc_tax_old_base}}</th>
+                        <th>Rs. {{inc_tax_new_base}}</th>
+                    </tr>
+                    <tr>
+                        <th>Slab %</th>
+                        <th>Rs. {{inc_tax_old_slab}}</th>
+                        <th>Rs. {{inc_tax_new_slab}}</th>
+                    </tr>
+                    <tr>
+                        <th>Slab Tax</th>
+                        <th>Rs. {{inc_tax_old_slab_tax}}</th>
+                        <th>Rs. {{inc_tax_new_slab_tax}}</th>
+                    </tr>
+                    <tr>
+                        <th>Cess</th>
+                        <th>Rs. {{cess_old}}</th>
+                        <th>Rs. {{cess_new}}</th>
+                    </tr>
+                        
+                    </table>
+                    
+
+                </div>
+
+          
+                <br><br>
+                
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
+function clickFunction() {
+        alert("iside");
+        $.ajax({ // initialize an AJAX request
+            url: 'income_cal/', // set the url of the request
+            success: function(data) { // `data` is the return of the `load_cities` view function
+                alert("iside1");
+                $('#outputdisplay').html(jQuery(data).find('#outputdisplay').html());
+            
+            }
+
+        });
+    } 
+
         const prevBtns = document.querySelectorAll(".btn-prev")
         const nextBtns = document.querySelectorAll(".btn-next")
         const progress = document.getElementById("progress")
@@ -265,8 +376,9 @@
                 }
             })
         }
-
  
+
+    
     </script>
 
 

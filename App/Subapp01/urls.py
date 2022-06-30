@@ -40,7 +40,7 @@ urlpatterns = [
 
     path('income_tax_calculator', income_tax_calculator,
          name='income_tax_calculator'),
-    path('income_cal', income_cal, name='income_cal'),
+    path('income_cal/', income_cal, name='income_cal'),
     path('loan_comparison/', loan_comparison,
          name='loan_comparison'),
     path('loan_comparison/output/', loan_comparisonOutput,
@@ -53,6 +53,7 @@ urlpatterns = [
     path('lump/lumpans/', lumpans, name='lumpans'),
     path('lumpgoal/', lumpgoal, name='lumpgoal'),
     path('lumpgoal/lumpgoalans/', lumpgoalans, name='lumpgoalans'),
+
     path('news',home_news,name='news')
 
 

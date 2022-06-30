@@ -132,10 +132,8 @@ label {
     }
     .form-box001 {
         width: 100%;
-       
-            background-color: white;
-    border-radius: 2rem;
-}
+        background-color: white;
+        border-radius: 2rem;
     }
     .lumpoutput {
         width: 100%;
