@@ -175,7 +175,7 @@ $("#City_Name").change(function() {
 
 });
 
-function myFunction() {
+function ifscFunction() {
     document.getElementById('error').innerHTML = " ";
     var bank = $('#BankName :selected').val();
     var branch = $('#Branch_Name :selected').val();

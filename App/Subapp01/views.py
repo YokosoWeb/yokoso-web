@@ -21,7 +21,8 @@ import requests
 def is_valid_queryparam(param):
     return param != '' and param is not None
 
-
+def servicesview(request):
+    return render(request, 'app/services.html')
 def home(request):
 
     # Default Response
@@ -523,6 +524,7 @@ def sipans(request):
                              periodic_rate)*(1+periodic_rate))
 
     data = {'invested_amount': invested_amount, 'maturity': maturity}
+    
     return JsonResponse(data, safe=False)
 
 
@@ -533,15 +535,21 @@ def sipgoal(request):
 
 
 def sipgoalans(request):
-    # print("insidesip")
+    print("insidesip")
     amount = int(request.GET.get('amount'))
     rate = eval(request.GET.get('rate'))
     time_period = int(request.GET.get('time_period'))
 
     emi = round((amount * ((rate / 100) / 12)) /
                 (pow((1 + ((rate / 100) / 12)), (time_period * 12)) - 1))
-    data = {'amount': amount, 'rate': rate, 'time': time_period, 'emi': emi}
-
+    data = {
+      'amount': amount, 
+      'rate': rate, 
+        'time': time_period, 
+        'emi': emi
+}
+    print("outside")
+    # return render(request, "app/sipgoal.html", context)
     return JsonResponse(data, safe=False)
 
 
@@ -586,17 +594,7 @@ def lumpgoalans(request):
 
 
 def income_cal(request):
-    # gross_salary = int(request.GET['gross_salary'])
-    # hra_lta = int(request.GET['hra_lta'])
-    # tax_ded = int(request.GET['tax_ded'])
-    # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
-    # nps = int(request.GET['nps'])
-
-    # gross_salary = int(request.GET['gross_salary'])
-    # hra_lta = int(request.GET['hra_lta'])
-    # tax_ded = int(request.GET['tax_ded'])
-    # hlt_ins_prm = int(request.GET['hlt_ins_prm'])
-    # nps = int(request.GET['nps'])
+   
     age = request.POST['age']
     print(age)
     city = request.POST['City']
@@ -815,6 +813,7 @@ def income_cal(request):
 
                                             })
 
+
 API_KEY = '41286023a1b04ead87ed6966b476df21'
 def home_news(request):
     country = request.GET.get('country')
@@ -823,6 +822,12 @@ def home_news(request):
     url = f'https://newsapi.org/v2/top-headlines?country=in&apiKey={API_KEY}&language=en'
     response = requests.get(url)
     data = response.json()
+
+
+
+
+
+
 
     # Business language india
 
