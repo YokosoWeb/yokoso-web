@@ -1,0 +1,154 @@
+h2 {
+    border-radius: 20px;
+    padding: 15px;
+    width: fit-content;
+    margin: 0;
+    margin-left: 10rem;
+    margin-top: 1rem;
+}
+
+form {
+    margin: 6px;
+    font-family: "Times New Roman";
+}
+
+.submit {
+    position: relative;
+    color: #fff!important;
+    font-size: 18px;
+    outline: none;
+    border-radius: 25rem;
+    background-image: -webkit-linear-gradient(0deg, #06c6f9 0%, #38eaf9 100%);
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    border-style: hidden;
+    margin-left: 25%;
+    margin-top: 1rem;
+}
+
+.sip-con {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-style: groove;
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    margin-left: 10rem;
+}
+
+.form-box001 {
+    width: 50%;
+    padding: 2rem;
+}
+
+.result {
+    border-radius: 2rem;
+    width: 48%;
+    margin-left: 1rem;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+main {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    display: flex;
+}
+
+input {
+    border-radius: 2rem;
+    width: 100%;
+    line-height: 2rem;
+}
+
+output {
+    float: right;
+    background: #fff;
+    border-radius: 5px;
+    padding: 3px 6px;
+    border: 1px solid #d5d5d5;
+    width: 135px;
+}
+
+.output1 {
+    display: flex;
+}
+
+.output2 {
+    width: 50%;
+    margin: auto;
+}
+
+.form-group {
+    margin: 1.5rem;
+}
+
+.form-group h4 {
+    font-weight: bold;
+    width: max-content;
+}
+
+.output2 h5 {
+    color: #09c8f9;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.lump {
+    width: 80%;
+    margin: 10%;
+    margin: 4rem;
+}
+
+.lumpoutput {
+    width: 50%;
+    margin-top: 17%;
+    margin-left: 20%;
+}
+
+label {
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+    .sip-con {
+        width: 100%;
+        margin: .2rem 0rem .2rem .2rem;
+        display: block;
+    }
+}
+
+@media (max-width:500px) {
+    .sip-con {
+        width: 100%;
+        margin: .2rem 0rem .2rem .2rem;
+        display: block;
+        background-color: aliceblue;
+    }
+    .form-box001 {
+        width: 100%;
+        background-color: white;
+        border-radius: 2rem;
+    }
+    .lumpoutput {
+        width: 100%;
+        margin: 0%;
+    }
+    .result {
+        width: 100%;
+        margin: 0%;
+        justify-content: flex-start;
+        background-color: none;
+    }
+    h4 {
+        font-size: medium;
+    }
+    h2 {
+        margin: 0;
+    }
+}

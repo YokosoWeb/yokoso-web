@@ -1,8 +1,6 @@
 {% extends "base.html" %} {% load static %} {% block title %}
-<title>Yokoso | Loan Comparison</title>{% endblock %} {% block css %}
+<title>Yokoso | Loan Comparison</title>{% endblock %}
 
-<link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
-<link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,79 +9,155 @@
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous">
 </script>
+{% block css %}
 
-{% endblock %} {% block body %}
-
-<div >
+<link rel="stylesheet" href="{% static 'css/articles/article.css' %}" />
+<link rel="stylesheet" href="{% static 'css/creditScore.css' %}" />
+<link rel="stylesheet" href="{% static 'css/loan.css' %}" />
+{% endblock  %} 
+ {% block body %}
+<div class="all">
+<div class="input">
 <table class="table">
   <tr>
-<th>id</th>
+<th style="display:none;">id</th>
     <th>Bank</th>
     <th>Interest Rates</th>
-    <th>Lowest EMI per lakh</th>
+    <th>Loan Max</th>
 <th>Compare</th>
   </tr>
     {% for i in  bankdetails %}
 <tbody>
   <tr>
 
-<td >{{i.cal_id}}</td>
+<td style="display:none;">{{i.id}}</td>
 <td class="bankname">{{i.bank}}</td>
-<td  >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td> 
-<td><input type="checkbox"  onclick="loadingg()">Compare</td>
-{% comment %} <td value="{{i.cal_id}}" id="bankname">{{i.bank}}<input class="single-checkbox" type="checkbox" name="vehicle" value="Bike" onclick="myFunction()">Compare</td>
-<td >{{i.interest_rate}}</td>
-<td>{{i.loan_min}}</td>
-</tr> {% endcomment %}
+<td  >{{i.min_interest_rate}}</td>
+<td>{{i.loan_max}}</td> 
+<td><input type="checkbox" class="checks"   onclick="loadingg()" value="{{i.id}}">Compare</td>
+
 </tbody>
 {% endfor %}
 
 
 </table>
-<button type="btn"  value="compare" class="compare">Compared</button>
-      
+</div>
+<div class="printing" id="printing" style="display: none;">
+
+<table class="table">
+
+    {% for i in ans3  %}
+     {% for d in ans4  %}
+<tbody>
+
+  <tr>
+<th style="display:none;">id</th>
+ <td style="display:none;" >{{i.id}}</td>
+  <td style="display:none;" >{{d.id}}</td>
+</tr>
+<tr>
+    <th>Bank</th>
+    <td class="bankname">{{i.bank}}</td>
+    <td class="bankname">{{d.bank}}</td>
+</tr>
+<tr>
+    <th>Min Interest</th>
+    <td  >{{i.min_interest_rate}}</td>
+    <td  >{{d.min_interest_rate}}</td>
+</tr>
+<tr>
+    <th>Processing Fees</th>
+    <td>{{i.processing_fees}}</td> 
+    <td>{{d.processing_fees}}</td> 
+</tr>
+<tr>
+
+     <th>Max Tenure</th>
+ 
+ <td>{{i.max_tenure}}</td>
+ <td>{{d.max_tenure}}</td>
+
+</tr>
+<tr>
+    <th> Overdraft Facility</th>
+ <td>{{i.overdraft_facilty}}</td>
+<td>{{d.overdraft_facilty}}</td>  
+  </tr>
+
+
+
+
+
+
+
+ 
+</tbody>
+{% endfor %}
+ {% endfor %}  
+
+
+</table>
+</div> 
+
+</div>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 <script>
-alert("inside");
-
 function loadingg() {
   
-     const arr=[];
-     const arr1=[];
-     var abc = $('input[type="checkbox"]:checked').length;
-    
-if(abc ==1){
-     var selectedval = $(".table input:checked").parents("tr").text();
-     var currow = $(this).closest('tr');
-     var col1 = $(".table input:checked").parents("tr").find('td:eq(0)').text();
-    
-     arr.push(selectedval);
+  
+  var valuelist = document.getElementById('valuelist');
+  var text="<span>slected</span>";
+  var listArray=[];
+  var checkboxes = document.querySelectorAll('.checks');
+  var abclength=0;
+  var abc = $('input[type="checkbox"]:checked').length; 
+  
+  for(var checkbox of checkboxes){
      
-     
+      checkbox.addEventListener('change', function(){
+      
+        if(this.checked == true){
+        
+          if(abc == 1){
+                
+                listArray.push(this.value);
+            
+                var abc1= listArray;
+                
+                console.log(abc1);
+                abclength = listArray.length;
+                console.log(abclength);
+                     
+                     if (abclength == 2){//start
+                           
+                          
+                           $.ajax ({
+                                     url: "output/",
+                                     data:
+                                     {
+                                      'valu[]': abc1,
+                                      'ans[]': listArray,
+} ,
+                     success: function(data){
+                            $('#printing').html(jQuery(data).find('#printing').html());
+                            $(".input").toggle();
+                            $(".printing").toggle();
+                            
+                           
+
 }
-   
-if(abc==2){
-    const arr2=[];
-    var selectedval = $(".table input:checked").parents("tr").text();
-    arr1.push(selectedval);
-  
-    var col2 = $(".table input:checked").parents("tr").find('td:eq(0)').text();
-    var currow = $(".table input:checked").closest('tr').find('td:eq(0)').text();
-    alert(currow);
-    console.log(currow);
-} 
-  
+          
+})//ajax end call
+}//end
+                }
+
+          }
+     })
+}
 }
 
-$(function(){
-   $(document).on("click", ".compare", function(){
-         alert("inside");
-         var selectedval = $(".table input:checked").parents("tr").text();
-         alert(selectedval);
-         console.log(selectedval);
-}) 
-})
+
+
 </script>
 {% include 'footer.html' %} {% endblock %}
