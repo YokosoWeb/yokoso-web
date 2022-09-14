@@ -1,3 +1,4 @@
 App/__pycache__/
 App/Subapp01/__pycache__/
 App/Subapp01/migrations/__pycache__/
+App\App\__pycache__
