@@ -167,7 +167,7 @@ def contact(request):
 
         Email = request.POST.get('email')
         Phone = request.POST.get('phone')
-        Category = request.POST.get('category')
+        # Category = request.POST.get('category')
         Message = request.POST.get('msg')
 
         context = {
@@ -175,7 +175,7 @@ def contact(request):
 
             'Email': Email,
             'Phone': Phone,
-            'Category': Category,
+            # 'Category': Category,
             'Message': Message,
 
         }
@@ -185,9 +185,8 @@ def contact(request):
         From: {}
         Contact:{}
         FirstName: {}
-        Category: {}
      
-        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'], context['Category'])
+        '''.format(context['Message'], context['Email'], context['Phone'], context['Firstname'])
         send_mail('Contact form of YOKOSO', Message, '', ['contact@yokoso.in'])
 
     # return render(request, 'app/contact.html', {'msg': True})
